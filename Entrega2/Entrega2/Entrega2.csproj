@@ -35,6 +35,10 @@
     <Compile Include="Usuario.cs" />
     <Compile Include="Person.cs" />
     <Compile Include="UsuarioPremium.cs" />
+    <Compile Include="Administrador.cs" />
+    <Compile Include="IPagado.cs" />
+    <Compile Include="Playlist.cs" />
+    <Compile Include="Archivos.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
