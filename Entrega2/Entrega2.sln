@@ -1,6 +1,7 @@
-
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entrega2", "Entrega2\Entrega2.csproj", "{801AD4B0-9FE6-41BD-8622-8090DA1F76E9}"
 EndProject
 Global
@@ -9,9 +10,15 @@ Global
 		Release|anycpu = Release|anycpu
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{801AD4B0-9FE6-41BD-8622-8090DA1F76E9}.Debug|anycpu.ActiveCfg = Debug|anycpu
-		{801AD4B0-9FE6-41BD-8622-8090DA1F76E9}.Debug|anycpu.Build.0 = Debug|anycpu
-		{801AD4B0-9FE6-41BD-8622-8090DA1F76E9}.Release|anycpu.ActiveCfg = Release|anycpu
-		{801AD4B0-9FE6-41BD-8622-8090DA1F76E9}.Release|anycpu.Build.0 = Release|anycpu
+		{801AD4B0-9FE6-41BD-8622-8090DA1F76E9}.Debug|anycpu.ActiveCfg = Debug|Any CPU
+		{801AD4B0-9FE6-41BD-8622-8090DA1F76E9}.Debug|anycpu.Build.0 = Debug|Any CPU
+		{801AD4B0-9FE6-41BD-8622-8090DA1F76E9}.Release|anycpu.ActiveCfg = Release|Any CPU
+		{801AD4B0-9FE6-41BD-8622-8090DA1F76E9}.Release|anycpu.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {97747DAC-6B36-400F-919B-654CCEFE22B0}
 	EndGlobalSection
 EndGlobal
