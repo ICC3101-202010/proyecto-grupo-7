@@ -36,9 +36,18 @@
     <Compile Include="Person.cs" />
     <Compile Include="UsuarioPremium.cs" />
     <Compile Include="Administrador.cs" />
-    <Compile Include="IPagado.cs" />
     <Compile Include="Playlist.cs" />
     <Compile Include="Archivos.cs" />
+    <Compile Include="UsuarioGratis.cs" />
+    <Compile Include="Búsqueda.cs" />
+    <Compile Include="Canción.cs" />
+    <Compile Include="Album.cs" />
+    <Compile Include="Artista.cs" />
+    <Compile Include="SMSSender.cs" />
+    <Compile Include="App.cs" />
+    <Compile Include="RegisterEventArgs.cs" />
+    <Compile Include="MailSender.cs" />
+    <Compile Include="ChangePasswordEventArgs.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

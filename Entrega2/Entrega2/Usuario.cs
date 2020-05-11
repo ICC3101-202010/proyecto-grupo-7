@@ -7,48 +7,45 @@ namespace Entrega2
 {
     public class Usuario
     {
-        protected int ID;
         protected string Mail;
         protected string Contraseña;
         protected string Nombre_usuario;
-        public Usuario(int Id, string mail, string contraseña, string nombre_usuario)
+        protected string Tipo_usuario;
+        public Usuario(string nombre_usuario, string mail, string contraseña)
         {
-            this.ID = Id;
             this.Mail = mail;
             this.Contraseña = contraseña;
             this.Nombre_usuario = nombre_usuario;
         }
-        //crear clase archivos
-        public bool CrearCuenta(int id, string mail, string constraseña, string nombre_usuario)
+        public delegate void VerifiedEmailEventHandler(object source, EventArgs args);
+        public event VerifiedEmailEventHandler EmailVerified;
+        public void OnEmailVerified(object source, EventArgs args)
         {
-            for (int i = 0, i < Archivos.usuarios.Count; i++)
+            EmailVerified(this, new EventArgs());
+        }
+        public void OnEmailSent(object source, EventArgs args)
+        {
+            Console.WriteLine("¿Desea revisar su correo?");
+            Console.WriteLine("a)si");
+            Console.WriteLine("b)no");
+            string input_usuario = Console.ReadLine();
+            while (true)
             {
-                if((Archivos.usuarios[i].Mail != mail) || (Archivos.usuarios[i].Nombre_usuario != nombre_usuario))
+                if (input_usuario == "a")
                 {
-                    Console.WriteLine("¿Qué tipo de usuario quieres crear?");
-                    Console.WriteLine("1) Gratis");
-                    Console.WriteLine("2) Premium");
-                    string input = Console.ReadLine();
-                    if (input == "1")
-                    {
-                        UsuarioGratis gratis = new UsuarioGratis(id, mail, constraseña, nombre_usuario);
-                        Archivos.usuarios.Add(gratis);
-                    }
-                    else if (input == "2")
-                    {
-                        UsuarioPremium premium = new UsuarioPremium(id, mail, constraseña, nombre_usuario);
-                        Archivos.usuarios.Add(premium);
-                    }
-                    else
-                    {
-                        Console.WriteLine("el criterio ingresado no es válido");
-                        return false;
-                    }
-                    Console.WriteLine("Su cuenta ha sido creada");
-                    return true;
-
+                    EmailVerified(new object(), new EventArgs());
+                    break;
+                }
+                else if (input_usuario == "b")
+                {
+                    break;
+                }
+                else
+                {
+                    Console.WriteLine("El criterio ingresado no es válido");
                 }
             }
         }
+
     }
 }

@@ -19,14 +19,14 @@ namespace Entrega2
         }
         public void Agregar_películas(Película película)
         {
-            if (Tipo_playlist == "pelicula")
+            if (Tipo_playlist == "película")
             {
                 playlist_Películas.Add(película);
             }
         }
         public void Agregar_canciones(Canción canción)
         {
-            if (Tipo_playlist == "cancion")
+            if (Tipo_playlist == "canción")
             {
                 playlist_Canciones.Add(canción);
             }
