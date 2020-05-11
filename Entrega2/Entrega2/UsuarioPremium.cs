@@ -7,13 +7,13 @@ namespace Entrega2
 {
     public class UsuarioPremium : Usuario
     {
-        public UsuarioPremium(int Id, string mail, string contraseña, string nombre_usuario) : base(Id, mail, contraseña, nombre_usuario)
+        protected string Tipo_usuario;
+        public UsuarioPremium(string nombre_usuario, string mail, string contraseña) : base(nombre_usuario, mail, contraseña)
         {
-            this.ID = Id;
             this.Mail = mail;
             this.Contraseña = contraseña;
             this.Nombre_usuario = nombre_usuario;
-
+            this.Tipo_usuario = "Premium";
         }
     }
 }

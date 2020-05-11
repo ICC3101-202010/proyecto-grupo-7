@@ -7,15 +7,27 @@ namespace Entrega2
 {
     public class Usuario
     {
-        protected string Mail;
-        protected string Contraseña;
-        protected string Nombre_usuario;
-        protected string Tipo_usuario;
+        protected string mail;
+        protected string contraseña;
+        protected string nombre_usuario;
+        protected string tipo_usuario;
         public Usuario(string nombre_usuario, string mail, string contraseña)
         {
             this.Mail = mail;
             this.Contraseña = contraseña;
             this.Nombre_usuario = nombre_usuario;
+        }
+        public string Nombre_usuario
+        {
+            get => nombre_usuario; set => nombre_usuario = value;
+        }
+        public string Mail
+        {
+            get => mail; set => mail = value;
+        }
+        public string Contraseña
+        {
+            get => contraseña; set => contraseña = value;
         }
         public delegate void VerifiedEmailEventHandler(object source, EventArgs args);
         public event VerifiedEmailEventHandler EmailVerified;
