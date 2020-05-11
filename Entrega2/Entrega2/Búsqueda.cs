@@ -7,6 +7,8 @@ namespace Entrega2
 {
     public class Búsqueda
     {
+
+
         public List<Película> BuscarPelícula(string nombre, string filtro)
         {
             List<Película> lista_mostrada = new List<Película>();
@@ -22,5 +24,6 @@ namespace Entrega2
                 }
             }
         }
+        
     }
 }
