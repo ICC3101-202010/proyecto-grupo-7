@@ -11,6 +11,7 @@ namespace Entrega2
         protected string contraseña;
         protected string nombre_usuario;
         protected string tipo_usuario;
+        private List<Playlist> favoritos;
         public Usuario(string nombre_usuario, string mail, string contraseña)
         {
             this.Mail = mail;
@@ -28,6 +29,14 @@ namespace Entrega2
         public string Contraseña
         {
             get => contraseña; set => contraseña = value;
+        }
+        public string Tipo_usuario
+        {
+            get => tipo_usuario; set => tipo_usuario = value;
+        }
+        public List<Playlist> Favoritos
+        {
+            get => favoritos; set => favoritos = value;
         }
         public delegate void VerifiedEmailEventHandler(object source, EventArgs args);
         public event VerifiedEmailEventHandler EmailVerified;
@@ -57,6 +66,30 @@ namespace Entrega2
                     Console.WriteLine("El criterio ingresado no es válido");
                 }
             }
+        }
+        public bool Agregar_Película(Película película)
+        {
+            for (int i = 0; i < Archivos.películasApp.Count; i++)
+            {
+                if (Archivos.películasApp[i] == película)
+                {
+                    return false;
+                }
+            }
+            Archivos.películasApp.Add(película);
+            return true;
+        }
+        public bool Agregar_Canción(Canción canción)
+        {
+            for (int i = 0; i < Archivos.cancionesApp.Count; i++)
+            {
+                if (Archivos.cancionesApp[i] == canción)
+                {
+                    return false;
+                }
+            }
+            Archivos.cancionesApp.Add(canción);
+            return true;
         }
 
     }

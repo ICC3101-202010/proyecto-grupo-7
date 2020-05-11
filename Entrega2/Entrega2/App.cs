@@ -1,12 +1,51 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 using System.Threading;
-
+using System.Threading.Tasks;
 namespace Entrega2
 {
     public class App
     {
+        public List<Canción> top_Canciones()
+        {
+            List<Canción> ranking = new List<Canción>();
+            List<Canción> canciones = new List<Canción>();
+            foreach (Canción canción in Archivos.cancionesApp)
+            {
+                canciones.Add(canción);
+            }
+            var canciones_ordenadas = canciones.OrderByDescending(canción => canción.Rating).ToList();
+            for (int i = 0; i < 10; i++)
+            {
+                ranking.Add(canciones_ordenadas[i]);
+            }
+            return ranking;
+        }
+
+        public void AddQueue(Canción canciones)
+        {
+            List<Canción> cola = new List<Canción>();
+            cola.Add(canciones);
+        }
+        public List<Película> top_Películas()
+        {
+            List<Película> ranking = new List<Película>();
+            List<Película> películas = new List<Película>();
+            foreach (Película película in Archivos.películasApp)
+            {
+                películas.Add(película);
+            }
+            var películas_ordenadas = películas.OrderByDescending(película => película.Rating).ToList();
+            for (int i = 0; i < 10; i++)
+            {
+                ranking.Add(películas_ordenadas[i]);
+            }
+            return ranking;
+
+        }
+
         public delegate void RegisterEventHandler(object source, RegisterEventArgs args);
         public event RegisterEventHandler Registered;
        
@@ -48,13 +87,14 @@ namespace Entrega2
             Console.WriteLine("1) Gratis");
             Console.WriteLine("2) Premium");
             string input = Console.ReadLine();
+            string tipo_usuario;
             if (input == "1")
             {
-                string tipo_usuario = "Gratis";
+                tipo_usuario = "Gratis";
             }
             else if (input == "2")
             {
-                string tipo_usuario = "Premium";
+                tipo_usuario = "Premium";
             }
             else
             {
@@ -67,7 +107,7 @@ namespace Entrega2
             // Intenta agregar el usuario a la bdd. Si retorna null, se registro correctamente,
             // sino, retorna un string de error, que es el que se muestra al usuario
             string result = Archivos.AddUser(new List<string>()
-                {usr, email, psswd, verificationLink, Convert.ToString(DateTime.Now)});
+                {usr, email, psswd, verificationLink, Convert.ToString(DateTime.Now), tipo_usuario});
             if (result == null)
             {
                 // Disparamos el evento
@@ -134,6 +174,7 @@ namespace Entrega2
         {
 
         }
+
 
 
 

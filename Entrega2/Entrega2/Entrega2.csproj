@@ -37,7 +37,6 @@
     <Compile Include="Person.cs" />
     <Compile Include="UsuarioGratis.cs" />
     <Compile Include="UsuarioPremium.cs" />
-    <Compile Include="Administrador.cs" />
     <Compile Include="Playlist.cs" />
     <Compile Include="Archivos.cs" />
     <Compile Include="UsuarioGratis.cs" />
@@ -50,6 +49,7 @@
     <Compile Include="RegisterEventArgs.cs" />
     <Compile Include="MailSender.cs" />
     <Compile Include="ChangePasswordEventArgs.cs" />
+    <Compile Include="Película.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

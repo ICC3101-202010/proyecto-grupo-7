@@ -3,23 +3,21 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 namespace Entrega2
 {
-    public class Canción
+    public class Película
     {
         private string titulo;
         private string genero;
-        private string discografia;
+        private string categoria;
         private string estudio;
-        private string letra;
+        private string descripcion;
         private string premios;
-        private string cantante;
-        private string compositor;
-        private int calificacion;
+        private int duracion;
         private int añoPublicacion;
-        private List<double> rating;
-        private int numReproductions;
+        private int calificacion;
+        public List<double> rating;
         public List<double> Rating { get => rating; set => rating = value; }
-
     }
 }

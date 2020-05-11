@@ -11,8 +11,8 @@ namespace Entrega2
         public static void Main(string[] args)
         {
             Usuario user = new Usuario();
-            DataBase database = new DataBase();
-            App server = new App(database);
+            //Archivos archivos = new Archivos();
+            App server = new App();
             MailSender mailSender = new MailSender();
             SMSSender smsSender = new SMSSender();
 

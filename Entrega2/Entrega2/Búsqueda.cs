@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace Entrega2
 {
-    punlic class Búsqueda
+    public class Búsqueda
     {
         public List<Película> BuscarPelícula(string nombre, string filtro)
         {

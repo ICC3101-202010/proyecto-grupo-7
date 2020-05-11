@@ -10,8 +10,8 @@ namespace Entrega2
     {
         public static List<Usuario> usuarios = new List<Usuario>();
         public static Dictionary<int, List<string>> lista_usuarios = new Dictionary<int, List<string>>();
-        public static List<Película> películas = new List<Película>();
-        public static List<Canción> canciones = new List<Canción>();
+        public static List<Película> películasApp = new List<Película>();
+        public static List<Canción> cancionesApp = new List<Canción>();
         public static List<Playlist> playlists_Canciones = new List<Playlist>();
         public static List<Playlist> playlists_Películas = new List<Playlist>();
         public static Dictionary<int, List<string>> Lista_usuarios
@@ -24,11 +24,11 @@ namespace Entrega2
         }
         public static List<Película> Películas
         {
-            get => películas; set => películas = value;
+            get => películasApp; set => películasApp = value;
         }
         public static List<Canción> Canciones
         {
-            get => canciones; set => canciones = value;
+            get => cancionesApp; set => cancionesApp = value;
         }
         public static List<Playlist> Playlists_Canciones
         {
@@ -76,7 +76,7 @@ namespace Entrega2
         {
             foreach (List<string> user in Lista_usuarios.Values)
             {
-                if (user[4] == usr)
+                if (user[0] == usr)
                 {
                     return user;
                 }
