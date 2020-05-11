@@ -91,6 +91,36 @@ namespace Entrega2
             Archivos.cancionesApp.Add(canción);
             return true;
         }
+        public Playlist CrearPlaylist()
+        {
+            Console.WriteLine("¿Qué tipo de playlist desea crear?");
+            Console.WriteLine("1) De canciones");
+            Console.WriteLine("2) De películas");
+            string option = Console.ReadLine();
+            if (option == "1")
+            {
+                Console.Write("Nombre de la playlist: ");
+                string nombre = Console.ReadLine();
+                string tipo_playlist = "canciones";
+                Playlist playlists = new Playlist(nombre, tipo_playlist);
+                Archivos.playlists_Canciones.Add(playlists);
+                return playlists;
+            }
+            else if (option == "2")
+            {
+                Console.Write("Nombre de la playlist: ");
+                string nombre = Console.ReadLine();
+                string tipo_playlist = "películas";
+                Playlist playlists = new Playlist(nombre, tipo_playlist);
+                Archivos.playlists_Películas.Add(playlists);
+                return playlists;
+            }
+            else
+            {
+                Console.WriteLine("Criterio ingresado no válido, por favor escoge uno que si lo sea");
+            }
+            return null;
+        }
 
     }
 }

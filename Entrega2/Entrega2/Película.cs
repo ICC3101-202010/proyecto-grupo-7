@@ -8,15 +8,15 @@ namespace Entrega2
 {
     public class Película
     {
-        private string titulo;
-        private string genero;
-        private string categoria;
-        private string estudio;
-        private string descripcion;
-        private string premios;
-        private int duracion;
-        private int añoPublicacion;
-        private int calificacion;
+        public string titulo;
+        public string genero;
+        public string categoria;
+        public string estudio;
+        public string descripcion;
+        public string premios;
+        public int duracion;
+        public int añoPublicacion;
+        public int calificacion;
         public List<double> rating;
         public List<double> Rating { get => rating; set => rating = value; }
     }

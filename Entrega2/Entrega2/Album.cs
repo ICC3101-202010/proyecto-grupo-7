@@ -7,9 +7,9 @@ namespace Entrega2
 {
     public class Album
     {
-        private string Año;
-        private string Nombre;
-        private Artista Artista;
+        public string Año;
+        public string Nombre;
+        public Artista Artista;
         //falta foto
         public Album(string nombre, Artista artista, string año)
         {

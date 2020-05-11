@@ -7,19 +7,22 @@ namespace Entrega2
 {
     public class Canción
     {
-        private string titulo;
-        private string genero;
-        private string discografia;
-        private string estudio;
-        private string letra;
-        private string premios;
-        private string cantante;
-        private string compositor;
-        private int calificacion;
-        private int añoPublicacion;
-        private List<double> rating;
-        private int numReproductions;
+        public Album album;
+        public Artista artista;
+        public string titulo;
+        public string genero;
+        public string discografia;
+        public string estudio;
+        public string letra;
+        public string premios;
+        public string cantante;
+        public string compositor;
+        public int calificacion;
+        public int añoPublicacion;
+        public List<double> rating;
+        public int numReproductions;
         public List<double> Rating { get => rating; set => rating = value; }
 
     }
+
 }
