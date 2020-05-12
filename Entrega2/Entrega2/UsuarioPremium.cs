@@ -7,8 +7,8 @@ namespace Entrega2
 {
     public class UsuarioPremium : Usuario
     {
-        protected string Tipo_usuario;
-        public UsuarioPremium(string nombre_usuario, string mail, string contraseña) : base(nombre_usuario, mail, contraseña)
+        
+        public UsuarioPremium(string nombre_usuario, string mail, string contraseña, string tipo_usuario) : base(nombre_usuario, mail, contraseña, tipo_usuario)
         {
             this.Mail = mail;
             this.Contraseña = contraseña;

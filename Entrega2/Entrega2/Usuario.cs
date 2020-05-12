@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Threading;
 namespace Entrega2
 {
     public class Usuario
@@ -12,11 +13,12 @@ namespace Entrega2
         protected string nombre_usuario;
         protected string tipo_usuario;
         private List<Playlist> favoritos;
-        public Usuario(string nombre_usuario, string mail, string contraseña)
+        public Usuario(string nombre_usuario, string mail, string contraseña, string tipo_usuario)
         {
             this.Mail = mail;
             this.Contraseña = contraseña;
             this.Nombre_usuario = nombre_usuario;
+            this.Tipo_usuario = tipo_usuario;
         }
         public string Nombre_usuario
         {
@@ -121,6 +123,36 @@ namespace Entrega2
             }
             return null;
         }
+        public void hacerse_premium()
+        {
+            Console.WriteLine("Nombre de usuario: ");
+            string input = Console.ReadLine();
+            Console.WriteLine("Contrasena: ");
+            string input2 = Console.ReadLine();
+            string result = Archivos.LogIn(input, input2);
+            if (result == null)
+            {
+                foreach (List<string> user in Archivos.Lista_usuarios.Values)
+                {
+                    if (user[0] == input && user[2] == input2)
+                    {
+                        user[3] = "Premium";
 
+                    }
+                }
+                foreach (Usuario user in Archivos.usuarios)
+                {
+                    if (user.Nombre_usuario == input && user.Contraseña == input2)
+                    {
+                        user.Tipo_usuario = "Premium";
+                    }
+                }
+                Console.WriteLine("Su cuenta ha cambiado a ser premium");
+            }
+            else
+            {
+                Console.WriteLine("[!] ERROR: " + result);
+            }
+        }
     }
 }

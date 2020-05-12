@@ -174,7 +174,38 @@ namespace Entrega2
         {
 
         }
-
+        public void Rankear(string nombre, List<int> rate, int pelicula_o_cancion)
+        {
+            if (pelicula_o_cancion == 2)
+            {
+                foreach (Canción canción in Archivos.cancionesApp)
+                {
+                    if (nombre == canción.titulo)
+                    {
+                        int sum = rate.Sum();
+                        int value = (sum / rate.Count());
+                        canción.Avg_calificacion = value;
+                    }
+                }
+            }
+            else if (pelicula_o_cancion == 1)
+            {
+                foreach (Película película in Archivos.películasApp)
+                {
+                    if (nombre == película.titulo)
+                    {
+                        int sum = rate.Sum();
+                        int valor = (sum / rate.Count());
+                        película.Avg_Ranking = valor;
+                    }
+                }
+            }
+           
+            else
+            {
+                Console.WriteLine("Criterio ingresado no válido");
+            }
+        }
 
 
 

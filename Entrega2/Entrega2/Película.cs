@@ -15,9 +15,11 @@ namespace Entrega2
         public string descripcion;
         public string premios;
         public int duracion;
+        public int min;
         public int añoPublicacion;
         public int calificacion;
         public List<double> rating;
         public List<double> Rating { get => rating; set => rating = value; }
+        public int Avg_Ranking;
     }
 }
