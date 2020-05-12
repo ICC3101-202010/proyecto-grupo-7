@@ -186,41 +186,7 @@ namespace Entrega2
 
 
 
-        bool exec = true;
-            while (exec)
-            {
-                string chosen = ShowOptions(new List<string>() { "Registrarse", "Cambiar contrasena", "Salir" });
-                switch (chosen)
-                {
-                    case "Registrarse":
-                        Console.Clear();
-                        server.Register();
-                        break;
-                    case "Cambiar contrasena":
-                        Console.Clear();
-                        server.ChangePassword();
-                        break;
-                    case "Salir":
-                        exec = false;
-                        break;
-                }
-                Thread.Sleep(2000);
-                Console.Clear();
-            }
-        }
-
-        private static string ShowOptions(List<string> options)
-        {
-            int i = 0;
-            Console.WriteLine("\n\nSelecciona una opcion:");
-            foreach (string option in options)
-            {
-                Console.WriteLine(Convert.ToString(i) + ". " + option);
-                i += 1;
-            }
-            return options[Convert.ToInt16(Console.ReadLine())];
-        }
-
+        
     }
 }
 }
