@@ -8,9 +8,9 @@ namespace Entrega2
 {
     public class Playlist
     {
-        protected string Nombre;
-        protected List<Canción> playlist_Canciones = new List<Canción>();
-        protected List<Película> playlist_Películas = new List<Película>();
+        public string Nombre;
+        public List<Canción> playlist_Canciones = new List<Canción>();
+        public List<Película> playlist_Películas = new List<Película>();
         public string Tipo_playlist;
         public Playlist(string nombre, string tipo_playlist)
         {
@@ -31,7 +31,26 @@ namespace Entrega2
                 playlist_Canciones.Add(canción);
             }
         }
-        
+        public void VerPlaylist()
+        {
+            Playlist playlist = new Playlist(this.Nombre, this.Tipo_playlist);
+            Console.WriteLine("Nombre Playlist:" + playlist.Nombre);
+            if (this.Tipo_playlist == "canciones")
+            {
+                foreach (Canción canción in playlist.playlist_Canciones)
+                {
+                    Console.WriteLine("-" + canción.titulo);
+                }
+            }
+            else if (this.Tipo_playlist == "películas")
+            {
+                foreach (Película película in playlist.playlist_Películas)
+                {
+                    Console.WriteLine("-" + película.titulo);
+                }
+            }
+
+        }
 
     }
 }

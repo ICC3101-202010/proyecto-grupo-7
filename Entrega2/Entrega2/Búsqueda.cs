@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Entrega2
 {
-    public class Search
+    public class Búsqueda
     {
         public List<Canción> buscar_cancion_por_tipo()
         {

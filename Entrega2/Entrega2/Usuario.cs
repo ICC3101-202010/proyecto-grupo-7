@@ -12,7 +12,7 @@ namespace Entrega2
         protected string contraseña;
         protected string nombre_usuario;
         protected string tipo_usuario;
-        private List<Playlist> favoritos;
+        public List<Playlist> favoritos = new List<Playlist>();
         public Usuario(string nombre_usuario, string mail, string contraseña, string tipo_usuario)
         {
             this.Mail = mail;
@@ -123,36 +123,6 @@ namespace Entrega2
             }
             return null;
         }
-        public void hacerse_premium()
-        {
-            Console.WriteLine("Nombre de usuario: ");
-            string input = Console.ReadLine();
-            Console.WriteLine("Contrasena: ");
-            string input2 = Console.ReadLine();
-            string result = Archivos.LogIn(input, input2);
-            if (result == null)
-            {
-                foreach (List<string> user in Archivos.Lista_usuarios.Values)
-                {
-                    if (user[0] == input && user[2] == input2)
-                    {
-                        user[3] = "Premium";
-
-                    }
-                }
-                foreach (Usuario user in Archivos.usuarios)
-                {
-                    if (user.Nombre_usuario == input && user.Contraseña == input2)
-                    {
-                        user.Tipo_usuario = "Premium";
-                    }
-                }
-                Console.WriteLine("Su cuenta ha cambiado a ser premium");
-            }
-            else
-            {
-                Console.WriteLine("[!] ERROR: " + result);
-            }
-        }
+        public Usuario() { }
     }
 }

@@ -11,18 +11,20 @@ namespace Entrega2
         public Artista artista;
         public string titulo;
         public string genero;
-        public string discografia;
         public string estudio;
         public string letra;
         public string premios;
-        public string cantante;
         public string compositor;
         public List<int> calificacion;
         public int Avg_calificacion;
         public int añoPublicacion;
-        public List<double> rating;
         public int numReproductions;
-        public List<double> Rating { get => rating; set => rating = value; }
+
+        public void informacion()
+        {
+            Console.WriteLine("Título" + titulo + "\nArtista: " + artista.Nombre + "\nEstudio: " + estudio + "\nCompositor: " + compositor + "\nCalificación: " + Avg_calificacion + "\nAlbum: " + album.Nombre + "\nGenero: " + genero + "\nNúmero de reproducciones: " + numReproductions + "\nAño de publicación: " + añoPublicacion);
+        }
     }
+
 
 }
