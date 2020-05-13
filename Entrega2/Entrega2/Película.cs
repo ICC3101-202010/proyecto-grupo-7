@@ -19,6 +19,7 @@ namespace Entrega2
         public string premios;
         public int duracion;
         public int min;
+        public string director;
         public int añoPublicacion;
         public int rating;
         public List<int> Rating;
@@ -39,6 +40,10 @@ namespace Entrega2
             this.min = min;
             this.AñoPublicacion = añoPublicacion;
             this.Avg_Ranking = avg_Ranking;
+        }
+        public List<Person> actores
+        {
+            get => Actores; set => Actores = value;
         }
         public string Titulo
         {

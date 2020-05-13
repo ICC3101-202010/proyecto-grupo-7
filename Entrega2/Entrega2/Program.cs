@@ -34,11 +34,12 @@ namespace Entrega2
                 List<string> registrado = new List<string>();
                 while (índice != 0)
                 {
-                    Console.WriteLine("1) Iniciar Sesión \n(b) Crear Cuenta \n(c) Cambiar contraseña\n(d) Cambia tu cuenta de Free a Premium");
-                    Console.WriteLine("2) Cambiar la contraseña de mi cuenta");
-                    Console.WriteLine("3) Registarse");
+                    Console.WriteLine("1) Iniciar Sesión");
+                    Console.WriteLine("2) Suscribirse de usuario gratis a premium");
+                    Console.WriteLine("3) Cambiar la contraseña de mi cuenta");
+                    Console.WriteLine("4) Registarse");
                     string option = Console.ReadLine();
-                    if (option == "a")
+                    if (option == "1")
                     {
                         Console.Write("Nombre de usuario: ");
                         string nombre = Console.ReadLine();

@@ -124,9 +124,12 @@ namespace Entrega2
             {
                 foreach (Película película in Archivos.películasApp)
                 {
-                    if (película.actor.nombre == name)
+                    foreach (Person actor in película.actores)
                     {
-                        resultado.Add(película);
+                        if (actor.Nombre == name)
+                        {
+                            resultado.Add(película);
+                        }
                     }
                 }
             }
@@ -140,17 +143,42 @@ namespace Entrega2
                     }
                 }
             }
-            if (option == "6")
+            return resultado;
+        }
+        public List<Película> buscar_playlist_por_tipo()
+        {
+            Console.WriteLine("Seleccione el filtro por el cual desea buscar");
+            Console.Write("Escriba el tipo de playlist: ");
+            Console.WriteLine("1) Nombre");
+            Console.WriteLine("2) Tipo de playlist");
+            string option = Console.ReadLine();
+            string name = Console.ReadLine();
+            Console.WriteLine("1) De Películas");
+            Console.WriteLine("2) De Canciones");
+            string option1 = Console.ReadLine();
+            List<Playlist> resultado2 = new List<Playlist>();
+
+            if (option == "1")
             {
-                foreach (Película película in Archivos.películasApp)
+                foreach (Canción canción in Archivos.cancionesApp)
                 {
-                    if (película.escritor == name)
+                    if (canción.titulo == name)
                     {
-                        resultado.Add(película);
+                        resultado2.Add(canción);
                     }
                 }
             }
-            return resultado;
+            if (option == "2")
+            {
+                foreach (Canción canción in Archivos.cancionesApp)
+                {
+                    if (canción.genero == name)
+                    {
+                        resultado2.Add(canción);
+                    }
+                }
+            }
+            return resultado2;
         }
     }
 }

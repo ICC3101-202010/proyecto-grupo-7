@@ -61,6 +61,7 @@ namespace Entrega2
             Console.ReadLine();
             player.controls.stop();
         }
+        
     }
 
 }
