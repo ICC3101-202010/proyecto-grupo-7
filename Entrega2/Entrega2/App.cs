@@ -29,6 +29,11 @@ namespace Entrega2
             List<Canción> cola = new List<Canción>();
             cola.Add(canciones);
         }
+        public void AddQueue2(Película película)
+        {
+            List<Película> cola = new List<Película>();
+            cola.Add(película);
+        }
         public List<Película> top_Películas()
         {
             List<Película> ranking = new List<Película>();
@@ -274,6 +279,7 @@ namespace Entrega2
             Console.WriteLine("3) Agregarla a mi playlist");
             Console.WriteLine("4) Ver información de la canción");
             Console.WriteLine("5) Ver otras canciones");
+            Console.WriteLine("6) Agregar a la cola");
             string input1 = Console.ReadLine();
             if (input1 == "1")
             {
@@ -321,6 +327,10 @@ namespace Entrega2
             else if (input1 == "5")
             {
                 Ver_Canciones(usuario, app);
+            }
+            else if (input1 == "6")
+            {
+                AddQueue(canción1);
             }
             else
             {
@@ -378,6 +388,7 @@ namespace Entrega2
             Console.WriteLine("3) Agregarla a mi playlist");
             Console.WriteLine("4) Ver información de la canción");
             Console.WriteLine("5) Ver otras canciones");
+            Console.WriteLine("6) Agregar a la cola");
             string input4 = Console.ReadLine();
             if (input4 == "1")
             {
@@ -426,6 +437,10 @@ namespace Entrega2
             {
                 Ver_Canciones(usuario, app);
             }
+            else if (input4 == "6")
+            {
+                AddQueue(canción1);
+            }
             else
             {
                 Console.WriteLine("Criterio ingresado no válido");
@@ -451,6 +466,7 @@ namespace Entrega2
             Console.WriteLine("3) Agregarla a mi playlist");
             Console.WriteLine("4) Ver información de la canción");
             Console.WriteLine("5) Ver otras canciones");
+            Console.WriteLine("6) Agregar a la cola");
             string input4 = Console.ReadLine();
             if (input4 == "1")
             {
@@ -498,6 +514,10 @@ namespace Entrega2
             else if (input4 == "5")
             {
                 Ver_Películas(usuario, app);
+            }
+            else if (input4 == "6")
+            {
+                AddQueue2(película1);
             }
             else
             {
@@ -621,6 +641,7 @@ namespace Entrega2
             Console.WriteLine("3) Agregarla a mi playlist");
             Console.WriteLine("4) Ver información de la película");
             Console.WriteLine("5) Ver otras películas");
+            Console.WriteLine("6) Agregar a la cola");
             string input1 = Console.ReadLine();
             if (input1 == "1")
             {
@@ -668,6 +689,10 @@ namespace Entrega2
             else if (input1 == "5")
             {
                 Ver_Canciones(usuario, app);
+            }
+            else if (input1 == "6")
+            {
+                AddQueue2(película1);
             }
             else
             {

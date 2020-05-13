@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using System.Threading;
 namespace Entrega2
 {
+    [Serializable]
     public class Usuario
     {
         protected string mail;

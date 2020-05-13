@@ -25,11 +25,27 @@ namespace Entrega2
         public int numReproductions;
         public static WindowsMediaPlayer player = new WindowsMediaPlayer();
         public string Music;
+        public int min;
         public void informacion()
         {
             Console.WriteLine("Título" + titulo + "\nArtista: " + artista.Nombre + "\nEstudio: " + estudio + "\nCompositor: " + compositor + "\nCalificación: " + Avg_calificacion + "\nAlbum: " + album.Nombre + "\nGenero: " + genero + "\nNúmero de reproducciones: " + numReproductions + "\nAño de publicación: " + añoPublicacion);
         }
-        
+        public Canción(string titulo, Artista artista, Album album, string genero, string estudio, string compositor, int añoPublicacion, int numReproductions, int Avg_calificacion, string Music, int min)
+        {
+            this.titulo = titulo;
+            this.artista = artista;
+            this.album = album;
+            this.genero = genero;
+            this.estudio = estudio;
+            this.compositor = compositor;
+            this.añoPublicacion = añoPublicacion;
+            this.numReproductions = numReproductions;
+            this.Avg_calificacion = Avg_calificacion;
+            this.numReproductions = numReproductions;
+            this.Music = Music;
+            this.min = min;
+            this.Music = Music;
+        }
         public string Titulo
         {
             get => titulo; set => titulo = value;
