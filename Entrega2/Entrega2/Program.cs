@@ -230,7 +230,5 @@ namespace Entrega2
                 stream.Close();
             }
         }
-
-
     }
-}
+
