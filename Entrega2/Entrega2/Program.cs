@@ -16,7 +16,7 @@ namespace Entrega2
         {
             //agregamos una canción
             Artista Rafaga = new Artista("Rafaga", "Rafaga", "masculino", 29, "chilena");
-            Album Rafaga_album = new Album("Rafaga Cerveza",Rafaga, "2011");
+            Album Rafaga_album = new Album("Rafaga Cerveza", Rafaga, "2011");
             string una_cerveza_cancion = @"\Ráfaga - Una Cerveza (Audio) (320 kbps) (ytmp3s.me)";
             Canción una_cerveza = new Canción("Una cerveza", Rafaga, Rafaga_album, "cumbia", "EMS", "Luchito Perez", 2011, 0, 0, una_cerveza_cancion, 0);
             Archivos.cancionesApp.Add(una_cerveza);
@@ -40,6 +40,7 @@ namespace Entrega2
             string input_usuario = Console.ReadLine();
             int i = 1;
             while (i != 0)
+            {
                 if (input_usuario == "1")
                 {
                     int índice = 1;
@@ -90,41 +91,8 @@ namespace Entrega2
                             Console.Clear();
                             app.ChangePassword();
                         }
-<<<<<<< HEAD
+
                         else if (option == "2")
-=======
-                    }
-                    else if (option == "4")
-                    {
-                        Console.Clear();
-                        app.Register();
-                        usuario.OnEmailSent(new object(), new EventArgs());
-                        Save(usuario);
-                    }
-                    else if (option == "3")
-                    {
-                        Console.Clear();
-                        app.ChangePassword();
-                    }
-                    else if (option == "2")
-                    {
-                        Console.Clear();
-                        app.hacerse_premium();
-                        Console.Clear();
-                    }
-                    else
-                    {
-                        Console.WriteLine("Criterio ingresado no válido");
-                    }
-                }
-                int u = 1;
-                while (u != 0)
-                {
-                    Usuario usuario1 = new Usuario();
-                    foreach (Usuario usuario2 in Archivos.usuarios)
-                    {
-                        if (usuario1.Nombre_usuario == registrado[0] && usuario2.Contraseña == registrado[1])
->>>>>>> 1e8e854b60d60b2d0bd4e6a4e7b1465f6eeb723c
                         {
                             Console.Clear();
                             app.hacerse_premium();
@@ -134,94 +102,113 @@ namespace Entrega2
                         {
                             Console.WriteLine("Criterio ingresado no válido");
                         }
+
                     }
                     int u = 1;
                     while (u != 0)
                     {
                         Usuario usuario1 = new Usuario();
+
                         foreach (Usuario usuario2 in Archivos.usuarios)
                         {
                             if (usuario1.Nombre_usuario == registrado[0] && usuario2.Contraseña == registrado[1])
                             {
-                                usuario1 = usuario2;
-                            }
-                        }
-                        Console.Clear();
-                        Console.WriteLine("Menú Spotiflix");
-                        Console.WriteLine("1) Ver todas las canciones");
-                        Console.WriteLine("2) Ver todas las películas");
-                        Console.WriteLine("3) Buscar");
-                        Console.WriteLine("4) Mis Playlists");
-                        Console.WriteLine("5) Crear playlists");
-                        Console.WriteLine("6) Ver top de Películas");
-                        Console.WriteLine("7) Ver top de Canciones");
-                        Console.WriteLine("8) Salir de Spotiflix");
-                        string option = Console.ReadLine();
-                        if (option == "1")
-                        {
-                            app.Ver_Canciones(usuario1, app);
-                        }
-                        else if (option == "2")
-                        {
-                            app.Ver_Películas(usuario1, app);
-                        }
-                        else if (option == "3")
-                        {
-                            Console.WriteLine("¿Qué desea buscar?");
-                            Console.WriteLine("1) Película");
-                            Console.WriteLine("2) Canción");
-                            Console.WriteLine("3) Playlist");
-                            string input = Console.ReadLine();
-                            Búsqueda búsqueda = new Búsqueda();
-                            if (input == "1")
-                            {
-                                búsqueda.buscar_pelicula_por_tipo();
-                            }
-                            else if (input == "2")
-                            {
-                                búsqueda.buscar_cancion_por_tipo();
-                            }
-                            else if (input == "3")
-                            {
-                                búsqueda.buscar_playlist_por_tipo();
+                                Console.Clear();
+                                app.hacerse_premium();
+                                Console.Clear();
                             }
                             else
                             {
                                 Console.WriteLine("Criterio ingresado no válido");
                             }
-                        }
-                        else if (option == "4")
-                        {
-                            app.Ver_opciones_playlist(usuario, app);
-                        }
-                        else if (option == "5")
-                        {
-                            if (usuario.Tipo_usuario == "Premium")
+                            while (u != 0)
                             {
-                                usuario.CrearPlaylist();
+                                foreach (Usuario usuario3 in Archivos.usuarios)
+                                {
+                                    if (usuario1.Nombre_usuario == registrado[0] && usuario3.Contraseña == registrado[1])
+                                    {
+                                        usuario1 = usuario3;
+                                    }
+                                }
+                                Console.Clear();
+                                Console.WriteLine("Menú Spotiflix");
+                                Console.WriteLine("1) Ver todas las canciones");
+                                Console.WriteLine("2) Ver todas las películas");
+                                Console.WriteLine("3) Buscar");
+                                Console.WriteLine("4) Mis Playlists");
+                                Console.WriteLine("5) Crear playlists");
+                                Console.WriteLine("6) Ver top de Películas");
+                                Console.WriteLine("7) Ver top de Canciones");
+                                Console.WriteLine("8) Salir de Spotiflix");
+                                string option = Console.ReadLine();
+                                if (option == "1")
+                                {
+                                    app.Ver_Canciones(usuario1, app);
+                                }
+                                else if (option == "2")
+                                {
+                                    app.Ver_Películas(usuario1, app);
+                                }
+                                else if (option == "3")
+                                {
+                                    Console.WriteLine("¿Qué desea buscar?");
+                                    Console.WriteLine("1) Película");
+                                    Console.WriteLine("2) Canción");
+                                    Console.WriteLine("3) Playlist");
+                                    string input = Console.ReadLine();
+                                    Búsqueda búsqueda = new Búsqueda();
+                                    if (input == "1")
+                                    {
+                                        búsqueda.buscar_pelicula_por_tipo();
+                                    }
+                                    else if (input == "2")
+                                    {
+                                        búsqueda.buscar_cancion_por_tipo();
+                                    }
+                                    else if (input == "3")
+                                    {
+                                        búsqueda.buscar_playlist_por_tipo();
+                                    }
+                                    else
+                                    {
+                                        Console.WriteLine("Criterio ingresado no válido");
+                                    }
+                                }
+                                else if (option == "4")
+                                {
+                                    app.Ver_opciones_playlist(usuario, app);
+                                }
+                                else if (option == "5")
+                                {
+                                    if (usuario.Tipo_usuario == "Premium")
+                                    {
+                                        usuario.CrearPlaylist();
+                                    }
+                                    else if (usuario.Tipo_usuario == "Gratis")
+                                    {
+                                        Console.WriteLine("Usuario gratis no permite crear listas, para poder hacerlo debe suscribirse");
+                                    }
+                                }
+                                else if (option == "6")
+                                {
+                                    Console.WriteLine(app.top_Películas());
+                                }
+                                else if (option == "7")
+                                {
+                                    Console.WriteLine(app.top_Canciones());
+                                }
+                                else if (option == "8")
+                                {
+                                    break;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Criterio ingresado no válido");
+                                }
+                                Thread.Sleep(1000);
                             }
-                            else if (usuario.Tipo_usuario == "Gratis")
-                            {
-                                Console.WriteLine("Usuario gratis no permite crear listas, para poder hacerlo debe suscribirse");
-                            }
                         }
-                        else if (option == "6")
-                        {
-                            Console.WriteLine(app.top_Películas());
-                        }
-                        else if (option == "7")
-                        {
-                            Console.WriteLine(app.top_Canciones());
-                        }
-                        else if (option == "8")
-                        {
-                            break;
-                        }
-                        else
-                        {
-                            Console.WriteLine("Criterio ingresado no válido");
-                        }
-                        Thread.Sleep(1000);
+
                     }
                 }
                 else if (input_usuario == "2")
@@ -233,19 +220,13 @@ namespace Entrega2
                     Console.WriteLine("Criterio ingresado no válido");
                 }
 
+                }
+            }
             static void Save(List<String> registrado)
             {
                 IFormatter formatter = new BinaryFormatter();
                 Stream stream = new FileStream("MyFile.bin", FileMode.Create, FileAccess.Write, FileShare.None);
                 formatter.Serialize(stream, registrado);
-                stream.Close();
-            }
-
-            static private void Save(List<Usuario> people)
-            {
-                IFormatter formatter = new BinaryFormatter();
-                Stream stream = new FileStream("MyFile.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-                formatter.Serialize(stream, people);
                 stream.Close();
             }
         }
