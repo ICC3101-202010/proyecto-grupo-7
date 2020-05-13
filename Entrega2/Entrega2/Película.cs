@@ -1,4 +1,7 @@
 ﻿using System;
+using WMPLib;
+using System.Media;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
@@ -76,6 +79,14 @@ namespace Entrega2
                 Console.WriteLine(actores.Nombre);
             }
         }
+        public void Play()
+        {
+            var carpeta = Directory.GetCurrentDirectory();
+            string D = carpeta + this.Video;
+            this.NumReproductions += 1;
+            System.Diagnostics.Process.Start(D);
+        }
+
     }
 
 }
