@@ -145,38 +145,50 @@ namespace Entrega2
             }
             return resultado;
         }
-        public List<Película> buscar_playlist_por_tipo()
+        public List<Playlist> buscar_playlist_por_tipo()
         {
             Console.WriteLine("Seleccione el filtro por el cual desea buscar");
-            Console.Write("Escriba el tipo de playlist: ");
             Console.WriteLine("1) Nombre");
             Console.WriteLine("2) Tipo de playlist");
             string option = Console.ReadLine();
-            string name = Console.ReadLine();
-            Console.WriteLine("1) De Películas");
-            Console.WriteLine("2) De Canciones");
-            string option1 = Console.ReadLine();
             List<Playlist> resultado2 = new List<Playlist>();
 
             if (option == "1")
             {
-                foreach (Canción canción in Archivos.cancionesApp)
+                Console.Write("Escriba el nombre de playlist: ");
+                string nombre_playlist = Console.ReadLine();
+                foreach (Playlist playlist in Archivos.playlists_Canciones)
                 {
-                    if (canción.titulo == name)
+                    if (playlist.Nombre == nombre_playlist)
                     {
-                        resultado2.Add(canción);
+                        resultado2.Add(playlist);
+                    }
+                }
+                foreach (Playlist playlist in Archivos.playlists_Películas)
+                {
+                    if (playlist.Nombre == nombre_playlist)
+                    {
+                        resultado2.Add(playlist);
                     }
                 }
             }
-            if (option == "2")
+            else if (option == "2")
             {
-                foreach (Canción canción in Archivos.cancionesApp)
+                Console.Write("Escriba el tipo de playlist: ");
+                Console.WriteLine("1) De Películas");
+                Console.WriteLine("2) De Canciones");
+                if (option == "1")
                 {
-                    if (canción.genero == name)
-                    {
-                        resultado2.Add(canción);
-                    }
+                    Console.WriteLine(Archivos.playlists_Películas);
                 }
+                else if (option == "2")
+                {
+                    Console.WriteLine(Archivos.playlists_Canciones);
+                }
+            }
+            else
+            {
+                Console.WriteLine("Criterio ingresado no válido");
             }
             return resultado2;
         }

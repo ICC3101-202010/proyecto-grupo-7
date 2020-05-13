@@ -121,15 +121,24 @@ namespace Entrega2
                         Console.WriteLine("¿Qué desea buscar?");
                         Console.WriteLine("1) Película");
                         Console.WriteLine("2) Canción");
+                        Console.WriteLine("3) Playlist");
                         string input = Console.ReadLine();
                         Búsqueda búsqueda = new Búsqueda();
                         if (input == "1")
                         {
                              búsqueda.buscar_pelicula_por_tipo();
                         }
-                        if (input == "2")
+                        else if (input == "2")
                         {
                              búsqueda.buscar_cancion_por_tipo();
+                        }
+                        else if (input == "3")
+                        {
+                             búsqueda.buscar_playlist_por_tipo();
+                        }
+                        else
+                        {
+                             Console.WriteLine("Criterio ingresado no válido");
                         }
                     }
                      else if (option == "4")
