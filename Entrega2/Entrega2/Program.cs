@@ -87,7 +87,41 @@ namespace Entrega2
                             Console.Clear();
                             app.ChangePassword();
                         }
+<<<<<<< HEAD
                         else if (option == "2")
+=======
+                    }
+                    else if (option == "4")
+                    {
+                        Console.Clear();
+                        app.Register();
+                        usuario.OnEmailSent(new object(), new EventArgs());
+                        Save(usuario);
+                    }
+                    else if (option == "3")
+                    {
+                        Console.Clear();
+                        app.ChangePassword();
+                    }
+                    else if (option == "2")
+                    {
+                        Console.Clear();
+                        app.hacerse_premium();
+                        Console.Clear();
+                    }
+                    else
+                    {
+                        Console.WriteLine("Criterio ingresado no válido");
+                    }
+                }
+                int u = 1;
+                while (u != 0)
+                {
+                    Usuario usuario1 = new Usuario();
+                    foreach (Usuario usuario2 in Archivos.usuarios)
+                    {
+                        if (usuario1.Nombre_usuario == registrado[0] && usuario2.Contraseña == registrado[1])
+>>>>>>> 1e8e854b60d60b2d0bd4e6a4e7b1465f6eeb723c
                         {
                             Console.Clear();
                             app.hacerse_premium();
@@ -201,6 +235,14 @@ namespace Entrega2
                 IFormatter formatter = new BinaryFormatter();
                 Stream stream = new FileStream("MyFile.bin", FileMode.Create, FileAccess.Write, FileShare.None);
                 formatter.Serialize(stream, registrado);
+                stream.Close();
+            }
+
+            static private void Save(List<Usuario> people)
+            {
+                IFormatter formatter = new BinaryFormatter();
+                Stream stream = new FileStream("MyFile.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+                formatter.Serialize(stream, people);
                 stream.Close();
             }
         }
