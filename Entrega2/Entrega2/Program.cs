@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.IO;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+
 namespace Entrega2
 {
     class MainClass
@@ -71,6 +75,7 @@ namespace Entrega2
                         Console.Clear();
                         app.Register();
                         usuario.OnEmailSent(new object(), new EventArgs());
+                        Save(usuario);
                     }
                     else if (option == "3")
                     {
@@ -174,6 +179,14 @@ namespace Entrega2
             else
             {
                 Console.WriteLine("Criterio ingresado no válido");
+            }
+
+            static private void Save(List<Usuario> people)
+            {
+                IFormatter formatter = new BinaryFormatter();
+                Stream stream = new FileStream("MyFile.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+                formatter.Serialize(stream, people);
+                stream.Close();
             }
         }
 
