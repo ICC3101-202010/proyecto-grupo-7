@@ -24,7 +24,9 @@ namespace Entrega2
         public List<int> Rating;
         public int avg_Ranking;
         public List<Person> Actores;
-
+        public int numReproductions;
+        public static WindowsMediaPlayer player = new WindowsMediaPlayer();
+        public string peli;
         public Película(string titulo, string genero, string categoria, string estudio, string descripcion, string premios, int duracion, int min,
             int anoPublicacion, int clasificacion, List<double> rating, int Avg_Ranking)
         {
@@ -82,11 +84,11 @@ namespace Entrega2
         public void Play()
         {
             var carpeta = Directory.GetCurrentDirectory();
-            string D = carpeta + this.Video;
-            this.NumReproductions += 1;
+            string D = carpeta + peli;
+            numReproductions += 1;
             System.Diagnostics.Process.Start(D);
         }
-
+        
     }
 
 }
