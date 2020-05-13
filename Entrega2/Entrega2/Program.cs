@@ -14,11 +14,14 @@ namespace Entrega2
     {
         public static void Main(string[] args)
         {
+            //agregamos una canción
             Artista Rafaga = new Artista("Rafaga", "Rafaga", "masculino", 29, "chilena");
             Album Rafaga_album = new Album("Rafaga Cerveza",Rafaga, "2011");
             string una_cerveza_cancion = @"\Ráfaga - Una Cerveza (Audio) (320 kbps) (ytmp3s.me)";
             Canción una_cerveza = new Canción("Una cerveza", Rafaga, Rafaga_album, "cumbia", "EMS", "Luchito Perez", 2011, 0, 0, una_cerveza_cancion, 0);
             Archivos.cancionesApp.Add(una_cerveza);
+
+
             Console.WriteLine("Bienvenido a Spotiflix");
             App app = new App();
             MailSender mailSender = new MailSender();
