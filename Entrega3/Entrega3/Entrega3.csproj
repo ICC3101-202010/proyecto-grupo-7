@@ -46,16 +46,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
+    <Compile Include="Album.cs" />
+    <Compile Include="App.cs" />
+    <Compile Include="Archivos.cs" />
+    <Compile Include="Artista.cs" />
+    <Compile Include="Búsqueda.cs" />
+    <Compile Include="Canción.cs" />
+    <Compile Include="ChangePasswordEventArgs.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
+    <Compile Include="AppForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="AppForm.Designer.cs">
+      <DependentUpon>AppForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="LoginEventArgs.cs" />
+    <Compile Include="MailSender.cs" />
+    <Compile Include="Película.cs" />
+    <Compile Include="Person.cs" />
+    <Compile Include="Playlist.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="RegisterEventArgs.cs" />
+    <Compile Include="Usuario.cs" />
+    <Compile Include="UsuarioPremium.cs" />
+    <EmbeddedResource Include="AppForm.resx">
+      <DependentUpon>AppForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
