@@ -1,0 +1,10 @@
+C:\Users\nacho\OneDrive\Desktop\proyecto-grupo-7\Entrega3\Entrega3\bin\Debug\Entrega3.exe.config
+C:\Users\nacho\OneDrive\Desktop\proyecto-grupo-7\Entrega3\Entrega3\bin\Debug\Entrega3.exe
+C:\Users\nacho\OneDrive\Desktop\proyecto-grupo-7\Entrega3\Entrega3\bin\Debug\Entrega3.pdb
+C:\Users\nacho\OneDrive\Desktop\proyecto-grupo-7\Entrega3\Entrega3\obj\Debug\Entrega3.csprojAssemblyReference.cache
+C:\Users\nacho\OneDrive\Desktop\proyecto-grupo-7\Entrega3\Entrega3\obj\Debug\Entrega3.Form1.resources
+C:\Users\nacho\OneDrive\Desktop\proyecto-grupo-7\Entrega3\Entrega3\obj\Debug\Entrega3.Properties.Resources.resources
+C:\Users\nacho\OneDrive\Desktop\proyecto-grupo-7\Entrega3\Entrega3\obj\Debug\Entrega3.csproj.GenerateResource.cache
+C:\Users\nacho\OneDrive\Desktop\proyecto-grupo-7\Entrega3\Entrega3\obj\Debug\Entrega3.csproj.CoreCompileInputs.cache
+C:\Users\nacho\OneDrive\Desktop\proyecto-grupo-7\Entrega3\Entrega3\obj\Debug\Entrega3.exe
+C:\Users\nacho\OneDrive\Desktop\proyecto-grupo-7\Entrega3\Entrega3\obj\Debug\Entrega3.pdb

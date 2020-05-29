@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Media;
-using WMPLib;
+//using WMPLib;
 using System.IO;
 namespace Entrega2
 {
@@ -23,7 +23,7 @@ namespace Entrega2
         public int Avg_calificacion;
         public int añoPublicacion;
         public int numReproductions;
-        public static WindowsMediaPlayer player = new WindowsMediaPlayer();
+        //public static WindowsMediaPlayer player = new WindowsMediaPlayer();
         public string Music;
         public int min;
         public void informacion()
@@ -69,13 +69,13 @@ namespace Entrega2
         {
             var carpeta = Directory.GetCurrentDirectory();
             var D = carpeta + this.Music;
-            player.URL = D;
+            //player.URL = D;
             numReproductions += 1;
-            player.controls.play();
+            //player.controls.play();
             Console.WriteLine("Se está reproduciendo " + titulo);
             Console.WriteLine("Presione enter si desea parar la reproducción");
             Console.ReadLine();
-            player.controls.stop();
+            //player.controls.stop();
         }
         
     }

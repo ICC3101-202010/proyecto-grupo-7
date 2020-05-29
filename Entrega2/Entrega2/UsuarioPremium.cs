@@ -7,7 +7,6 @@ namespace Entrega2
 {
     public class UsuarioPremium : Usuario
     {
-        public List<Playlist> favoritos;
         public UsuarioPremium(string nombre_usuario, string mail, string contraseña, string tipo_usuario) : base(nombre_usuario, mail, contraseña, tipo_usuario)
         {
             this.Mail = mail;

@@ -1,5 +1,5 @@
 ﻿using System;
-using WMPLib;
+//using WMPLib;
 using System.Media;
 using System.IO;
 using System.Collections.Generic;
@@ -26,7 +26,7 @@ namespace Entrega2
         public int avg_Ranking;
         public List<Person> Actores;
         public int numReproductions;
-        public static WindowsMediaPlayer player = new WindowsMediaPlayer();
+        //public static WindowsMediaPlayer player = new WindowsMediaPlayer();
         public string peli;
         public Película(string titulo, string genero, string categoria, string estudio, string descripcion, string premios, int duracion, int min,
             int anoPublicacion, int clasificacion, List<double> rating, int Avg_Ranking)
