@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Clases
+namespace Controllers
 {
-    class RegisterEventArgs
+    public class Class1
     {
     }
 }
