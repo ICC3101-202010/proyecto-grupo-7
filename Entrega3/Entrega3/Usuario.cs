@@ -125,5 +125,11 @@ namespace Entrega3
             return null;
         }
         public Usuario() { }
+        public bool CheckCredentials(string username, string pass)
+        {
+            if (this.Nombre_usuario.Equals(username) && this.Contraseña.Equals(pass))
+                return true;
+            return false;
+        }
     }
 }

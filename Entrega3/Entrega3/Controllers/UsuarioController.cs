@@ -15,7 +15,7 @@ namespace Entrega3.Controllers
         {
             initialize();
             this.view = view as AppForm;
-            //this.view.LoginButtonClicked += OnLoginButtonClicked;
+            this.view.LoginButtonClicked += OnLoginButtonClicked;
             this.view.CreateAccountClicked += OnCreateAccountClicked;
             this.view.UserChecked += OnUserChecked;
         }
@@ -34,7 +34,7 @@ namespace Entrega3.Controllers
             }
         }
 
-       /* public bool OnLoginButtonClicked(object sender, LoginEventArgs e)
+        public bool OnLoginButtonClicked(object sender, LoginEventArgs e)
         {
             Usuario result = null;
             result = Archivos.Usuarios.Where(t =>
@@ -48,18 +48,18 @@ namespace Entrega3.Controllers
                 return result.CheckCredentials(e.UsernameText, e.PasswordText);
             }
         }
-        */
         public void OnUserChecked(object sender, LoginEventArgs e)
         {
             Usuario usuario = null;
             usuario = Archivos.Usuarios.Where(t =>
                t.Nombre_usuario.ToUpper().Contains(e.UsernameText.ToUpper())).FirstOrDefault();
-       //     view.setNameUser(usuario.Nombre_usuario);
+            view.setNombreUsuario(usuario.Nombre_usuario);
         }
-
         public void initialize()
         {
-            //Serialización
+            Archivos.Usuarios.Add(new Usuario("ijperrotta", "ijperrotta@miuandes.cl", "1234", "Premium"));
+            Archivos.Usuarios.Add(new Usuario("tfbruner", "tfbruner@miuandes.cl", "1234", "Gratis"));
+            Archivos.Usuarios.Add(new Usuario("dariedel", "dariedel", "1234", "Premium"));
         }
     }
 }

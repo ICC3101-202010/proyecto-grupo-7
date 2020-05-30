@@ -28,9 +28,11 @@ namespace Entrega3
         public AppForm()
         {
             InitializeComponent();
-            panels.Add("LoginPanel", panel1);
-            panels.Add("CreateAccountPanel", panel2);
-            panels.Add("Menú", panel3);
+            panels.Add("WelcomePanel", panelBienvenido);
+            panels.Add("LoginPanel", panelLogin);
+            panels.Add("CreateAccountPanel", panelRegister);
+            panels.Add("Menú", PanelMenu);
+            stackPanels.Add(panels["WelcomePanel"]);
             ShowLastPanel();
         }
         private void ShowLastPanel()
@@ -47,47 +49,74 @@ namespace Entrega3
                 }
             }
         }
-        private void button1GoLogin_Click(object sender, EventArgs e)
+
+        private void buttonRegister_Click(object sender, EventArgs e)
+        {
+            stackPanels.Add(panels["Menú"]);
+            ShowLastPanel();
+        }
+
+        private void buttonVolver1_Click(object sender, EventArgs e)
+        {
+            stackPanels.Add(panels["WelcomePanel"]);
+            ShowLastPanel();
+        }
+
+        private void buttonLogin_Click(object sender, EventArgs e)
+        {
+            string username = textBoxUsuarioLogin.Text;
+            string pass = textBoxContraseñaLogin.Text;
+            //OnLoginButtonClicked(username, pass);
+        }
+        
+        private void buttonVolver_Click(object sender, EventArgs e)
+        {
+            stackPanels.Add(panels["WelcomePanel"]);
+            ShowLastPanel();
+        }
+
+        private void buttonLogOut_Click(object sender, EventArgs e)
+        {
+            stackPanels.Add(panels["WelcomePanel"]);
+            ShowLastPanel();
+        }
+
+        private void buttonGoLogin(object sender, EventArgs e)
         {
             stackPanels.Add(panels["LoginPanel"]);
             ShowLastPanel();
         }
 
-        private void button2GoRegister_Click(object sender, EventArgs e)
+        private void buttonGoRegister(object sender, EventArgs e)
         {
             stackPanels.Add(panels["CreateAccountPanel"]);
             ShowLastPanel();
         }
-
-        private void buttonRegister_Click(object sender, EventArgs e)
-        {
-            panel3.Visible = true;
-        }
-
-        private void buttonVolver1_Click(object sender, EventArgs e)
-        {
-            panel1.Visible = false;
-            panel2.Visible = false;
-            panel3.Visible = false;
-        }
-
-        private void buttonLogin_Click(object sender, EventArgs e)
-        {
-            panel3.Visible = true;
-        }
-
-        private void buttonVolver_Click(object sender, EventArgs e)
-        {
-            panel1.Visible = false;
-            panel2.Visible = false;
-            panel3.Visible = false;
-        }
+<<<<<<< HEAD
     
         private void buttonLogOut_Click(object sender, EventArgs e)
+=======
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+>>>>>>> a600ea2beb36d55ad8537cc05abad3b0564b8d81
         {
-            panel1.Visible = false;
-            panel2.Visible = false;
-            panel3.Visible = false;
+
+        }
+        public void setNombreUsuario(string username)
+        {
+            textBoxUsuarioLogin.Text = username;
+        }
+        private void OnUserChecked(string username)
+        {
+            if (UserChecked != null)
+            {
+                UserChecked(this, new LoginEventArgs() { UsernameText = username });
+                textBoxUsuarioLogin.ResetText();
+                textBoxContraseñaLogin.ResetText();
+                stackPanels.Add(panels["Menú"]);
+                setNombreUsuario(username);
+                ShowLastPanel();
+            }
         }
 
         private void AppForm_Load(object sender, EventArgs e)
