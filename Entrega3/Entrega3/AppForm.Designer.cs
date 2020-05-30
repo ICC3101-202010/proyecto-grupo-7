@@ -28,14 +28,23 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.button1GoLogin = new System.Windows.Forms.Button();
-            this.button2GoRegister = new System.Windows.Forms.Button();
-            this.panel1 = new System.Windows.Forms.Panel();
-            this.panel2 = new System.Windows.Forms.Panel();
-            this.panel3 = new System.Windows.Forms.Panel();
+            this.panelLogin = new System.Windows.Forms.Panel();
+            this.TextCredencialesInválidas = new System.Windows.Forms.Label();
+            this.buttonVolver = new System.Windows.Forms.Button();
+            this.buttonLogin = new System.Windows.Forms.Button();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.textBoxContraseñaLogin = new System.Windows.Forms.TextBox();
+            this.textBoxUsuarioLogin = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.panelBienvenido = new System.Windows.Forms.Panel();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label9 = new System.Windows.Forms.Label();
+            this.PanelMenu = new System.Windows.Forms.Panel();
             this.buttonLogOut = new System.Windows.Forms.Button();
             this.textBox3 = new System.Windows.Forms.TextBox();
+            this.panelRegister = new System.Windows.Forms.Panel();
             this.buttonVolver1 = new System.Windows.Forms.Button();
             this.textBoxEmailRegister = new System.Windows.Forms.TextBox();
             this.textBoxTipoRegister = new System.Windows.Forms.TextBox();
@@ -47,99 +56,159 @@
             this.textBoxUsuarioRegister = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.buttonVolver = new System.Windows.Forms.Button();
-            this.buttonLogin = new System.Windows.Forms.Button();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.panel1.SuspendLayout();
-            this.panel2.SuspendLayout();
-            this.panel3.SuspendLayout();
+            this.panelLogin.SuspendLayout();
+            this.panelBienvenido.SuspendLayout();
+            this.PanelMenu.SuspendLayout();
+            this.panelRegister.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // panelLogin
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(344, 36);
-            this.label1.TabIndex = 11;
-            this.label1.Text = "¡Bienvenido a Spotiflix!";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.panelLogin.Controls.Add(this.TextCredencialesInválidas);
+            this.panelLogin.Controls.Add(this.buttonVolver);
+            this.panelLogin.Controls.Add(this.buttonLogin);
+            this.panelLogin.Controls.Add(this.label3);
+            this.panelLogin.Controls.Add(this.label2);
+            this.panelLogin.Controls.Add(this.textBoxContraseñaLogin);
+            this.panelLogin.Controls.Add(this.textBoxUsuarioLogin);
+            this.panelLogin.Controls.Add(this.textBox4);
+            this.panelLogin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelLogin.Location = new System.Drawing.Point(0, 0);
+            this.panelLogin.Name = "panelLogin";
+            this.panelLogin.Size = new System.Drawing.Size(728, 352);
+            this.panelLogin.TabIndex = 14;
             // 
-            // button1GoLogin
+            // TextCredencialesInválidas
             // 
-            this.button1GoLogin.Location = new System.Drawing.Point(235, 163);
-            this.button1GoLogin.Name = "button1GoLogin";
-            this.button1GoLogin.Size = new System.Drawing.Size(229, 57);
-            this.button1GoLogin.TabIndex = 12;
-            this.button1GoLogin.Text = "Iniciar Sesión";
-            this.button1GoLogin.UseVisualStyleBackColor = true;
-            this.button1GoLogin.Click += new System.EventHandler(this.button1GoLogin_Click);
+            this.TextCredencialesInválidas.AutoSize = true;
+            this.TextCredencialesInválidas.Location = new System.Drawing.Point(351, 239);
+            this.TextCredencialesInválidas.Name = "TextCredencialesInválidas";
+            this.TextCredencialesInválidas.Size = new System.Drawing.Size(59, 13);
+            this.TextCredencialesInválidas.TabIndex = 11;
+            this.TextCredencialesInválidas.Text = "USUARIO:";
+            this.TextCredencialesInválidas.Visible = false;
             // 
-            // button2GoRegister
+            // buttonVolver
             // 
-            this.button2GoRegister.Location = new System.Drawing.Point(235, 226);
-            this.button2GoRegister.Name = "button2GoRegister";
-            this.button2GoRegister.Size = new System.Drawing.Size(229, 57);
-            this.button2GoRegister.TabIndex = 13;
-            this.button2GoRegister.Text = "Registrarse";
-            this.button2GoRegister.UseVisualStyleBackColor = true;
-            this.button2GoRegister.Click += new System.EventHandler(this.button2GoRegister_Click);
+            this.buttonVolver.Location = new System.Drawing.Point(28, 311);
+            this.buttonVolver.Name = "buttonVolver";
+            this.buttonVolver.Size = new System.Drawing.Size(87, 29);
+            this.buttonVolver.TabIndex = 10;
+            this.buttonVolver.Text = "VOLVER";
+            this.buttonVolver.UseVisualStyleBackColor = true;
+            this.buttonVolver.Click += new System.EventHandler(this.buttonVolver_Click);
             // 
-            // panel1
+            // buttonLogin
             // 
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.buttonVolver);
-            this.panel1.Controls.Add(this.buttonLogin);
-            this.panel1.Controls.Add(this.label3);
-            this.panel1.Controls.Add(this.label2);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
-            this.panel1.Controls.Add(this.textBox4);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(0, 0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(728, 352);
-            this.panel1.TabIndex = 14;
-            this.panel1.Visible = false;
+            this.buttonLogin.Location = new System.Drawing.Point(326, 269);
+            this.buttonLogin.Name = "buttonLogin";
+            this.buttonLogin.Size = new System.Drawing.Size(111, 30);
+            this.buttonLogin.TabIndex = 9;
+            this.buttonLogin.Text = "INICIAR SESIÓN";
+            this.buttonLogin.UseVisualStyleBackColor = true;
+            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
             // 
-            // panel2
+            // label3
             // 
-            this.panel2.Controls.Add(this.panel3);
-            this.panel2.Controls.Add(this.buttonVolver1);
-            this.panel2.Controls.Add(this.textBoxEmailRegister);
-            this.panel2.Controls.Add(this.textBoxTipoRegister);
-            this.panel2.Controls.Add(this.textBoxContraseñaRegister);
-            this.panel2.Controls.Add(this.label8);
-            this.panel2.Controls.Add(this.label6);
-            this.panel2.Controls.Add(this.label5);
-            this.panel2.Controls.Add(this.buttonRegister);
-            this.panel2.Controls.Add(this.textBoxUsuarioRegister);
-            this.panel2.Controls.Add(this.label4);
-            this.panel2.Controls.Add(this.label7);
-            this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel2.Location = new System.Drawing.Point(0, 0);
-            this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(728, 352);
-            this.panel2.TabIndex = 11;
-            this.panel2.Visible = false;
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(249, 219);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(84, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "CONTRASEÑA:";
             // 
-            // panel3
+            // label2
             // 
-            this.panel3.Controls.Add(this.buttonLogOut);
-            this.panel3.Controls.Add(this.textBox3);
-            this.panel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel3.Location = new System.Drawing.Point(0, 0);
-            this.panel3.Name = "panel3";
-            this.panel3.Size = new System.Drawing.Size(728, 352);
-            this.panel3.TabIndex = 19;
-            this.panel3.Visible = false;
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(249, 166);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(59, 13);
+            this.label2.TabIndex = 7;
+            this.label2.Text = "USUARIO:";
+            // 
+            // textBoxContraseñaLogin
+            // 
+            this.textBoxContraseñaLogin.Location = new System.Drawing.Point(337, 216);
+            this.textBoxContraseñaLogin.Name = "textBoxContraseñaLogin";
+            this.textBoxContraseñaLogin.Size = new System.Drawing.Size(100, 20);
+            this.textBoxContraseñaLogin.TabIndex = 6;
+            // 
+            // textBoxUsuarioLogin
+            // 
+            this.textBoxUsuarioLogin.Location = new System.Drawing.Point(337, 163);
+            this.textBoxUsuarioLogin.Name = "textBoxUsuarioLogin";
+            this.textBoxUsuarioLogin.Size = new System.Drawing.Size(100, 20);
+            this.textBoxUsuarioLogin.TabIndex = 5;
+            this.textBoxUsuarioLogin.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // textBox4
+            // 
+            this.textBox4.BackColor = System.Drawing.SystemColors.MenuBar;
+            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox4.Location = new System.Drawing.Point(0, 0);
+            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(728, 30);
+            this.textBox4.TabIndex = 4;
+            this.textBox4.Text = "Spotflix";
+            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panelBienvenido
+            // 
+            this.panelBienvenido.Controls.Add(this.button2);
+            this.panelBienvenido.Controls.Add(this.button1);
+            this.panelBienvenido.Controls.Add(this.label9);
+            this.panelBienvenido.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelBienvenido.Location = new System.Drawing.Point(0, 0);
+            this.panelBienvenido.Name = "panelBienvenido";
+            this.panelBienvenido.Size = new System.Drawing.Size(728, 352);
+            this.panelBienvenido.TabIndex = 20;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(228, 196);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(229, 57);
+            this.button2.TabIndex = 14;
+            this.button2.Text = "Registrarse";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.buttonGoRegister);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(228, 133);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(229, 57);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Iniciar Sesión";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.buttonGoLogin);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label9.Location = new System.Drawing.Point(0, 0);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(344, 36);
+            this.label9.TabIndex = 12;
+            this.label9.Text = "¡Bienvenido a Spotiflix!";
+            this.label9.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            // 
+            // PanelMenu
+            // 
+            this.PanelMenu.Controls.Add(this.panelBienvenido);
+            this.PanelMenu.Controls.Add(this.buttonLogOut);
+            this.PanelMenu.Controls.Add(this.textBox3);
+            this.PanelMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PanelMenu.Location = new System.Drawing.Point(0, 0);
+            this.PanelMenu.Name = "PanelMenu";
+            this.PanelMenu.Size = new System.Drawing.Size(728, 352);
+            this.PanelMenu.TabIndex = 19;
             // 
             // buttonLogOut
             // 
@@ -164,6 +233,27 @@
             this.textBox3.TabIndex = 4;
             this.textBox3.Text = "Menú";
             this.textBox3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // panelRegister
+            // 
+            this.panelRegister.Controls.Add(this.PanelMenu);
+            this.panelRegister.Controls.Add(this.panelLogin);
+            this.panelRegister.Controls.Add(this.buttonVolver1);
+            this.panelRegister.Controls.Add(this.textBoxEmailRegister);
+            this.panelRegister.Controls.Add(this.textBoxTipoRegister);
+            this.panelRegister.Controls.Add(this.textBoxContraseñaRegister);
+            this.panelRegister.Controls.Add(this.label8);
+            this.panelRegister.Controls.Add(this.label6);
+            this.panelRegister.Controls.Add(this.label5);
+            this.panelRegister.Controls.Add(this.buttonRegister);
+            this.panelRegister.Controls.Add(this.textBoxUsuarioRegister);
+            this.panelRegister.Controls.Add(this.label4);
+            this.panelRegister.Controls.Add(this.label7);
+            this.panelRegister.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelRegister.Location = new System.Drawing.Point(0, 0);
+            this.panelRegister.Name = "panelRegister";
+            this.panelRegister.Size = new System.Drawing.Size(728, 352);
+            this.panelRegister.TabIndex = 11;
             // 
             // buttonVolver1
             // 
@@ -262,101 +352,29 @@
             this.label7.Text = "Ingrese sus datos para registrarse";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // buttonVolver
-            // 
-            this.buttonVolver.Location = new System.Drawing.Point(28, 311);
-            this.buttonVolver.Name = "buttonVolver";
-            this.buttonVolver.Size = new System.Drawing.Size(87, 29);
-            this.buttonVolver.TabIndex = 10;
-            this.buttonVolver.Text = "VOLVER";
-            this.buttonVolver.UseVisualStyleBackColor = true;
-            this.buttonVolver.Click += new System.EventHandler(this.buttonVolver_Click);
-            // 
-            // buttonLogin
-            // 
-            this.buttonLogin.Location = new System.Drawing.Point(326, 269);
-            this.buttonLogin.Name = "buttonLogin";
-            this.buttonLogin.Size = new System.Drawing.Size(111, 30);
-            this.buttonLogin.TabIndex = 9;
-            this.buttonLogin.Text = "INICIAR SESIÓN";
-            this.buttonLogin.UseVisualStyleBackColor = true;
-            this.buttonLogin.Click += new System.EventHandler(this.buttonLogin_Click);
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(249, 219);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(84, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "CONTRASEÑA:";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(249, 166);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(59, 13);
-            this.label2.TabIndex = 7;
-            this.label2.Text = "USUARIO:";
-            // 
-            // textBox2
-            // 
-            this.textBox2.Location = new System.Drawing.Point(337, 216);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 6;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(337, 163);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 5;
-            // 
-            // textBox4
-            // 
-            this.textBox4.BackColor = System.Drawing.SystemColors.MenuBar;
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(0, 0);
-            this.textBox4.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(728, 30);
-            this.textBox4.TabIndex = 4;
-            this.textBox4.Text = "Spotflix";
-            this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(728, 352);
-            this.Controls.Add(this.panel1);
-            this.Controls.Add(this.button2GoRegister);
-            this.Controls.Add(this.button1GoLogin);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.panelRegister);
             this.Name = "AppForm";
             this.Text = "Form1";
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
-            this.panel2.ResumeLayout(false);
-            this.panel2.PerformLayout();
-            this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
+            this.panelLogin.ResumeLayout(false);
+            this.panelLogin.PerformLayout();
+            this.panelBienvenido.ResumeLayout(false);
+            this.panelBienvenido.PerformLayout();
+            this.PanelMenu.ResumeLayout(false);
+            this.PanelMenu.PerformLayout();
+            this.panelRegister.ResumeLayout(false);
+            this.panelRegister.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button button1GoLogin;
-        private System.Windows.Forms.Button button2GoRegister;
-        private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.Panel panel2;
+        private System.Windows.Forms.Panel panelLogin;
+        private System.Windows.Forms.Panel panelRegister;
         private System.Windows.Forms.Button buttonVolver1;
         private System.Windows.Forms.TextBox textBoxEmailRegister;
         private System.Windows.Forms.TextBox textBoxTipoRegister;
@@ -372,12 +390,17 @@
         private System.Windows.Forms.Button buttonLogin;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxContraseñaLogin;
+        private System.Windows.Forms.TextBox textBoxUsuarioLogin;
         private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Panel panel3;
+        private System.Windows.Forms.Panel PanelMenu;
         private System.Windows.Forms.Button buttonLogOut;
         private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Panel panelBienvenido;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label TextCredencialesInválidas;
     }
 }
 
