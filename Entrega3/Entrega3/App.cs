@@ -54,13 +54,13 @@ namespace Entrega3
         public delegate void RegisterEventHandler(object source, RegisterEventArgs args);
         public event RegisterEventHandler Registered;
 
-        protected virtual void OnRegistered(string username, string password, string verificationlink, string email)
+        protected virtual void OnRegistered(string username, string password, string email)
         {
             // Verifica si hay alguien suscrito al evento
             if (Registered != null)
             {
                 // Engatilla el evento
-                Registered(this, new RegisterEventArgs() { VerificationLink = verificationlink, Password = password, Username = username, Email = email });
+                Registered(this, new RegisterEventArgs() {Password = password, Username = username, Email = email });
             }
         }
 
@@ -117,7 +117,7 @@ namespace Entrega3
             {
                 // Disparamos el evento
 
-                OnRegistered(usr, psswd, verificationlink: verificationLink, email: email);
+                OnRegistered(usr, psswd, email: email);
                 OnEmailSent(new Object(), new EventArgs());
                 return true;
             }

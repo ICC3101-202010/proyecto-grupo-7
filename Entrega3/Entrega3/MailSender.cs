@@ -10,7 +10,7 @@ namespace Entrega3
         public void OnRegistered(object source, RegisterEventArgs e)
         {
             Thread.Sleep(2000);
-            Console.WriteLine($"\nCorreo enviado a {e.Email}: \n Gracias por registrarte, {e.Username}!\n Por favor, para poder verificar tu correo, has click en: {e.VerificationLink}\n");
+            Console.WriteLine($"\n{e.Email}: \n Gracias por registrarte, {e.Username}!\n");
             Thread.Sleep(2000);
         }
 

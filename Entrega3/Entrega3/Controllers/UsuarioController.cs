@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Entrega3;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,12 +10,12 @@ namespace Entrega3.Controllers
 {
     class UserController
     {
-        AppForm view;
+        Form1 view;
 
         public UserController(Form view)
         {
             initialize();
-            this.view = view as AppForm;
+            this.view = view as Form1;
             this.view.LoginButtonClicked += OnLoginButtonClicked;
             this.view.CreateAccountClicked += OnCreateAccountClicked;
             this.view.UserChecked += OnUserChecked;
@@ -48,18 +49,18 @@ namespace Entrega3.Controllers
                 return result.CheckCredentials(e.UsernameText, e.PasswordText);
             }
         }
+
         public void OnUserChecked(object sender, LoginEventArgs e)
         {
-            Usuario usuario = null;
-            usuario = Archivos.Usuarios.Where(t =>
+            Usuario user = null;
+            user = Archivos.Usuarios.Where(t =>
                t.Nombre_usuario.ToUpper().Contains(e.UsernameText.ToUpper())).FirstOrDefault();
-            view.setNombreUsuario(usuario.Nombre_usuario);
+            view.setNombreUsuario(user.Nombre_usuario);
         }
+
         public void initialize()
         {
-            Archivos.Usuarios.Add(new Usuario("ijperrotta", "ijperrotta@miuandes.cl", "1234", "Premium"));
-            Archivos.Usuarios.Add(new Usuario("tfbruner", "tfbruner@miuandes.cl", "1234", "Gratis"));
-            Archivos.Usuarios.Add(new Usuario("dariedel", "dariedel", "1234", "Premium"));
+            //Serialización
         }
     }
 }
