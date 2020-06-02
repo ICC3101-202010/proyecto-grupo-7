@@ -204,6 +204,9 @@ namespace Entrega3Spotiflix
 
         private void buttonCambiarContraseña_Click(object sender, EventArgs e)
         {
+            label11.Visible = false;
+            textBoxUsuarioCambioUsername.Visible = false;
+            buttonConfirmarCambioUsername.Visible = false;
             textBoxContraseñaCambioContraseña.ResetText();
             textBoxAntiguaContraseñaCambioContraseña.ResetText();
             textBoxCambioContraseña.ResetText();
@@ -219,6 +222,11 @@ namespace Entrega3Spotiflix
 
         private void buttonCambiarUsername_Click(object sender, EventArgs e)
         {
+            textBoxContraseñaCambioContraseña.Visible = false;
+            textBoxAntiguaContraseñaCambioContraseña.Visible = false;
+            label10.Visible = false;
+            label9.Visible = false;
+            buttonConfirmarCambioContraseña.Visible = false;
             textBoxCambioContraseña.Visible = false;
             textBoxHacersePremium.Visible = false;
             textBoxUsuarioCambioUsername.ResetText();
@@ -231,6 +239,12 @@ namespace Entrega3Spotiflix
 
         private void buttonHacersePremium_Click(object sender, EventArgs e)
         {
+            textBoxContraseñaCambioContraseña.Visible = false;
+            textBoxAntiguaContraseñaCambioContraseña.Visible = false;
+            label10.Visible = false;
+            label9.Visible = false;
+            buttonConfirmarCambioContraseña.Visible = false;
+            textBoxCambioContraseña.Visible = false;
             label11.Visible = false;
             textBoxUsuarioCambioUsername.Visible = false;
             buttonConfirmarCambioUsername.Visible = false;
@@ -353,6 +367,11 @@ namespace Entrega3Spotiflix
         }
 
         private void textBoxUsernamePerfil_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void FotoMenu_Click(object sender, EventArgs e)
         {
 
         }

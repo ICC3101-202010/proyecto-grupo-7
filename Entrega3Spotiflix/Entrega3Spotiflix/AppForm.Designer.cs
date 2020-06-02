@@ -58,7 +58,6 @@
             this.panelMenu = new System.Windows.Forms.Panel();
             this.textBoxUsernamePerfil = new System.Windows.Forms.TextBox();
             this.buttonModificarCuenta = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
             this.buttonLogOut = new System.Windows.Forms.Button();
             this.FotoMenu = new System.Windows.Forms.PictureBox();
             this.panelModificarCuenta = new System.Windows.Forms.Panel();
@@ -78,28 +77,42 @@
             this.button1 = new System.Windows.Forms.Button();
             this.buttonCambiarContraseña = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
+            this.FotoLogoEntrada = new System.Windows.Forms.PictureBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
+            this.buttonGoBuscar = new System.Windows.Forms.Button();
+            this.buttonGoCrearPlaylist = new System.Windows.Forms.Button();
+            this.buttonGoVerCanciones = new System.Windows.Forms.Button();
+            this.buttonGoEditarPlaylist = new System.Windows.Forms.Button();
+            this.buttonGoMisPlaylists = new System.Windows.Forms.Button();
+            this.buttonGoVerPelículas = new System.Windows.Forms.Button();
+            this.label12 = new System.Windows.Forms.Label();
             this.panelEntrada.SuspendLayout();
             this.panelLogin.SuspendLayout();
             this.panelRegister.SuspendLayout();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FotoMenu)).BeginInit();
             this.panelModificarCuenta.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FotoLogoEntrada)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panelEntrada
             // 
             this.panelEntrada.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panelEntrada.Controls.Add(this.FotoLogoEntrada);
             this.panelEntrada.Controls.Add(this.buttonGoRegister);
             this.panelEntrada.Controls.Add(this.buttonGoLogin);
             this.panelEntrada.Controls.Add(this.label1);
-            this.panelEntrada.Location = new System.Drawing.Point(465, 24);
+            this.panelEntrada.Location = new System.Drawing.Point(579, 190);
             this.panelEntrada.Name = "panelEntrada";
-            this.panelEntrada.Size = new System.Drawing.Size(263, 135);
+            this.panelEntrada.Size = new System.Drawing.Size(154, 111);
             this.panelEntrada.TabIndex = 0;
             // 
             // buttonGoRegister
             // 
-            this.buttonGoRegister.Location = new System.Drawing.Point(241, 215);
+            this.buttonGoRegister.Location = new System.Drawing.Point(240, 249);
             this.buttonGoRegister.Name = "buttonGoRegister";
             this.buttonGoRegister.Size = new System.Drawing.Size(187, 54);
             this.buttonGoRegister.TabIndex = 13;
@@ -109,7 +122,7 @@
             // 
             // buttonGoLogin
             // 
-            this.buttonGoLogin.Location = new System.Drawing.Point(241, 155);
+            this.buttonGoLogin.Location = new System.Drawing.Point(240, 189);
             this.buttonGoLogin.Name = "buttonGoLogin";
             this.buttonGoLogin.Size = new System.Drawing.Size(187, 54);
             this.buttonGoLogin.TabIndex = 12;
@@ -135,6 +148,7 @@
             // panelLogin
             // 
             this.panelLogin.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panelLogin.Controls.Add(this.pictureBox2);
             this.panelLogin.Controls.Add(this.buttonVolverDeLogin);
             this.panelLogin.Controls.Add(this.textBox4);
             this.panelLogin.Controls.Add(this.loginViewInvalidCredentialsAlert);
@@ -143,7 +157,7 @@
             this.panelLogin.Controls.Add(this.label3);
             this.panelLogin.Controls.Add(this.loginViewPassWordInput);
             this.panelLogin.Controls.Add(this.loginViewUserInput);
-            this.panelLogin.Location = new System.Drawing.Point(34, 200);
+            this.panelLogin.Location = new System.Drawing.Point(12, 190);
             this.panelLogin.Name = "panelLogin";
             this.panelLogin.Size = new System.Drawing.Size(146, 101);
             this.panelLogin.TabIndex = 14;
@@ -238,6 +252,7 @@
             // panelRegister
             // 
             this.panelRegister.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panelRegister.Controls.Add(this.pictureBox1);
             this.panelRegister.Controls.Add(this.buttonVolverDeRegister);
             this.panelRegister.Controls.Add(this.registerViewInvalidCredentialsAlert);
             this.panelRegister.Controls.Add(this.registerViewEmailInput);
@@ -250,7 +265,7 @@
             this.panelRegister.Controls.Add(this.label7);
             this.panelRegister.Controls.Add(this.registerViewButton);
             this.panelRegister.Controls.Add(this.textBox1);
-            this.panelRegister.Location = new System.Drawing.Point(22, 21);
+            this.panelRegister.Location = new System.Drawing.Point(235, 12);
             this.panelRegister.Name = "panelRegister";
             this.panelRegister.Size = new System.Drawing.Size(178, 118);
             this.panelRegister.TabIndex = 14;
@@ -269,7 +284,7 @@
             // registerViewInvalidCredentialsAlert
             // 
             this.registerViewInvalidCredentialsAlert.BackColor = System.Drawing.SystemColors.Menu;
-            this.registerViewInvalidCredentialsAlert.Location = new System.Drawing.Point(333, 254);
+            this.registerViewInvalidCredentialsAlert.Location = new System.Drawing.Point(331, 275);
             this.registerViewInvalidCredentialsAlert.Name = "registerViewInvalidCredentialsAlert";
             this.registerViewInvalidCredentialsAlert.Size = new System.Drawing.Size(139, 20);
             this.registerViewInvalidCredentialsAlert.TabIndex = 23;
@@ -278,7 +293,7 @@
             // registerViewEmailInput
             // 
             this.registerViewEmailInput.BackColor = System.Drawing.SystemColors.Menu;
-            this.registerViewEmailInput.Location = new System.Drawing.Point(383, 129);
+            this.registerViewEmailInput.Location = new System.Drawing.Point(381, 150);
             this.registerViewEmailInput.Name = "registerViewEmailInput";
             this.registerViewEmailInput.Size = new System.Drawing.Size(100, 20);
             this.registerViewEmailInput.TabIndex = 22;
@@ -286,7 +301,7 @@
             // registerViewPassInput
             // 
             this.registerViewPassInput.BackColor = System.Drawing.SystemColors.Menu;
-            this.registerViewPassInput.Location = new System.Drawing.Point(383, 179);
+            this.registerViewPassInput.Location = new System.Drawing.Point(381, 200);
             this.registerViewPassInput.Name = "registerViewPassInput";
             this.registerViewPassInput.Size = new System.Drawing.Size(100, 20);
             this.registerViewPassInput.TabIndex = 21;
@@ -294,7 +309,7 @@
             // registerViewTipoInput
             // 
             this.registerViewTipoInput.BackColor = System.Drawing.SystemColors.Menu;
-            this.registerViewTipoInput.Location = new System.Drawing.Point(383, 228);
+            this.registerViewTipoInput.Location = new System.Drawing.Point(381, 249);
             this.registerViewTipoInput.Name = "registerViewTipoInput";
             this.registerViewTipoInput.Size = new System.Drawing.Size(100, 20);
             this.registerViewTipoInput.TabIndex = 20;
@@ -303,7 +318,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.SystemColors.Menu;
-            this.label6.Location = new System.Drawing.Point(272, 132);
+            this.label6.Location = new System.Drawing.Point(270, 153);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 13);
             this.label6.TabIndex = 19;
@@ -313,7 +328,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.Menu;
-            this.label5.Location = new System.Drawing.Point(272, 182);
+            this.label5.Location = new System.Drawing.Point(270, 203);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 13);
             this.label5.TabIndex = 18;
@@ -323,7 +338,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.Menu;
-            this.label4.Location = new System.Drawing.Point(272, 231);
+            this.label4.Location = new System.Drawing.Point(270, 252);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(105, 13);
             this.label4.TabIndex = 17;
@@ -332,7 +347,7 @@
             // registerViewUserInput
             // 
             this.registerViewUserInput.BackColor = System.Drawing.SystemColors.Menu;
-            this.registerViewUserInput.Location = new System.Drawing.Point(383, 78);
+            this.registerViewUserInput.Location = new System.Drawing.Point(381, 99);
             this.registerViewUserInput.Name = "registerViewUserInput";
             this.registerViewUserInput.Size = new System.Drawing.Size(100, 20);
             this.registerViewUserInput.TabIndex = 16;
@@ -341,7 +356,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.SystemColors.Menu;
-            this.label7.Location = new System.Drawing.Point(272, 81);
+            this.label7.Location = new System.Drawing.Point(270, 102);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(71, 13);
             this.label7.TabIndex = 15;
@@ -350,7 +365,7 @@
             // registerViewButton
             // 
             this.registerViewButton.BackColor = System.Drawing.SystemColors.Menu;
-            this.registerViewButton.Location = new System.Drawing.Point(323, 280);
+            this.registerViewButton.Location = new System.Drawing.Point(321, 301);
             this.registerViewButton.Name = "registerViewButton";
             this.registerViewButton.Size = new System.Drawing.Size(149, 44);
             this.registerViewButton.TabIndex = 14;
@@ -376,61 +391,52 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panelMenu.Controls.Add(this.label12);
+            this.panelMenu.Controls.Add(this.buttonGoVerPelículas);
+            this.panelMenu.Controls.Add(this.buttonGoMisPlaylists);
+            this.panelMenu.Controls.Add(this.buttonGoEditarPlaylist);
+            this.panelMenu.Controls.Add(this.buttonGoVerCanciones);
+            this.panelMenu.Controls.Add(this.buttonGoCrearPlaylist);
+            this.panelMenu.Controls.Add(this.buttonGoBuscar);
             this.panelMenu.Controls.Add(this.textBoxUsernamePerfil);
             this.panelMenu.Controls.Add(this.buttonModificarCuenta);
-            this.panelMenu.Controls.Add(this.textBox2);
             this.panelMenu.Controls.Add(this.buttonLogOut);
             this.panelMenu.Controls.Add(this.FotoMenu);
-            this.panelMenu.Location = new System.Drawing.Point(238, 24);
+            this.panelMenu.Location = new System.Drawing.Point(12, 12);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(153, 125);
+            this.panelMenu.Size = new System.Drawing.Size(118, 118);
             this.panelMenu.TabIndex = 25;
             // 
             // textBoxUsernamePerfil
             // 
             this.textBoxUsernamePerfil.BackColor = System.Drawing.SystemColors.MenuText;
             this.textBoxUsernamePerfil.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxUsernamePerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxUsernamePerfil.Font = new System.Drawing.Font("Algerian", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxUsernamePerfil.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.textBoxUsernamePerfil.Location = new System.Drawing.Point(0, 0);
+            this.textBoxUsernamePerfil.Location = new System.Drawing.Point(635, -4);
             this.textBoxUsernamePerfil.Name = "textBoxUsernamePerfil";
-            this.textBoxUsernamePerfil.Size = new System.Drawing.Size(100, 19);
+            this.textBoxUsernamePerfil.Size = new System.Drawing.Size(119, 43);
             this.textBoxUsernamePerfil.TabIndex = 22;
             this.textBoxUsernamePerfil.TextChanged += new System.EventHandler(this.textBoxUsernamePerfil_TextChanged);
             // 
             // buttonModificarCuenta
             // 
             this.buttonModificarCuenta.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonModificarCuenta.Location = new System.Drawing.Point(124, 328);
+            this.buttonModificarCuenta.Location = new System.Drawing.Point(3, 3);
             this.buttonModificarCuenta.Name = "buttonModificarCuenta";
-            this.buttonModificarCuenta.Size = new System.Drawing.Size(106, 36);
+            this.buttonModificarCuenta.Size = new System.Drawing.Size(106, 33);
             this.buttonModificarCuenta.TabIndex = 21;
             this.buttonModificarCuenta.Text = "PERFIL USUARIO";
             this.buttonModificarCuenta.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonModificarCuenta.UseVisualStyleBackColor = false;
             this.buttonModificarCuenta.Click += new System.EventHandler(this.buttonModificarCuenta_Click);
             // 
-            // textBox2
-            // 
-            this.textBox2.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 19.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.textBox2.Location = new System.Drawing.Point(0, 0);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(153, 30);
-            this.textBox2.TabIndex = 20;
-            this.textBox2.Text = "Spotiflix";
-            this.textBox2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // buttonLogOut
             // 
             this.buttonLogOut.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonLogOut.Location = new System.Drawing.Point(12, 328);
+            this.buttonLogOut.Location = new System.Drawing.Point(115, 3);
             this.buttonLogOut.Name = "buttonLogOut";
-            this.buttonLogOut.Size = new System.Drawing.Size(106, 36);
+            this.buttonLogOut.Size = new System.Drawing.Size(106, 33);
             this.buttonLogOut.TabIndex = 19;
             this.buttonLogOut.Text = "CERRAR SESIÓN";
             this.buttonLogOut.UseVisualStyleBackColor = false;
@@ -439,13 +445,14 @@
             // FotoMenu
             // 
             this.FotoMenu.Image = ((System.Drawing.Image)(resources.GetObject("FotoMenu.Image")));
-            this.FotoMenu.Location = new System.Drawing.Point(241, 0);
+            this.FotoMenu.Location = new System.Drawing.Point(0, 38);
             this.FotoMenu.Margin = new System.Windows.Forms.Padding(2);
             this.FotoMenu.Name = "FotoMenu";
-            this.FotoMenu.Size = new System.Drawing.Size(513, 273);
+            this.FotoMenu.Size = new System.Drawing.Size(483, 254);
             this.FotoMenu.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.FotoMenu.TabIndex = 18;
             this.FotoMenu.TabStop = false;
+            this.FotoMenu.Click += new System.EventHandler(this.FotoMenu_Click);
             // 
             // panelModificarCuenta
             // 
@@ -466,7 +473,7 @@
             this.panelModificarCuenta.Controls.Add(this.button1);
             this.panelModificarCuenta.Controls.Add(this.buttonCambiarContraseña);
             this.panelModificarCuenta.Controls.Add(this.label8);
-            this.panelModificarCuenta.Location = new System.Drawing.Point(238, 200);
+            this.panelModificarCuenta.Location = new System.Drawing.Point(573, 5);
             this.panelModificarCuenta.Name = "panelModificarCuenta";
             this.panelModificarCuenta.Size = new System.Drawing.Size(178, 110);
             this.panelModificarCuenta.TabIndex = 26;
@@ -643,13 +650,117 @@
             this.label8.Text = "Perfil";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // FotoLogoEntrada
+            // 
+            this.FotoLogoEntrada.Image = ((System.Drawing.Image)(resources.GetObject("FotoLogoEntrada.Image")));
+            this.FotoLogoEntrada.Location = new System.Drawing.Point(271, 88);
+            this.FotoLogoEntrada.Margin = new System.Windows.Forms.Padding(2);
+            this.FotoLogoEntrada.Name = "FotoLogoEntrada";
+            this.FotoLogoEntrada.Size = new System.Drawing.Size(128, 96);
+            this.FotoLogoEntrada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.FotoLogoEntrada.TabIndex = 19;
+            this.FotoLogoEntrada.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(331, 34);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(95, 48);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 25;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(329, 54);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(95, 48);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 26;
+            this.pictureBox2.TabStop = false;
+            // 
+            // buttonGoBuscar
+            // 
+            this.buttonGoBuscar.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonGoBuscar.Location = new System.Drawing.Point(596, 51);
+            this.buttonGoBuscar.Name = "buttonGoBuscar";
+            this.buttonGoBuscar.Size = new System.Drawing.Size(134, 32);
+            this.buttonGoBuscar.TabIndex = 23;
+            this.buttonGoBuscar.Text = "BUSCAR";
+            this.buttonGoBuscar.UseVisualStyleBackColor = false;
+            // 
+            // buttonGoCrearPlaylist
+            // 
+            this.buttonGoCrearPlaylist.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonGoCrearPlaylist.Location = new System.Drawing.Point(596, 252);
+            this.buttonGoCrearPlaylist.Name = "buttonGoCrearPlaylist";
+            this.buttonGoCrearPlaylist.Size = new System.Drawing.Size(134, 33);
+            this.buttonGoCrearPlaylist.TabIndex = 25;
+            this.buttonGoCrearPlaylist.Text = "CREAR PLAYLIST";
+            this.buttonGoCrearPlaylist.UseVisualStyleBackColor = false;
+            // 
+            // buttonGoVerCanciones
+            // 
+            this.buttonGoVerCanciones.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonGoVerCanciones.Location = new System.Drawing.Point(596, 89);
+            this.buttonGoVerCanciones.Name = "buttonGoVerCanciones";
+            this.buttonGoVerCanciones.Size = new System.Drawing.Size(134, 32);
+            this.buttonGoVerCanciones.TabIndex = 26;
+            this.buttonGoVerCanciones.Text = "VER CANCIONES";
+            this.buttonGoVerCanciones.UseVisualStyleBackColor = false;
+            // 
+            // buttonGoEditarPlaylist
+            // 
+            this.buttonGoEditarPlaylist.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonGoEditarPlaylist.Location = new System.Drawing.Point(596, 211);
+            this.buttonGoEditarPlaylist.Name = "buttonGoEditarPlaylist";
+            this.buttonGoEditarPlaylist.Size = new System.Drawing.Size(134, 33);
+            this.buttonGoEditarPlaylist.TabIndex = 27;
+            this.buttonGoEditarPlaylist.Text = "EDITAR PLAYLIST";
+            this.buttonGoEditarPlaylist.UseVisualStyleBackColor = false;
+            // 
+            // buttonGoMisPlaylists
+            // 
+            this.buttonGoMisPlaylists.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonGoMisPlaylists.Location = new System.Drawing.Point(596, 169);
+            this.buttonGoMisPlaylists.Name = "buttonGoMisPlaylists";
+            this.buttonGoMisPlaylists.Size = new System.Drawing.Size(134, 33);
+            this.buttonGoMisPlaylists.TabIndex = 28;
+            this.buttonGoMisPlaylists.Text = "MIS PLAYLISTS";
+            this.buttonGoMisPlaylists.UseVisualStyleBackColor = false;
+            // 
+            // buttonGoVerPelículas
+            // 
+            this.buttonGoVerPelículas.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonGoVerPelículas.Location = new System.Drawing.Point(596, 127);
+            this.buttonGoVerPelículas.Name = "buttonGoVerPelículas";
+            this.buttonGoVerPelículas.Size = new System.Drawing.Size(134, 33);
+            this.buttonGoVerPelículas.TabIndex = 29;
+            this.buttonGoVerPelículas.Text = "VER PELÍCULAS";
+            this.buttonGoVerPelículas.UseVisualStyleBackColor = false;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label12.Location = new System.Drawing.Point(47, 310);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(362, 55);
+            this.label12.TabIndex = 30;
+            this.label12.Text = "reproductor acá";
+            // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(754, 376);
-            this.Controls.Add(this.panelModificarCuenta);
             this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.panelModificarCuenta);
             this.Controls.Add(this.panelLogin);
             this.Controls.Add(this.panelEntrada);
             this.Controls.Add(this.panelRegister);
@@ -666,6 +777,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.FotoMenu)).EndInit();
             this.panelModificarCuenta.ResumeLayout(false);
             this.panelModificarCuenta.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FotoLogoEntrada)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -701,7 +815,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Button registerViewButton;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button buttonModificarCuenta;
         private System.Windows.Forms.Panel panelModificarCuenta;
         private System.Windows.Forms.Button buttonVolverDeModificarCuenta;
@@ -721,6 +834,16 @@
         private System.Windows.Forms.Button buttonCambiarContraseña;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxUsernamePerfil;
+        private System.Windows.Forms.PictureBox FotoLogoEntrada;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Button buttonGoVerPelículas;
+        private System.Windows.Forms.Button buttonGoMisPlaylists;
+        private System.Windows.Forms.Button buttonGoEditarPlaylist;
+        private System.Windows.Forms.Button buttonGoVerCanciones;
+        private System.Windows.Forms.Button buttonGoCrearPlaylist;
+        private System.Windows.Forms.Button buttonGoBuscar;
     }
 }
 
