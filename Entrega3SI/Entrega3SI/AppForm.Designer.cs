@@ -39,6 +39,8 @@
             this.panelModificarCuenta = new System.Windows.Forms.Panel();
             this.buttonVolverModificarCuenta = new System.Windows.Forms.Button();
             this.panelCambiarContraseña = new System.Windows.Forms.Panel();
+            this.textBoxAntiguaContraseñaCambioContraseña = new System.Windows.Forms.TextBox();
+            this.label10 = new System.Windows.Forms.Label();
             this.buttonConfirmarCambioContraseña = new System.Windows.Forms.Button();
             this.textBoxCambioContraseña = new System.Windows.Forms.TextBox();
             this.textBoxContraseñaCambioContraseña = new System.Windows.Forms.TextBox();
@@ -74,8 +76,7 @@
             this.registerViewButton = new System.Windows.Forms.Button();
             this.buttonGoRegister = new System.Windows.Forms.Button();
             this.buttonGoLogin = new System.Windows.Forms.Button();
-            this.textBoxAntiguaContraseñaCambioContraseña = new System.Windows.Forms.TextBox();
-            this.label10 = new System.Windows.Forms.Label();
+            this.label11 = new System.Windows.Forms.Label();
             this.LoginView.SuspendLayout();
             this.profileView.SuspendLayout();
             this.panelModificarCuenta.SuspendLayout();
@@ -153,7 +154,7 @@
             // 
             // profileView
             // 
-            this.profileView.Controls.Add(this.panelModificarCuenta);
+            this.profileView.Controls.Add(this.label11);
             this.profileView.Controls.Add(this.buttonModificarCuenta);
             this.profileView.Controls.Add(this.profileViewNameText);
             this.profileView.Controls.Add(this.profileViewAgeText);
@@ -168,6 +169,7 @@
             // 
             // panelModificarCuenta
             // 
+            this.panelModificarCuenta.Controls.Add(this.profileView);
             this.panelModificarCuenta.Controls.Add(this.buttonVolverModificarCuenta);
             this.panelModificarCuenta.Controls.Add(this.panelCambiarContraseña);
             this.panelModificarCuenta.Controls.Add(this.panelCambiarUsername);
@@ -207,6 +209,24 @@
             this.panelCambiarContraseña.TabIndex = 27;
             this.panelCambiarContraseña.Visible = false;
             this.panelCambiarContraseña.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCambiarContraseña_Paint);
+            // 
+            // textBoxAntiguaContraseñaCambioContraseña
+            // 
+            this.textBoxAntiguaContraseñaCambioContraseña.Location = new System.Drawing.Point(210, 3);
+            this.textBoxAntiguaContraseñaCambioContraseña.Name = "textBoxAntiguaContraseñaCambioContraseña";
+            this.textBoxAntiguaContraseñaCambioContraseña.Size = new System.Drawing.Size(140, 20);
+            this.textBoxAntiguaContraseñaCambioContraseña.TabIndex = 37;
+            this.textBoxAntiguaContraseñaCambioContraseña.Visible = false;
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(64, 6);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(116, 13);
+            this.label10.TabIndex = 36;
+            this.label10.Text = "Ingrese su Contraseña:";
+            this.label10.Visible = false;
             // 
             // buttonConfirmarCambioContraseña
             // 
@@ -396,17 +416,17 @@
             // 
             // EntradaView
             // 
-            this.EntradaView.Controls.Add(this.RegisterView);
             this.EntradaView.Controls.Add(this.buttonGoRegister);
             this.EntradaView.Controls.Add(this.buttonGoLogin);
-            this.EntradaView.Location = new System.Drawing.Point(203, 35);
+            this.EntradaView.Location = new System.Drawing.Point(12, 18);
             this.EntradaView.Name = "EntradaView";
-            this.EntradaView.Size = new System.Drawing.Size(200, 100);
+            this.EntradaView.Size = new System.Drawing.Size(350, 238);
             this.EntradaView.TabIndex = 4;
             this.EntradaView.Paint += new System.Windows.Forms.PaintEventHandler(this.panelEntrada_Paint);
             // 
             // RegisterView
             // 
+            this.RegisterView.Controls.Add(this.panelModificarCuenta);
             this.RegisterView.Controls.Add(this.registerViewInvalidCredentialsAlert);
             this.RegisterView.Controls.Add(this.registerViewLogOutButton);
             this.RegisterView.Controls.Add(this.registerViewEmailInput);
@@ -421,7 +441,7 @@
             this.RegisterView.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RegisterView.Location = new System.Drawing.Point(0, 0);
             this.RegisterView.Name = "RegisterView";
-            this.RegisterView.Size = new System.Drawing.Size(200, 100);
+            this.RegisterView.Size = new System.Drawing.Size(800, 450);
             this.RegisterView.TabIndex = 2;
             this.RegisterView.Visible = false;
             this.RegisterView.Paint += new System.Windows.Forms.PaintEventHandler(this.RegisterView_Paint);
@@ -538,30 +558,25 @@
             this.buttonGoLogin.UseVisualStyleBackColor = true;
             this.buttonGoLogin.Click += new System.EventHandler(this.buttonGoLogin_Click);
             // 
-            // textBoxAntiguaContraseñaCambioContraseña
+            // label11
             // 
-            this.textBoxAntiguaContraseñaCambioContraseña.Location = new System.Drawing.Point(210, 3);
-            this.textBoxAntiguaContraseñaCambioContraseña.Name = "textBoxAntiguaContraseñaCambioContraseña";
-            this.textBoxAntiguaContraseñaCambioContraseña.Size = new System.Drawing.Size(140, 20);
-            this.textBoxAntiguaContraseñaCambioContraseña.TabIndex = 37;
-            this.textBoxAntiguaContraseñaCambioContraseña.Visible = false;
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(64, 6);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(116, 13);
-            this.label10.TabIndex = 36;
-            this.label10.Text = "Ingrese su Contraseña:";
-            this.label10.Visible = false;
+            this.label11.AutoSize = true;
+            this.label11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(0, 0);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(89, 36);
+            this.label11.TabIndex = 24;
+            this.label11.Text = "Perfil";
+            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.profileView);
+            this.Controls.Add(this.RegisterView);
             this.Controls.Add(this.EntradaView);
             this.Controls.Add(this.LoginView);
             this.Name = "AppForm";
@@ -635,6 +650,7 @@
         private System.Windows.Forms.Button buttonCambiarContraseña;
         private System.Windows.Forms.TextBox textBoxAntiguaContraseñaCambioContraseña;
         private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label label11;
     }
 }
 

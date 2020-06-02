@@ -33,7 +33,7 @@ namespace Entrega3SI
             panels.Add("RegisterPanel", RegisterView);
             panels.Add("HacersePremiumPanel", panelHacersePremium);
             panels.Add("ModificarCuentaPanel", panelModificarCuenta);
-            stackPanels.Add(panels["EntradaPanel"]);
+            stackPanels.Add(panels["ProfilePanel"]);
             ShowLastPanel();
         }
 
@@ -105,7 +105,6 @@ namespace Entrega3SI
                 setNameUser(username);
                 stackPanels.Add(panels["ProfilePanel"]);
                 ShowLastPanel();
-                //profileView.Visible = true;
             }
         }
 
@@ -175,9 +174,8 @@ namespace Entrega3SI
 
         private void buttonHacersePremium_Click(object sender, EventArgs e)
         {
-            //stackPanels.Add(panels["ModificarCuentaPanel"]);
-            //ShowLastPanel();
-            panelModificarCuenta.Visible = true;
+            stackPanels.Add(panels["ModificarCuentaPanel"]);
+            ShowLastPanel();
             string usuario_ant = profileViewUserText.Text;
             List<string> Valores = Archivos.GetData(usuario_ant);
             foreach (Usuario usuario in Archivos.Usuarios)
