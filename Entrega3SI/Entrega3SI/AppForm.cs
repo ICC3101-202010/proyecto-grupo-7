@@ -26,14 +26,15 @@ namespace Entrega3SI
         public AppForm()
         {
             InitializeComponent();
+            EntradaView.BringToFront();
             panels.Add("LoginPanel", LoginView);
             panels.Add("EntradaPanel", EntradaView);
             panels.Add("ProfilePanel", profileView);
             panels.Add("RegisterPanel", RegisterView);
+            panels.Add("HacersePremiumPanel", panelHacersePremium);
             panels.Add("ModificarCuentaPanel", panelModificarCuenta);
             stackPanels.Add(panels["EntradaPanel"]);
-            LoginView.Visible=true;
-            //ShowLastPanel();
+            ShowLastPanel();
         }
 
         private void loginViewButton_Click(object sender, EventArgs e)
@@ -48,7 +49,7 @@ namespace Entrega3SI
             profileViewUserText.ResetText();
             profileViewNameText.ResetText();
             profileViewAgeText.ResetText();
-            stackPanels.RemoveAt(stackPanels.Count - 1);
+            stackPanels.Add(panels["EntradaPanel"]);
             ShowLastPanel();
         }
 
@@ -101,10 +102,10 @@ namespace Entrega3SI
                 UserChecked(this, new LoginEventArgs() { UsernameText = username });
                 loginViewUserInput.ResetText();
                 loginViewPassWordInput.ResetText();
-                stackPanels.Add(panels["ProfilePanel"]);
                 setNameUser(username);
-                //ShowLastPanel();
-                profileView.Visible = true;
+                stackPanels.Add(panels["ProfilePanel"]);
+                ShowLastPanel();
+                //profileView.Visible = true;
             }
         }
 
@@ -138,17 +139,13 @@ namespace Entrega3SI
 
         private void buttonGoRegister_Click(object sender, EventArgs e)
         {
-            registerViewTipoInput.ResetText();
-            registerViewUserInput.ResetText();
-            registerViewEmailInput.ResetText();
-            registerViewPassInput.ResetText();
             stackPanels.Add(panels["RegisterPanel"]);
             ShowLastPanel();
         }
 
         private void registerViewLogOutButton_Click(object sender, EventArgs e)
         {
-            stackPanels.RemoveAt(stackPanels.Count - 1);
+            stackPanels.Add(panels["EntradaPanel"]);
             ShowLastPanel();
         }
 
@@ -172,16 +169,15 @@ namespace Entrega3SI
 
         private void buttonModificarCuenta_Click(object sender, EventArgs e)
         {
-            panelHacersePremium.Visible = false;
-            panelCambiarUsername.Visible = false;
-            panelCambiarContraseña.Visible = false;
             stackPanels.Add(panels["ModificarCuentaPanel"]);
             ShowLastPanel();
         }
 
         private void buttonHacersePremium_Click(object sender, EventArgs e)
         {
-            panelHacersePremium.Visible = true;
+            //stackPanels.Add(panels["ModificarCuentaPanel"]);
+            //ShowLastPanel();
+            panelModificarCuenta.Visible = true;
             string usuario_ant = profileViewUserText.Text;
             List<string> Valores = Archivos.GetData(usuario_ant);
             foreach (Usuario usuario in Archivos.Usuarios)

@@ -17,6 +17,7 @@ namespace Entrega3SI
             Archivos.Usuarios.Add(new Usuario("cdiazarze", "Carlos@Díaz", "1234", "Gratis"));
             Archivos.Usuarios.Add(new Usuario("ahowardm", "Andres@Howard", "1234", "Premium"));
             Archivos.Usuarios.Add(new Usuario("jperez", "Juan@Perez", "1234", "Premium"));
+            Archivos.Lista_usuarios[0] = new List<string>() { "Admin", "email", "", Convert.ToString(DateTime.Now), "Premium" };
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             AppForm appForm = new AppForm();

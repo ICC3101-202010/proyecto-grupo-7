@@ -181,6 +181,7 @@
             this.panelModificarCuenta.Name = "panelModificarCuenta";
             this.panelModificarCuenta.Size = new System.Drawing.Size(800, 450);
             this.panelModificarCuenta.TabIndex = 7;
+            this.panelModificarCuenta.Visible = false;
             // 
             // buttonVolverModificarCuenta
             // 
@@ -402,7 +403,6 @@
             this.EntradaView.Name = "EntradaView";
             this.EntradaView.Size = new System.Drawing.Size(200, 100);
             this.EntradaView.TabIndex = 4;
-            this.EntradaView.Visible = false;
             this.EntradaView.Paint += new System.Windows.Forms.PaintEventHandler(this.panelEntrada_Paint);
             // 
             // RegisterView
