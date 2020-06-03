@@ -30,10 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(AppForm));
             this.panelEntrada = new System.Windows.Forms.Panel();
+            this.FotoLogoEntrada = new System.Windows.Forms.PictureBox();
             this.buttonGoRegister = new System.Windows.Forms.Button();
             this.buttonGoLogin = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.panelLogin = new System.Windows.Forms.Panel();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.buttonVolverDeLogin = new System.Windows.Forms.Button();
             this.textBox4 = new System.Windows.Forms.TextBox();
             this.loginViewInvalidCredentialsAlert = new System.Windows.Forms.TextBox();
@@ -43,6 +45,7 @@
             this.loginViewPassWordInput = new System.Windows.Forms.TextBox();
             this.loginViewUserInput = new System.Windows.Forms.TextBox();
             this.panelRegister = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonVolverDeRegister = new System.Windows.Forms.Button();
             this.registerViewInvalidCredentialsAlert = new System.Windows.Forms.TextBox();
             this.registerViewEmailInput = new System.Windows.Forms.TextBox();
@@ -56,6 +59,13 @@
             this.registerViewButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.buttonGoVerPelículas = new System.Windows.Forms.Button();
+            this.buttonGoMisPlaylists = new System.Windows.Forms.Button();
+            this.buttonGoEditarPlaylist = new System.Windows.Forms.Button();
+            this.buttonGoVerCanciones = new System.Windows.Forms.Button();
+            this.buttonGoCrearPlaylist = new System.Windows.Forms.Button();
+            this.buttonGoBuscar = new System.Windows.Forms.Button();
             this.textBoxUsernamePerfil = new System.Windows.Forms.TextBox();
             this.buttonModificarCuenta = new System.Windows.Forms.Button();
             this.buttonLogOut = new System.Windows.Forms.Button();
@@ -77,25 +87,15 @@
             this.button1 = new System.Windows.Forms.Button();
             this.buttonCambiarContraseña = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
-            this.FotoLogoEntrada = new System.Windows.Forms.PictureBox();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.buttonGoBuscar = new System.Windows.Forms.Button();
-            this.buttonGoCrearPlaylist = new System.Windows.Forms.Button();
-            this.buttonGoVerCanciones = new System.Windows.Forms.Button();
-            this.buttonGoEditarPlaylist = new System.Windows.Forms.Button();
-            this.buttonGoMisPlaylists = new System.Windows.Forms.Button();
-            this.buttonGoVerPelículas = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
             this.panelEntrada.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FotoLogoEntrada)).BeginInit();
             this.panelLogin.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.panelRegister.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FotoMenu)).BeginInit();
             this.panelModificarCuenta.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FotoLogoEntrada)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // panelEntrada
@@ -109,6 +109,17 @@
             this.panelEntrada.Name = "panelEntrada";
             this.panelEntrada.Size = new System.Drawing.Size(154, 111);
             this.panelEntrada.TabIndex = 0;
+            // 
+            // FotoLogoEntrada
+            // 
+            this.FotoLogoEntrada.Image = ((System.Drawing.Image)(resources.GetObject("FotoLogoEntrada.Image")));
+            this.FotoLogoEntrada.Location = new System.Drawing.Point(271, 88);
+            this.FotoLogoEntrada.Margin = new System.Windows.Forms.Padding(2);
+            this.FotoLogoEntrada.Name = "FotoLogoEntrada";
+            this.FotoLogoEntrada.Size = new System.Drawing.Size(128, 96);
+            this.FotoLogoEntrada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.FotoLogoEntrada.TabIndex = 19;
+            this.FotoLogoEntrada.TabStop = false;
             // 
             // buttonGoRegister
             // 
@@ -161,6 +172,17 @@
             this.panelLogin.Name = "panelLogin";
             this.panelLogin.Size = new System.Drawing.Size(146, 101);
             this.panelLogin.TabIndex = 14;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(329, 54);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(95, 48);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox2.TabIndex = 26;
+            this.pictureBox2.TabStop = false;
             // 
             // buttonVolverDeLogin
             // 
@@ -269,6 +291,17 @@
             this.panelRegister.Name = "panelRegister";
             this.panelRegister.Size = new System.Drawing.Size(178, 118);
             this.panelRegister.TabIndex = 14;
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
+            this.pictureBox1.Location = new System.Drawing.Point(331, 34);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(95, 48);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox1.TabIndex = 25;
+            this.pictureBox1.TabStop = false;
             // 
             // buttonVolverDeRegister
             // 
@@ -406,6 +439,77 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(118, 118);
             this.panelMenu.TabIndex = 25;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label12.Location = new System.Drawing.Point(47, 310);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(362, 55);
+            this.label12.TabIndex = 30;
+            this.label12.Text = "reproductor acá";
+            // 
+            // buttonGoVerPelículas
+            // 
+            this.buttonGoVerPelículas.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonGoVerPelículas.Location = new System.Drawing.Point(596, 127);
+            this.buttonGoVerPelículas.Name = "buttonGoVerPelículas";
+            this.buttonGoVerPelículas.Size = new System.Drawing.Size(134, 33);
+            this.buttonGoVerPelículas.TabIndex = 29;
+            this.buttonGoVerPelículas.Text = "VER PELÍCULAS";
+            this.buttonGoVerPelículas.UseVisualStyleBackColor = false;
+            // 
+            // buttonGoMisPlaylists
+            // 
+            this.buttonGoMisPlaylists.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonGoMisPlaylists.Location = new System.Drawing.Point(596, 169);
+            this.buttonGoMisPlaylists.Name = "buttonGoMisPlaylists";
+            this.buttonGoMisPlaylists.Size = new System.Drawing.Size(134, 33);
+            this.buttonGoMisPlaylists.TabIndex = 28;
+            this.buttonGoMisPlaylists.Text = "MIS PLAYLISTS";
+            this.buttonGoMisPlaylists.UseVisualStyleBackColor = false;
+            // 
+            // buttonGoEditarPlaylist
+            // 
+            this.buttonGoEditarPlaylist.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonGoEditarPlaylist.Location = new System.Drawing.Point(596, 211);
+            this.buttonGoEditarPlaylist.Name = "buttonGoEditarPlaylist";
+            this.buttonGoEditarPlaylist.Size = new System.Drawing.Size(134, 33);
+            this.buttonGoEditarPlaylist.TabIndex = 27;
+            this.buttonGoEditarPlaylist.Text = "EDITAR PLAYLIST";
+            this.buttonGoEditarPlaylist.UseVisualStyleBackColor = false;
+            // 
+            // buttonGoVerCanciones
+            // 
+            this.buttonGoVerCanciones.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonGoVerCanciones.Location = new System.Drawing.Point(596, 89);
+            this.buttonGoVerCanciones.Name = "buttonGoVerCanciones";
+            this.buttonGoVerCanciones.Size = new System.Drawing.Size(134, 32);
+            this.buttonGoVerCanciones.TabIndex = 26;
+            this.buttonGoVerCanciones.Text = "VER CANCIONES";
+            this.buttonGoVerCanciones.UseVisualStyleBackColor = false;
+            // 
+            // buttonGoCrearPlaylist
+            // 
+            this.buttonGoCrearPlaylist.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonGoCrearPlaylist.Location = new System.Drawing.Point(596, 252);
+            this.buttonGoCrearPlaylist.Name = "buttonGoCrearPlaylist";
+            this.buttonGoCrearPlaylist.Size = new System.Drawing.Size(134, 33);
+            this.buttonGoCrearPlaylist.TabIndex = 25;
+            this.buttonGoCrearPlaylist.Text = "CREAR PLAYLIST";
+            this.buttonGoCrearPlaylist.UseVisualStyleBackColor = false;
+            // 
+            // buttonGoBuscar
+            // 
+            this.buttonGoBuscar.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonGoBuscar.Location = new System.Drawing.Point(596, 51);
+            this.buttonGoBuscar.Name = "buttonGoBuscar";
+            this.buttonGoBuscar.Size = new System.Drawing.Size(134, 32);
+            this.buttonGoBuscar.TabIndex = 23;
+            this.buttonGoBuscar.Text = "BUSCAR";
+            this.buttonGoBuscar.UseVisualStyleBackColor = false;
             // 
             // textBoxUsernamePerfil
             // 
@@ -650,110 +754,6 @@
             this.label8.Text = "Perfil";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // FotoLogoEntrada
-            // 
-            this.FotoLogoEntrada.Image = ((System.Drawing.Image)(resources.GetObject("FotoLogoEntrada.Image")));
-            this.FotoLogoEntrada.Location = new System.Drawing.Point(271, 88);
-            this.FotoLogoEntrada.Margin = new System.Windows.Forms.Padding(2);
-            this.FotoLogoEntrada.Name = "FotoLogoEntrada";
-            this.FotoLogoEntrada.Size = new System.Drawing.Size(128, 96);
-            this.FotoLogoEntrada.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.FotoLogoEntrada.TabIndex = 19;
-            this.FotoLogoEntrada.TabStop = false;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(331, 34);
-            this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(95, 48);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 25;
-            this.pictureBox1.TabStop = false;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(329, 54);
-            this.pictureBox2.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(95, 48);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox2.TabIndex = 26;
-            this.pictureBox2.TabStop = false;
-            // 
-            // buttonGoBuscar
-            // 
-            this.buttonGoBuscar.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonGoBuscar.Location = new System.Drawing.Point(596, 51);
-            this.buttonGoBuscar.Name = "buttonGoBuscar";
-            this.buttonGoBuscar.Size = new System.Drawing.Size(134, 32);
-            this.buttonGoBuscar.TabIndex = 23;
-            this.buttonGoBuscar.Text = "BUSCAR";
-            this.buttonGoBuscar.UseVisualStyleBackColor = false;
-            // 
-            // buttonGoCrearPlaylist
-            // 
-            this.buttonGoCrearPlaylist.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonGoCrearPlaylist.Location = new System.Drawing.Point(596, 252);
-            this.buttonGoCrearPlaylist.Name = "buttonGoCrearPlaylist";
-            this.buttonGoCrearPlaylist.Size = new System.Drawing.Size(134, 33);
-            this.buttonGoCrearPlaylist.TabIndex = 25;
-            this.buttonGoCrearPlaylist.Text = "CREAR PLAYLIST";
-            this.buttonGoCrearPlaylist.UseVisualStyleBackColor = false;
-            // 
-            // buttonGoVerCanciones
-            // 
-            this.buttonGoVerCanciones.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonGoVerCanciones.Location = new System.Drawing.Point(596, 89);
-            this.buttonGoVerCanciones.Name = "buttonGoVerCanciones";
-            this.buttonGoVerCanciones.Size = new System.Drawing.Size(134, 32);
-            this.buttonGoVerCanciones.TabIndex = 26;
-            this.buttonGoVerCanciones.Text = "VER CANCIONES";
-            this.buttonGoVerCanciones.UseVisualStyleBackColor = false;
-            // 
-            // buttonGoEditarPlaylist
-            // 
-            this.buttonGoEditarPlaylist.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonGoEditarPlaylist.Location = new System.Drawing.Point(596, 211);
-            this.buttonGoEditarPlaylist.Name = "buttonGoEditarPlaylist";
-            this.buttonGoEditarPlaylist.Size = new System.Drawing.Size(134, 33);
-            this.buttonGoEditarPlaylist.TabIndex = 27;
-            this.buttonGoEditarPlaylist.Text = "EDITAR PLAYLIST";
-            this.buttonGoEditarPlaylist.UseVisualStyleBackColor = false;
-            // 
-            // buttonGoMisPlaylists
-            // 
-            this.buttonGoMisPlaylists.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonGoMisPlaylists.Location = new System.Drawing.Point(596, 169);
-            this.buttonGoMisPlaylists.Name = "buttonGoMisPlaylists";
-            this.buttonGoMisPlaylists.Size = new System.Drawing.Size(134, 33);
-            this.buttonGoMisPlaylists.TabIndex = 28;
-            this.buttonGoMisPlaylists.Text = "MIS PLAYLISTS";
-            this.buttonGoMisPlaylists.UseVisualStyleBackColor = false;
-            // 
-            // buttonGoVerPelículas
-            // 
-            this.buttonGoVerPelículas.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonGoVerPelículas.Location = new System.Drawing.Point(596, 127);
-            this.buttonGoVerPelículas.Name = "buttonGoVerPelículas";
-            this.buttonGoVerPelículas.Size = new System.Drawing.Size(134, 33);
-            this.buttonGoVerPelículas.TabIndex = 29;
-            this.buttonGoVerPelículas.Text = "VER PELÍCULAS";
-            this.buttonGoVerPelículas.UseVisualStyleBackColor = false;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label12.Location = new System.Drawing.Point(47, 310);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(362, 55);
-            this.label12.TabIndex = 30;
-            this.label12.Text = "reproductor acá";
-            // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -768,18 +768,18 @@
             this.Text = "Form1";
             this.panelEntrada.ResumeLayout(false);
             this.panelEntrada.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.FotoLogoEntrada)).EndInit();
             this.panelLogin.ResumeLayout(false);
             this.panelLogin.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.panelRegister.ResumeLayout(false);
             this.panelRegister.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FotoMenu)).EndInit();
             this.panelModificarCuenta.ResumeLayout(false);
             this.panelModificarCuenta.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.FotoLogoEntrada)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }

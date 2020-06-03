@@ -9,36 +9,21 @@ namespace Entrega3Spotiflix
     static class Archivos
     {
 
-        public static List<Usuario> usuarios = new List<Usuario>();
+        public static List<Usuario> Usuarios = new List<Usuario>();
         public static Dictionary<int, List<string>> lista_usuarios = new Dictionary<int, List<string>>();
-        /*public static List<Película> películasApp = new List<Película>();
+        public static List<Película> películasApp = new List<Película>();
         public static List<Canción> cancionesApp = new List<Canción>();
         public static List<Playlist> playlists_Canciones = new List<Playlist>();
-        public static List<Playlist> playlists_Películas = new List<Playlist>();*/
+        public static List<Playlist> playlists_Películas = new List<Playlist>();
+        private static List<Person> personasApp = new List<Person>();
+        public static List<Person> PersonasApp
+        {
+            get => personasApp; set => personasApp = value;
+        }
         public static Dictionary<int, List<string>> Lista_usuarios
         {
             get => lista_usuarios; set => lista_usuarios = value;
         }
-        public static List<Usuario> Usuarios
-        {
-            get => usuarios; set => usuarios = value;
-        }
-        /*public static List<Película> Películas
-        {
-            get => películasApp; set => películasApp = value;
-        }
-        public static List<Canción> Canciones
-        {
-            get => cancionesApp; set => cancionesApp = value;
-        }
-        public static List<Playlist> Playlists_Canciones
-        {
-            get => playlists_Canciones; set => playlists_Canciones = value;
-        }
-        public static List<Playlist> Playlists_Películas
-        {
-            get => playlists_Películas; set => playlists_Películas = value;
-        }*/
         public static void ChangePassword(string usr, string newpsswd)
         {
             foreach (List<string> user in Lista_usuarios.Values)
@@ -68,6 +53,8 @@ namespace Entrega3Spotiflix
             if (description == null)
             {
                 Lista_usuarios.Add(Lista_usuarios.Count + 1, data);
+                Usuario premium = new Usuario(data[0], data[1], data[2], data[3]); 
+                Usuarios.Add(premium);
             }
             return description;
         }

@@ -8,6 +8,10 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Entrega3Spotiflix.CustomsEvenArgs;
+using System.Runtime.Serialization;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.IO;
+using System.Reflection;
 
 namespace Entrega3Spotiflix
 {
@@ -27,13 +31,26 @@ namespace Entrega3Spotiflix
         public AppForm()
         {
             InitializeComponent();
+            IniciarSerializacion();
             panels.Add("EntradaPanel", panelEntrada);
             panels.Add("LoginPanel", panelLogin);
             panels.Add("RegisterPanel", panelRegister);
             panels.Add("MenuPanel", panelMenu);
             panels.Add("ModificarCuentaPanel", panelModificarCuenta);
-            stackPanels.Add(panels["EntradaPanel"]);
-            ShowLastPanel();
+            foreach (Usuario usuario in Archivos.Usuarios)
+            {
+                if (usuario.Logeado == true)
+                {
+                    stackPanels.Add(panels["MenuPanel"]);
+                    setNameUser(usuario.Nombre_usuario);
+                    ShowLastPanel();
+                }
+            }
+            if (stackPanels.Count() == 0)
+            {
+                stackPanels.Add(panels["EntradaPanel"]);
+                ShowLastPanel();
+            }
         }
         private void OnLoginButtonClicked(string username, string pass)
         {
@@ -49,6 +66,14 @@ namespace Entrega3Spotiflix
                 {
                     loginViewInvalidCredentialsAlert.ResetText();
                     loginViewInvalidCredentialsAlert.Visible = false;
+                    foreach (Usuario user in Archivos.Usuarios)
+                    {
+                        if (user.Nombre_usuario == username)
+                        {
+                            user.Logeado = true;
+                            Serializacion();
+                        }
+                    }
                     OnUserChecked(username);
                 }
             }
@@ -61,6 +86,14 @@ namespace Entrega3Spotiflix
                 loginViewUserInput.ResetText();
                 loginViewPassWordInput.ResetText();
                 setNameUser(username);
+                foreach (Usuario user in Archivos.Usuarios)
+                {
+                    if (user.Nombre_usuario == username)
+                    {
+                        user.Logeado = true;
+                        Serializacion();
+                    }
+                }
                 stackPanels.Add(panels["MenuPanel"]);
                 ShowLastPanel();
             }
@@ -84,6 +117,7 @@ namespace Entrega3Spotiflix
                 {
                     registerViewInvalidCredentialsAlert.ResetText();
                     registerViewInvalidCredentialsAlert.Visible = false;
+                    Serializacion();
                     OnUserChecked(username);
                 }
             }
@@ -110,12 +144,22 @@ namespace Entrega3Spotiflix
 
         private void buttonGoLogin_Click(object sender, EventArgs e)
         {
+            loginViewUserInput.ResetText();
+            loginViewPassWordInput.ResetText();
+            loginViewInvalidCredentialsAlert.ResetText();
+            loginViewInvalidCredentialsAlert.Visible = false;
             stackPanels.Add(panels["LoginPanel"]);
             ShowLastPanel();
         }
 
         private void buttonGoRegister_Click(object sender, EventArgs e)
         {
+            registerViewInvalidCredentialsAlert.ResetText();
+            registerViewInvalidCredentialsAlert.Visible = false;
+            registerViewUserInput.ResetText();
+            registerViewEmailInput.ResetText();
+            registerViewPassInput.ResetText();
+            registerViewTipoInput.ResetText();
             stackPanels.Add(panels["RegisterPanel"]);
             ShowLastPanel();
         }
@@ -161,6 +205,15 @@ namespace Entrega3Spotiflix
         private void buttonLogOut_Click(object sender, EventArgs e)
         {
             stackPanels.Add(panels["EntradaPanel"]);
+            foreach (Usuario usuario in Archivos.Usuarios)
+            {
+                if (usuario.Logeado == true)
+                {
+                    usuario.Logeado = false;
+                }
+            }
+            Serializacion();
+            setNameUser("");
             ShowLastPanel();
         }
 
@@ -264,10 +317,11 @@ namespace Entrega3Spotiflix
                 {
                     if (usuario.Nombre_usuario == usuario_ant)
                     {
+                        textBoxHacersePremium.Visible = true;
                         usuario.Tipo_usuario = "Premium";
                         textBoxHacersePremium.Text = "Se ha realizado el cambio con éxito";
-                        textBoxHacersePremium.Visible = false;
                     }
+                    Serializacion();
                 }
             }
         }
@@ -290,6 +344,7 @@ namespace Entrega3Spotiflix
             label11.Visible = false;
             textBoxUsuarioCambioUsername.Visible = false;
             buttonConfirmarCambioUsername.Visible = false;
+            Serializacion();
         }
 
         private void buttonConfirmarCambioContraseña_Click(object sender, EventArgs e)
@@ -312,6 +367,7 @@ namespace Entrega3Spotiflix
                     {
                         textBoxCambioContraseña.Text = "Contraseña Actual Incorrecta";
                     }
+                    Serializacion();
                 }
             }
             textBoxContraseñaCambioContraseña.Visible = false;
@@ -374,6 +430,129 @@ namespace Entrega3Spotiflix
         private void FotoMenu_Click(object sender, EventArgs e)
         {
 
+        }
+
+        //Serialización
+
+        private void Serializacion()
+        {
+            IFormatter formatter = new BinaryFormatter();
+
+            Stream stream7 = new FileStream("películasApp.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            Stream stream8 = new FileStream("cancionesApp.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            Stream stream9 = new FileStream("playlists_Canciones.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            Stream stream10 = new FileStream("playlists_Películas.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            Stream stream11 = new FileStream("Usuarios.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            Stream stream12 = new FileStream("PersonasApp.bin", FileMode.Create, FileAccess.Write, FileShare.None);
+            formatter.Serialize(stream7, Archivos.películasApp);
+            formatter.Serialize(stream8, Archivos.cancionesApp);
+            formatter.Serialize(stream9, Archivos.playlists_Canciones);
+            formatter.Serialize(stream10, Archivos.playlists_Películas);
+            formatter.Serialize(stream11, Archivos.Usuarios);
+            formatter.Serialize(stream12, Archivos.PersonasApp);
+            stream7.Close();
+            stream8.Close();
+            stream9.Close();
+            stream10.Close();
+            stream11.Close();
+            stream12.Close();
+        }
+        private void IniciarSerializacion()
+        {
+            Usuario grupo7 = new Usuario("username", "email", "contraseña", "Premium");
+            Archivos.Usuarios.Add(grupo7);
+            foreach (Usuario i in Archivos.Usuarios)
+            {
+                List<string> data = new List<string>()
+                        { i.Nombre_usuario, i.Email, i.Contraseña, Convert.ToString(DateTime.Now), i.Tipo_usuario};
+                Archivos.Lista_usuarios.Add(Archivos.Lista_usuarios.Count + 1, data);
+            }
+
+            IFormatter formatter = new BinaryFormatter();
+
+            string urlpelículasApp = Directory.GetCurrentDirectory() + "\\películasApp.bin";
+            string urlcancionesApp = Directory.GetCurrentDirectory() + "\\cancionesApp.bin";
+            string urlplaylists_Canciones = Directory.GetCurrentDirectory() + "\\playlists_Canciones.bin";
+            string urlplaylists_Películas = Directory.GetCurrentDirectory() + "\\playlists_Películas.bin";
+            string urlUsuarios = Directory.GetCurrentDirectory() + "\\Usuarios.bin";
+            string urlPersonasApp = Directory.GetCurrentDirectory() + "\\PersonasApp.bin";
+
+            if (File.Exists(urlpelículasApp) && File.Exists(urlcancionesApp) && File.Exists(urlplaylists_Canciones) && File.Exists(urlplaylists_Películas) && File.Exists(urlUsuarios) && File.Exists(urlPersonasApp))
+            {
+                Stream stream1 = new FileStream("películasApp.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+                Stream stream2 = new FileStream("cancionesApp.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+                Stream stream3 = new FileStream("playlists_Canciones.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+                Stream stream4 = new FileStream("playlists_Películas.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+                Stream stream5 = new FileStream("Usuarios.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+                Stream stream6 = new FileStream("PersonasApp.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
+                //try que Desterializa; catch mostrar mensaje; finally cierra archivo
+                try
+                {
+                    List<Película> des = (List<Película>)formatter.Deserialize(stream1);
+                    if (des.Count != 0)
+                    {
+                        Archivos.películasApp = des;
+                    }
+                }
+                catch
+                {
+                }
+                try
+                {
+                    List<Canción> des2 = (List<Canción>)formatter.Deserialize(stream2);
+                    if (des2.Count != 0)
+                    {
+                        Archivos.cancionesApp.Clear();
+                        Archivos.cancionesApp = des2;
+                    }
+                }
+                catch
+                {
+                }
+                try
+                {
+                    Archivos.playlists_Canciones = (List<Playlist>)formatter.Deserialize(stream3);
+                }
+                catch
+                {
+                }
+                try
+                {
+                    Archivos.playlists_Películas = (List<Playlist>)formatter.Deserialize(stream4);
+                }
+                catch
+                {
+                }
+                try
+                {
+                    Archivos.Usuarios = (List<Usuario>)formatter.Deserialize(stream5);
+                    foreach (Usuario i in Archivos.Usuarios)
+                    {
+                        List<string> data = new List<string>()
+                        { i.Nombre_usuario, i.Email, i.Contraseña, Convert.ToString(DateTime.Now), i.Tipo_usuario};
+                        Archivos.Lista_usuarios.Add(Archivos.Lista_usuarios.Count + 1, data);
+                    }
+                }
+                catch
+                {
+                }
+                try
+                {
+                    Archivos.PersonasApp = (List<Person>)formatter.Deserialize(stream6);
+                }
+                catch
+                {
+                }
+                finally
+                {
+                    stream1.Close();
+                    stream2.Close();
+                    stream3.Close();
+                    stream4.Close();
+                    stream5.Close();
+                    stream6.Close();
+                }
+            }
         }
     }
 }

@@ -1,15 +1,20 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text;
+using System.Linq;
+using System.Threading.Tasks;
 
 namespace Entrega3Spotiflix
 {
+    [Serializable]
     public class Usuario
     {
         string nombre_usuario;
         string contraseña;
         string email;
         string tipo_usuario;
+        public bool Logeado;
+        public List<Playlist> Favoritos = new List<Playlist>();
 
         public Usuario(string nombre_usuario, string email, string contraseña, string tipo_usuario)
         {
@@ -29,6 +34,7 @@ namespace Entrega3Spotiflix
                 return true;
             return false;
         }
+        public Usuario() { }
 
     }
 }
