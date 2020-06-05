@@ -10,7 +10,7 @@ namespace Entrega3Spotiflix
 {
     public class Búsqueda
     {
-        public List<Canción> buscar_cancion_por_tipo()
+        /*public List<Canción> buscar_cancion_por_tipo()
         {
             Console.WriteLine("Seleccione el filtro por el cual desea buscar");
             Console.WriteLine("1) Título");
@@ -191,7 +191,7 @@ namespace Entrega3Spotiflix
                 Console.WriteLine("Criterio ingresado no válido");
             }
             return resultado2;
-        }
+        }*/
     }
 }
 

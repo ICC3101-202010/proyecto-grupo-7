@@ -7,15 +7,17 @@ namespace Entrega3Spotiflix
 {
     public class Album
     {
-        public string Año;
+        public int Año;
         public string Nombre;
         public Artista Artista;
+        public string Imagen;
         //falta foto
-        public Album(string nombre, Artista artista, string año)
+        public Album(string Imagen, string nombre, Artista artista, int año)
         {
             this.Nombre = nombre;
             this.Artista = artista;
             this.Año = año;
+            this.Imagen = Imagen;
         }
         public string Nombre_get
         {
@@ -25,7 +27,7 @@ namespace Entrega3Spotiflix
         {
             get => Artista; set => Artista = value;
         }
-        public string Año_get
+        public int Año_get
         {
             get => Año; set => Año = value;
         }

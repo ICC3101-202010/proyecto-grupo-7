@@ -14,7 +14,7 @@ namespace Entrega3Spotiflix
     public class Película
     {
         public string titulo;
-        public string categoria;
+        public List<string> categoria;
         public string estudio;
         public string descripcion;
         public string premios;
@@ -27,13 +27,13 @@ namespace Entrega3Spotiflix
         public int avg_Ranking;
         public List<Person> Actores;
         public int numReproductions;
+        public string Imagen;
         //public static WindowsMediaPlayer player = new WindowsMediaPlayer();
         public string peli;
-        public Película(string titulo, string genero, string categoria, string estudio, string descripcion, string premios, int duracion, int min,
-            int anoPublicacion, int clasificacion, List<double> rating, int Avg_Ranking)
+        public Película(string titulo, string genero, List<string> Categoria, string estudio, string descripcion, string premios, int duracion, int min,
+            int anoPublicacion, int clasificacion, List<double> rating, int Avg_Ranking, string Imagen)
         {
             this.Titulo = titulo;
-            this.Categoria = categoria;
             this.Estudio = estudio;
             this.Premios = premios;
             this.Descripcion = descripcion;
@@ -41,6 +41,7 @@ namespace Entrega3Spotiflix
             this.min = min;
             this.AñoPublicacion = añoPublicacion;
             this.Avg_Ranking = avg_Ranking;
+            this.Imagen = Imagen;
         }
         public List<Person> actores
         {
@@ -50,9 +51,9 @@ namespace Entrega3Spotiflix
         {
             get => titulo; set => titulo = value;
         }
-        public string Categoria
+        public List<string> Categoria
         {
-            get => categoria; set => categoria = value;
+            get => Categoria; set => Categoria = value;
         }
         public string Estudio
         {
