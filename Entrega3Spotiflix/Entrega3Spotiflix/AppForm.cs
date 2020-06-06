@@ -13,6 +13,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.IO;
 using System.Reflection;
 using System.Windows.Forms.VisualStyles;
+using System.Security.Policy;
 
 namespace Entrega3Spotiflix
 {
@@ -44,9 +45,16 @@ namespace Entrega3Spotiflix
             List<string> genero_una_cerveza = new List<string>();
             string espacio = "3,78MB";
             genero_una_cerveza.Add("Cumbia");
+<<<<<<< HEAD
             string url_una_cerveza = @"\una cerveza.mp3";
             Canción Una_Cerveza = new Canción("Una cerveza", Ráfaga, Una_cerveza, genero_una_cerveza, 2016, reproducciones, Avg_calificacion, duración1, resolución, espacio, url_una_cerveza);
+=======
+            Canción Una_Cerveza = new Canción("Una cerveza", Ráfaga, Una_cerveza, genero_una_cerveza, 2016, reproducciones, Avg_calificacion, duración1, resolución, espacio);
+>>>>>>> d4643eb39e1e6b20ed9eebc954bcc4f5b4ba0b8b
             Archivos.cancionesApp.Add(Una_Cerveza);
+            var urlRafaga = curDir + @"\Songs\Rafaga ft. Rodrigo Tapari - Una Cerveza (Original).mp3";
+            listaDeTuMusica.Items.Add("Rafaga ft. Rodrigo Tapari - Una Cerveza (Original)");
+            canciones.Add(urlRafaga);
 
             //Callaita-Bad Bunny
             int duración2 = 251;
@@ -55,9 +63,17 @@ namespace Entrega3Spotiflix
             List<string> genero_callaita = new List<string>();
             string espacio2 = "7,68MB";
             genero_una_cerveza.Add("Reggaeton");
+<<<<<<< HEAD
             string url_callaita = @"\callaita.mp3";
             Canción Callaita = new Canción("Callaita", Bad_Bunny, callaita, genero_callaita, 2019, reproducciones, Avg_calificacion, duración2, resolución, espacio2, url_callaita);
+=======
+            Canción Callaita = new Canción("Callaita", Bad_Bunny, callaita, genero_callaita, 2019, reproducciones, Avg_calificacion, duración2, resolución, espacio2);
+>>>>>>> d4643eb39e1e6b20ed9eebc954bcc4f5b4ba0b8b
             Archivos.cancionesApp.Add(Callaita);
+            var urlCallaita = curDir + @"\Songs\Callaíta - Bad Bunny ( Video Oficial ).mp3";
+            listaDeTuMusica.Items.Add("Callaíta - Bad Bunny");
+            canciones.Add(urlCallaita);
+
             IniciarSerializacion();
             panels.Add("EntradaPanel", panelEntrada);
             panels.Add("LoginPanel", panelLogin);
@@ -66,6 +82,10 @@ namespace Entrega3Spotiflix
             panels.Add("ModificarCuentaPanel", panelModificarCuenta);
             panels.Add("CancionesPanel", panelCancciones);
             panels.Add("PelículasPanel", panelPelículas);
+            panels.Add("ReproducirCancionesPanel", reproducirPanel);
+
+
+
             foreach (Usuario usuario in Archivos.Usuarios)
             {
                 if (usuario.Logeado == true)
@@ -586,14 +606,13 @@ namespace Entrega3Spotiflix
 
         private void panelCancciones_Paint(object sender, PaintEventArgs e)
         {
-            
+
         }
 
         private void buttonGoVerCanciones_Click(object sender, EventArgs e)
         {
             FotoCanciónMostrada.Visible = false;
             buttonAgregarCancionAPlaylist.Visible = false;
-            buttonReproducir.Visible = false;
             buttonEvaluar.Visible = false;
             buttonInfoCanción.Visible = false;
             CanciónSeleccionada.Visible = false;
@@ -633,7 +652,6 @@ namespace Entrega3Spotiflix
             panel1.Visible = true;
             FotoCanciónMostrada.Visible = true;
             buttonAgregarCancionAPlaylist.Visible = true;
-            buttonReproducir.Visible = true;
             buttonEvaluar.Visible = true;
             buttonInfoCanción.Visible = true;
             CanciónSeleccionada.Visible = true;
@@ -736,6 +754,7 @@ namespace Entrega3Spotiflix
             VerPelículas(Archivos.películasApp);
         }
 
+<<<<<<< HEAD
         private void buttonReproducir_Click(object sender, EventArgs e)
         {
             axWindowsMediaPlayer1.Visible = true;
@@ -773,10 +792,32 @@ namespace Entrega3Spotiflix
         }
 
         private void pictureBoxReproducir_Click(object sender, EventArgs e)
+=======
+        List<string> canciones = new List<string>();
+        string curDir = Directory.GetCurrentDirectory();
+        private void reproducirCanciones_Click(object sender, EventArgs e)
+        {
+            stackPanels.Add(panels["ReproducirCancionesPanel"]);
+            ShowLastPanel();
+        }
+
+        private void listaDeTuMusica_SelectedIndexChanged_1(object sender, EventArgs e)
+        {
+            axWindowsMediaPlayer1.URL = canciones[listaDeTuMusica.SelectedIndex];
+        }
+
+        private void playMusic_Click(object sender, EventArgs e)
+        {
+            axWindowsMediaPlayer1.Ctlcontrols.play();
+        }
+
+        private void fondoMusica_Enter(object sender, EventArgs e)
+>>>>>>> d4643eb39e1e6b20ed9eebc954bcc4f5b4ba0b8b
         {
 
         }
 
+<<<<<<< HEAD
         private void buttonReproducirPelícula_Click(object sender, EventArgs e)
         {
             axWindowsMediaPlayer2.Visible = true;
@@ -788,6 +829,18 @@ namespace Entrega3Spotiflix
                     axWindowsMediaPlayer2.Ctlcontrols.play();
                     película.reproducciones += 1;
                 }
+=======
+        private void pauseMusic_Click(object sender, EventArgs e)
+        {
+            axWindowsMediaPlayer1.Ctlcontrols.stop();
+        }
+
+        private void salirDeReproducirCancion_Click(object sender, EventArgs e)
+        {
+            axWindowsMediaPlayer1.Ctlcontrols.stop();
+            stackPanels.Add(panels["MenuPanel"]);
+            ShowLastPanel();
+>>>>>>> d4643eb39e1e6b20ed9eebc954bcc4f5b4ba0b8b
         }
     }
 }
