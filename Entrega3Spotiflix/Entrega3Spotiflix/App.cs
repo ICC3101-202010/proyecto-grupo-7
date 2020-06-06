@@ -472,7 +472,7 @@ namespace Entrega3Spotiflix
             string input4 = Console.ReadLine();
             if (input4 == "1")
             {
-                película1.Play();
+                //película1.Play();
             }
             else if (input4 == "2")
             {
@@ -564,7 +564,7 @@ namespace Entrega3Spotiflix
                                     índice2 += 1;
                                 }
                                 int option = Convert.ToInt32(Console.ReadLine());
-                                usuario.Favoritos[input - 1].playlist_Películas[option - 1].Play();
+                                //usuario.Favoritos[input - 1].playlist_Películas[option - 1].Play();
                             }
                         }
                         if (usuario.Favoritos[input - 1].playlist_Canciones.Count() > 0)
@@ -594,7 +594,7 @@ namespace Entrega3Spotiflix
                             {
                                 Random rdn = new Random();
                                 int numero = rdn.Next(usuario.Favoritos[input - 1].playlist_Películas.Count);
-                                usuario.Favoritos[input - 1].playlist_Películas[numero].Play();
+                                //usuario.Favoritos[input - 1].playlist_Películas[numero].Play();
                             }
                         }
                         if (usuario.Favoritos[input - 1].playlist_Canciones.Count() > 0)
@@ -647,7 +647,7 @@ namespace Entrega3Spotiflix
             string input1 = Console.ReadLine();
             if (input1 == "1")
             {
-                película1.Play();
+                //película1.Play();
             }
             else if (input1 == "2")
             {

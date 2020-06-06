@@ -21,6 +21,7 @@ namespace Entrega3Spotiflix
         //Organizacion
         List<Panel> stackPanels = new List<Panel>();
         Dictionary<string, Panel> panels = new Dictionary<string, Panel>();
+        string ruta;
 
         //Eventos
         public delegate bool RegisterEventHandler(object source, RegisterEventArgs args);
@@ -43,8 +44,8 @@ namespace Entrega3Spotiflix
             List<string> genero_una_cerveza = new List<string>();
             string espacio = "3,78MB";
             genero_una_cerveza.Add("Cumbia");
-            string url_una_cerveza = @"una cerveza.mp3";
-            Canción Una_Cerveza = new Canción("Una cerveza", Ráfaga, Una_cerveza, genero_una_cerveza, 2016, reproducciones, Avg_calificacion, duración1, resolución, espacio);
+            string url_una_cerveza = @"\una cerveza.mp3";
+            Canción Una_Cerveza = new Canción("Una cerveza", Ráfaga, Una_cerveza, genero_una_cerveza, 2016, reproducciones, Avg_calificacion, duración1, resolución, espacio, url_una_cerveza);
             Archivos.cancionesApp.Add(Una_Cerveza);
 
             //Callaita-Bad Bunny
@@ -54,8 +55,8 @@ namespace Entrega3Spotiflix
             List<string> genero_callaita = new List<string>();
             string espacio2 = "7,68MB";
             genero_una_cerveza.Add("Reggaeton");
-            string url_callaita = @"callaita.mp3";
-            Canción Callaita = new Canción("Callaita", Bad_Bunny, callaita, genero_callaita, 2019, reproducciones, Avg_calificacion, duración2, resolución, espacio2);
+            string url_callaita = @"\callaita.mp3";
+            Canción Callaita = new Canción("Callaita", Bad_Bunny, callaita, genero_callaita, 2019, reproducciones, Avg_calificacion, duración2, resolución, espacio2, url_callaita);
             Archivos.cancionesApp.Add(Callaita);
             IniciarSerializacion();
             panels.Add("EntradaPanel", panelEntrada);
@@ -596,6 +597,8 @@ namespace Entrega3Spotiflix
             buttonEvaluar.Visible = false;
             buttonInfoCanción.Visible = false;
             CanciónSeleccionada.Visible = false;
+            panel1.Visible = false;
+            axWindowsMediaPlayer1.Visible = false;
             stackPanels.Add(panels["CancionesPanel"]);
             ShowLastPanel();
             listViewCanciones.Clear();
@@ -625,6 +628,9 @@ namespace Entrega3Spotiflix
 
         private void listViewCanciones_MouseClick(object sender, MouseEventArgs e)
         {
+            axWindowsMediaPlayer2.Ctlcontrols.pause();
+            axWindowsMediaPlayer2.Visible = false;
+            panel1.Visible = true;
             FotoCanciónMostrada.Visible = true;
             buttonAgregarCancionAPlaylist.Visible = true;
             buttonReproducir.Visible = true;
@@ -647,6 +653,10 @@ namespace Entrega3Spotiflix
                         FotoCanciónMostrada.Image = Image.FromFile(sin_foto);
                         FotoCanciónMostrada.SizeMode = PictureBoxSizeMode.StretchImage;
                     }
+                    AlbumCanciónSeleccionada.Text = canción.album.Nombre;
+                    ArtistaCanciónSeleccionada.Text = canción.artista.Apellido;
+                    ReproduccionesCanciónSeleccionada.Text = canción.reproducciones.ToString();
+                    CalificaciónCanciónSeleccionada.Text = canción.Avg_calificacion.ToString();
 
                 }
             }
@@ -666,16 +676,19 @@ namespace Entrega3Spotiflix
         {
             stackPanels.Add(panels["MenuPanel"]);
             ShowLastPanel();
+            axWindowsMediaPlayer1.Ctlcontrols.pause();
         }
 
         private void buttonVolverDeVerPelícula_Click(object sender, EventArgs e)
         {
             stackPanels.Add(panels["MenuPanel"]);
             ShowLastPanel();
+            axWindowsMediaPlayer2.Ctlcontrols.pause();
         }
 
         private void listViewPelículas_MouseClick(object sender, MouseEventArgs e)
         {
+            axWindowsMediaPlayer2.Visible = false;
             FotoPelícula.Visible = true;
             buttonAgregarPelículaAPlaylist.Visible = true;
             buttonReproducirPelícula.Visible = true;
@@ -685,7 +698,7 @@ namespace Entrega3Spotiflix
             PelículaSeleccionada.Text = listViewPelículas.SelectedItems[0].SubItems[0].Text;
             foreach (Película película in Archivos.películasApp)
             {
-                if (película.titulo == CanciónSeleccionada.Text)
+                if (película.titulo == PelículaSeleccionada.Text)
                 {
                     try
                     {
@@ -698,6 +711,10 @@ namespace Entrega3Spotiflix
                         FotoPelícula.Image = Image.FromFile(sin_foto);
                         FotoPelícula.SizeMode = PictureBoxSizeMode.StretchImage;
                     }
+                    TituloPelículaSeleccionada.Text = película.director.Nombre;
+                    AñoPelículaSeleccionada.Text = película.añoPublicacion.ToString();
+                    DuraciónPelículaSeleccionada.Text = película.duracion.ToString();
+                    CalificaciónPelículaSeleccionada.Text = película.avg_Ranking.ToString();
 
                 }
             }
@@ -705,6 +722,8 @@ namespace Entrega3Spotiflix
 
         private void buttonGoVerPelículas_Click(object sender, EventArgs e)
         {
+            panel2.Visible = false;
+            axWindowsMediaPlayer2.Visible = false;
             FotoPelícula.Visible = false;
             buttonAgregarPelículaAPlaylist.Visible = false;
             buttonReproducirPelícula.Visible = false;
@@ -715,6 +734,60 @@ namespace Entrega3Spotiflix
             ShowLastPanel();
             listViewPelículas.Clear();
             VerPelículas(Archivos.películasApp);
+        }
+
+        private void buttonReproducir_Click(object sender, EventArgs e)
+        {
+            axWindowsMediaPlayer1.Visible = true;
+            foreach (Canción canción in Archivos.cancionesApp)
+                if (canción.titulo == CanciónSeleccionada.Text)
+                {
+                    EncontrarArchivo(canción.titulo);
+                    axWindowsMediaPlayer1.URL = this.ruta;
+                    axWindowsMediaPlayer1.Ctlcontrols.play();
+                    canción.reproducciones += 1;
+                }
+        }
+        public void EncontrarArchivo(string valor)
+        {
+            string carpeta = Directory.GetCurrentDirectory();
+            foreach (Película película in Archivos.películasApp)
+            {
+                if (valor == película.titulo)
+                {
+                    this.ruta = carpeta + película.Url;
+                }
+            }
+            foreach (Canción canción in Archivos.cancionesApp)
+            {
+                if (valor == canción.titulo)
+                {
+                    this.ruta = carpeta + canción.Url;
+                }
+            }
+        }
+
+        private void pictureBoxPausa_Click(object sender, EventArgs e)
+        {
+            axWindowsMediaPlayer1.Ctlcontrols.pause();
+        }
+
+        private void pictureBoxReproducir_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonReproducirPelícula_Click(object sender, EventArgs e)
+        {
+            axWindowsMediaPlayer2.Visible = true;
+            foreach (Película película in Archivos.películasApp)
+                if (película.titulo == PelículaSeleccionada.Text)
+                {
+                    EncontrarArchivo(película.titulo);
+                    axWindowsMediaPlayer2.URL = this.ruta;
+                    axWindowsMediaPlayer2.Ctlcontrols.play();
+                    película.reproducciones += 1;
+                }
         }
     }
 }

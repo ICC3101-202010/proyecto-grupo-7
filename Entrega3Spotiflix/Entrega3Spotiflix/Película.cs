@@ -26,22 +26,24 @@ namespace Entrega3Spotiflix
         public List<int> Rating;
         public int avg_Ranking;
         public List<Person> Actores;
-        public int numReproductions;
+        public int reproducciones;
         public string Imagen;
+        public int añoPublicación;
+        public string Url;
         //public static WindowsMediaPlayer player = new WindowsMediaPlayer();
         public string peli;
-        public Película(string titulo, string genero, List<string> Categoria, string estudio, string descripcion, string premios, int duracion, int min,
-            int anoPublicacion, int clasificacion, List<double> rating, int Avg_Ranking, string Imagen)
+        public Película(string titulo, List<string> Categoria, string estudio, string descripcion, int duracion, int añoPublicacion, int clasificacion, List<double> rating, int Avg_Ranking, string Imagen, string Url, int reproducciones)
         {
             this.Titulo = titulo;
             this.Estudio = estudio;
             this.Premios = premios;
             this.Descripcion = descripcion;
             this.duracion = duracion;
-            this.min = min;
             this.AñoPublicacion = añoPublicacion;
             this.Avg_Ranking = avg_Ranking;
             this.Imagen = Imagen;
+            this.Url = Url;
+            this.reproducciones = reproducciones;
         }
         public List<Person> actores
         {
@@ -87,13 +89,6 @@ namespace Entrega3Spotiflix
             {
                 Console.WriteLine(actores.Nombre);
             }
-        }
-        public void Play()
-        {
-            var carpeta = Directory.GetCurrentDirectory();
-            string D = carpeta + peli;
-            numReproductions += 1;
-            System.Diagnostics.Process.Start(D);
         }
 
     }
