@@ -22,6 +22,7 @@ namespace Entrega3Spotiflix
         List<Panel> stackPanels = new List<Panel>();
         Dictionary<string, Panel> panels = new Dictionary<string, Panel>();
         string ruta;
+        
 
         //Eventos
         public delegate bool RegisterEventHandler(object source, RegisterEventArgs args);
@@ -353,7 +354,7 @@ namespace Entrega3Spotiflix
         {
             textBoxUsernamePerfil.Text = username;
         }
-        private void OnAgregarCancionClicked(string nombre, string artista, string album, string genero, string AñoPublicacion, string reproducciones, string calificacion, string avg_calificacion, string duracion, string resolucion, string espacio, string ruta)
+        private void OnAgregarCancionClicked(string nombre, string artista, string album, string genero, string AñoPublicacion, string reproducciones, string calificacion, string avg_calificacion, string duracion, string resolucion, string espacio, string ruta, string imagen)
         {
             if (nombre == "" || artista == "" || album == "" || duracion == "" || espacio == "" || Convert.ToString(resolucion) == "" || ruta == "" || genero == "")
             {
@@ -362,7 +363,7 @@ namespace Entrega3Spotiflix
             }
             else
             {
-                bool result = AgregarCancionClicked(this, new AgregarCancionEventArgs() { Nombre = nombre, Artista = artista, Album = album, genero = genero, añoPublicacion = AñoPublicacion, Reproducciones = Convert.ToInt32(reproducciones), Calificacion=Convert.ToInt32(calificacion), avg_calificacion = Convert.ToInt32(avg_calificacion), Duracion = duracion, Resolucion = resolucion, Espacio = espacio, URL = ruta });
+                bool result = AgregarCancionClicked(this, new AgregarCancionEventArgs() { Nombre = nombre, Artista = artista, Album = album, genero = genero, añoPublicacion = AñoPublicacion, Reproducciones = Convert.ToInt32(reproducciones), Calificacion=Convert.ToInt32(calificacion), avg_calificacion = Convert.ToInt32(avg_calificacion), Duracion = duracion, Resolucion = resolucion, Espacio = espacio, URL = ruta , imagen = imagen});
                 if (!result)
                 {
                     labelFaltanDatosCancion.Text = "Esta cancion ya existe";
@@ -901,7 +902,7 @@ namespace Entrega3Spotiflix
                     }
                     catch
                     {
-                        string sin_foto = "Sin_Imagen.jpg";
+                        string sin_foto = "logo.jpeg";
                         FotoCanciónMostrada.Image = Image.FromFile(sin_foto);
                         FotoCanciónMostrada.SizeMode = PictureBoxSizeMode.StretchImage;
                     }
@@ -961,7 +962,7 @@ namespace Entrega3Spotiflix
                     }
                     catch
                     {
-                        string sin_foto = "Sin_Imagen.jpg";
+                        string sin_foto = "logo.jpeg";
                         FotoPelícula.Image = Image.FromFile(sin_foto);
                         FotoPelícula.SizeMode = PictureBoxSizeMode.StretchImage;
                     }
@@ -1513,7 +1514,8 @@ namespace Entrega3Spotiflix
             comboBoxCalificaciónPelícula.Visible = false;
             buttonConfirmarCalificaciónPelícula.Visible = false;
         }
-        string[] archivo, Ruta;
+        string[] archivo, archivo1, Ruta, Ruta1;
+        string ruta1;
 
         private void buttonVolverAgregarCancion_Click(object sender, EventArgs e)
         {
@@ -1530,10 +1532,12 @@ namespace Entrega3Spotiflix
             string genero = textBoxGeneroCancion.Text;
             string espacio = textBoxEspacioCancion.Text;
             string resolucion = textBoxResoluciónCancion.Text;
+            string imagen = labelRutaImagenCancion.Text;
             if (labelRutaCancion.Visible == true)
             {
                 string ruta = labelRutaCancion.Text;
-                OnAgregarCancionClicked(nombre, artista, album, genero, "2016", "0","0","0", duracion, resolucion, espacio, ruta);
+                OnAgregarCancionClicked(nombre, artista, album, genero, "2016", "0","0","0", duracion, resolucion, espacio, ruta, imagen);
+                labelRutaImagenCancion.Visible = false;
             }
             else
             {
@@ -1557,6 +1561,23 @@ namespace Entrega3Spotiflix
             axWindowsMediaPlayer2.Visible = false;
             pictureBoxSalirReproducirPelicula.Visible = false;
             PelículaSeleccionada.Visible = false;
+        }
+
+        private void btnAgregarImagenACancion_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                archivo1 = openFileDialog.SafeFileNames;
+                Ruta1 = openFileDialog.FileNames;
+
+                for (int i = 0; i < archivo1.Length; i++)
+                {
+                    ruta1 = Ruta1[i];
+                    labelRutaImagenCancion.Text = ruta1;
+                    labelRutaImagenCancion.Visible = true;
+                }
+            }
         }
 
         private void btnBuscarArchivoCancion_Click(object sender, EventArgs e)

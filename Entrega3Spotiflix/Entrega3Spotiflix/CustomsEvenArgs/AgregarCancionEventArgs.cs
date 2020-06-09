@@ -21,5 +21,6 @@ namespace Entrega3Spotiflix.CustomsEvenArgs
         public int Reproducciones { get; set; }
         public int Calificacion { get; set; }
         public int avg_calificacion{ get; set; }
+        public string imagen { get; set; }
     }
 }

@@ -112,6 +112,7 @@
             this.CanciónSeleccionada = new System.Windows.Forms.Label();
             this.listViewCanciones = new System.Windows.Forms.ListView();
             this.panelPelículas = new System.Windows.Forms.Panel();
+            this.pictureBoxSalirReproducirPelicula = new System.Windows.Forms.PictureBox();
             this.buttonConfirmarCalificaciónPelícula = new System.Windows.Forms.Button();
             this.comboBoxCalificaciónPelícula = new System.Windows.Forms.ComboBox();
             this.axWindowsMediaPlayer2 = new AxWMPLib.AxWindowsMediaPlayer();
@@ -150,6 +151,7 @@
             this.comboBoxCriterio1 = new System.Windows.Forms.ComboBox();
             this.labelFiltroBúsqueda = new System.Windows.Forms.Label();
             this.panelAgregarCancion = new System.Windows.Forms.Panel();
+            this.labelRutaImagenCancion = new System.Windows.Forms.Label();
             this.buttonConfrimarAgregarCancion = new System.Windows.Forms.Button();
             this.labelDebeAgregarArchivoCancion = new System.Windows.Forms.Label();
             this.labelRutaCancion = new System.Windows.Forms.Label();
@@ -172,7 +174,6 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
-            this.pictureBoxSalirReproducirPelicula = new System.Windows.Forms.PictureBox();
             this.panelEntrada.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FotoLogoEntrada)).BeginInit();
             this.panelLogin.SuspendLayout();
@@ -188,6 +189,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.FotoCanciónMostrada)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panelPelículas.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSalirReproducirPelicula)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).BeginInit();
             this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FotoPelícula)).BeginInit();
@@ -197,7 +199,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panelAgregarCancion.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSalirReproducirPelicula)).BeginInit();
             this.SuspendLayout();
             // 
             // panelEntrada
@@ -1177,11 +1178,22 @@
             this.panelPelículas.Controls.Add(this.pictureBox5);
             this.panelPelículas.Controls.Add(this.PelículaSeleccionada);
             this.panelPelículas.Controls.Add(this.listViewPelículas);
-            this.panelPelículas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelPelículas.Location = new System.Drawing.Point(0, 0);
+            this.panelPelículas.Location = new System.Drawing.Point(156, 3);
             this.panelPelículas.Name = "panelPelículas";
-            this.panelPelículas.Size = new System.Drawing.Size(754, 376);
+            this.panelPelículas.Size = new System.Drawing.Size(200, 127);
             this.panelPelículas.TabIndex = 28;
+            // 
+            // pictureBoxSalirReproducirPelicula
+            // 
+            this.pictureBoxSalirReproducirPelicula.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSalirReproducirPelicula.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxSalirReproducirPelicula.Image")));
+            this.pictureBoxSalirReproducirPelicula.Location = new System.Drawing.Point(722, 12);
+            this.pictureBoxSalirReproducirPelicula.Name = "pictureBoxSalirReproducirPelicula";
+            this.pictureBoxSalirReproducirPelicula.Size = new System.Drawing.Size(20, 20);
+            this.pictureBoxSalirReproducirPelicula.TabIndex = 46;
+            this.pictureBoxSalirReproducirPelicula.TabStop = false;
+            this.pictureBoxSalirReproducirPelicula.Visible = false;
+            this.pictureBoxSalirReproducirPelicula.Click += new System.EventHandler(this.pictureBoxSalirReproducirPelicula_Click);
             // 
             // buttonConfirmarCalificaciónPelícula
             // 
@@ -1218,7 +1230,7 @@
             // axWindowsMediaPlayer2
             // 
             this.axWindowsMediaPlayer2.Enabled = true;
-            this.axWindowsMediaPlayer2.Location = new System.Drawing.Point(0, 0);
+            this.axWindowsMediaPlayer2.Location = new System.Drawing.Point(0, 2);
             this.axWindowsMediaPlayer2.Name = "axWindowsMediaPlayer2";
             this.axWindowsMediaPlayer2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer2.OcxState")));
             this.axWindowsMediaPlayer2.Size = new System.Drawing.Size(551, 285);
@@ -1635,6 +1647,7 @@
             // panelAgregarCancion
             // 
             this.panelAgregarCancion.BackColor = System.Drawing.SystemColors.WindowText;
+            this.panelAgregarCancion.Controls.Add(this.labelRutaImagenCancion);
             this.panelAgregarCancion.Controls.Add(this.buttonConfrimarAgregarCancion);
             this.panelAgregarCancion.Controls.Add(this.labelDebeAgregarArchivoCancion);
             this.panelAgregarCancion.Controls.Add(this.labelRutaCancion);
@@ -1657,10 +1670,21 @@
             this.panelAgregarCancion.Controls.Add(this.label23);
             this.panelAgregarCancion.Controls.Add(this.label22);
             this.panelAgregarCancion.Controls.Add(this.label19);
-            this.panelAgregarCancion.Location = new System.Drawing.Point(344, 190);
+            this.panelAgregarCancion.Location = new System.Drawing.Point(347, 182);
             this.panelAgregarCancion.Name = "panelAgregarCancion";
-            this.panelAgregarCancion.Size = new System.Drawing.Size(167, 107);
+            this.panelAgregarCancion.Size = new System.Drawing.Size(177, 132);
             this.panelAgregarCancion.TabIndex = 30;
+            // 
+            // labelRutaImagenCancion
+            // 
+            this.labelRutaImagenCancion.AutoSize = true;
+            this.labelRutaImagenCancion.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.labelRutaImagenCancion.Location = new System.Drawing.Point(386, 147);
+            this.labelRutaImagenCancion.Name = "labelRutaImagenCancion";
+            this.labelRutaImagenCancion.Size = new System.Drawing.Size(41, 13);
+            this.labelRutaImagenCancion.TabIndex = 10;
+            this.labelRutaImagenCancion.Text = "label12";
+            this.labelRutaImagenCancion.Visible = false;
             // 
             // buttonConfrimarAgregarCancion
             // 
@@ -1713,6 +1737,7 @@
             this.button3.TabIndex = 5;
             this.button3.Text = "Agregar imagen canción";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.btnAgregarImagenACancion_Click);
             // 
             // button2
             // 
@@ -1864,30 +1889,18 @@
             this.label19.TabIndex = 0;
             this.label19.Text = "Agregar Canción";
             // 
-            // pictureBoxSalirReproducirPelicula
-            // 
-            this.pictureBoxSalirReproducirPelicula.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxSalirReproducirPelicula.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxSalirReproducirPelicula.Image")));
-            this.pictureBoxSalirReproducirPelicula.Location = new System.Drawing.Point(722, 12);
-            this.pictureBoxSalirReproducirPelicula.Name = "pictureBoxSalirReproducirPelicula";
-            this.pictureBoxSalirReproducirPelicula.Size = new System.Drawing.Size(20, 20);
-            this.pictureBoxSalirReproducirPelicula.TabIndex = 46;
-            this.pictureBoxSalirReproducirPelicula.TabStop = false;
-            this.pictureBoxSalirReproducirPelicula.Visible = false;
-            this.pictureBoxSalirReproducirPelicula.Click += new System.EventHandler(this.pictureBoxSalirReproducirPelicula_Click);
-            // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(754, 376);
+            this.Controls.Add(this.panelLogin);
+            this.Controls.Add(this.panelEntrada);
+            this.Controls.Add(this.panelAgregarCancion);
             this.Controls.Add(this.panelPelículas);
             this.Controls.Add(this.panelMenu);
-            this.Controls.Add(this.panelAgregarCancion);
             this.Controls.Add(this.panelBúsqueda);
             this.Controls.Add(this.panelCancciones);
-            this.Controls.Add(this.panelEntrada);
-            this.Controls.Add(this.panelLogin);
             this.Controls.Add(this.panelRegister);
             this.Controls.Add(this.panelModificarCuenta);
             this.Name = "AppForm";
@@ -1915,6 +1928,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             this.panelPelículas.ResumeLayout(false);
             this.panelPelículas.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSalirReproducirPelicula)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
@@ -1928,7 +1942,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panelAgregarCancion.ResumeLayout(false);
             this.panelAgregarCancion.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSalirReproducirPelicula)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2079,6 +2092,7 @@
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button buttonIrAgregarCancion;
         private System.Windows.Forms.PictureBox pictureBoxSalirReproducirPelicula;
+        private System.Windows.Forms.Label labelRutaImagenCancion;
     }
 }
 

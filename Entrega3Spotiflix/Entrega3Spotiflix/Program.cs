@@ -15,10 +15,6 @@ namespace Entrega3Spotiflix
         [STAThread]
         static void Main()
         {
-
-            Archivos.Usuarios.Add(new Usuario("aa", "aa", "aa", "Gratis"));
-            Archivos.Usuarios.Add(new Usuario("bb", "bb", "bb", "Premium"));
-            Archivos.Lista_usuarios[0] = new List<string>() { "aa", "aa", "aa", Convert.ToString(DateTime.Now), "Gratis" };
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             AppForm appform = new AppForm();

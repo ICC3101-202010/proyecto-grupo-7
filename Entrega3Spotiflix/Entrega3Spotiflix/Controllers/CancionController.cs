@@ -26,7 +26,7 @@ namespace Entrega3Spotiflix.Controllers
         public bool OnAgregarCancionClicked(object sender, AgregarCancionEventArgs e)
         {
             string result = Archivos.AddCancion(new List<string>()
-                {e.Nombre, e.Artista, e.Album, e.genero , e.añoPublicacion, Convert.ToString(e.Reproducciones),Convert.ToString(e.Calificacion), Convert.ToString(e.avg_calificacion), e.Duracion, e.Resolucion, e.Espacio, e.URL});
+                {e.Nombre, e.Artista, e.Album, e.genero , e.añoPublicacion, Convert.ToString(e.Reproducciones),Convert.ToString(e.Calificacion), Convert.ToString(e.avg_calificacion), e.Duracion, e.Resolucion, e.Espacio, e.URL, e.imagen});
             if (result == null)
             {
                 return true;
