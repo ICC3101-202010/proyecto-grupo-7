@@ -86,7 +86,8 @@ namespace Entrega3Spotiflix
                 Artista artista = new Artista(data[1], data[1], "", 0, "");
                 Album album = new Album("", data[2], artista, 0);
                 List<string> genero = new List<string>() { data[3] };
-                Canción cancion = new Canción(data[0], artista, album, genero, Convert.ToInt32(data[4]), Convert.ToInt32(data[5]), Convert.ToInt32(data[6]), Convert.ToInt32(data[7]), data[8], data[9], data[10]);
+                List<int> calificacion = new List<int>() { Convert.ToInt32(data[6]) };
+                Canción cancion = new Canción(data[0], artista, album, genero, Convert.ToInt32(data[4]), Convert.ToInt32(data[5]), calificacion, Convert.ToInt32(data[7]), Convert.ToInt32(data[8]), data[9], data[10], data[11]);
                 cancionesApp.Add(cancion);
             }
             return description;

@@ -36,6 +36,7 @@ namespace Entrega3Spotiflix
         public AppForm()
         {
             InitializeComponent();
+            string carpeta = Directory.GetCurrentDirectory();
             string resolución = "256kbps";
             int reproducciones = 0;
             int Avg_calificacion = 0; //CANCION Y PELICULA
@@ -47,20 +48,212 @@ namespace Entrega3Spotiflix
             List<string> genero_una_cerveza = new List<string>();
             string espacio = "3,78MB";
             genero_una_cerveza.Add("Cumbia");
-            string url_una_cerveza = @"\una cerveza.mp3";
-            Canción Una_Cerveza = new Canción("Una cerveza", Ráfaga, Una_cerveza, genero_una_cerveza, 2016, reproducciones, Avg_calificacion, duración1, resolución, espacio, url_una_cerveza);
+            string url_una_cerveza = carpeta +  @"\Songs\una cerveza.mp3";
+            Canción Una_Cerveza = new Canción("Una cerveza", Ráfaga, Una_cerveza, genero_una_cerveza, 2016, reproducciones, Calificación, Avg_calificacion, duración1, resolución, espacio, url_una_cerveza);
             Archivos.cancionesApp.Add(Una_Cerveza);
 
             //Callaita-Bad Bunny
+            List<int> Calificación1 = new List<int>();
             int duración2 = 251;
             Artista Bad_Bunny = new Artista("Bad Bunny", "Bad Bunny", "Masculino", 26, "Puerto Rico");
             Album callaita = new Album("Foto_callaita.jpg", "Callaita", Bad_Bunny, 2019);
             List<string> genero_callaita = new List<string>();
             string espacio2 = "7,68MB";
-            genero_una_cerveza.Add("Reggaeton");
-            string url_callaita = @"\callaita.mp3";
-            Canción Callaita = new Canción("Callaita", Bad_Bunny, callaita, genero_callaita, 2019, reproducciones, Avg_calificacion, duración2, resolución, espacio2, url_callaita);
+            genero_callaita.Add("Reggaeton");
+            string url_callaita = carpeta + @"\Songs\callaita.mp3";
+            Canción Callaita = new Canción("Callaita", Bad_Bunny, callaita, genero_callaita, 2019, reproducciones, Calificación1, Avg_calificacion, duración2, resolución, espacio2, url_callaita);
             Archivos.cancionesApp.Add(Callaita);
+
+            //Tattoo
+            List<int> Calificación2 = new List<int>();
+            int duración3 = 202;
+            Artista Rauw_Alejandro = new Artista("Rauw Alejandro", "Rauw Alejandro", "Masculino", 22, "Puerto Rico");
+            Album TattoA = new Album("FotoTattoo.jpg", "Tatto", Rauw_Alejandro, 2019);
+            List<string> genero_Tatto = new List<string>();
+            string espacio3 = "6,32MB";
+            genero_Tatto.Add("Reggaeton");
+            string url_Tatto = carpeta + @"\Songs\tatto.mp3";
+            Canción Tatto = new Canción("Tattoo", Rauw_Alejandro, TattoA, genero_Tatto, 2019, reproducciones, Calificación2, Avg_calificacion, duración3, resolución, espacio3, url_Tatto);
+            Archivos.cancionesApp.Add(Tatto);
+
+            //Piñata
+            List<int> Calificación3 = new List<int>();
+            int duración4 = 144;
+            Artista ElCuis = new Artista("ElCuis", "El Cuis", "Masculino", 26, "Argentino");
+            Album piñata = new Album("piñata.jpg", "Piñata", ElCuis, 2019);
+            List<string> genero_piñata = new List<string>();
+            string espacio4 = "4,36MB";
+            genero_piñata.Add("Cumbia");
+            string url_piñata = carpeta + @"\Songs\piñata.mp3";
+            Canción Piñata = new Canción("Piñata", ElCuis, piñata, genero_piñata, 2019, reproducciones, Calificación3, Avg_calificacion, duración4, resolución, espacio4, url_piñata);
+            Archivos.cancionesApp.Add(Piñata);
+
+            //Watermelon sugar
+            List<int> Calificación4 = new List<int>();
+            int duración5 = 174;
+            Artista Harry_Styles = new Artista("Harry", "Harry Styles", "Masculino", 26, "Estados Unidos");
+            Album FineLine = new Album("Watermelon.jpeg", "Fine Line", Harry_Styles, 2020);
+            List<string> genero_WS = new List<string>();
+            string espacio5 = "7,68MB";
+            genero_WS.Add("Pop");
+            string url_WS = carpeta + @"\Songs\watermelon sugar.mp3";
+            Canción WatermelonSugar = new Canción("Watermelon Sugar", Harry_Styles, FineLine, genero_WS, 2020, reproducciones, Calificación4, Avg_calificacion, duración5, resolución, espacio5, url_WS);
+            Archivos.cancionesApp.Add(WatermelonSugar);
+
+            //I want it that way
+            List<int> Calificación5 = new List<int>();
+            int duración6 = 211;
+            Artista BSB = new Artista("BSB", "Back street boys", "Masculino", 50, "Estados Unidos");
+            Album Millenium = new Album("bsb.jfif", "BSB", BSB, 1999);
+            List<string> genero_BSB = new List<string>();
+            string espacio6 = "1,67MB";
+            genero_BSB.Add("Pop");
+            string url_BSB = carpeta + @"\Songs\bsb.mp3";
+            Canción IWantThatWay = new Canción("I Want That Way", BSB, Millenium, genero_BSB, 1999, reproducciones, Calificación5, Avg_calificacion, duración6, resolución, espacio6, url_BSB);
+            Archivos.cancionesApp.Add(IWantThatWay);
+
+            //Llora remix
+            List<int> Calificación6 = new List<int>();
+            int duración7 = 312;
+            Artista Cauty = new Artista("Cauty", "Cauty", "Masculino", 26, "Chile");
+            Album lloras = new Album("lloras.jpg", "Lloras", Cauty, 2020);
+            List<string> genero_lloras = new List<string>();
+            string espacio7 = "4,46MB";
+            genero_callaita.Add("Reggaeton");
+            string url_lloras = carpeta + @"\Songs\lloras remix.mp3";
+            Canción Lloras = new Canción("Lloras Remix", Cauty, lloras, genero_lloras, 2020, reproducciones, Calificación6, Avg_calificacion, duración7, resolución, espacio7, url_lloras);
+            Archivos.cancionesApp.Add(Lloras);
+
+            //Blinding lights
+            List<int> Calificación7 = new List<int>();
+            int duración8 = 251;
+            Artista The_Weeknd = new Artista("The Weeknd", "The Weeknd", "Masculino", 31, "Estados Unidos");
+            Album AfterHours = new Album("blinding.jpg", "After Hours", The_Weeknd, 2020);
+            List<string> genero_blin = new List<string>();
+            string espacio8 = "3,10MB";
+            genero_blin.Add("Pop");
+            string url_blind = carpeta + @"\Songs\blinding lights.mp3";
+            Canción Blin = new Canción("Blinding Lights", The_Weeknd, AfterHours, genero_blin,2020, reproducciones, Calificación7, Avg_calificacion, duración8, resolución, espacio8, url_blind);
+            Archivos.cancionesApp.Add(Blin);
+
+            //Bohemian Rapsody
+            List<int> Calificación8 = new List<int>();
+            int duración9 = 360;
+            Artista Queen = new Artista("Queen", "Queen", "Masculino", 26, "Puerto Rico");
+            Album Bohemian = new Album("bohemian.jfif", "Bohemian Rhapsody", Queen, 1979);
+            List<string> genero_BR = new List<string>();
+            string espacio9 = "3,91MB";
+            genero_BR.Add("Rock");
+            string url_BR = carpeta + @"\Songs\bohemian.mp3";
+            Canción BR = new Canción("Bohemian Rapsody", Queen, Bohemian, genero_BR, 2009, reproducciones, Calificación, Avg_calificacion, duración9, resolución, espacio9, url_BR);
+            Archivos.cancionesApp.Add(BR);
+
+            //Home
+            List<int> Calificación9 = new List<int>();
+            int duración10 = 251;
+            Artista Blake_Shelton = new Artista("Blake Shelton", "Blake Shelton", "Masculino", 43, "Estados Unidos");
+            Album home = new Album("home.jfif", "Home", Blake_Shelton, 2019);
+            List<string> genero_home = new List<string>();
+            string espacio10 = "2,57MB";
+            genero_home.Add("Pop");
+            string url_home = carpeta + @"\Songs\Home.mp3";
+            Canción Home = new Canción("Home", Blake_Shelton, home, genero_home, 2019, reproducciones, Calificación9, Avg_calificacion, duración10, resolución, espacio10, url_home);
+            Archivos.cancionesApp.Add(Home);
+
+
+            //Trailer rapidos y furiosos 9
+            string titulo = "Trailer RyF9";
+            List<string> categoria = new List<string>();
+            string categori = "Accion";
+            categoria.Add(categori);
+            Person p1 = new Person("Justin", "Lin", "Masculino", 46, "China");
+            string descripcion = "Buen trailer con mucha ficción";
+            int duracion = 246;
+            int año = 2020;
+            int clas = 18;
+            int calificacion = 0;
+            List<int> calificaciones = new List<int>() { };
+            string imagen = carpeta + @"\ryf9.jpeg";
+            string url = carpeta + @"\Movies\Fast.mp4";
+            int rep = 0;
+            Película trailerryf = new Película(titulo, categoria, p1, descripcion, duracion, año, clas, calificaciones, calificacion, imagen, url, rep);
+            Archivos.películasApp.Add(trailerryf);
+
+            //Trailer dark
+            string titulo1 = "Trailer dark";
+            List<string> categoria1 = new List<string>();
+            string categori1 = "Drama";
+            categoria1.Add(categori1);
+            Person p2 = new Person("Nikoclaus", "Summerer", "Masculino", 49, "Alemania");
+            string descripcion1 = "Trailer de dark, temporada 4";
+            int duracion1 = 89;
+            int año1 = 2017;
+            int clas1 = 18;
+            int calificacion1 = 0;
+            List<int> calificaciones1 = new List<int>() { };
+            string imagen1 = carpeta +  @"\dark.jpg";
+            string url1 = carpeta + @"\Movies\Dark.mp4";
+            int rep1 = 0;
+            Película trailerDark = new Película(titulo1, categoria1, p2, descripcion1, duracion1, año1, clas1, calificaciones1, calificacion1, imagen1, url1, rep1);
+            Archivos.películasApp.Add(trailerDark);
+
+            //Trailer Inception
+            string titulo2 = "Trailer Inception";
+            List<string> categoria2 = new List<string>();
+            string categori2 = "Suspenso";
+            categoria2.Add(categori2);
+            Person p3 = new Person("Chistopher", "Nolan", "Masculino", 49, "Reino Unido");
+            string descripcion2 = "Trailer inception, pelicula protagonizada por Leonador DiCaprio";
+            int duracion2 = 147;
+            int año2 = 2010;
+            int clas2 = 16;
+            int calificacion2 = 0;
+            List<int> calificaciones2 = new List<int>() { };
+            string imagen2 = carpeta + @"\origen.jpg";
+            string url2 = carpeta + @"\Movies\TrailerInception.mp4";
+            int rep2 = 0;
+            Película trailerInception = new Película(titulo2, categoria2, p3, descripcion2, duracion2, año2, clas2, calificaciones2, calificacion2, imagen2, url2, rep2);
+            Archivos.películasApp.Add(trailerInception);
+
+            //Trailer Casa de papel
+            string titulo3 = "Trailer Casa de papel";
+            List<string> categoria3 = new List<string>();
+            string categori3 = "Drama";
+            categoria3.Add(categori3);
+            Person p4 = new Person("Alex", "Pina", "Masculino", 52, "España");
+            string descripcion3 = "Trailer Temporada 4 de la casa de papel, la serie que todos esperan ver";
+            int duracion3 = 129;
+            int año3 = 2020;
+            int clas3 = 16;
+            int calificacion3 = 0;
+            List<int> calificaciones3 = new List<int>() { };
+            string imagen3 = carpeta + @"\casa.jpg";
+            string url3 = carpeta + @"\Movies\CasaDePapel.mp4";
+            int rep3 = 0;
+            Película trailerCdp = new Película(titulo3, categoria3, p4, descripcion3, duracion3, año3, clas3, calificaciones3, calificacion3, imagen3, url3, rep3);
+            Archivos.películasApp.Add(trailerCdp);
+
+            //Alexis Sanchez lo mejor
+            string titulo4 = "Alexis Sanchez, lo mejor";
+            List<string> categoria4 = new List<string>();
+            string categori4 = "Deporte";
+            categoria4.Add(categori4);
+            Person p5 = new Person("Youtube", "Desconocido", "Indefnido", 0, "Youtube");
+            string descripcion4 = "Las mejores jugadas de Alexis Sanchez";
+            int duracion4 = 611;
+            int año4 = 2017;
+            int clas4 = 0;
+            int calificacion4 = 0;
+            List<int> calificaciones4 = new List<int>() { };
+            string imagen4 = carpeta + @"\alexis.jpg";
+            string url4 = carpeta + @"\Movies\LoMejorDeAlexis.mp4";
+            int rep4 = 0;
+            Película alexis = new Película(titulo4, categoria4, p5, descripcion4, duracion4, año4, clas4, calificaciones4, calificacion4, imagen4, url4, rep4);
+            Archivos.películasApp.Add(alexis);
+
+
+
+
             IniciarSerializacion();
             panels.Add("EntradaPanel", panelEntrada);
             panels.Add("LoginPanel", panelLogin);
@@ -160,7 +353,7 @@ namespace Entrega3Spotiflix
         {
             textBoxUsernamePerfil.Text = username;
         }
-        private void OnAgregarCancionClicked(string nombre, string artista, string album, string genero, string AñoPublicacion, string reproducciones, string avg_calificacion, string duracion, string resolucion, string espacio, string ruta)
+        private void OnAgregarCancionClicked(string nombre, string artista, string album, string genero, string AñoPublicacion, string reproducciones, string calificacion, string avg_calificacion, string duracion, string resolucion, string espacio, string ruta)
         {
             if (nombre == "" || artista == "" || album == "" || duracion == "" || espacio == "" || Convert.ToString(resolucion) == "" || ruta == "" || genero == "")
             {
@@ -169,7 +362,7 @@ namespace Entrega3Spotiflix
             }
             else
             {
-                bool result = AgregarCancionClicked(this, new AgregarCancionEventArgs() { Nombre = nombre, Artista = artista, Album = album, genero = genero, añoPublicacion = AñoPublicacion, Reproducciones = Convert.ToInt32(reproducciones), avg_calificacion = Convert.ToInt32(avg_calificacion), Duracion = duracion, Resolucion = resolucion, Espacio = espacio, URL = ruta });
+                bool result = AgregarCancionClicked(this, new AgregarCancionEventArgs() { Nombre = nombre, Artista = artista, Album = album, genero = genero, añoPublicacion = AñoPublicacion, Reproducciones = Convert.ToInt32(reproducciones), Calificacion=Convert.ToInt32(calificacion), avg_calificacion = Convert.ToInt32(avg_calificacion), Duracion = duracion, Resolucion = resolucion, Espacio = espacio, URL = ruta });
                 if (!result)
                 {
                     labelFaltanDatosCancion.Text = "Esta cancion ya existe";
@@ -532,7 +725,7 @@ namespace Entrega3Spotiflix
             Stream stream10 = new FileStream("playlists_Películas.bin", FileMode.Create, FileAccess.Write, FileShare.None);
             Stream stream11 = new FileStream("Usuarios.bin", FileMode.Create, FileAccess.Write, FileShare.None);
             Stream stream12 = new FileStream("PersonasApp.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-            formatter.Serialize(stream7, Archivos.películasApp);
+            //formatter.Serialize(stream7, Archivos.películasApp);
             //formatter.Serialize(stream8, Archivos.cancionesApp);
             formatter.Serialize(stream9, Archivos.playlists_Canciones);
             formatter.Serialize(stream10, Archivos.playlists_Películas);
@@ -688,7 +881,7 @@ namespace Entrega3Spotiflix
 
         private void listViewCanciones_MouseClick(object sender, MouseEventArgs e)
         {
-            axWindowsMediaPlayer2.Ctlcontrols.pause();
+            axWindowsMediaPlayer1.Ctlcontrols.pause();
             axWindowsMediaPlayer2.Visible = false;
             panel1.Visible = true;
             FotoCanciónMostrada.Visible = true;
@@ -748,6 +941,7 @@ namespace Entrega3Spotiflix
 
         private void listViewPelículas_MouseClick(object sender, MouseEventArgs e)
         {
+            axWindowsMediaPlayer2.Ctlcontrols.pause();
             axWindowsMediaPlayer2.Visible = false;
             FotoPelícula.Visible = true;
             buttonAgregarPelículaAPlaylist.Visible = true;
@@ -812,7 +1006,6 @@ namespace Entrega3Spotiflix
         }
         public void EncontrarArchivo(string valor)
         {
-            string carpeta = Directory.GetCurrentDirectory();
             foreach (Película película in Archivos.películasApp)
             {
                 if (valor == película.titulo)
@@ -842,13 +1035,16 @@ namespace Entrega3Spotiflix
         private void buttonReproducirPelícula_Click(object sender, EventArgs e)
         {
             axWindowsMediaPlayer2.Visible = true;
-            foreach (Película película in Archivos.películasApp)
-                if (película.titulo == PelículaSeleccionada.Text)
+            foreach (Película pelicula in Archivos.películasApp)
+                if (pelicula.titulo == PelículaSeleccionada.Text)
                 {
-                    EncontrarArchivo(película.titulo);
+                    EncontrarArchivo(pelicula.titulo);
                     axWindowsMediaPlayer2.URL = this.ruta;
+                    pictureBoxSalirReproducirPelicula.SizeMode = PictureBoxSizeMode.StretchImage;
+                    axWindowsMediaPlayer2.Dock = DockStyle.Fill;
+                    pictureBoxSalirReproducirPelicula.Visible = true;
                     axWindowsMediaPlayer2.Ctlcontrols.play();
-                    película.reproducciones += 1;
+                    pelicula.reproducciones += 1;
                 }
         }
 
@@ -1306,9 +1502,9 @@ namespace Entrega3Spotiflix
                     if (película.titulo == PelículaSeleccionada.Text)
                     {
                         int nota2 = Convert.ToInt32(nota1);
-                        película.calificación.Add(nota2);
+                        película.Calificación.Add(nota2);
                         string Película = "Película";
-                        Rankear(película.titulo, película.calificación, Película);
+                        Rankear(película.titulo, película.Calificación, Película);
                         MessageBox.Show("Se ha calificado la película");
                         CalificaciónPelículaSeleccionada.Text = película.Avg_calificación.ToString();
                     }
@@ -1337,7 +1533,7 @@ namespace Entrega3Spotiflix
             if (labelRutaCancion.Visible == true)
             {
                 string ruta = labelRutaCancion.Text;
-                OnAgregarCancionClicked(nombre, artista, album, genero, "2016", "0", "0", duracion, resolucion, espacio, ruta);
+                OnAgregarCancionClicked(nombre, artista, album, genero, "2016", "0","0","0", duracion, resolucion, espacio, ruta);
             }
             else
             {
@@ -1353,6 +1549,14 @@ namespace Entrega3Spotiflix
             labelDebeAgregarArchivoCancion.Visible = false;
             stackPanels.Add(panels["AgregarCancionpanel"]);
             ShowLastPanel();
+        }
+
+        private void pictureBoxSalirReproducirPelicula_Click(object sender, EventArgs e)
+        {
+            axWindowsMediaPlayer2.Ctlcontrols.pause();
+            axWindowsMediaPlayer2.Visible = false;
+            pictureBoxSalirReproducirPelicula.Visible = false;
+            PelículaSeleccionada.Visible = false;
         }
 
         private void btnBuscarArchivoCancion_Click(object sender, EventArgs e)

@@ -44,7 +44,7 @@ namespace Entrega3Spotiflix
             {
                 películas.Add(película);
             }
-            var películas_ordenadas = películas.OrderByDescending(película => película.calificación).ToList();
+            var películas_ordenadas = películas.OrderByDescending(película => película.Calificación).ToList();
             for (int i = 0; i < 10; i++)
             {
                 ranking.Add(películas_ordenadas[i]);
@@ -478,8 +478,8 @@ namespace Entrega3Spotiflix
             {
                 Console.WriteLine("¿Con qué nota le pondría a esta canción? (1 a 10)");
                 int nota = Convert.ToInt32(Console.ReadLine());
-                película1.calificación.Add(nota);
-                Rankear(película1.titulo, película1.calificación, 1);
+                película1.Calificación.Add(nota);
+                Rankear(película1.titulo, película1.Calificación, 1);
                 Thread.Sleep(1000);
             }
             else if (input4 == "3")
@@ -653,8 +653,8 @@ namespace Entrega3Spotiflix
             {
                 Console.WriteLine("¿Qué nota le pondría a esta película? (1 a 10)");
                 int nota = Convert.ToInt32(Console.ReadLine());
-                película1.calificación.Add(nota);
-                Rankear(película1.titulo, película1.calificación, 1);
+                película1.Calificación.Add(nota);
+                Rankear(película1.titulo, película1.Calificación, 1);
                 Thread.Sleep(1000);
             }
             else if (input1 == "3")
