@@ -33,6 +33,9 @@ namespace Entrega3Spotiflix
         public delegate bool AgregarCancionEventHandler(object source, AgregarCancionEventArgs args);
         public event AgregarCancionEventHandler AgregarCancionClicked;
         public event EventHandler<AgregarCancionEventArgs> CancionChecked;
+        public delegate bool AgregarPlaylistEventHandler(object source, AgregarPlaylistEventArgs args);
+        public event AgregarPlaylistEventHandler AgregarPlaylistClicked;
+        public event EventHandler<AgregarPlaylistEventArgs> PlaylistChecked;
 
         public AppForm()
         {
@@ -265,6 +268,8 @@ namespace Entrega3Spotiflix
             panels.Add("PelículasPanel", panelPelículas);
             panels.Add("BúsquedaPanel", panelBúsqueda);
             panels.Add("AgregarCancionpanel", panelAgregarCancion);
+            panels.Add("CrearPlaylistPanel", panelCrearPlaylist);
+            panels.Add("MisPlaylistPanel", panelMisPlaylist);
             foreach (Usuario usuario in Archivos.Usuarios)
             {
                 if (usuario.Logeado == true)
@@ -592,6 +597,10 @@ namespace Entrega3Spotiflix
             {
                 textBoxHacersePremium.Visible = true;
                 textBoxHacersePremium.Text = "Este Usuario ya es premium";
+            }
+            else if (Valores[3].Contains("Administrador"))
+            {
+                MessageBox.Show("El admistrador cuenta con todas las funciones Premium");
             }
             else
             {
@@ -1552,6 +1561,100 @@ namespace Entrega3Spotiflix
             labelFaltanDatosCancion.Visible = false;
             labelDebeAgregarArchivoCancion.Visible = false;
             stackPanels.Add(panels["AgregarCancionpanel"]);
+            ShowLastPanel();
+        }
+
+        private void buttonVolverDeCrearPlaylist_Click(object sender, EventArgs e)
+        {
+            stackPanels.Add(panels["MenuPanel"]);
+            ShowLastPanel();
+        }
+        private void OnAgregarPlaylistClicked(string nombre, string tipo_playlist)
+        {
+            if (nombre == "" || tipo_playlist == "")
+            {
+                MessageBox.Show("Faltan datos por ingresar");
+            }
+            else
+            {
+                bool result = AgregarPlaylistClicked(this, new AgregarPlaylistEventArgs() { Nombre = nombre, Tipo_playlist = tipo_playlist});
+                if (!result)
+                {
+                    MessageBox.Show("Esta Playlist ya existe");
+                }
+                else
+                {
+                    Serializacion();
+                    OnPlaylistChecked(nombre);
+                }
+            }
+        }
+        private void OnPlaylistChecked(string nombre)
+        {
+            if (PlaylistChecked != null)
+            {
+                PlaylistChecked(this, new AgregarPlaylistEventArgs() { Nombre = nombre });
+                textBoxNombreCrearPlaylist.ResetText();
+                comboBoxTipoDePlaylist.ResetText();
+                ; setNombrePlaylist(nombre);
+                foreach (Playlist playlist in Archivos.playlists_Canciones)
+                {
+                    if (playlist.Nombre == nombre)
+                    {
+                        playlist.Agregada = true;
+                        Serializacion();
+                    }
+                }
+                stackPanels.Add(panels["MenuPanel"]);
+                ShowLastPanel();
+            }
+        }
+        public void setNombrePlaylist(string nombre)
+        {
+            textBoxNombreCrearPlaylist.Text = nombre;
+        }
+
+        private void buttonCrearPlaylist_Click(object sender, EventArgs e)
+        {
+            string nombre = textBoxNombreCrearPlaylist.Text;
+            string Tipo_playlist = comboBoxTipoDePlaylist.SelectedItem.ToString();
+            if (nombre == ""|| Tipo_playlist == null)
+            {
+                MessageBox.Show("Debe rellenar todos los campos para crear la Playlist");
+            }
+            else
+            {
+                OnAgregarPlaylistClicked(nombre, Tipo_playlist);
+            }
+        }
+
+        private void buttonGoCrearPlaylist_Click(object sender, EventArgs e)
+        {
+            stackPanels.Add(panels["CrearPlaylistPanel"]);
+            ShowLastPanel();
+        }
+
+        private void buttonGoMisPlaylists_Click(object sender, EventArgs e)
+        {
+            listViewVerMisPlaylist.Clear();
+            VerPlaylists(Archivos.playlists_Canciones);
+            stackPanels.Add(panels["MisPlaylistPanel"]);
+            ShowLastPanel();
+        }
+        private void VerPlaylists(List<Playlist> playlists)
+        {
+            ListViewGroup Playlists = new ListViewGroup("Playlists", HorizontalAlignment.Left);
+            foreach (Playlist playlist in playlists)
+            {
+                listViewVerMisPlaylist.Items.Add(new ListViewItem(playlist.Nombre, Playlists));
+
+            }
+            listViewVerMisPlaylist.Groups.Add(Playlists);
+        }
+
+        private void buttonVolverDeMisPlaylist_Click(object sender, EventArgs e)
+        {
+            stackPanels.Add(panels["MenuPanel"]);
             ShowLastPanel();
         }
 

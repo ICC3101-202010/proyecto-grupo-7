@@ -15,6 +15,7 @@ namespace Entrega3Spotiflix
         public static List<Película> películasApp = new List<Película>();
         public static List<Canción> cancionesApp = new List<Canción>();
         public static Dictionary<int, List<string>> lista_canciones = new Dictionary<int, List<string>>();
+        public static Dictionary<int, List<string>> lista_playlist = new Dictionary<int, List<string>>();
         public static List<Playlist> playlists_Canciones = new List<Playlist>();
         public static List<Playlist> playlists_Películas = new List<Playlist>();
         private static List<Person> personasApp = new List<Person>();
@@ -25,6 +26,10 @@ namespace Entrega3Spotiflix
         public static Dictionary<int, List<string>> Lista_canciones
         {
             get => lista_canciones; set => lista_canciones = value;
+        }
+        public static Dictionary<int, List<string>> Lista_playlist
+        {
+            get => lista_playlist; set => lista_playlist = value;
         }
         public static List<Person> PersonasApp
         {
@@ -83,6 +88,26 @@ namespace Entrega3Spotiflix
             if (description == null)
             {
                 Lista_canciones.Add(Lista_canciones.Count + 1, data);
+                Playlist playlist = new Playlist(data[0], data[1]);
+                playlists_Canciones.Add(playlist);
+            }
+            return description;
+        }
+
+        public static string AddPlaylist(List<string> data)
+        {
+            string description = null;
+            foreach (Playlist playlist in playlists_Canciones)
+            {
+                if (data[0] == playlist.Nombre)
+                {
+                    description = "La canción ingresada ya existe";
+                    MessageBox.Show(description);
+                }
+            }
+            if (description == null)
+            {
+                Lista_canciones.Add(Lista_playlist.Count + 1, data);
                 Artista artista = new Artista(data[1], data[1], "", 0, "");
                 Album album = new Album(data[12], data[2], artista, 0);
                 List<string> genero = new List<string>() { data[3] };

@@ -174,6 +174,17 @@
             this.label23 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
+            this.panelCrearPlaylist = new System.Windows.Forms.Panel();
+            this.label12 = new System.Windows.Forms.Label();
+            this.comboBoxTipoDePlaylist = new System.Windows.Forms.ComboBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.textBoxNombreCrearPlaylist = new System.Windows.Forms.TextBox();
+            this.buttonCrearPlaylist = new System.Windows.Forms.Button();
+            this.buttonVolverDeCrearPlaylist = new System.Windows.Forms.Button();
+            this.panelMisPlaylist = new System.Windows.Forms.Panel();
+            this.listViewVerMisPlaylist = new System.Windows.Forms.ListView();
+            this.buttonVolverDeMisPlaylist = new System.Windows.Forms.Button();
+            this.label33 = new System.Windows.Forms.Label();
             this.panelEntrada.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FotoLogoEntrada)).BeginInit();
             this.panelLogin.SuspendLayout();
@@ -199,6 +210,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxBuscar)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
             this.panelAgregarCancion.SuspendLayout();
+            this.panelCrearPlaylist.SuspendLayout();
+            this.panelMisPlaylist.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelEntrada
@@ -579,6 +592,7 @@
             this.buttonGoMisPlaylists.TabIndex = 28;
             this.buttonGoMisPlaylists.Text = "MIS PLAYLISTS";
             this.buttonGoMisPlaylists.UseVisualStyleBackColor = false;
+            this.buttonGoMisPlaylists.Click += new System.EventHandler(this.buttonGoMisPlaylists_Click);
             // 
             // buttonGoEditarPlaylist
             // 
@@ -610,6 +624,7 @@
             this.buttonGoCrearPlaylist.TabIndex = 25;
             this.buttonGoCrearPlaylist.Text = "CREAR PLAYLIST";
             this.buttonGoCrearPlaylist.UseVisualStyleBackColor = false;
+            this.buttonGoCrearPlaylist.Click += new System.EventHandler(this.buttonGoCrearPlaylist_Click);
             // 
             // buttonGoBuscar
             // 
@@ -1889,19 +1904,144 @@
             this.label19.TabIndex = 0;
             this.label19.Text = "Agregar Canción";
             // 
+            // panelCrearPlaylist
+            // 
+            this.panelCrearPlaylist.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panelCrearPlaylist.Controls.Add(this.buttonVolverDeCrearPlaylist);
+            this.panelCrearPlaylist.Controls.Add(this.buttonCrearPlaylist);
+            this.panelCrearPlaylist.Controls.Add(this.textBoxNombreCrearPlaylist);
+            this.panelCrearPlaylist.Controls.Add(this.label32);
+            this.panelCrearPlaylist.Controls.Add(this.comboBoxTipoDePlaylist);
+            this.panelCrearPlaylist.Controls.Add(this.label12);
+            this.panelCrearPlaylist.ForeColor = System.Drawing.SystemColors.Window;
+            this.panelCrearPlaylist.Location = new System.Drawing.Point(559, 297);
+            this.panelCrearPlaylist.Name = "panelCrearPlaylist";
+            this.panelCrearPlaylist.Size = new System.Drawing.Size(158, 74);
+            this.panelCrearPlaylist.TabIndex = 31;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.Window;
+            this.label12.Location = new System.Drawing.Point(202, 35);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(342, 25);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "¿Qué tipo de Playlist desea crear?";
+            // 
+            // comboBoxTipoDePlaylist
+            // 
+            this.comboBoxTipoDePlaylist.FormattingEnabled = true;
+            this.comboBoxTipoDePlaylist.Items.AddRange(new object[] {
+            "De Canciones",
+            "De Películas"});
+            this.comboBoxTipoDePlaylist.Location = new System.Drawing.Point(300, 101);
+            this.comboBoxTipoDePlaylist.Name = "comboBoxTipoDePlaylist";
+            this.comboBoxTipoDePlaylist.Size = new System.Drawing.Size(136, 21);
+            this.comboBoxTipoDePlaylist.TabIndex = 1;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.ForeColor = System.Drawing.SystemColors.Window;
+            this.label32.Location = new System.Drawing.Point(212, 168);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(312, 25);
+            this.label32.TabIndex = 2;
+            this.label32.Text = "Ingrese el nombre de la Playlist";
+            // 
+            // textBoxNombreCrearPlaylist
+            // 
+            this.textBoxNombreCrearPlaylist.Location = new System.Drawing.Point(263, 232);
+            this.textBoxNombreCrearPlaylist.Name = "textBoxNombreCrearPlaylist";
+            this.textBoxNombreCrearPlaylist.Size = new System.Drawing.Size(207, 20);
+            this.textBoxNombreCrearPlaylist.TabIndex = 3;
+            // 
+            // buttonCrearPlaylist
+            // 
+            this.buttonCrearPlaylist.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonCrearPlaylist.Location = new System.Drawing.Point(314, 284);
+            this.buttonCrearPlaylist.Name = "buttonCrearPlaylist";
+            this.buttonCrearPlaylist.Size = new System.Drawing.Size(105, 34);
+            this.buttonCrearPlaylist.TabIndex = 4;
+            this.buttonCrearPlaylist.Text = "CREAR PLAYLIST";
+            this.buttonCrearPlaylist.UseVisualStyleBackColor = false;
+            this.buttonCrearPlaylist.Click += new System.EventHandler(this.buttonCrearPlaylist_Click);
+            // 
+            // buttonVolverDeCrearPlaylist
+            // 
+            this.buttonVolverDeCrearPlaylist.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonVolverDeCrearPlaylist.Location = new System.Drawing.Point(12, 330);
+            this.buttonVolverDeCrearPlaylist.Name = "buttonVolverDeCrearPlaylist";
+            this.buttonVolverDeCrearPlaylist.Size = new System.Drawing.Size(105, 34);
+            this.buttonVolverDeCrearPlaylist.TabIndex = 5;
+            this.buttonVolverDeCrearPlaylist.Text = "VOLVER";
+            this.buttonVolverDeCrearPlaylist.UseVisualStyleBackColor = false;
+            this.buttonVolverDeCrearPlaylist.Click += new System.EventHandler(this.buttonVolverDeCrearPlaylist_Click);
+            // 
+            // panelMisPlaylist
+            // 
+            this.panelMisPlaylist.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panelMisPlaylist.Controls.Add(this.label33);
+            this.panelMisPlaylist.Controls.Add(this.buttonVolverDeMisPlaylist);
+            this.panelMisPlaylist.Controls.Add(this.listViewVerMisPlaylist);
+            this.panelMisPlaylist.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelMisPlaylist.ForeColor = System.Drawing.SystemColors.Window;
+            this.panelMisPlaylist.Location = new System.Drawing.Point(0, 0);
+            this.panelMisPlaylist.Name = "panelMisPlaylist";
+            this.panelMisPlaylist.Size = new System.Drawing.Size(754, 376);
+            this.panelMisPlaylist.TabIndex = 32;
+            // 
+            // listViewVerMisPlaylist
+            // 
+            this.listViewVerMisPlaylist.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
+            this.listViewVerMisPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewVerMisPlaylist.ForeColor = System.Drawing.SystemColors.Window;
+            this.listViewVerMisPlaylist.HideSelection = false;
+            this.listViewVerMisPlaylist.Location = new System.Drawing.Point(0, 40);
+            this.listViewVerMisPlaylist.Name = "listViewVerMisPlaylist";
+            this.listViewVerMisPlaylist.Size = new System.Drawing.Size(132, 257);
+            this.listViewVerMisPlaylist.TabIndex = 0;
+            this.listViewVerMisPlaylist.UseCompatibleStateImageBehavior = false;
+            // 
+            // buttonVolverDeMisPlaylist
+            // 
+            this.buttonVolverDeMisPlaylist.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonVolverDeMisPlaylist.Location = new System.Drawing.Point(12, 336);
+            this.buttonVolverDeMisPlaylist.Name = "buttonVolverDeMisPlaylist";
+            this.buttonVolverDeMisPlaylist.Size = new System.Drawing.Size(98, 30);
+            this.buttonVolverDeMisPlaylist.TabIndex = 1;
+            this.buttonVolverDeMisPlaylist.Text = "VOLVER";
+            this.buttonVolverDeMisPlaylist.UseVisualStyleBackColor = false;
+            this.buttonVolverDeMisPlaylist.Click += new System.EventHandler(this.buttonVolverDeMisPlaylist_Click);
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(12, 37);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(99, 25);
+            this.label33.TabIndex = 2;
+            this.label33.Text = "PlayLists";
+            // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(754, 376);
+            this.Controls.Add(this.panelMisPlaylist);
+            this.Controls.Add(this.panelCrearPlaylist);
+            this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.panelRegister);
             this.Controls.Add(this.panelLogin);
             this.Controls.Add(this.panelEntrada);
             this.Controls.Add(this.panelAgregarCancion);
             this.Controls.Add(this.panelPelículas);
-            this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelBúsqueda);
             this.Controls.Add(this.panelCancciones);
-            this.Controls.Add(this.panelRegister);
             this.Controls.Add(this.panelModificarCuenta);
             this.Name = "AppForm";
             this.Text = "Form1";
@@ -1942,6 +2082,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
             this.panelAgregarCancion.ResumeLayout(false);
             this.panelAgregarCancion.PerformLayout();
+            this.panelCrearPlaylist.ResumeLayout(false);
+            this.panelCrearPlaylist.PerformLayout();
+            this.panelMisPlaylist.ResumeLayout(false);
+            this.panelMisPlaylist.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2093,6 +2237,17 @@
         private System.Windows.Forms.Button buttonIrAgregarCancion;
         private System.Windows.Forms.PictureBox pictureBoxSalirReproducirPelicula;
         private System.Windows.Forms.Label labelRutaImagenCancion;
+        private System.Windows.Forms.Panel panelCrearPlaylist;
+        private System.Windows.Forms.Button buttonVolverDeCrearPlaylist;
+        private System.Windows.Forms.Button buttonCrearPlaylist;
+        private System.Windows.Forms.TextBox textBoxNombreCrearPlaylist;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.ComboBox comboBoxTipoDePlaylist;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.Panel panelMisPlaylist;
+        private System.Windows.Forms.Button buttonVolverDeMisPlaylist;
+        private System.Windows.Forms.ListView listViewVerMisPlaylist;
+        private System.Windows.Forms.Label label33;
     }
 }
 

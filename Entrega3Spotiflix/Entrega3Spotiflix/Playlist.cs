@@ -13,6 +13,7 @@ namespace Entrega3Spotiflix
         public List<Canción> playlist_Canciones = new List<Canción>();
         public List<Película> playlist_Películas = new List<Película>();
         public string Tipo_playlist;
+        public bool Agregada;
         public Playlist(string nombre, string tipo_playlist)
         {
             this.Nombre = nombre;
