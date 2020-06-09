@@ -36,6 +36,9 @@ namespace Entrega3Spotiflix
         public delegate bool AgregarPlaylistEventHandler(object source, AgregarPlaylistEventArgs args);
         public event AgregarPlaylistEventHandler AgregarPlaylistClicked;
         public event EventHandler<AgregarPlaylistEventArgs> PlaylistChecked;
+        public delegate bool AgregarVideoEventHandler(object source, AgregarVideoEventArgs args);
+        public event AgregarVideoEventHandler AgregarVideoClicked;
+        public event EventHandler<AgregarVideoEventArgs> VideoChecked;
 
         public AppForm()
         {
@@ -192,7 +195,7 @@ namespace Entrega3Spotiflix
             string descripcion1 = "Trailer de dark, temporada 4";
             int duracion1 = 89;
             int año1 = 2017;
-            int clas1 = 18;
+            int clas1 = 0;
             int calificacion1 = 0;
             List<int> calificaciones1 = new List<int>() { };
             string imagen1 = carpeta +  @"\dark.jpg";
@@ -210,7 +213,7 @@ namespace Entrega3Spotiflix
             string descripcion2 = "Trailer inception, pelicula protagonizada por Leonador DiCaprio";
             int duracion2 = 147;
             int año2 = 2010;
-            int clas2 = 16;
+            int clas2 = 0;
             int calificacion2 = 0;
             List<int> calificaciones2 = new List<int>() { };
             string imagen2 = carpeta + @"\origen.jpg";
@@ -228,7 +231,7 @@ namespace Entrega3Spotiflix
             string descripcion3 = "Trailer Temporada 4 de la casa de papel, la serie que todos esperan ver";
             int duracion3 = 129;
             int año3 = 2020;
-            int clas3 = 16;
+            int clas3 = 0;
             int calificacion3 = 0;
             List<int> calificaciones3 = new List<int>() { };
             string imagen3 = carpeta + @"\casa.jpg";
@@ -270,6 +273,7 @@ namespace Entrega3Spotiflix
             panels.Add("AgregarCancionpanel", panelAgregarCancion);
             panels.Add("CrearPlaylistPanel", panelCrearPlaylist);
             panels.Add("MisPlaylistPanel", panelMisPlaylist);
+            panels.Add("AgregarVideoPanel", panelAgregarVideo);
             foreach (Usuario usuario in Archivos.Usuarios)
             {
                 if (usuario.Logeado == true)
@@ -409,9 +413,61 @@ namespace Entrega3Spotiflix
                 ShowLastPanel();
             }
         }
+        private void OnAgregarVideoClicked(string titulo, string categoria, string director, string descripcion, string duracion, string año, string calificacion, string avg_calificacion, string imagen, string url, string reproducciones)
+        {
+            if (titulo == "" || categoria == "" || director == "" || duracion == "" || url == "" || descripcion == "")
+            {
+                labelFaltanDatosPelicula.Text = "No han ingresado todos los datos";
+                labelFaltanDatosPelicula.Visible = true;
+            }
+            else
+            {
+                bool result = AgregarVideoClicked(this, new AgregarVideoEventArgs() { Titulo = titulo, Categoria=categoria, Director=director,Descripcion=descripcion,Duracion=Convert.ToInt32(duracion), Año = Convert.ToInt32(año), Calificacion = Convert.ToInt32(calificacion), Avg_calificacion = Convert.ToInt32(avg_calificacion), Imagen = imagen, Url=url, Reproducciones = Convert.ToInt32(reproducciones)});
+                if (!result)
+                {
+                    labelFaltanDatosCancion.Text = "Este video ya existe";
+                    labelFaltanDatosCancion.Visible = true;
+                }
+                else
+                {
+                    labelFaltanDatosPelicula.ResetText();
+                    labelFaltanDatosPelicula.Visible = false;
+                    Serializacion();
+                    OnVideoChecked(titulo);
+                }
+            }
+        }
+        private void OnVideoChecked(string nombre)
+        {
+            if (VideoChecked != null)
+            {
+                VideoChecked(this, new AgregarVideoEventArgs() { Titulo = nombre });
+                textBoxTituloPelicula.ResetText();
+                textBoxDirectorPelicula.ResetText();
+                textBoxDecripcionPelicula.ResetText();
+                textBoxAñoPelicula.ResetText();
+                textBoxCategoriaPelicula.ResetText();
+                textBoxDuracionPelicula.ResetText();
+                setNombreVideo(nombre);
+                foreach (Película pelicula in Archivos.películasApp)
+                {
+                    if (pelicula.Titulo == nombre)
+                    {
+                        pelicula.Agregada = true;
+                        Serializacion();
+                    }
+                }
+                stackPanels.Add(panels["MenuPanel"]);
+                ShowLastPanel();
+            }
+        }
         public void setNombreCancion(string nombre)
         {
             textBoxNombreCancion.Text = nombre;
+        }
+        public void setNombreVideo(string nombre)
+        {
+            textBoxTituloPelicula.Text = nombre;
         }
         private void ShowLastPanel()
         {
@@ -737,8 +793,8 @@ namespace Entrega3Spotiflix
             Stream stream12 = new FileStream("PersonasApp.bin", FileMode.Create, FileAccess.Write, FileShare.None);
             //formatter.Serialize(stream7, Archivos.películasApp);
             //formatter.Serialize(stream8, Archivos.cancionesApp);
-            formatter.Serialize(stream9, Archivos.playlists_Canciones);
-            formatter.Serialize(stream10, Archivos.playlists_Películas);
+            //formatter.Serialize(stream9, Archivos.playlists_Canciones);
+            //formatter.Serialize(stream10, Archivos.playlists_Películas);
             formatter.Serialize(stream11, Archivos.Usuarios);
             formatter.Serialize(stream12, Archivos.PersonasApp);
             stream7.Close();
@@ -1049,7 +1105,7 @@ namespace Entrega3Spotiflix
                 if (pelicula.titulo == PelículaSeleccionada.Text)
                 {
                     EncontrarArchivo(pelicula.titulo);
-                    axWindowsMediaPlayer2.URL = this.ruta;
+                    axWindowsMediaPlayer2.URL = pelicula.Url;
                     pictureBoxSalirReproducirPelicula.SizeMode = PictureBoxSizeMode.StretchImage;
                     axWindowsMediaPlayer2.Dock = DockStyle.Fill;
                     pictureBoxSalirReproducirPelicula.Visible = true;
@@ -1523,11 +1579,20 @@ namespace Entrega3Spotiflix
             comboBoxCalificaciónPelícula.Visible = false;
             buttonConfirmarCalificaciónPelícula.Visible = false;
         }
-        string[] archivo, archivo1, Ruta, Ruta1;
-        string ruta1;
+        string[] archivo, archivo1, archivo2, archivo3, Ruta, Ruta1, Ruta2, Ruta3;
+        string ruta1, ruta2, ruta3;
 
         private void buttonVolverAgregarCancion_Click(object sender, EventArgs e)
         {
+            labelRutaImagenCancion.Visible = false;
+            labelRutaCancion.Visible = false;
+            textBoxAlbumCancion.Clear();
+            textBoxNombreCancion.Clear();
+            textBoxArtistaCancion.Clear();
+            textBoxResoluciónCancion.Clear();
+            textBoxDuracionCancion.Clear();
+            textBoxEspacioCancion.Clear();
+            textBoxGeneroCancion.Clear();
             stackPanels.Add(panels["MenuPanel"]);
             ShowLastPanel();
         }
@@ -1542,26 +1607,37 @@ namespace Entrega3Spotiflix
             string espacio = textBoxEspacioCancion.Text;
             string resolucion = textBoxResoluciónCancion.Text;
             string imagen = labelRutaImagenCancion.Text;
+            
             if (labelRutaCancion.Visible == true)
             {
                 string ruta = labelRutaCancion.Text;
-                OnAgregarCancionClicked(nombre, artista, album, genero, "2016", "0","0","0", duracion, resolucion, espacio, ruta, imagen);
+                OnAgregarCancionClicked(nombre, artista, album, genero, "2016", "0", "0", "0", duracion, resolucion, espacio, ruta, imagen);
                 labelRutaImagenCancion.Visible = false;
+
             }
             else
             {
                 labelDebeAgregarArchivoCancion.Text = "Debe ingresgar un archivo para subir la canción";
                 labelDebeAgregarArchivoCancion.Visible = true;
             }
+
         }
 
         private void buttonIrAgregarCancion_Click(object sender, EventArgs e)
         {
-            labelRutaCancion.Visible = false;
-            labelFaltanDatosCancion.Visible = false;
-            labelDebeAgregarArchivoCancion.Visible = false;
-            stackPanels.Add(panels["AgregarCancionpanel"]);
-            ShowLastPanel();
+            string usuario = textBoxUsernamePerfil.Text;
+            if (usuario == "admin")
+            {
+                labelRutaCancion.Visible = false;
+                labelFaltanDatosCancion.Visible = false;
+                labelDebeAgregarArchivoCancion.Visible = false;
+                stackPanels.Add(panels["AgregarCancionpanel"]);
+                ShowLastPanel();
+            }
+            else
+            {
+                MessageBox.Show("Solo un administrador puede realizar esta acción");
+            }
         }
 
         private void buttonVolverDeCrearPlaylist_Click(object sender, EventArgs e)
@@ -1634,6 +1710,58 @@ namespace Entrega3Spotiflix
             ShowLastPanel();
         }
 
+        private void buttonConfirmarAgregarVideo_Click(object sender, EventArgs e)
+        {
+            string titulo = textBoxTituloPelicula.Text;
+            string categoria = textBoxCategoriaPelicula.Text; ;
+            string director = textBoxDirectorPelicula.Text;
+            string descripcion = textBoxDecripcionPelicula.Text;
+            string año = textBoxAñoPelicula.Text;
+            string duracion = textBoxDuracionPelicula.Text;
+            string imagen = labelRutaImagenPelicula.Text;
+            
+            if (labelRutaPelicula.Visible == true)
+            {
+                string ruta = labelRutaPelicula.Text;
+                OnAgregarVideoClicked(titulo,categoria,director,descripcion,duracion,año,"0","0",imagen,ruta,"0");
+                labelRutaImagenPelicula.Visible = false;
+
+            }
+            else
+            {
+                labelFaltaArchivoVideo.Text = "Debe ingresgar un archivo para subir la canción";
+                labelFaltaArchivoVideo.Visible = true;
+            }
+        }
+
+        private void label39_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBoxAñoPelicula_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonIrAgregarVideo_Click(object sender, EventArgs e)
+        {
+            string usuario = textBoxUsernamePerfil.Text;
+            if (usuario == "admin")
+            {
+                labelRutaPelicula.Visible = false;
+                labelFaltanDatosPelicula.Visible = false;
+                labelFaltaArchivoVideo.Visible = false;
+                stackPanels.Add(panels["AgregarVideoPanel"]);
+                ShowLastPanel();
+            }
+            else
+            {
+                MessageBox.Show("Solo un administrador puede realizar esta acción");
+            }
+        }
+    
+
         private void buttonGoMisPlaylists_Click(object sender, EventArgs e)
         {
             listViewVerMisPlaylist.Clear();
@@ -1652,10 +1780,50 @@ namespace Entrega3Spotiflix
             listViewVerMisPlaylist.Groups.Add(Playlists);
         }
 
+        private void buttonAgregarArchivoPelicula_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                archivo3 = openFileDialog.SafeFileNames;
+                Ruta3 = openFileDialog.FileNames;
+
+                for (int i = 0; i < archivo3.Length; i++)
+                {
+                    ruta3 = Ruta3[i];
+                    labelRutaPelicula.Text = ruta3;
+                    labelRutaPelicula.Visible = true;
+                }
+            }
+        }
+
         private void buttonVolverDeMisPlaylist_Click(object sender, EventArgs e)
         {
             stackPanels.Add(panels["MenuPanel"]);
             ShowLastPanel();
+        }
+
+        private void buttonVolverAgregarPelicula_Click(object sender, EventArgs e)
+        {
+            stackPanels.Add(panels["MenuPanel"]);
+            ShowLastPanel();
+        }
+
+        private void buttonAgregarImagenPelicula_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            if (openFileDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+            {
+                archivo2 = openFileDialog.SafeFileNames;
+                Ruta2 = openFileDialog.FileNames;
+
+                for (int i = 0; i < archivo2.Length; i++)
+                {
+                    ruta2 = Ruta2[i];
+                    labelRutaImagenPelicula.Text = ruta2;
+                    labelRutaImagenPelicula.Visible = true;
+                }
+            }
         }
 
         private void pictureBoxSalirReproducirPelicula_Click(object sender, EventArgs e)

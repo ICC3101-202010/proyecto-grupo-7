@@ -21,6 +21,7 @@ namespace Entrega3Spotiflix
             UserController userController = new UserController(appform);
             CancionController cancionController = new CancionController(appform);
             PlaylistController playlistController = new PlaylistController(appform);
+            VideoController videoController = new VideoController(appform);
             Application.Run(appform);
         }
     }

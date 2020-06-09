@@ -25,7 +25,7 @@ namespace Entrega3Spotiflix.Controllers
         }
         public bool OnAgregarPlaylistClicked(object sender, AgregarPlaylistEventArgs e)
         {
-            string result = Archivos.AddCancion(new List<string>()
+            string result = Archivos.AddPlaylist(new List<string>()
                 {e.Nombre, e.Tipo_playlist});
             if (result == null)
             {

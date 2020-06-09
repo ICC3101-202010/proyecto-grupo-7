@@ -31,6 +31,7 @@ namespace Entrega3Spotiflix
         public string Imagen;
         public int añoPublicación;
         public string Url;
+        public bool Agregada;
         //public static WindowsMediaPlayer player = new WindowsMediaPlayer();
         public string peli;
         public Película(string titulo, List<string> Categoria, Person director, string descripcion, int duracion, int añoPublicacion, int calificacion,List<int> Calificacion, int Avg_calificación, string Imagen, string Url, int reproducciones)

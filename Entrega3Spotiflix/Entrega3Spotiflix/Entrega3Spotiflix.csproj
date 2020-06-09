@@ -56,8 +56,10 @@
     <Compile Include="Controllers\CancionController.cs" />
     <Compile Include="Controllers\PlaylistController.cs" />
     <Compile Include="Controllers\UserController.cs" />
+    <Compile Include="Controllers\VideoController.cs" />
     <Compile Include="CustomsEvenArgs\AgregarCancionEventArgs.cs" />
     <Compile Include="CustomsEvenArgs\AgregarPlaylistEventArgs.cs" />
+    <Compile Include="CustomsEvenArgs\AgregarVideoEventArgs.cs" />
     <Compile Include="CustomsEvenArgs\LoginEventArgs.cs" />
     <Compile Include="CustomsEvenArgs\RegisterEventArgs.cs" />
     <Compile Include="AppForm.cs">

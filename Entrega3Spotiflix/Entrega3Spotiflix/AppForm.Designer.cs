@@ -59,6 +59,7 @@
             this.registerViewButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.button4 = new System.Windows.Forms.Button();
             this.buttonIrAgregarCancion = new System.Windows.Forms.Button();
             this.buttonGoVerPelículas = new System.Windows.Forms.Button();
             this.buttonGoMisPlaylists = new System.Windows.Forms.Button();
@@ -175,16 +176,38 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.panelCrearPlaylist = new System.Windows.Forms.Panel();
-            this.label12 = new System.Windows.Forms.Label();
-            this.comboBoxTipoDePlaylist = new System.Windows.Forms.ComboBox();
-            this.label32 = new System.Windows.Forms.Label();
-            this.textBoxNombreCrearPlaylist = new System.Windows.Forms.TextBox();
-            this.buttonCrearPlaylist = new System.Windows.Forms.Button();
             this.buttonVolverDeCrearPlaylist = new System.Windows.Forms.Button();
+            this.buttonCrearPlaylist = new System.Windows.Forms.Button();
+            this.textBoxNombreCrearPlaylist = new System.Windows.Forms.TextBox();
+            this.label32 = new System.Windows.Forms.Label();
+            this.comboBoxTipoDePlaylist = new System.Windows.Forms.ComboBox();
+            this.label12 = new System.Windows.Forms.Label();
             this.panelMisPlaylist = new System.Windows.Forms.Panel();
-            this.listViewVerMisPlaylist = new System.Windows.Forms.ListView();
-            this.buttonVolverDeMisPlaylist = new System.Windows.Forms.Button();
             this.label33 = new System.Windows.Forms.Label();
+            this.buttonVolverDeMisPlaylist = new System.Windows.Forms.Button();
+            this.listViewVerMisPlaylist = new System.Windows.Forms.ListView();
+            this.panelAgregarVideo = new System.Windows.Forms.Panel();
+            this.labelFaltanDatosPelicula = new System.Windows.Forms.Label();
+            this.buttonVolverAgregarPelicula = new System.Windows.Forms.Button();
+            this.labelRutaImagenPelicula = new System.Windows.Forms.Label();
+            this.labelRutaPelicula = new System.Windows.Forms.Label();
+            this.button5 = new System.Windows.Forms.Button();
+            this.textBoxDuracionPelicula = new System.Windows.Forms.TextBox();
+            this.textBoxAñoPelicula = new System.Windows.Forms.TextBox();
+            this.textBoxDecripcionPelicula = new System.Windows.Forms.TextBox();
+            this.textBoxDirectorPelicula = new System.Windows.Forms.TextBox();
+            this.textBoxCategoriaPelicula = new System.Windows.Forms.TextBox();
+            this.textBoxTituloPelicula = new System.Windows.Forms.TextBox();
+            this.labelFaltaArchivoVideo = new System.Windows.Forms.Label();
+            this.buttonAgregarImagenPelicula = new System.Windows.Forms.Button();
+            this.label40 = new System.Windows.Forms.Label();
+            this.buttonAgregarArchivoPelicula = new System.Windows.Forms.Button();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
             this.panelEntrada.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FotoLogoEntrada)).BeginInit();
             this.panelLogin.SuspendLayout();
@@ -212,6 +235,7 @@
             this.panelAgregarCancion.SuspendLayout();
             this.panelCrearPlaylist.SuspendLayout();
             this.panelMisPlaylist.SuspendLayout();
+            this.panelAgregarVideo.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelEntrada
@@ -546,6 +570,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panelMenu.Controls.Add(this.button4);
             this.panelMenu.Controls.Add(this.buttonIrAgregarCancion);
             this.panelMenu.Controls.Add(this.buttonGoVerPelículas);
             this.panelMenu.Controls.Add(this.buttonGoMisPlaylists);
@@ -557,10 +582,20 @@
             this.panelMenu.Controls.Add(this.buttonModificarCuenta);
             this.panelMenu.Controls.Add(this.buttonLogOut);
             this.panelMenu.Controls.Add(this.FotoMenu);
-            this.panelMenu.Location = new System.Drawing.Point(12, 12);
+            this.panelMenu.Location = new System.Drawing.Point(12, 15);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(118, 118);
+            this.panelMenu.Size = new System.Drawing.Size(123, 108);
             this.panelMenu.TabIndex = 25;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(168, 320);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(95, 34);
+            this.button4.TabIndex = 31;
+            this.button4.Text = "Agregar Video";
+            this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.buttonIrAgregarVideo_Click);
             // 
             // buttonIrAgregarCancion
             // 
@@ -1685,9 +1720,9 @@
             this.panelAgregarCancion.Controls.Add(this.label23);
             this.panelAgregarCancion.Controls.Add(this.label22);
             this.panelAgregarCancion.Controls.Add(this.label19);
-            this.panelAgregarCancion.Location = new System.Drawing.Point(347, 182);
+            this.panelAgregarCancion.Location = new System.Drawing.Point(336, 153);
             this.panelAgregarCancion.Name = "panelAgregarCancion";
-            this.panelAgregarCancion.Size = new System.Drawing.Size(177, 132);
+            this.panelAgregarCancion.Size = new System.Drawing.Size(150, 102);
             this.panelAgregarCancion.TabIndex = 30;
             // 
             // labelRutaImagenCancion
@@ -1919,45 +1954,16 @@
             this.panelCrearPlaylist.Size = new System.Drawing.Size(158, 74);
             this.panelCrearPlaylist.TabIndex = 31;
             // 
-            // label12
+            // buttonVolverDeCrearPlaylist
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.ForeColor = System.Drawing.SystemColors.Window;
-            this.label12.Location = new System.Drawing.Point(202, 35);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(342, 25);
-            this.label12.TabIndex = 0;
-            this.label12.Text = "¿Qué tipo de Playlist desea crear?";
-            // 
-            // comboBoxTipoDePlaylist
-            // 
-            this.comboBoxTipoDePlaylist.FormattingEnabled = true;
-            this.comboBoxTipoDePlaylist.Items.AddRange(new object[] {
-            "De Canciones",
-            "De Películas"});
-            this.comboBoxTipoDePlaylist.Location = new System.Drawing.Point(300, 101);
-            this.comboBoxTipoDePlaylist.Name = "comboBoxTipoDePlaylist";
-            this.comboBoxTipoDePlaylist.Size = new System.Drawing.Size(136, 21);
-            this.comboBoxTipoDePlaylist.TabIndex = 1;
-            // 
-            // label32
-            // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label32.ForeColor = System.Drawing.SystemColors.Window;
-            this.label32.Location = new System.Drawing.Point(212, 168);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(312, 25);
-            this.label32.TabIndex = 2;
-            this.label32.Text = "Ingrese el nombre de la Playlist";
-            // 
-            // textBoxNombreCrearPlaylist
-            // 
-            this.textBoxNombreCrearPlaylist.Location = new System.Drawing.Point(263, 232);
-            this.textBoxNombreCrearPlaylist.Name = "textBoxNombreCrearPlaylist";
-            this.textBoxNombreCrearPlaylist.Size = new System.Drawing.Size(207, 20);
-            this.textBoxNombreCrearPlaylist.TabIndex = 3;
+            this.buttonVolverDeCrearPlaylist.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonVolverDeCrearPlaylist.Location = new System.Drawing.Point(12, 330);
+            this.buttonVolverDeCrearPlaylist.Name = "buttonVolverDeCrearPlaylist";
+            this.buttonVolverDeCrearPlaylist.Size = new System.Drawing.Size(105, 34);
+            this.buttonVolverDeCrearPlaylist.TabIndex = 5;
+            this.buttonVolverDeCrearPlaylist.Text = "VOLVER";
+            this.buttonVolverDeCrearPlaylist.UseVisualStyleBackColor = false;
+            this.buttonVolverDeCrearPlaylist.Click += new System.EventHandler(this.buttonVolverDeCrearPlaylist_Click);
             // 
             // buttonCrearPlaylist
             // 
@@ -1970,16 +1976,45 @@
             this.buttonCrearPlaylist.UseVisualStyleBackColor = false;
             this.buttonCrearPlaylist.Click += new System.EventHandler(this.buttonCrearPlaylist_Click);
             // 
-            // buttonVolverDeCrearPlaylist
+            // textBoxNombreCrearPlaylist
             // 
-            this.buttonVolverDeCrearPlaylist.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonVolverDeCrearPlaylist.Location = new System.Drawing.Point(12, 330);
-            this.buttonVolverDeCrearPlaylist.Name = "buttonVolverDeCrearPlaylist";
-            this.buttonVolverDeCrearPlaylist.Size = new System.Drawing.Size(105, 34);
-            this.buttonVolverDeCrearPlaylist.TabIndex = 5;
-            this.buttonVolverDeCrearPlaylist.Text = "VOLVER";
-            this.buttonVolverDeCrearPlaylist.UseVisualStyleBackColor = false;
-            this.buttonVolverDeCrearPlaylist.Click += new System.EventHandler(this.buttonVolverDeCrearPlaylist_Click);
+            this.textBoxNombreCrearPlaylist.Location = new System.Drawing.Point(263, 232);
+            this.textBoxNombreCrearPlaylist.Name = "textBoxNombreCrearPlaylist";
+            this.textBoxNombreCrearPlaylist.Size = new System.Drawing.Size(207, 20);
+            this.textBoxNombreCrearPlaylist.TabIndex = 3;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label32.ForeColor = System.Drawing.SystemColors.Window;
+            this.label32.Location = new System.Drawing.Point(212, 168);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(312, 25);
+            this.label32.TabIndex = 2;
+            this.label32.Text = "Ingrese el nombre de la Playlist";
+            // 
+            // comboBoxTipoDePlaylist
+            // 
+            this.comboBoxTipoDePlaylist.FormattingEnabled = true;
+            this.comboBoxTipoDePlaylist.Items.AddRange(new object[] {
+            "De Canciones",
+            "De Películas"});
+            this.comboBoxTipoDePlaylist.Location = new System.Drawing.Point(300, 101);
+            this.comboBoxTipoDePlaylist.Name = "comboBoxTipoDePlaylist";
+            this.comboBoxTipoDePlaylist.Size = new System.Drawing.Size(136, 21);
+            this.comboBoxTipoDePlaylist.TabIndex = 1;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label12.ForeColor = System.Drawing.SystemColors.Window;
+            this.label12.Location = new System.Drawing.Point(202, 35);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(342, 25);
+            this.label12.TabIndex = 0;
+            this.label12.Text = "¿Qué tipo de Playlist desea crear?";
             // 
             // panelMisPlaylist
             // 
@@ -1987,12 +2022,32 @@
             this.panelMisPlaylist.Controls.Add(this.label33);
             this.panelMisPlaylist.Controls.Add(this.buttonVolverDeMisPlaylist);
             this.panelMisPlaylist.Controls.Add(this.listViewVerMisPlaylist);
-            this.panelMisPlaylist.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelMisPlaylist.ForeColor = System.Drawing.SystemColors.Window;
-            this.panelMisPlaylist.Location = new System.Drawing.Point(0, 0);
+            this.panelMisPlaylist.Location = new System.Drawing.Point(189, 276);
             this.panelMisPlaylist.Name = "panelMisPlaylist";
-            this.panelMisPlaylist.Size = new System.Drawing.Size(754, 376);
+            this.panelMisPlaylist.Size = new System.Drawing.Size(158, 78);
             this.panelMisPlaylist.TabIndex = 32;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label33.Location = new System.Drawing.Point(12, 37);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(99, 25);
+            this.label33.TabIndex = 2;
+            this.label33.Text = "PlayLists";
+            // 
+            // buttonVolverDeMisPlaylist
+            // 
+            this.buttonVolverDeMisPlaylist.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonVolverDeMisPlaylist.Location = new System.Drawing.Point(12, 336);
+            this.buttonVolverDeMisPlaylist.Name = "buttonVolverDeMisPlaylist";
+            this.buttonVolverDeMisPlaylist.Size = new System.Drawing.Size(98, 30);
+            this.buttonVolverDeMisPlaylist.TabIndex = 1;
+            this.buttonVolverDeMisPlaylist.Text = "VOLVER";
+            this.buttonVolverDeMisPlaylist.UseVisualStyleBackColor = false;
+            this.buttonVolverDeMisPlaylist.Click += new System.EventHandler(this.buttonVolverDeMisPlaylist_Click);
             // 
             // listViewVerMisPlaylist
             // 
@@ -2006,39 +2061,250 @@
             this.listViewVerMisPlaylist.TabIndex = 0;
             this.listViewVerMisPlaylist.UseCompatibleStateImageBehavior = false;
             // 
-            // buttonVolverDeMisPlaylist
+            // panelAgregarVideo
             // 
-            this.buttonVolverDeMisPlaylist.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonVolverDeMisPlaylist.Location = new System.Drawing.Point(12, 336);
-            this.buttonVolverDeMisPlaylist.Name = "buttonVolverDeMisPlaylist";
-            this.buttonVolverDeMisPlaylist.Size = new System.Drawing.Size(98, 30);
-            this.buttonVolverDeMisPlaylist.TabIndex = 1;
-            this.buttonVolverDeMisPlaylist.Text = "VOLVER";
-            this.buttonVolverDeMisPlaylist.UseVisualStyleBackColor = false;
-            this.buttonVolverDeMisPlaylist.Click += new System.EventHandler(this.buttonVolverDeMisPlaylist_Click);
+            this.panelAgregarVideo.BackColor = System.Drawing.SystemColors.WindowText;
+            this.panelAgregarVideo.Controls.Add(this.labelFaltanDatosPelicula);
+            this.panelAgregarVideo.Controls.Add(this.buttonVolverAgregarPelicula);
+            this.panelAgregarVideo.Controls.Add(this.labelRutaImagenPelicula);
+            this.panelAgregarVideo.Controls.Add(this.labelRutaPelicula);
+            this.panelAgregarVideo.Controls.Add(this.button5);
+            this.panelAgregarVideo.Controls.Add(this.textBoxDuracionPelicula);
+            this.panelAgregarVideo.Controls.Add(this.textBoxAñoPelicula);
+            this.panelAgregarVideo.Controls.Add(this.textBoxDecripcionPelicula);
+            this.panelAgregarVideo.Controls.Add(this.textBoxDirectorPelicula);
+            this.panelAgregarVideo.Controls.Add(this.textBoxCategoriaPelicula);
+            this.panelAgregarVideo.Controls.Add(this.textBoxTituloPelicula);
+            this.panelAgregarVideo.Controls.Add(this.labelFaltaArchivoVideo);
+            this.panelAgregarVideo.Controls.Add(this.buttonAgregarImagenPelicula);
+            this.panelAgregarVideo.Controls.Add(this.label40);
+            this.panelAgregarVideo.Controls.Add(this.buttonAgregarArchivoPelicula);
+            this.panelAgregarVideo.Controls.Add(this.label39);
+            this.panelAgregarVideo.Controls.Add(this.label38);
+            this.panelAgregarVideo.Controls.Add(this.label37);
+            this.panelAgregarVideo.Controls.Add(this.label36);
+            this.panelAgregarVideo.Controls.Add(this.label35);
+            this.panelAgregarVideo.Controls.Add(this.label34);
+            this.panelAgregarVideo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelAgregarVideo.Location = new System.Drawing.Point(0, 0);
+            this.panelAgregarVideo.Name = "panelAgregarVideo";
+            this.panelAgregarVideo.Size = new System.Drawing.Size(754, 376);
+            this.panelAgregarVideo.TabIndex = 33;
             // 
-            // label33
+            // labelFaltanDatosPelicula
             // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.Location = new System.Drawing.Point(12, 37);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(99, 25);
-            this.label33.TabIndex = 2;
-            this.label33.Text = "PlayLists";
+            this.labelFaltanDatosPelicula.AutoSize = true;
+            this.labelFaltanDatosPelicula.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelFaltanDatosPelicula.Location = new System.Drawing.Point(75, 287);
+            this.labelFaltanDatosPelicula.Name = "labelFaltanDatosPelicula";
+            this.labelFaltanDatosPelicula.Size = new System.Drawing.Size(41, 13);
+            this.labelFaltanDatosPelicula.TabIndex = 10;
+            this.labelFaltanDatosPelicula.Text = "label40";
+            this.labelFaltanDatosPelicula.Visible = false;
+            // 
+            // buttonVolverAgregarPelicula
+            // 
+            this.buttonVolverAgregarPelicula.Location = new System.Drawing.Point(15, 338);
+            this.buttonVolverAgregarPelicula.Name = "buttonVolverAgregarPelicula";
+            this.buttonVolverAgregarPelicula.Size = new System.Drawing.Size(75, 23);
+            this.buttonVolverAgregarPelicula.TabIndex = 9;
+            this.buttonVolverAgregarPelicula.Text = "Volver";
+            this.buttonVolverAgregarPelicula.UseVisualStyleBackColor = true;
+            this.buttonVolverAgregarPelicula.Click += new System.EventHandler(this.buttonVolverAgregarPelicula_Click);
+            // 
+            // labelRutaImagenPelicula
+            // 
+            this.labelRutaImagenPelicula.AutoSize = true;
+            this.labelRutaImagenPelicula.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelRutaImagenPelicula.Location = new System.Drawing.Point(414, 151);
+            this.labelRutaImagenPelicula.Name = "labelRutaImagenPelicula";
+            this.labelRutaImagenPelicula.Size = new System.Drawing.Size(41, 13);
+            this.labelRutaImagenPelicula.TabIndex = 8;
+            this.labelRutaImagenPelicula.Text = "label40";
+            this.labelRutaImagenPelicula.Visible = false;
+            // 
+            // labelRutaPelicula
+            // 
+            this.labelRutaPelicula.AutoSize = true;
+            this.labelRutaPelicula.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelRutaPelicula.Location = new System.Drawing.Point(411, 93);
+            this.labelRutaPelicula.Name = "labelRutaPelicula";
+            this.labelRutaPelicula.Size = new System.Drawing.Size(41, 13);
+            this.labelRutaPelicula.TabIndex = 7;
+            this.labelRutaPelicula.Text = "label40";
+            this.labelRutaPelicula.Visible = false;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(632, 317);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(75, 23);
+            this.button5.TabIndex = 6;
+            this.button5.Text = "Confirmar";
+            this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.buttonConfirmarAgregarVideo_Click);
+            // 
+            // textBoxDuracionPelicula
+            // 
+            this.textBoxDuracionPelicula.Location = new System.Drawing.Point(78, 257);
+            this.textBoxDuracionPelicula.Name = "textBoxDuracionPelicula";
+            this.textBoxDuracionPelicula.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDuracionPelicula.TabIndex = 5;
+            this.textBoxDuracionPelicula.TextChanged += new System.EventHandler(this.textBoxAñoPelicula_TextChanged);
+            // 
+            // textBoxAñoPelicula
+            // 
+            this.textBoxAñoPelicula.Location = new System.Drawing.Point(78, 221);
+            this.textBoxAñoPelicula.Name = "textBoxAñoPelicula";
+            this.textBoxAñoPelicula.Size = new System.Drawing.Size(100, 20);
+            this.textBoxAñoPelicula.TabIndex = 5;
+            this.textBoxAñoPelicula.TextChanged += new System.EventHandler(this.textBoxAñoPelicula_TextChanged);
+            // 
+            // textBoxDecripcionPelicula
+            // 
+            this.textBoxDecripcionPelicula.Location = new System.Drawing.Point(78, 185);
+            this.textBoxDecripcionPelicula.Name = "textBoxDecripcionPelicula";
+            this.textBoxDecripcionPelicula.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDecripcionPelicula.TabIndex = 5;
+            // 
+            // textBoxDirectorPelicula
+            // 
+            this.textBoxDirectorPelicula.Location = new System.Drawing.Point(78, 153);
+            this.textBoxDirectorPelicula.Name = "textBoxDirectorPelicula";
+            this.textBoxDirectorPelicula.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDirectorPelicula.TabIndex = 5;
+            // 
+            // textBoxCategoriaPelicula
+            // 
+            this.textBoxCategoriaPelicula.Location = new System.Drawing.Point(78, 121);
+            this.textBoxCategoriaPelicula.Name = "textBoxCategoriaPelicula";
+            this.textBoxCategoriaPelicula.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCategoriaPelicula.TabIndex = 5;
+            // 
+            // textBoxTituloPelicula
+            // 
+            this.textBoxTituloPelicula.Location = new System.Drawing.Point(78, 90);
+            this.textBoxTituloPelicula.Name = "textBoxTituloPelicula";
+            this.textBoxTituloPelicula.Size = new System.Drawing.Size(100, 20);
+            this.textBoxTituloPelicula.TabIndex = 5;
+            // 
+            // labelFaltaArchivoVideo
+            // 
+            this.labelFaltaArchivoVideo.AutoSize = true;
+            this.labelFaltaArchivoVideo.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.labelFaltaArchivoVideo.Location = new System.Drawing.Point(292, 59);
+            this.labelFaltaArchivoVideo.Name = "labelFaltaArchivoVideo";
+            this.labelFaltaArchivoVideo.Size = new System.Drawing.Size(41, 13);
+            this.labelFaltaArchivoVideo.TabIndex = 4;
+            this.labelFaltaArchivoVideo.Text = "label41";
+            this.labelFaltaArchivoVideo.Visible = false;
+            // 
+            // buttonAgregarImagenPelicula
+            // 
+            this.buttonAgregarImagenPelicula.Location = new System.Drawing.Point(292, 136);
+            this.buttonAgregarImagenPelicula.Name = "buttonAgregarImagenPelicula";
+            this.buttonAgregarImagenPelicula.Size = new System.Drawing.Size(97, 43);
+            this.buttonAgregarImagenPelicula.TabIndex = 3;
+            this.buttonAgregarImagenPelicula.Text = "Agregar Imagen ";
+            this.buttonAgregarImagenPelicula.UseVisualStyleBackColor = true;
+            this.buttonAgregarImagenPelicula.Click += new System.EventHandler(this.buttonAgregarImagenPelicula_Click);
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label40.Location = new System.Drawing.Point(12, 259);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(50, 13);
+            this.label40.TabIndex = 1;
+            this.label40.Text = "Duracion";
+            this.label40.Click += new System.EventHandler(this.label39_Click);
+            // 
+            // buttonAgregarArchivoPelicula
+            // 
+            this.buttonAgregarArchivoPelicula.Location = new System.Drawing.Point(292, 78);
+            this.buttonAgregarArchivoPelicula.Name = "buttonAgregarArchivoPelicula";
+            this.buttonAgregarArchivoPelicula.Size = new System.Drawing.Size(97, 43);
+            this.buttonAgregarArchivoPelicula.TabIndex = 2;
+            this.buttonAgregarArchivoPelicula.Text = "Agregar archivo";
+            this.buttonAgregarArchivoPelicula.UseVisualStyleBackColor = true;
+            this.buttonAgregarArchivoPelicula.Click += new System.EventHandler(this.buttonAgregarArchivoPelicula_Click);
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label39.Location = new System.Drawing.Point(12, 223);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(26, 13);
+            this.label39.TabIndex = 1;
+            this.label39.Text = "Año";
+            this.label39.Click += new System.EventHandler(this.label39_Click);
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label38.Location = new System.Drawing.Point(11, 189);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(63, 13);
+            this.label38.TabIndex = 1;
+            this.label38.Text = "Descripción";
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label37.Location = new System.Drawing.Point(9, 156);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(44, 13);
+            this.label37.TabIndex = 1;
+            this.label37.Text = "Director";
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label36.Location = new System.Drawing.Point(9, 124);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(52, 13);
+            this.label36.TabIndex = 1;
+            this.label36.Text = "Categoria";
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label35.Location = new System.Drawing.Point(9, 93);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(33, 13);
+            this.label35.TabIndex = 1;
+            this.label35.Text = "Titulo";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Calibri", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label34.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label34.Location = new System.Drawing.Point(30, 24);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(200, 36);
+            this.label34.TabIndex = 0;
+            this.label34.Text = "Agregar Videos";
             // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(754, 376);
+            this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.panelAgregarVideo);
+            this.Controls.Add(this.panelAgregarCancion);
             this.Controls.Add(this.panelMisPlaylist);
             this.Controls.Add(this.panelCrearPlaylist);
-            this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelRegister);
             this.Controls.Add(this.panelLogin);
             this.Controls.Add(this.panelEntrada);
-            this.Controls.Add(this.panelAgregarCancion);
             this.Controls.Add(this.panelPelículas);
             this.Controls.Add(this.panelBúsqueda);
             this.Controls.Add(this.panelCancciones);
@@ -2086,6 +2352,8 @@
             this.panelCrearPlaylist.PerformLayout();
             this.panelMisPlaylist.ResumeLayout(false);
             this.panelMisPlaylist.PerformLayout();
+            this.panelAgregarVideo.ResumeLayout(false);
+            this.panelAgregarVideo.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2248,6 +2516,29 @@
         private System.Windows.Forms.Button buttonVolverDeMisPlaylist;
         private System.Windows.Forms.ListView listViewVerMisPlaylist;
         private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Panel panelAgregarVideo;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.TextBox textBoxAñoPelicula;
+        private System.Windows.Forms.TextBox textBoxDecripcionPelicula;
+        private System.Windows.Forms.TextBox textBoxDirectorPelicula;
+        private System.Windows.Forms.TextBox textBoxCategoriaPelicula;
+        private System.Windows.Forms.TextBox textBoxTituloPelicula;
+        private System.Windows.Forms.Label labelFaltaArchivoVideo;
+        private System.Windows.Forms.Button buttonAgregarImagenPelicula;
+        private System.Windows.Forms.Button buttonAgregarArchivoPelicula;
+        private System.Windows.Forms.Label labelFaltanDatosPelicula;
+        private System.Windows.Forms.Button buttonVolverAgregarPelicula;
+        private System.Windows.Forms.Label labelRutaImagenPelicula;
+        private System.Windows.Forms.Label labelRutaPelicula;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.TextBox textBoxDuracionPelicula;
+        private System.Windows.Forms.Label label40;
     }
 }
 
