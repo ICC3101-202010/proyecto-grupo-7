@@ -59,6 +59,7 @@
             this.registerViewButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.buttonGoTopCanciones = new System.Windows.Forms.Button();
             this.buttonGoEliminarMedia = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.buttonIrAgregarCancion = new System.Windows.Forms.Button();
@@ -117,8 +118,9 @@
             this.pictureBoxSalirReproducirPelicula = new System.Windows.Forms.PictureBox();
             this.buttonConfirmarCalificaciónPelícula = new System.Windows.Forms.Button();
             this.comboBoxCalificaciónPelícula = new System.Windows.Forms.ComboBox();
-            this.axWindowsMediaPlayer2 = new AxWMPLib.AxWindowsMediaPlayer();
             this.panel2 = new System.Windows.Forms.Panel();
+            this.NumeroReproduccionesPelículaSeleccionada = new System.Windows.Forms.Label();
+            this.ReproduccionesPelículaSeleccionada = new System.Windows.Forms.Label();
             this.CategoríaPelículaSeleccionada = new System.Windows.Forms.Label();
             this.AñoPelículaSeleccionada = new System.Windows.Forms.Label();
             this.CalificaciónPelículaSeleccionada = new System.Windows.Forms.Label();
@@ -128,6 +130,7 @@
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.buttonVolverDeVerPelícula = new System.Windows.Forms.Button();
+            this.axWindowsMediaPlayer2 = new AxWMPLib.AxWindowsMediaPlayer();
             this.FotoPelícula = new System.Windows.Forms.PictureBox();
             this.buttonAgregarPelículaAPlaylist = new System.Windows.Forms.Button();
             this.buttonEvaluarPelícula = new System.Windows.Forms.Button();
@@ -209,8 +212,6 @@
             this.comboBoxTipoMediaParaEliminar = new System.Windows.Forms.ComboBox();
             this.label41 = new System.Windows.Forms.Label();
             this.buttonVolverDeEliminarMedia = new System.Windows.Forms.Button();
-            this.NumeroReproduccionesPelículaSeleccionada = new System.Windows.Forms.Label();
-            this.ReproduccionesPelículaSeleccionada = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.comboBoxTipoDePlaylist = new System.Windows.Forms.ComboBox();
             this.label32 = new System.Windows.Forms.Label();
@@ -234,8 +235,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panelPelículas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSalirReproducirPelicula)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).BeginInit();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FotoPelícula)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panelBúsqueda.SuspendLayout();
@@ -582,6 +583,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panelMenu.Controls.Add(this.buttonGoTopCanciones);
             this.panelMenu.Controls.Add(this.buttonGoEliminarMedia);
             this.panelMenu.Controls.Add(this.button4);
             this.panelMenu.Controls.Add(this.buttonIrAgregarCancion);
@@ -599,6 +601,16 @@
             this.panelMenu.Name = "panelMenu";
             this.panelMenu.Size = new System.Drawing.Size(55, 57);
             this.panelMenu.TabIndex = 25;
+            // 
+            // buttonGoTopCanciones
+            // 
+            this.buttonGoTopCanciones.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonGoTopCanciones.Location = new System.Drawing.Point(596, 291);
+            this.buttonGoTopCanciones.Name = "buttonGoTopCanciones";
+            this.buttonGoTopCanciones.Size = new System.Drawing.Size(134, 33);
+            this.buttonGoTopCanciones.TabIndex = 33;
+            this.buttonGoTopCanciones.Text = "TOP CANCIONES";
+            this.buttonGoTopCanciones.UseVisualStyleBackColor = false;
             // 
             // buttonGoEliminarMedia
             // 
@@ -1299,17 +1311,6 @@
             this.comboBoxCalificaciónPelícula.Size = new System.Drawing.Size(70, 21);
             this.comboBoxCalificaciónPelícula.TabIndex = 44;
             // 
-            // axWindowsMediaPlayer2
-            // 
-            this.axWindowsMediaPlayer2.Enabled = true;
-            this.axWindowsMediaPlayer2.Location = new System.Drawing.Point(53, 245);
-            this.axWindowsMediaPlayer2.Name = "axWindowsMediaPlayer2";
-            this.axWindowsMediaPlayer2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer2.OcxState")));
-            this.axWindowsMediaPlayer2.Size = new System.Drawing.Size(199, 45);
-            this.axWindowsMediaPlayer2.TabIndex = 43;
-            this.axWindowsMediaPlayer2.Visible = false;
-            this.axWindowsMediaPlayer2.Enter += new System.EventHandler(this.axWindowsMediaPlayer2_Enter);
-            // 
             // panel2
             // 
             this.panel2.Controls.Add(this.NumeroReproduccionesPelículaSeleccionada);
@@ -1326,6 +1327,28 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(231, 160);
             this.panel2.TabIndex = 42;
+            // 
+            // NumeroReproduccionesPelículaSeleccionada
+            // 
+            this.NumeroReproduccionesPelículaSeleccionada.AutoSize = true;
+            this.NumeroReproduccionesPelículaSeleccionada.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NumeroReproduccionesPelículaSeleccionada.ForeColor = System.Drawing.SystemColors.Window;
+            this.NumeroReproduccionesPelículaSeleccionada.Location = new System.Drawing.Point(118, 142);
+            this.NumeroReproduccionesPelículaSeleccionada.Name = "NumeroReproduccionesPelículaSeleccionada";
+            this.NumeroReproduccionesPelículaSeleccionada.Size = new System.Drawing.Size(49, 16);
+            this.NumeroReproduccionesPelículaSeleccionada.TabIndex = 45;
+            this.NumeroReproduccionesPelículaSeleccionada.Text = "Álbum:";
+            // 
+            // ReproduccionesPelículaSeleccionada
+            // 
+            this.ReproduccionesPelículaSeleccionada.AutoSize = true;
+            this.ReproduccionesPelículaSeleccionada.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReproduccionesPelículaSeleccionada.ForeColor = System.Drawing.SystemColors.Window;
+            this.ReproduccionesPelículaSeleccionada.Location = new System.Drawing.Point(5, 142);
+            this.ReproduccionesPelículaSeleccionada.Name = "ReproduccionesPelículaSeleccionada";
+            this.ReproduccionesPelículaSeleccionada.Size = new System.Drawing.Size(108, 16);
+            this.ReproduccionesPelículaSeleccionada.TabIndex = 44;
+            this.ReproduccionesPelículaSeleccionada.Text = "Reproducciones";
             // 
             // CategoríaPelículaSeleccionada
             // 
@@ -1426,6 +1449,17 @@
             this.buttonVolverDeVerPelícula.Text = "VOLVER";
             this.buttonVolverDeVerPelícula.UseVisualStyleBackColor = true;
             this.buttonVolverDeVerPelícula.Click += new System.EventHandler(this.buttonVolverDeVerPelícula_Click);
+            // 
+            // axWindowsMediaPlayer2
+            // 
+            this.axWindowsMediaPlayer2.Enabled = true;
+            this.axWindowsMediaPlayer2.Location = new System.Drawing.Point(53, 245);
+            this.axWindowsMediaPlayer2.Name = "axWindowsMediaPlayer2";
+            this.axWindowsMediaPlayer2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer2.OcxState")));
+            this.axWindowsMediaPlayer2.Size = new System.Drawing.Size(199, 45);
+            this.axWindowsMediaPlayer2.TabIndex = 43;
+            this.axWindowsMediaPlayer2.Visible = false;
+            this.axWindowsMediaPlayer2.Enter += new System.EventHandler(this.axWindowsMediaPlayer2_Enter);
             // 
             // FotoPelícula
             // 
@@ -2321,28 +2355,6 @@
             this.buttonVolverDeEliminarMedia.UseVisualStyleBackColor = false;
             this.buttonVolverDeEliminarMedia.Click += new System.EventHandler(this.buttonVolverDeEliminarMedia_Click);
             // 
-            // NumeroReproduccionesPelículaSeleccionada
-            // 
-            this.NumeroReproduccionesPelículaSeleccionada.AutoSize = true;
-            this.NumeroReproduccionesPelículaSeleccionada.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.NumeroReproduccionesPelículaSeleccionada.ForeColor = System.Drawing.SystemColors.Window;
-            this.NumeroReproduccionesPelículaSeleccionada.Location = new System.Drawing.Point(118, 142);
-            this.NumeroReproduccionesPelículaSeleccionada.Name = "NumeroReproduccionesPelículaSeleccionada";
-            this.NumeroReproduccionesPelículaSeleccionada.Size = new System.Drawing.Size(49, 16);
-            this.NumeroReproduccionesPelículaSeleccionada.TabIndex = 45;
-            this.NumeroReproduccionesPelículaSeleccionada.Text = "Álbum:";
-            // 
-            // ReproduccionesPelículaSeleccionada
-            // 
-            this.ReproduccionesPelículaSeleccionada.AutoSize = true;
-            this.ReproduccionesPelículaSeleccionada.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReproduccionesPelículaSeleccionada.ForeColor = System.Drawing.SystemColors.Window;
-            this.ReproduccionesPelículaSeleccionada.Location = new System.Drawing.Point(5, 142);
-            this.ReproduccionesPelículaSeleccionada.Name = "ReproduccionesPelículaSeleccionada";
-            this.ReproduccionesPelículaSeleccionada.Size = new System.Drawing.Size(108, 16);
-            this.ReproduccionesPelículaSeleccionada.TabIndex = 44;
-            this.ReproduccionesPelículaSeleccionada.Text = "Reproducciones";
-            // 
             // label12
             // 
             this.label12.AutoSize = true;
@@ -2424,9 +2436,9 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(754, 376);
+            this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelCrearPlaylist);
             this.Controls.Add(this.panelPelículas);
-            this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelEliminarMedia);
             this.Controls.Add(this.panelAgregarVideo);
             this.Controls.Add(this.panelAgregarCancion);
@@ -2463,9 +2475,9 @@
             this.panelPelículas.ResumeLayout(false);
             this.panelPelículas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSalirReproducirPelicula)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FotoPelícula)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panelBúsqueda.ResumeLayout(false);
@@ -2679,6 +2691,7 @@
         private System.Windows.Forms.Button buttonCrearPlaylist;
         private System.Windows.Forms.Button buttonVolverDeCrearPlaylist;
         private System.Windows.Forms.Panel panelCrearPlaylist;
+        private System.Windows.Forms.Button buttonGoTopCanciones;
     }
 }
 
