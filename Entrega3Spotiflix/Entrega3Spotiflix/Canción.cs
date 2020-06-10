@@ -80,6 +80,7 @@ namespace Entrega3Spotiflix
             Console.ReadLine();
             //player.controls.stop();
         }
+        public Canción() { }
 
     }
 

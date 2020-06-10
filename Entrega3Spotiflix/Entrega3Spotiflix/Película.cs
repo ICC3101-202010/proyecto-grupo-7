@@ -81,19 +81,7 @@ namespace Entrega3Spotiflix
         {
             get => añoPublicacion; set => añoPublicacion = value;
         }
-        public int Avg_Ranking
-        {
-            get => Avg_Ranking; set => Avg_Ranking = value;
-        }
-        public void informacion()
-        {
-            Console.WriteLine("Título" + titulo + "\nArtista: " + "\nEstudio: " + estudio + "\nDuración: " + duracion + "\nCalificación: " + Avg_Ranking + "\nAño de publicación: " + añoPublicacion);
-            Console.WriteLine("Actores: ");
-            foreach (Person actores in Actores)
-            {
-                Console.WriteLine(actores.Nombre);
-            }
-        }
+        public Película() { }
 
     }
 

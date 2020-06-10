@@ -95,7 +95,6 @@ namespace Entrega3Spotiflix
             }
             return description;
         }
-
         public static string AddCancion(List<string> data)
         {
             string description = null;

@@ -59,6 +59,7 @@
             this.registerViewButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.buttonGoEliminarMedia = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.buttonIrAgregarCancion = new System.Windows.Forms.Button();
             this.buttonGoVerPelículas = new System.Windows.Forms.Button();
@@ -118,7 +119,7 @@
             this.comboBoxCalificaciónPelícula = new System.Windows.Forms.ComboBox();
             this.axWindowsMediaPlayer2 = new AxWMPLib.AxWindowsMediaPlayer();
             this.panel2 = new System.Windows.Forms.Panel();
-            this.TituloPelículaSeleccionada = new System.Windows.Forms.Label();
+            this.CategoríaPelículaSeleccionada = new System.Windows.Forms.Label();
             this.AñoPelículaSeleccionada = new System.Windows.Forms.Label();
             this.CalificaciónPelículaSeleccionada = new System.Windows.Forms.Label();
             this.DuraciónPelículaSeleccionada = new System.Windows.Forms.Label();
@@ -128,7 +129,6 @@
             this.label26 = new System.Windows.Forms.Label();
             this.buttonVolverDeVerPelícula = new System.Windows.Forms.Button();
             this.FotoPelícula = new System.Windows.Forms.PictureBox();
-            this.buttonInfoPelícula = new System.Windows.Forms.Button();
             this.buttonAgregarPelículaAPlaylist = new System.Windows.Forms.Button();
             this.buttonEvaluarPelícula = new System.Windows.Forms.Button();
             this.buttonReproducirPelícula = new System.Windows.Forms.Button();
@@ -208,6 +208,16 @@
             this.label36 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
+            this.panelEliminarMedia = new System.Windows.Forms.Panel();
+            this.buttonConfirmarTipoMediaParaEliminar = new System.Windows.Forms.Button();
+            this.buttonEliminarMedia = new System.Windows.Forms.Button();
+            this.comboBoxMediaParaEliminar = new System.Windows.Forms.ComboBox();
+            this.labelMediaParaEliminar = new System.Windows.Forms.Label();
+            this.comboBoxTipoMediaParaEliminar = new System.Windows.Forms.ComboBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.buttonVolverDeEliminarMedia = new System.Windows.Forms.Button();
+            this.NumeroReproduccionesPelículaSeleccionada = new System.Windows.Forms.Label();
+            this.ReproduccionesPelículaSeleccionada = new System.Windows.Forms.Label();
             this.panelEntrada.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FotoLogoEntrada)).BeginInit();
             this.panelLogin.SuspendLayout();
@@ -236,6 +246,7 @@
             this.panelCrearPlaylist.SuspendLayout();
             this.panelMisPlaylist.SuspendLayout();
             this.panelAgregarVideo.SuspendLayout();
+            this.panelEliminarMedia.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelEntrada
@@ -245,9 +256,9 @@
             this.panelEntrada.Controls.Add(this.buttonGoRegister);
             this.panelEntrada.Controls.Add(this.buttonGoLogin);
             this.panelEntrada.Controls.Add(this.label1);
-            this.panelEntrada.Location = new System.Drawing.Point(560, 179);
+            this.panelEntrada.Location = new System.Drawing.Point(473, 18);
             this.panelEntrada.Name = "panelEntrada";
-            this.panelEntrada.Size = new System.Drawing.Size(154, 111);
+            this.panelEntrada.Size = new System.Drawing.Size(91, 57);
             this.panelEntrada.TabIndex = 0;
             // 
             // FotoLogoEntrada
@@ -308,9 +319,9 @@
             this.panelLogin.Controls.Add(this.label3);
             this.panelLogin.Controls.Add(this.loginViewPassWordInput);
             this.panelLogin.Controls.Add(this.loginViewUserInput);
-            this.panelLogin.Location = new System.Drawing.Point(12, 162);
+            this.panelLogin.Location = new System.Drawing.Point(378, 18);
             this.panelLogin.Name = "panelLogin";
-            this.panelLogin.Size = new System.Drawing.Size(146, 101);
+            this.panelLogin.Size = new System.Drawing.Size(72, 57);
             this.panelLogin.TabIndex = 14;
             // 
             // pictureBox2
@@ -345,7 +356,7 @@
             this.textBox4.Location = new System.Drawing.Point(0, 0);
             this.textBox4.Margin = new System.Windows.Forms.Padding(2);
             this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(146, 30);
+            this.textBox4.Size = new System.Drawing.Size(72, 30);
             this.textBox4.TabIndex = 12;
             this.textBox4.Text = "Spotiflix";
             this.textBox4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -428,10 +439,11 @@
             this.panelRegister.Controls.Add(this.label7);
             this.panelRegister.Controls.Add(this.registerViewButton);
             this.panelRegister.Controls.Add(this.textBox1);
-            this.panelRegister.Location = new System.Drawing.Point(373, 32);
+            this.panelRegister.Location = new System.Drawing.Point(182, 18);
             this.panelRegister.Name = "panelRegister";
-            this.panelRegister.Size = new System.Drawing.Size(178, 112);
+            this.panelRegister.Size = new System.Drawing.Size(78, 57);
             this.panelRegister.TabIndex = 14;
+            this.panelRegister.Paint += new System.Windows.Forms.PaintEventHandler(this.panelRegister_Paint);
             // 
             // comboBoxTipoUsuario
             // 
@@ -562,7 +574,7 @@
             this.textBox1.Location = new System.Drawing.Point(0, 0);
             this.textBox1.Margin = new System.Windows.Forms.Padding(2);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(178, 30);
+            this.textBox1.Size = new System.Drawing.Size(78, 30);
             this.textBox1.TabIndex = 13;
             this.textBox1.Text = "Spotiflix";
             this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -570,6 +582,7 @@
             // panelMenu
             // 
             this.panelMenu.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panelMenu.Controls.Add(this.buttonGoEliminarMedia);
             this.panelMenu.Controls.Add(this.button4);
             this.panelMenu.Controls.Add(this.buttonIrAgregarCancion);
             this.panelMenu.Controls.Add(this.buttonGoVerPelículas);
@@ -582,16 +595,26 @@
             this.panelMenu.Controls.Add(this.buttonModificarCuenta);
             this.panelMenu.Controls.Add(this.buttonLogOut);
             this.panelMenu.Controls.Add(this.FotoMenu);
-            this.panelMenu.Location = new System.Drawing.Point(12, 15);
+            this.panelMenu.Location = new System.Drawing.Point(12, 18);
             this.panelMenu.Name = "panelMenu";
-            this.panelMenu.Size = new System.Drawing.Size(123, 108);
+            this.panelMenu.Size = new System.Drawing.Size(55, 57);
             this.panelMenu.TabIndex = 25;
+            // 
+            // buttonGoEliminarMedia
+            // 
+            this.buttonGoEliminarMedia.Location = new System.Drawing.Point(265, 318);
+            this.buttonGoEliminarMedia.Name = "buttonGoEliminarMedia";
+            this.buttonGoEliminarMedia.Size = new System.Drawing.Size(95, 36);
+            this.buttonGoEliminarMedia.TabIndex = 32;
+            this.buttonGoEliminarMedia.Text = "Eliminar Media";
+            this.buttonGoEliminarMedia.UseVisualStyleBackColor = true;
+            this.buttonGoEliminarMedia.Click += new System.EventHandler(this.buttonGoEliminarMedia_Click);
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(168, 320);
+            this.button4.Location = new System.Drawing.Point(156, 318);
             this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(95, 34);
+            this.button4.Size = new System.Drawing.Size(95, 36);
             this.button4.TabIndex = 31;
             this.button4.Text = "Agregar Video";
             this.button4.UseVisualStyleBackColor = true;
@@ -738,9 +761,9 @@
             this.panelModificarCuenta.Controls.Add(this.button1);
             this.panelModificarCuenta.Controls.Add(this.buttonCambiarContraseña);
             this.panelModificarCuenta.Controls.Add(this.label8);
-            this.panelModificarCuenta.Location = new System.Drawing.Point(570, 24);
+            this.panelModificarCuenta.Location = new System.Drawing.Point(283, 18);
             this.panelModificarCuenta.Name = "panelModificarCuenta";
-            this.panelModificarCuenta.Size = new System.Drawing.Size(178, 110);
+            this.panelModificarCuenta.Size = new System.Drawing.Size(73, 57);
             this.panelModificarCuenta.TabIndex = 26;
             // 
             // textBoxAntiguaContraseñaCambioContraseña
@@ -933,9 +956,9 @@
             this.panelCancciones.Controls.Add(this.listViewCanciones);
             this.panelCancciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panelCancciones.ForeColor = System.Drawing.SystemColors.MenuBar;
-            this.panelCancciones.Location = new System.Drawing.Point(174, 138);
+            this.panelCancciones.Location = new System.Drawing.Point(12, 88);
             this.panelCancciones.Name = "panelCancciones";
-            this.panelCancciones.Size = new System.Drawing.Size(139, 122);
+            this.panelCancciones.Size = new System.Drawing.Size(55, 61);
             this.panelCancciones.TabIndex = 27;
             this.panelCancciones.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCancciones_Paint);
             // 
@@ -1216,11 +1239,10 @@
             this.panelPelículas.Controls.Add(this.pictureBoxSalirReproducirPelicula);
             this.panelPelículas.Controls.Add(this.buttonConfirmarCalificaciónPelícula);
             this.panelPelículas.Controls.Add(this.comboBoxCalificaciónPelícula);
-            this.panelPelículas.Controls.Add(this.axWindowsMediaPlayer2);
             this.panelPelículas.Controls.Add(this.panel2);
             this.panelPelículas.Controls.Add(this.buttonVolverDeVerPelícula);
+            this.panelPelículas.Controls.Add(this.axWindowsMediaPlayer2);
             this.panelPelículas.Controls.Add(this.FotoPelícula);
-            this.panelPelículas.Controls.Add(this.buttonInfoPelícula);
             this.panelPelículas.Controls.Add(this.buttonAgregarPelículaAPlaylist);
             this.panelPelículas.Controls.Add(this.buttonEvaluarPelícula);
             this.panelPelículas.Controls.Add(this.buttonReproducirPelícula);
@@ -1228,9 +1250,10 @@
             this.panelPelículas.Controls.Add(this.pictureBox5);
             this.panelPelículas.Controls.Add(this.PelículaSeleccionada);
             this.panelPelículas.Controls.Add(this.listViewPelículas);
-            this.panelPelículas.Location = new System.Drawing.Point(156, 3);
+            this.panelPelículas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelPelículas.Location = new System.Drawing.Point(0, 0);
             this.panelPelículas.Name = "panelPelículas";
-            this.panelPelículas.Size = new System.Drawing.Size(200, 127);
+            this.panelPelículas.Size = new System.Drawing.Size(754, 376);
             this.panelPelículas.TabIndex = 28;
             // 
             // pictureBoxSalirReproducirPelicula
@@ -1250,7 +1273,7 @@
             this.buttonConfirmarCalificaciónPelícula.BackColor = System.Drawing.SystemColors.MenuText;
             this.buttonConfirmarCalificaciónPelícula.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonConfirmarCalificaciónPelícula.ForeColor = System.Drawing.SystemColors.Window;
-            this.buttonConfirmarCalificaciónPelícula.Location = new System.Drawing.Point(513, 338);
+            this.buttonConfirmarCalificaciónPelícula.Location = new System.Drawing.Point(454, 341);
             this.buttonConfirmarCalificaciónPelícula.Name = "buttonConfirmarCalificaciónPelícula";
             this.buttonConfirmarCalificaciónPelícula.Size = new System.Drawing.Size(30, 28);
             this.buttonConfirmarCalificaciónPelícula.TabIndex = 45;
@@ -1272,7 +1295,7 @@
             "8",
             "9",
             "10"});
-            this.comboBoxCalificaciónPelícula.Location = new System.Drawing.Point(437, 342);
+            this.comboBoxCalificaciónPelícula.Location = new System.Drawing.Point(378, 345);
             this.comboBoxCalificaciónPelícula.Name = "comboBoxCalificaciónPelícula";
             this.comboBoxCalificaciónPelícula.Size = new System.Drawing.Size(70, 21);
             this.comboBoxCalificaciónPelícula.TabIndex = 44;
@@ -1280,17 +1303,19 @@
             // axWindowsMediaPlayer2
             // 
             this.axWindowsMediaPlayer2.Enabled = true;
-            this.axWindowsMediaPlayer2.Location = new System.Drawing.Point(0, 2);
+            this.axWindowsMediaPlayer2.Location = new System.Drawing.Point(53, 245);
             this.axWindowsMediaPlayer2.Name = "axWindowsMediaPlayer2";
             this.axWindowsMediaPlayer2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer2.OcxState")));
-            this.axWindowsMediaPlayer2.Size = new System.Drawing.Size(551, 285);
+            this.axWindowsMediaPlayer2.Size = new System.Drawing.Size(199, 45);
             this.axWindowsMediaPlayer2.TabIndex = 43;
             this.axWindowsMediaPlayer2.Visible = false;
             this.axWindowsMediaPlayer2.Enter += new System.EventHandler(this.axWindowsMediaPlayer2_Enter);
             // 
             // panel2
             // 
-            this.panel2.Controls.Add(this.TituloPelículaSeleccionada);
+            this.panel2.Controls.Add(this.NumeroReproduccionesPelículaSeleccionada);
+            this.panel2.Controls.Add(this.ReproduccionesPelículaSeleccionada);
+            this.panel2.Controls.Add(this.CategoríaPelículaSeleccionada);
             this.panel2.Controls.Add(this.AñoPelículaSeleccionada);
             this.panel2.Controls.Add(this.CalificaciónPelículaSeleccionada);
             this.panel2.Controls.Add(this.DuraciónPelículaSeleccionada);
@@ -1298,21 +1323,21 @@
             this.panel2.Controls.Add(this.label24);
             this.panel2.Controls.Add(this.label25);
             this.panel2.Controls.Add(this.label26);
-            this.panel2.Location = new System.Drawing.Point(316, 104);
+            this.panel2.Location = new System.Drawing.Point(312, 104);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(231, 157);
+            this.panel2.Size = new System.Drawing.Size(231, 160);
             this.panel2.TabIndex = 42;
             // 
-            // TituloPelículaSeleccionada
+            // CategoríaPelículaSeleccionada
             // 
-            this.TituloPelículaSeleccionada.AutoSize = true;
-            this.TituloPelículaSeleccionada.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TituloPelículaSeleccionada.ForeColor = System.Drawing.SystemColors.Window;
-            this.TituloPelículaSeleccionada.Location = new System.Drawing.Point(59, 29);
-            this.TituloPelículaSeleccionada.Name = "TituloPelículaSeleccionada";
-            this.TituloPelículaSeleccionada.Size = new System.Drawing.Size(49, 16);
-            this.TituloPelículaSeleccionada.TabIndex = 15;
-            this.TituloPelículaSeleccionada.Text = "Álbum:";
+            this.CategoríaPelículaSeleccionada.AutoSize = true;
+            this.CategoríaPelículaSeleccionada.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CategoríaPelículaSeleccionada.ForeColor = System.Drawing.SystemColors.Window;
+            this.CategoríaPelículaSeleccionada.Location = new System.Drawing.Point(82, 29);
+            this.CategoríaPelículaSeleccionada.Name = "CategoríaPelículaSeleccionada";
+            this.CategoríaPelículaSeleccionada.Size = new System.Drawing.Size(49, 16);
+            this.CategoríaPelículaSeleccionada.TabIndex = 15;
+            this.CategoríaPelículaSeleccionada.Text = "Acción";
             // 
             // AñoPelículaSeleccionada
             // 
@@ -1387,9 +1412,9 @@
             this.label26.ForeColor = System.Drawing.SystemColors.Window;
             this.label26.Location = new System.Drawing.Point(4, 29);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(41, 16);
+            this.label26.Size = new System.Drawing.Size(70, 16);
             this.label26.TabIndex = 8;
-            this.label26.Text = "Título";
+            this.label26.Text = "Categoría:";
             // 
             // buttonVolverDeVerPelícula
             // 
@@ -1413,18 +1438,6 @@
             this.FotoPelícula.TabStop = false;
             this.FotoPelícula.Visible = false;
             // 
-            // buttonInfoPelícula
-            // 
-            this.buttonInfoPelícula.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonInfoPelícula.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.buttonInfoPelícula.Location = new System.Drawing.Point(103, 341);
-            this.buttonInfoPelícula.Name = "buttonInfoPelícula";
-            this.buttonInfoPelícula.Size = new System.Drawing.Size(161, 30);
-            this.buttonInfoPelícula.TabIndex = 39;
-            this.buttonInfoPelícula.Text = "INFO PELÍCULA";
-            this.buttonInfoPelícula.UseVisualStyleBackColor = true;
-            this.buttonInfoPelícula.Visible = false;
-            // 
             // buttonAgregarPelículaAPlaylist
             // 
             this.buttonAgregarPelículaAPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1441,7 +1454,7 @@
             // 
             this.buttonEvaluarPelícula.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEvaluarPelícula.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.buttonEvaluarPelícula.Location = new System.Drawing.Point(270, 341);
+            this.buttonEvaluarPelícula.Location = new System.Drawing.Point(197, 339);
             this.buttonEvaluarPelícula.Name = "buttonEvaluarPelícula";
             this.buttonEvaluarPelícula.Size = new System.Drawing.Size(161, 30);
             this.buttonEvaluarPelícula.TabIndex = 37;
@@ -1526,9 +1539,9 @@
             this.panelBúsqueda.Controls.Add(this.comboBoxCriterio1);
             this.panelBúsqueda.Controls.Add(this.labelFiltroBúsqueda);
             this.panelBúsqueda.ForeColor = System.Drawing.SystemColors.Window;
-            this.panelBúsqueda.Location = new System.Drawing.Point(30, 283);
+            this.panelBúsqueda.Location = new System.Drawing.Point(79, 88);
             this.panelBúsqueda.Name = "panelBúsqueda";
-            this.panelBúsqueda.Size = new System.Drawing.Size(158, 86);
+            this.panelBúsqueda.Size = new System.Drawing.Size(78, 61);
             this.panelBúsqueda.TabIndex = 29;
             // 
             // comboBoxCriterioPlaylists
@@ -1720,9 +1733,9 @@
             this.panelAgregarCancion.Controls.Add(this.label23);
             this.panelAgregarCancion.Controls.Add(this.label22);
             this.panelAgregarCancion.Controls.Add(this.label19);
-            this.panelAgregarCancion.Location = new System.Drawing.Point(336, 153);
+            this.panelAgregarCancion.Location = new System.Drawing.Point(182, 88);
             this.panelAgregarCancion.Name = "panelAgregarCancion";
-            this.panelAgregarCancion.Size = new System.Drawing.Size(150, 102);
+            this.panelAgregarCancion.Size = new System.Drawing.Size(81, 61);
             this.panelAgregarCancion.TabIndex = 30;
             // 
             // labelRutaImagenCancion
@@ -1949,9 +1962,9 @@
             this.panelCrearPlaylist.Controls.Add(this.comboBoxTipoDePlaylist);
             this.panelCrearPlaylist.Controls.Add(this.label12);
             this.panelCrearPlaylist.ForeColor = System.Drawing.SystemColors.Window;
-            this.panelCrearPlaylist.Location = new System.Drawing.Point(559, 297);
+            this.panelCrearPlaylist.Location = new System.Drawing.Point(472, 89);
             this.panelCrearPlaylist.Name = "panelCrearPlaylist";
-            this.panelCrearPlaylist.Size = new System.Drawing.Size(158, 74);
+            this.panelCrearPlaylist.Size = new System.Drawing.Size(92, 61);
             this.panelCrearPlaylist.TabIndex = 31;
             // 
             // buttonVolverDeCrearPlaylist
@@ -2023,9 +2036,9 @@
             this.panelMisPlaylist.Controls.Add(this.buttonVolverDeMisPlaylist);
             this.panelMisPlaylist.Controls.Add(this.listViewVerMisPlaylist);
             this.panelMisPlaylist.ForeColor = System.Drawing.SystemColors.Window;
-            this.panelMisPlaylist.Location = new System.Drawing.Point(189, 276);
+            this.panelMisPlaylist.Location = new System.Drawing.Point(282, 89);
             this.panelMisPlaylist.Name = "panelMisPlaylist";
-            this.panelMisPlaylist.Size = new System.Drawing.Size(158, 78);
+            this.panelMisPlaylist.Size = new System.Drawing.Size(74, 60);
             this.panelMisPlaylist.TabIndex = 32;
             // 
             // label33
@@ -2085,11 +2098,11 @@
             this.panelAgregarVideo.Controls.Add(this.label36);
             this.panelAgregarVideo.Controls.Add(this.label35);
             this.panelAgregarVideo.Controls.Add(this.label34);
-            this.panelAgregarVideo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelAgregarVideo.Location = new System.Drawing.Point(0, 0);
+            this.panelAgregarVideo.Location = new System.Drawing.Point(378, 89);
             this.panelAgregarVideo.Name = "panelAgregarVideo";
-            this.panelAgregarVideo.Size = new System.Drawing.Size(754, 376);
+            this.panelAgregarVideo.Size = new System.Drawing.Size(72, 61);
             this.panelAgregarVideo.TabIndex = 33;
+            this.panelAgregarVideo.Paint += new System.Windows.Forms.PaintEventHandler(this.panelAgregarVideo_Paint);
             // 
             // labelFaltanDatosPelicula
             // 
@@ -2292,12 +2305,130 @@
             this.label34.TabIndex = 0;
             this.label34.Text = "Agregar Videos";
             // 
+            // panelEliminarMedia
+            // 
+            this.panelEliminarMedia.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panelEliminarMedia.Controls.Add(this.buttonConfirmarTipoMediaParaEliminar);
+            this.panelEliminarMedia.Controls.Add(this.buttonEliminarMedia);
+            this.panelEliminarMedia.Controls.Add(this.comboBoxMediaParaEliminar);
+            this.panelEliminarMedia.Controls.Add(this.labelMediaParaEliminar);
+            this.panelEliminarMedia.Controls.Add(this.comboBoxTipoMediaParaEliminar);
+            this.panelEliminarMedia.Controls.Add(this.label41);
+            this.panelEliminarMedia.Controls.Add(this.buttonVolverDeEliminarMedia);
+            this.panelEliminarMedia.ForeColor = System.Drawing.SystemColors.Window;
+            this.panelEliminarMedia.Location = new System.Drawing.Point(578, 18);
+            this.panelEliminarMedia.Name = "panelEliminarMedia";
+            this.panelEliminarMedia.Size = new System.Drawing.Size(76, 57);
+            this.panelEliminarMedia.TabIndex = 34;
+            // 
+            // buttonConfirmarTipoMediaParaEliminar
+            // 
+            this.buttonConfirmarTipoMediaParaEliminar.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonConfirmarTipoMediaParaEliminar.ForeColor = System.Drawing.SystemColors.Window;
+            this.buttonConfirmarTipoMediaParaEliminar.Location = new System.Drawing.Point(418, 86);
+            this.buttonConfirmarTipoMediaParaEliminar.Name = "buttonConfirmarTipoMediaParaEliminar";
+            this.buttonConfirmarTipoMediaParaEliminar.Size = new System.Drawing.Size(41, 31);
+            this.buttonConfirmarTipoMediaParaEliminar.TabIndex = 6;
+            this.buttonConfirmarTipoMediaParaEliminar.Text = "OK";
+            this.buttonConfirmarTipoMediaParaEliminar.UseVisualStyleBackColor = false;
+            this.buttonConfirmarTipoMediaParaEliminar.Click += new System.EventHandler(this.buttonConfirmarTipoMediaParaEliminar_Click);
+            // 
+            // buttonEliminarMedia
+            // 
+            this.buttonEliminarMedia.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonEliminarMedia.ForeColor = System.Drawing.SystemColors.Window;
+            this.buttonEliminarMedia.Location = new System.Drawing.Point(295, 279);
+            this.buttonEliminarMedia.Name = "buttonEliminarMedia";
+            this.buttonEliminarMedia.Size = new System.Drawing.Size(106, 36);
+            this.buttonEliminarMedia.TabIndex = 5;
+            this.buttonEliminarMedia.Text = "ELIMINAR";
+            this.buttonEliminarMedia.UseVisualStyleBackColor = false;
+            this.buttonEliminarMedia.Visible = false;
+            this.buttonEliminarMedia.Click += new System.EventHandler(this.buttonEliminarMedia_Click);
+            // 
+            // comboBoxMediaParaEliminar
+            // 
+            this.comboBoxMediaParaEliminar.FormattingEnabled = true;
+            this.comboBoxMediaParaEliminar.Location = new System.Drawing.Point(289, 225);
+            this.comboBoxMediaParaEliminar.Name = "comboBoxMediaParaEliminar";
+            this.comboBoxMediaParaEliminar.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxMediaParaEliminar.TabIndex = 4;
+            this.comboBoxMediaParaEliminar.Visible = false;
+            // 
+            // labelMediaParaEliminar
+            // 
+            this.labelMediaParaEliminar.AutoSize = true;
+            this.labelMediaParaEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMediaParaEliminar.Location = new System.Drawing.Point(229, 162);
+            this.labelMediaParaEliminar.Name = "labelMediaParaEliminar";
+            this.labelMediaParaEliminar.Size = new System.Drawing.Size(245, 25);
+            this.labelMediaParaEliminar.TabIndex = 3;
+            this.labelMediaParaEliminar.Text = "Elija cuál desea eliminar";
+            this.labelMediaParaEliminar.Visible = false;
+            // 
+            // comboBoxTipoMediaParaEliminar
+            // 
+            this.comboBoxTipoMediaParaEliminar.FormattingEnabled = true;
+            this.comboBoxTipoMediaParaEliminar.Items.AddRange(new object[] {
+            "Canción",
+            "Película"});
+            this.comboBoxTipoMediaParaEliminar.Location = new System.Drawing.Point(289, 92);
+            this.comboBoxTipoMediaParaEliminar.Name = "comboBoxTipoMediaParaEliminar";
+            this.comboBoxTipoMediaParaEliminar.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxTipoMediaParaEliminar.TabIndex = 2;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label41.Location = new System.Drawing.Point(177, 30);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(357, 25);
+            this.label41.TabIndex = 1;
+            this.label41.Text = "¿Qué tipo de media desea eliminar?";
+            // 
+            // buttonVolverDeEliminarMedia
+            // 
+            this.buttonVolverDeEliminarMedia.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonVolverDeEliminarMedia.ForeColor = System.Drawing.SystemColors.Window;
+            this.buttonVolverDeEliminarMedia.Location = new System.Drawing.Point(15, 330);
+            this.buttonVolverDeEliminarMedia.Name = "buttonVolverDeEliminarMedia";
+            this.buttonVolverDeEliminarMedia.Size = new System.Drawing.Size(106, 36);
+            this.buttonVolverDeEliminarMedia.TabIndex = 0;
+            this.buttonVolverDeEliminarMedia.Text = "VOLVER";
+            this.buttonVolverDeEliminarMedia.UseVisualStyleBackColor = false;
+            this.buttonVolverDeEliminarMedia.Click += new System.EventHandler(this.buttonVolverDeEliminarMedia_Click);
+            // 
+            // NumeroReproduccionesPelículaSeleccionada
+            // 
+            this.NumeroReproduccionesPelículaSeleccionada.AutoSize = true;
+            this.NumeroReproduccionesPelículaSeleccionada.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.NumeroReproduccionesPelículaSeleccionada.ForeColor = System.Drawing.SystemColors.Window;
+            this.NumeroReproduccionesPelículaSeleccionada.Location = new System.Drawing.Point(118, 142);
+            this.NumeroReproduccionesPelículaSeleccionada.Name = "NumeroReproduccionesPelículaSeleccionada";
+            this.NumeroReproduccionesPelículaSeleccionada.Size = new System.Drawing.Size(49, 16);
+            this.NumeroReproduccionesPelículaSeleccionada.TabIndex = 45;
+            this.NumeroReproduccionesPelículaSeleccionada.Text = "Álbum:";
+            // 
+            // ReproduccionesPelículaSeleccionada
+            // 
+            this.ReproduccionesPelículaSeleccionada.AutoSize = true;
+            this.ReproduccionesPelículaSeleccionada.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReproduccionesPelículaSeleccionada.ForeColor = System.Drawing.SystemColors.Window;
+            this.ReproduccionesPelículaSeleccionada.Location = new System.Drawing.Point(5, 142);
+            this.ReproduccionesPelículaSeleccionada.Name = "ReproduccionesPelículaSeleccionada";
+            this.ReproduccionesPelículaSeleccionada.Size = new System.Drawing.Size(108, 16);
+            this.ReproduccionesPelículaSeleccionada.TabIndex = 44;
+            this.ReproduccionesPelículaSeleccionada.Text = "Reproducciones";
+            // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(754, 376);
+            this.Controls.Add(this.panelPelículas);
             this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.panelEliminarMedia);
             this.Controls.Add(this.panelAgregarVideo);
             this.Controls.Add(this.panelAgregarCancion);
             this.Controls.Add(this.panelMisPlaylist);
@@ -2305,7 +2436,6 @@
             this.Controls.Add(this.panelRegister);
             this.Controls.Add(this.panelLogin);
             this.Controls.Add(this.panelEntrada);
-            this.Controls.Add(this.panelPelículas);
             this.Controls.Add(this.panelBúsqueda);
             this.Controls.Add(this.panelCancciones);
             this.Controls.Add(this.panelModificarCuenta);
@@ -2354,6 +2484,8 @@
             this.panelMisPlaylist.PerformLayout();
             this.panelAgregarVideo.ResumeLayout(false);
             this.panelAgregarVideo.PerformLayout();
+            this.panelEliminarMedia.ResumeLayout(false);
+            this.panelEliminarMedia.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -2429,7 +2561,6 @@
         private System.Windows.Forms.Panel panelPelículas;
         private System.Windows.Forms.Button buttonVolverDeVerPelícula;
         private System.Windows.Forms.PictureBox FotoPelícula;
-        private System.Windows.Forms.Button buttonInfoPelícula;
         private System.Windows.Forms.Button buttonAgregarPelículaAPlaylist;
         private System.Windows.Forms.Button buttonEvaluarPelícula;
         private System.Windows.Forms.Button buttonReproducirPelícula;
@@ -2448,7 +2579,7 @@
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Label TituloPelículaSeleccionada;
+        private System.Windows.Forms.Label CategoríaPelículaSeleccionada;
         private System.Windows.Forms.Label AñoPelículaSeleccionada;
         private System.Windows.Forms.Label CalificaciónPelículaSeleccionada;
         private System.Windows.Forms.Label DuraciónPelículaSeleccionada;
@@ -2539,6 +2670,17 @@
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.TextBox textBoxDuracionPelicula;
         private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Button buttonGoEliminarMedia;
+        private System.Windows.Forms.Panel panelEliminarMedia;
+        private System.Windows.Forms.ComboBox comboBoxMediaParaEliminar;
+        private System.Windows.Forms.Label labelMediaParaEliminar;
+        private System.Windows.Forms.ComboBox comboBoxTipoMediaParaEliminar;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Button buttonVolverDeEliminarMedia;
+        private System.Windows.Forms.Button buttonEliminarMedia;
+        private System.Windows.Forms.Button buttonConfirmarTipoMediaParaEliminar;
+        private System.Windows.Forms.Label NumeroReproduccionesPelículaSeleccionada;
+        private System.Windows.Forms.Label ReproduccionesPelículaSeleccionada;
     }
 }
 

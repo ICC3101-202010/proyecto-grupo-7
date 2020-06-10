@@ -195,18 +195,6 @@ namespace Entrega3Spotiflix
                     }
                 }
             }
-            else if (pelicula_o_cancion == 1)
-            {
-                foreach (Película película in Archivos.películasApp)
-                {
-                    if (nombre == película.titulo)
-                    {
-                        int sum = rate.Sum();
-                        int valor = (sum / rate.Count());
-                        película.Avg_Ranking = valor;
-                    }
-                }
-            }
 
             else
             {

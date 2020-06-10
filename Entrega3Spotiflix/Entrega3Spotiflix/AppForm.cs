@@ -274,6 +274,7 @@ namespace Entrega3Spotiflix
             panels.Add("CrearPlaylistPanel", panelCrearPlaylist);
             panels.Add("MisPlaylistPanel", panelMisPlaylist);
             panels.Add("AgregarVideoPanel", panelAgregarVideo);
+            panels.Add("EliminarMediaPanel", panelEliminarMedia);
             foreach (Usuario usuario in Archivos.Usuarios)
             {
                 if (usuario.Logeado == true)
@@ -1013,7 +1014,6 @@ namespace Entrega3Spotiflix
             buttonAgregarPelículaAPlaylist.Visible = true;
             buttonReproducirPelícula.Visible = true;
             buttonEvaluarPelícula.Visible = true;
-            buttonInfoPelícula.Visible = true;
             PelículaSeleccionada.Visible = true;
             PelículaSeleccionada.Text = listViewPelículas.SelectedItems[0].SubItems[0].Text;
             foreach (Película película in Archivos.películasApp)
@@ -1031,10 +1031,11 @@ namespace Entrega3Spotiflix
                         FotoPelícula.Image = Image.FromFile(sin_foto);
                         FotoPelícula.SizeMode = PictureBoxSizeMode.StretchImage;
                     }
-                    TituloPelículaSeleccionada.Text = película.director.Nombre;
+                    panel2.Visible = true;
                     AñoPelículaSeleccionada.Text = película.añoPublicacion.ToString();
                     DuraciónPelículaSeleccionada.Text = película.duracion.ToString();
                     CalificaciónPelículaSeleccionada.Text = película.Avg_calificación.ToString();
+                    NumeroReproduccionesPelículaSeleccionada.Text = película.reproducciones.ToString();
 
                 }
             }
@@ -1050,7 +1051,6 @@ namespace Entrega3Spotiflix
             buttonAgregarPelículaAPlaylist.Visible = false;
             buttonReproducirPelícula.Visible = false;
             buttonEvaluarPelícula.Visible = false;
-            buttonInfoPelícula.Visible = false;
             PelículaSeleccionada.Visible = false;
             stackPanels.Add(panels["PelículasPanel"]);
             ShowLastPanel();
@@ -1068,6 +1068,7 @@ namespace Entrega3Spotiflix
                     axWindowsMediaPlayer1.URL = this.ruta;
                     axWindowsMediaPlayer1.Ctlcontrols.play();
                     canción.reproducciones += 1;
+                    ReproduccionesCanciónSeleccionada.Text = canción.reproducciones.ToString();
                 }
         }
         public void EncontrarArchivo(string valor)
@@ -1100,7 +1101,10 @@ namespace Entrega3Spotiflix
 
         private void buttonReproducirPelícula_Click(object sender, EventArgs e)
         {
+            panel2.Visible = false;
+            axWindowsMediaPlayer2.Dock = DockStyle.Fill;
             axWindowsMediaPlayer2.Visible = true;
+            buttonVolverDeVerPelícula.Visible = false;
             foreach (Película pelicula in Archivos.películasApp)
                 if (pelicula.titulo == PelículaSeleccionada.Text)
                 {
@@ -1111,6 +1115,7 @@ namespace Entrega3Spotiflix
                     pictureBoxSalirReproducirPelicula.Visible = true;
                     axWindowsMediaPlayer2.Ctlcontrols.play();
                     pelicula.reproducciones += 1;
+                    NumeroReproduccionesPelículaSeleccionada.Text = pelicula.reproducciones.ToString();
                 }
         }
 
@@ -1536,7 +1541,7 @@ namespace Entrega3Spotiflix
                     {
                         int sum = calificaciones.Sum();
                         int valor = (sum / calificaciones.Count());
-                        película.Avg_Ranking = valor;
+                        película.Avg_calificación = valor;
                     }
                 }
             }
@@ -1760,7 +1765,128 @@ namespace Entrega3Spotiflix
                 MessageBox.Show("Solo un administrador puede realizar esta acción");
             }
         }
-    
+
+        private void panelAgregarVideo_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void buttonGoEliminarMedia_Click(object sender, EventArgs e)
+        {
+            foreach (Usuario usuario in Archivos.Usuarios)
+            {
+                if (textBoxUsernamePerfil.Text == usuario.Nombre_usuario)
+                {
+                    if (usuario.Nombre_usuario == "admin")
+                    {
+                        comboBoxTipoMediaParaEliminar.ResetText();
+                        comboBoxMediaParaEliminar.ResetText();
+                        comboBoxMediaParaEliminar.Visible = false;
+                        labelMediaParaEliminar.Visible = false;
+                        buttonEliminarMedia.Visible = false;
+                        stackPanels.Add(panels["EliminarMediaPanel"]);
+                        ShowLastPanel();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Solo el administrador puede acceder a estas funciones");
+                    }
+                }
+            }         
+        }
+
+        private void panelRegister_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void buttonVolverDeEliminarMedia_Click(object sender, EventArgs e)
+        {
+            stackPanels.Add(panels["MenuPanel"]);
+            ShowLastPanel();
+        }
+        private void buttonEliminarMedia_Click(object sender, EventArgs e)
+        {
+            List<Película> lista2 = new List<Película>();
+            lista2 = Archivos.películasApp;
+            List <Canción> lista = new List<Canción>();
+            lista = Archivos.cancionesApp;
+            if (comboBoxMediaParaEliminar.SelectedItem == null)
+            {
+                MessageBox.Show("Elija un criterio antes de continuar");
+            }
+            else
+            {
+                if (comboBoxTipoMediaParaEliminar.SelectedItem.ToString() == "Canción")
+                {
+                    Canción canción1 = new Canción();
+                    foreach (Canción canción in lista)
+                    {
+                        if (canción.titulo == comboBoxMediaParaEliminar.SelectedItem.ToString())
+                        {
+                            canción1 = canción;
+                        }
+                    }
+                    Archivos.cancionesApp.Remove(canción1);
+                    MessageBox.Show("Se ha eliminado correctamente");
+
+
+                }
+                if (comboBoxTipoMediaParaEliminar.SelectedItem.ToString() == "Película")
+                {
+                    Película película1 = new Película();
+                    foreach (Película película in lista2)
+                    {
+                        if (película.titulo == comboBoxMediaParaEliminar.SelectedItem.ToString())
+                        {
+                            película1 = película;
+                        }
+                    }
+                    Archivos.películasApp.Remove(película1);
+                    MessageBox.Show("Se ha eliminado correctamente");
+
+                }
+            }
+            stackPanels.Add(panels["MenuPanel"]);
+            ShowLastPanel();
+
+        }
+
+        private void buttonConfirmarTipoMediaParaEliminar_Click(object sender, EventArgs e)
+        {        
+            if (comboBoxTipoMediaParaEliminar.SelectedItem == null)
+            {
+                MessageBox.Show("Elija un criterio antes de continuar");
+            }
+            else
+            {
+                labelMediaParaEliminar.Visible = true;
+                comboBoxMediaParaEliminar.Visible = true;
+                buttonEliminarMedia.Visible = true;
+                comboBoxMediaParaEliminar.Items.Clear();
+                if (comboBoxTipoMediaParaEliminar.SelectedItem.ToString() == "Canción")
+                {
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        comboBoxMediaParaEliminar.Items.Add(canción.titulo);
+                    }
+
+                }
+                if (comboBoxTipoMediaParaEliminar.SelectedItem.ToString() == "Película")
+                {
+                    foreach (Película película in Archivos.películasApp)
+                    {
+                        comboBoxMediaParaEliminar.Items.Add(película.titulo);
+                    }
+
+                }
+            }
+        }
+
+        private void buttonInfoPelícula_Click(object sender, EventArgs e)
+        {
+
+        }
 
         private void buttonGoMisPlaylists_Click(object sender, EventArgs e)
         {
@@ -1828,6 +1954,8 @@ namespace Entrega3Spotiflix
 
         private void pictureBoxSalirReproducirPelicula_Click(object sender, EventArgs e)
         {
+            panel2.Visible = true;
+            buttonVolverDeVerPelícula.Visible = true;
             axWindowsMediaPlayer2.Ctlcontrols.pause();
             axWindowsMediaPlayer2.Visible = false;
             pictureBoxSalirReproducirPelicula.Visible = false;
