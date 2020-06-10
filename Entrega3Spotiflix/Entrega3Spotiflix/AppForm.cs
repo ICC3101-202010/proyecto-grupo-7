@@ -1604,27 +1604,35 @@ namespace Entrega3Spotiflix
 
         private void buttonConfrimarAgregarCancion_Click(object sender, EventArgs e)
         {
-            string nombre = textBoxNombreCancion.Text;
-            string artista = textBoxArtistaCancion.Text;
-            string album = textBoxAlbumCancion.Text;
-            string duracion = textBoxDuracionCancion.Text;
-            string genero = textBoxGeneroCancion.Text;
-            string espacio = textBoxEspacioCancion.Text;
-            string resolucion = textBoxResoluciónCancion.Text;
-            string imagen = labelRutaImagenCancion.Text;
-            
-            if (labelRutaCancion.Visible == true)
+            try
             {
-                string ruta = labelRutaCancion.Text;
-                OnAgregarCancionClicked(nombre, artista, album, genero, "2016", "0", "0", "0", duracion, resolucion, espacio, ruta, imagen);
-                labelRutaImagenCancion.Visible = false;
+                string nombre = textBoxNombreCancion.Text;
+                string artista = textBoxArtistaCancion.Text;
+                string album = textBoxAlbumCancion.Text;
+                string duracion = textBoxDuracionCancion.Text;
+                string genero = textBoxGeneroCancion.Text;
+                string espacio = textBoxEspacioCancion.Text;
+                string resolucion = textBoxResoluciónCancion.Text;
+                string imagen = labelRutaImagenCancion.Text;
 
+                if (labelRutaCancion.Visible == true)
+                {
+                    string ruta = labelRutaCancion.Text;
+                    OnAgregarCancionClicked(nombre, artista, album, genero, "2016", "0", "0", "0", duracion, resolucion, espacio, ruta, imagen);
+                    labelRutaImagenCancion.Visible = false;
+
+                }
+                else
+                {
+                    labelDebeAgregarArchivoCancion.Text = "Debe ingresgar un archivo para subir la canción";
+                    labelDebeAgregarArchivoCancion.Visible = true;
+                }
             }
-            else
+            catch
             {
-                labelDebeAgregarArchivoCancion.Text = "Debe ingresgar un archivo para subir la canción";
-                labelDebeAgregarArchivoCancion.Visible = true;
+                MessageBox.Show("Por favor ingrese los datos segun el criterio requerido");
             }
+            
 
         }
 
@@ -1717,26 +1725,34 @@ namespace Entrega3Spotiflix
 
         private void buttonConfirmarAgregarVideo_Click(object sender, EventArgs e)
         {
-            string titulo = textBoxTituloPelicula.Text;
-            string categoria = textBoxCategoriaPelicula.Text; ;
-            string director = textBoxDirectorPelicula.Text;
-            string descripcion = textBoxDecripcionPelicula.Text;
-            string año = textBoxAñoPelicula.Text;
-            string duracion = textBoxDuracionPelicula.Text;
-            string imagen = labelRutaImagenPelicula.Text;
-            
-            if (labelRutaPelicula.Visible == true)
+            try
             {
-                string ruta = labelRutaPelicula.Text;
-                OnAgregarVideoClicked(titulo,categoria,director,descripcion,duracion,año,"0","0",imagen,ruta,"0");
-                labelRutaImagenPelicula.Visible = false;
+                string titulo = textBoxTituloPelicula.Text;
+                string categoria = textBoxCategoriaPelicula.Text; ;
+                string director = textBoxDirectorPelicula.Text;
+                string descripcion = textBoxDecripcionPelicula.Text;
+                string año = textBoxAñoPelicula.Text;
+                string duracion = textBoxDuracionPelicula.Text;
+                string imagen = labelRutaImagenPelicula.Text;
 
+                if (labelRutaPelicula.Visible == true)
+                {
+                    string ruta = labelRutaPelicula.Text;
+                    OnAgregarVideoClicked(titulo, categoria, director, descripcion, duracion, año, "0", "0", imagen, ruta, "0");
+                    labelRutaImagenPelicula.Visible = false;
+
+                }
+                else
+                {
+                    labelFaltaArchivoVideo.Text = "Debe ingresgar un archivo para subir la canción";
+                    labelFaltaArchivoVideo.Visible = true;
+                }
             }
-            else
+            catch
             {
-                labelFaltaArchivoVideo.Text = "Debe ingresgar un archivo para subir la canción";
-                labelFaltaArchivoVideo.Visible = true;
+                MessageBox.Show("Por favor ingrese los datos segun el criterio requerido");
             }
+            
         }
 
         private void label39_Click(object sender, EventArgs e)
