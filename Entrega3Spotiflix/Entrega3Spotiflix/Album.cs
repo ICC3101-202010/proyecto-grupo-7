@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 namespace Entrega3Spotiflix
 {
+    [Serializable]
     public class Album
     {
         public int Año;

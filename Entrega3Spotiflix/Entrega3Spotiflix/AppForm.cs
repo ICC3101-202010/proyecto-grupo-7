@@ -792,10 +792,10 @@ namespace Entrega3Spotiflix
             Stream stream10 = new FileStream("playlists_Películas.bin", FileMode.Create, FileAccess.Write, FileShare.None);
             Stream stream11 = new FileStream("Usuarios.bin", FileMode.Create, FileAccess.Write, FileShare.None);
             Stream stream12 = new FileStream("PersonasApp.bin", FileMode.Create, FileAccess.Write, FileShare.None);
-            //formatter.Serialize(stream7, Archivos.películasApp);
-            //formatter.Serialize(stream8, Archivos.cancionesApp);
-            //formatter.Serialize(stream9, Archivos.playlists_Canciones);
-            //formatter.Serialize(stream10, Archivos.playlists_Películas);
+            formatter.Serialize(stream7, Archivos.películasApp);
+            formatter.Serialize(stream8, Archivos.cancionesApp);
+            formatter.Serialize(stream9, Archivos.playlists_Canciones);
+            formatter.Serialize(stream10, Archivos.playlists_Películas);
             formatter.Serialize(stream11, Archivos.Usuarios);
             formatter.Serialize(stream12, Archivos.PersonasApp);
             stream7.Close();
