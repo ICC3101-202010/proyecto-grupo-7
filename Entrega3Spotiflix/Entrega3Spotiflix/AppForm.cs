@@ -275,6 +275,7 @@ namespace Entrega3Spotiflix
             panels.Add("MisPlaylistPanel", panelMisPlaylist);
             panels.Add("AgregarVideoPanel", panelAgregarVideo);
             panels.Add("EliminarMediaPanel", panelEliminarMedia);
+            panels.Add("TopMediaPanel", panelTopMedia);
             foreach (Usuario usuario in Archivos.Usuarios)
             {
                 if (usuario.Logeado == true)
@@ -1904,6 +1905,81 @@ namespace Entrega3Spotiflix
 
         }
 
+        private void buttonGoTopCanciones_Click(object sender, EventArgs e)
+        {
+            panelInfoPelículaTop.Visible = false;
+            PelículaSeleccionadaTop.Visible = false;
+            panelInfoCanciónTop.Visible = false;
+            CanciónSeleccionadaTop.Visible = false;
+            stackPanels.Add(panels["TopMediaPanel"]);
+            ShowLastPanel();
+            listViewTopPelículas.Clear();
+            listViewTopCanciones.Clear();
+            IEnumerable<Canción> listaOrdenada = Archivos.cancionesApp.OrderByDescending(canción => canción.Avg_calificacion);
+            IEnumerable<Película> listaOrdenada2 = Archivos.películasApp.OrderByDescending(película => película.Avg_calificación);
+            ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+            foreach (Canción canción in listaOrdenada)
+            {
+                listViewTopCanciones.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+
+            }
+            listViewTopCanciones.Groups.Add(Canciones);
+            ListViewGroup Películas = new ListViewGroup("Películas", HorizontalAlignment.Left);
+            foreach (Película película in listaOrdenada2)
+            {
+                listViewTopPelículas.Items.Add(new ListViewItem(película.Titulo, Películas));
+
+            }
+            listViewTopPelículas.Groups.Add(Películas);
+        }
+
+        private void buttonVolverDeTopMedia_Click(object sender, EventArgs e)
+        {
+            stackPanels.Add(panels["MenuPanel"]);
+            ShowLastPanel();
+        }
+
+        private void listView1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void listViewTopPelículas_MouseClick(object sender, MouseEventArgs e)
+        {
+            panelInfoPelículaTop.Visible = true;
+            panelInfoCanciónTop.Visible = false;
+            PelículaSeleccionadaTop.Text = listViewTopPelículas.SelectedItems[0].SubItems[0].Text;
+            foreach (Película película in Archivos.películasApp)
+            {
+                if (película.titulo == PelículaSeleccionadaTop.Text)
+                {
+                    panel2.Visible = true;
+                    AñoPeliculaSeleccionadaTop.Text = película.añoPublicacion.ToString();
+                    DuraciónPeliculaSeleccionadaTop.Text = película.duracion.ToString();
+                    CalificaciónPeliculaSeleccionadaTop.Text = película.Avg_calificación.ToString();
+                    ReproduccionesPeliculaSeleccionadaTop.Text = película.reproducciones.ToString();
+
+                }
+            }
+        }
+
+        private void listViewTopCanciones_MouseClick(object sender, MouseEventArgs e)
+        {
+            panelInfoPelículaTop.Visible = false;
+            panelInfoCanciónTop.Visible = true;
+            CanciónSeleccionadaTop.Text = listViewTopCanciones.SelectedItems[0].SubItems[0].Text;
+            foreach (Canción canción in Archivos.cancionesApp)
+            {
+                if (canción.titulo == CanciónSeleccionadaTop.Text)
+                {
+                    AlbumCanciónSeleccionadaTop.Text = canción.album.Nombre;
+                    ArtistaCanciónSeleccionadaTop.Text = canción.artista.Apellido;
+                    DuraciónCanciónSeleccionadaTop.Text = canción.duración.ToString();
+                    ReproduccionesCanciónSeleccionadaTop.Text = canción.reproducciones.ToString();
+                    CalificaciónCanciónSeleccionadaTop.Text = canción.Avg_calificacion.ToString();
+                }
+            }
+        }
 
         private void buttonGoMisPlaylists_Click(object sender, EventArgs e)
         {
