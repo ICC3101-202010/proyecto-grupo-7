@@ -74,6 +74,8 @@
             this.buttonLogOut = new System.Windows.Forms.Button();
             this.FotoMenu = new System.Windows.Forms.PictureBox();
             this.panelModificarCuenta = new System.Windows.Forms.Panel();
+            this.UsernameEditarPerfil = new System.Windows.Forms.Label();
+            this.pictureBoxFotoPerfil = new System.Windows.Forms.PictureBox();
             this.textBoxAntiguaContraseñaCambioContraseña = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.buttonConfirmarCambioUsername = new System.Windows.Forms.Button();
@@ -228,6 +230,16 @@
             this.buttonVolverDeCrearPlaylist = new System.Windows.Forms.Button();
             this.panelCrearPlaylist = new System.Windows.Forms.Panel();
             this.panelTopMedia = new System.Windows.Forms.Panel();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
             this.PelículaSeleccionadaTop = new System.Windows.Forms.Label();
             this.panelInfoPelículaTop = new System.Windows.Forms.Panel();
             this.ReproduccionesPeliculaSeleccionadaTop = new System.Windows.Forms.Label();
@@ -257,18 +269,6 @@
             this.listViewTopCanciones = new System.Windows.Forms.ListView();
             this.label43 = new System.Windows.Forms.Label();
             this.listViewTopPelículas = new System.Windows.Forms.ListView();
-            this.pictureBoxFotoPerfil = new System.Windows.Forms.PictureBox();
-            this.UsernameEditarPerfil = new System.Windows.Forms.Label();
-            this.label42 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
-            this.label47 = new System.Windows.Forms.Label();
-            this.label48 = new System.Windows.Forms.Label();
-            this.label49 = new System.Windows.Forms.Label();
-            this.label54 = new System.Windows.Forms.Label();
-            this.label56 = new System.Windows.Forms.Label();
-            this.label57 = new System.Windows.Forms.Label();
-            this.label58 = new System.Windows.Forms.Label();
-            this.label59 = new System.Windows.Forms.Label();
             this.panelEntrada.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FotoLogoEntrada)).BeginInit();
             this.panelLogin.SuspendLayout();
@@ -278,6 +278,7 @@
             this.panelMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FotoMenu)).BeginInit();
             this.panelModificarCuenta.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFotoPerfil)).BeginInit();
             this.panelCancciones.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer1)).BeginInit();
@@ -301,7 +302,6 @@
             this.panelTopMedia.SuspendLayout();
             this.panelInfoPelículaTop.SuspendLayout();
             this.panelInfoCanciónTop.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFotoPerfil)).BeginInit();
             this.SuspendLayout();
             // 
             // panelEntrada
@@ -834,6 +834,27 @@
             this.panelModificarCuenta.Name = "panelModificarCuenta";
             this.panelModificarCuenta.Size = new System.Drawing.Size(73, 57);
             this.panelModificarCuenta.TabIndex = 26;
+            // 
+            // UsernameEditarPerfil
+            // 
+            this.UsernameEditarPerfil.AutoSize = true;
+            this.UsernameEditarPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsernameEditarPerfil.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.UsernameEditarPerfil.Location = new System.Drawing.Point(92, 134);
+            this.UsernameEditarPerfil.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.UsernameEditarPerfil.Name = "UsernameEditarPerfil";
+            this.UsernameEditarPerfil.Size = new System.Drawing.Size(67, 25);
+            this.UsernameEditarPerfil.TabIndex = 40;
+            this.UsernameEditarPerfil.Text = "Perfil";
+            this.UsernameEditarPerfil.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // pictureBoxFotoPerfil
+            // 
+            this.pictureBoxFotoPerfil.Location = new System.Drawing.Point(82, 18);
+            this.pictureBoxFotoPerfil.Name = "pictureBoxFotoPerfil";
+            this.pictureBoxFotoPerfil.Size = new System.Drawing.Size(128, 107);
+            this.pictureBoxFotoPerfil.TabIndex = 38;
+            this.pictureBoxFotoPerfil.TabStop = false;
             // 
             // textBoxAntiguaContraseñaCambioContraseña
             // 
@@ -2621,12 +2642,111 @@
             this.panelTopMedia.Controls.Add(this.listViewTopCanciones);
             this.panelTopMedia.Controls.Add(this.label43);
             this.panelTopMedia.Controls.Add(this.listViewTopPelículas);
-            this.panelTopMedia.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelTopMedia.ForeColor = System.Drawing.SystemColors.Window;
-            this.panelTopMedia.Location = new System.Drawing.Point(0, 0);
+            this.panelTopMedia.Location = new System.Drawing.Point(578, 89);
             this.panelTopMedia.Name = "panelTopMedia";
-            this.panelTopMedia.Size = new System.Drawing.Size(754, 376);
+            this.panelTopMedia.Size = new System.Drawing.Size(76, 62);
             this.panelTopMedia.TabIndex = 35;
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label54.Location = new System.Drawing.Point(502, 48);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(18, 20);
+            this.label54.TabIndex = 55;
+            this.label54.Text = "1";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(502, 76);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(18, 20);
+            this.label56.TabIndex = 54;
+            this.label56.Text = "2";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label57.Location = new System.Drawing.Point(502, 105);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(18, 20);
+            this.label57.TabIndex = 53;
+            this.label57.Text = "3";
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label58.Location = new System.Drawing.Point(501, 161);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(18, 20);
+            this.label58.TabIndex = 52;
+            this.label58.Text = "5";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label59.Location = new System.Drawing.Point(501, 134);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(18, 20);
+            this.label59.TabIndex = 51;
+            this.label59.Text = "4";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label49.Location = new System.Drawing.Point(16, 52);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(18, 20);
+            this.label49.TabIndex = 50;
+            this.label49.Text = "1";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.Location = new System.Drawing.Point(16, 80);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(18, 20);
+            this.label48.TabIndex = 49;
+            this.label48.Text = "2";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.Location = new System.Drawing.Point(16, 109);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(18, 20);
+            this.label47.TabIndex = 48;
+            this.label47.Text = "3";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.Location = new System.Drawing.Point(15, 165);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(18, 20);
+            this.label46.TabIndex = 47;
+            this.label46.Text = "5";
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.Location = new System.Drawing.Point(15, 138);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(18, 20);
+            this.label42.TabIndex = 46;
+            this.label42.Text = "4";
             // 
             // PelículaSeleccionadaTop
             // 
@@ -2962,127 +3082,6 @@
             this.listViewTopPelículas.View = System.Windows.Forms.View.SmallIcon;
             this.listViewTopPelículas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewTopPelículas_MouseClick);
             // 
-            // pictureBoxFotoPerfil
-            // 
-            this.pictureBoxFotoPerfil.Location = new System.Drawing.Point(82, 18);
-            this.pictureBoxFotoPerfil.Name = "pictureBoxFotoPerfil";
-            this.pictureBoxFotoPerfil.Size = new System.Drawing.Size(128, 107);
-            this.pictureBoxFotoPerfil.TabIndex = 38;
-            this.pictureBoxFotoPerfil.TabStop = false;
-            // 
-            // UsernameEditarPerfil
-            // 
-            this.UsernameEditarPerfil.AutoSize = true;
-            this.UsernameEditarPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.UsernameEditarPerfil.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.UsernameEditarPerfil.Location = new System.Drawing.Point(92, 134);
-            this.UsernameEditarPerfil.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
-            this.UsernameEditarPerfil.Name = "UsernameEditarPerfil";
-            this.UsernameEditarPerfil.Size = new System.Drawing.Size(67, 25);
-            this.UsernameEditarPerfil.TabIndex = 40;
-            this.UsernameEditarPerfil.Text = "Perfil";
-            this.UsernameEditarPerfil.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // label42
-            // 
-            this.label42.AutoSize = true;
-            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label42.Location = new System.Drawing.Point(15, 138);
-            this.label42.Name = "label42";
-            this.label42.Size = new System.Drawing.Size(18, 20);
-            this.label42.TabIndex = 46;
-            this.label42.Text = "4";
-            // 
-            // label46
-            // 
-            this.label46.AutoSize = true;
-            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label46.Location = new System.Drawing.Point(15, 165);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(18, 20);
-            this.label46.TabIndex = 47;
-            this.label46.Text = "5";
-            // 
-            // label47
-            // 
-            this.label47.AutoSize = true;
-            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label47.Location = new System.Drawing.Point(16, 109);
-            this.label47.Name = "label47";
-            this.label47.Size = new System.Drawing.Size(18, 20);
-            this.label47.TabIndex = 48;
-            this.label47.Text = "3";
-            // 
-            // label48
-            // 
-            this.label48.AutoSize = true;
-            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label48.Location = new System.Drawing.Point(16, 80);
-            this.label48.Name = "label48";
-            this.label48.Size = new System.Drawing.Size(18, 20);
-            this.label48.TabIndex = 49;
-            this.label48.Text = "2";
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label49.Location = new System.Drawing.Point(16, 52);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(18, 20);
-            this.label49.TabIndex = 50;
-            this.label49.Text = "1";
-            // 
-            // label54
-            // 
-            this.label54.AutoSize = true;
-            this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label54.Location = new System.Drawing.Point(502, 48);
-            this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(18, 20);
-            this.label54.TabIndex = 55;
-            this.label54.Text = "1";
-            // 
-            // label56
-            // 
-            this.label56.AutoSize = true;
-            this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label56.Location = new System.Drawing.Point(502, 76);
-            this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(18, 20);
-            this.label56.TabIndex = 54;
-            this.label56.Text = "2";
-            // 
-            // label57
-            // 
-            this.label57.AutoSize = true;
-            this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label57.Location = new System.Drawing.Point(502, 105);
-            this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(18, 20);
-            this.label57.TabIndex = 53;
-            this.label57.Text = "3";
-            // 
-            // label58
-            // 
-            this.label58.AutoSize = true;
-            this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label58.Location = new System.Drawing.Point(501, 161);
-            this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(18, 20);
-            this.label58.TabIndex = 52;
-            this.label58.Text = "5";
-            // 
-            // label59
-            // 
-            this.label59.AutoSize = true;
-            this.label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label59.Location = new System.Drawing.Point(501, 134);
-            this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(18, 20);
-            this.label59.TabIndex = 51;
-            this.label59.Text = "4";
-            // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3118,6 +3117,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.FotoMenu)).EndInit();
             this.panelModificarCuenta.ResumeLayout(false);
             this.panelModificarCuenta.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFotoPerfil)).EndInit();
             this.panelCancciones.ResumeLayout(false);
             this.panelCancciones.PerformLayout();
             this.panel1.ResumeLayout(false);
@@ -3155,7 +3155,6 @@
             this.panelInfoPelículaTop.PerformLayout();
             this.panelInfoCanciónTop.ResumeLayout(false);
             this.panelInfoCanciónTop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFotoPerfil)).EndInit();
             this.ResumeLayout(false);
 
         }

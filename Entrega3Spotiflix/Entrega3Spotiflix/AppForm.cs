@@ -657,27 +657,27 @@ namespace Entrega3Spotiflix
             textBoxHacersePremium.Visible = true;
             string usuario_ant = textBoxUsernamePerfil.Text;
             List<string> Valores = Archivos.GetData(usuario_ant);
-            if (Valores[3].Contains("Premium"))
+            foreach (Usuario usuario1 in Archivos.Usuarios)
             {
-                textBoxHacersePremium.Visible = true;
-                textBoxHacersePremium.Text = "Este Usuario ya es premium";
-            }
-            else if (Valores[0].Contains("admin"))
-            {
-                textBoxHacersePremium.Visible = true;
-                textBoxHacersePremium.Text = "El admistrador cuenta con todas las funciones Premium";
-            }
-            else
-            {
-                foreach (Usuario usuario in Archivos.Usuarios)
+                if (usuario1.Nombre_usuario == textBoxUsernamePerfil.Text)
                 {
-                    if (usuario.Nombre_usuario == usuario_ant)
+                    if (usuario1.Tipo_usuario == "Premium")
                     {
                         textBoxHacersePremium.Visible = true;
-                        usuario.Tipo_usuario = "Premium";
-                        textBoxHacersePremium.Text = "Se ha realizado el cambio con éxito";
+                        textBoxHacersePremium.Text = "Este Usuario ya es premium";
                     }
-                    Serializacion();
+                    else if (usuario1.Nombre_usuario == "admin")
+                    {
+                        textBoxHacersePremium.Visible = true;
+                        textBoxHacersePremium.Text = "El admistrador cuenta con todas las funciones Premium";
+                    }
+                    else
+                    {
+                        textBoxHacersePremium.Visible = true;
+                        usuario1.Tipo_usuario = "Premium";
+                        textBoxHacersePremium.Text = "Se ha realizado el cambio con éxito";
+                        Serializacion();
+                    }
                 }
             }
         }
@@ -1530,6 +1530,7 @@ namespace Entrega3Spotiflix
                         Rankear(canción.titulo, canción.calificación, Canción);
                         MessageBox.Show("Se ha calificado la canción");
                         CalificaciónCanciónSeleccionada.Text = canción.Avg_calificacion.ToString();
+                        Serializacion();
                     }
                 }
             }
@@ -1602,6 +1603,7 @@ namespace Entrega3Spotiflix
                         Rankear(película.titulo, película.Calificación, Película);
                         MessageBox.Show("Se ha calificado la película");
                         CalificaciónPelículaSeleccionada.Text = película.Avg_calificación.ToString();
+                        Serializacion();
                     }
                 }
             }
@@ -1921,7 +1923,7 @@ namespace Entrega3Spotiflix
             }
             stackPanels.Add(panels["MenuPanel"]);
             ShowLastPanel();
-
+            Serializacion();
         }
 
         private void buttonConfirmarTipoMediaParaEliminar_Click(object sender, EventArgs e)
