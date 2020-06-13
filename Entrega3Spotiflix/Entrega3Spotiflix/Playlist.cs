@@ -53,6 +53,7 @@ namespace Entrega3Spotiflix
             }
 
         }
+        public Playlist() { }
 
     }
 }

@@ -91,6 +91,11 @@
             this.buttonCambiarContraseña = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.panelCancciones = new System.Windows.Forms.Panel();
+            this.labelCanciónReproducida = new System.Windows.Forms.Label();
+            this.labelReproduciendo = new System.Windows.Forms.Label();
+            this.buttonNext2 = new System.Windows.Forms.Button();
+            this.buttonNext1 = new System.Windows.Forms.Button();
+            this.buttonAgregarColaCanción = new System.Windows.Forms.Button();
             this.buttonConfirmarCalificación = new System.Windows.Forms.Button();
             this.comboBoxCalificación = new System.Windows.Forms.ComboBox();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -115,7 +120,11 @@
             this.CanciónSeleccionada = new System.Windows.Forms.Label();
             this.listViewCanciones = new System.Windows.Forms.ListView();
             this.panelPelículas = new System.Windows.Forms.Panel();
+            this.buttonNext1Películas = new System.Windows.Forms.Button();
+            this.buttonNext2Películas = new System.Windows.Forms.Button();
             this.pictureBoxSalirReproducirPelicula = new System.Windows.Forms.PictureBox();
+            this.axWindowsMediaPlayer2 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.buttonAgregarColaPelícula = new System.Windows.Forms.Button();
             this.buttonConfirmarCalificaciónPelícula = new System.Windows.Forms.Button();
             this.comboBoxCalificaciónPelícula = new System.Windows.Forms.ComboBox();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -130,7 +139,6 @@
             this.label25 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.buttonVolverDeVerPelícula = new System.Windows.Forms.Button();
-            this.axWindowsMediaPlayer2 = new AxWMPLib.AxWindowsMediaPlayer();
             this.FotoPelícula = new System.Windows.Forms.PictureBox();
             this.buttonAgregarPelículaAPlaylist = new System.Windows.Forms.Button();
             this.buttonEvaluarPelícula = new System.Windows.Forms.Button();
@@ -220,22 +228,7 @@
             this.buttonVolverDeCrearPlaylist = new System.Windows.Forms.Button();
             this.panelCrearPlaylist = new System.Windows.Forms.Panel();
             this.panelTopMedia = new System.Windows.Forms.Panel();
-            this.buttonVolverDeTopMedia = new System.Windows.Forms.Button();
-            this.label44 = new System.Windows.Forms.Label();
-            this.listViewTopCanciones = new System.Windows.Forms.ListView();
-            this.label43 = new System.Windows.Forms.Label();
-            this.listViewTopPelículas = new System.Windows.Forms.ListView();
-            this.panelInfoCanciónTop = new System.Windows.Forms.Panel();
-            this.DuraciónCanciónSeleccionadaTop = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.AlbumCanciónSeleccionadaTop = new System.Windows.Forms.Label();
-            this.ArtistaCanciónSeleccionadaTop = new System.Windows.Forms.Label();
-            this.CalificaciónCanciónSeleccionadaTop = new System.Windows.Forms.Label();
-            this.ReproduccionesCanciónSeleccionadaTop = new System.Windows.Forms.Label();
-            this.label50 = new System.Windows.Forms.Label();
-            this.label51 = new System.Windows.Forms.Label();
-            this.label52 = new System.Windows.Forms.Label();
-            this.label53 = new System.Windows.Forms.Label();
+            this.PelículaSeleccionadaTop = new System.Windows.Forms.Label();
             this.panelInfoPelículaTop = new System.Windows.Forms.Panel();
             this.ReproduccionesPeliculaSeleccionadaTop = new System.Windows.Forms.Label();
             this.label55 = new System.Windows.Forms.Label();
@@ -248,7 +241,22 @@
             this.label62 = new System.Windows.Forms.Label();
             this.label63 = new System.Windows.Forms.Label();
             this.CanciónSeleccionadaTop = new System.Windows.Forms.Label();
-            this.PelículaSeleccionadaTop = new System.Windows.Forms.Label();
+            this.panelInfoCanciónTop = new System.Windows.Forms.Panel();
+            this.DuraciónCanciónSeleccionadaTop = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.AlbumCanciónSeleccionadaTop = new System.Windows.Forms.Label();
+            this.ArtistaCanciónSeleccionadaTop = new System.Windows.Forms.Label();
+            this.CalificaciónCanciónSeleccionadaTop = new System.Windows.Forms.Label();
+            this.ReproduccionesCanciónSeleccionadaTop = new System.Windows.Forms.Label();
+            this.label50 = new System.Windows.Forms.Label();
+            this.label51 = new System.Windows.Forms.Label();
+            this.label52 = new System.Windows.Forms.Label();
+            this.label53 = new System.Windows.Forms.Label();
+            this.buttonVolverDeTopMedia = new System.Windows.Forms.Button();
+            this.label44 = new System.Windows.Forms.Label();
+            this.listViewTopCanciones = new System.Windows.Forms.ListView();
+            this.label43 = new System.Windows.Forms.Label();
+            this.listViewTopPelículas = new System.Windows.Forms.ListView();
             this.panelEntrada.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FotoLogoEntrada)).BeginInit();
             this.panelLogin.SuspendLayout();
@@ -265,8 +273,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             this.panelPelículas.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSalirReproducirPelicula)).BeginInit();
-            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).BeginInit();
+            this.panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FotoPelícula)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).BeginInit();
             this.panelBúsqueda.SuspendLayout();
@@ -279,8 +287,8 @@
             this.panelEliminarMedia.SuspendLayout();
             this.panelCrearPlaylist.SuspendLayout();
             this.panelTopMedia.SuspendLayout();
-            this.panelInfoCanciónTop.SuspendLayout();
             this.panelInfoPelículaTop.SuspendLayout();
+            this.panelInfoCanciónTop.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelEntrada
@@ -642,7 +650,7 @@
             this.buttonGoTopCanciones.Name = "buttonGoTopCanciones";
             this.buttonGoTopCanciones.Size = new System.Drawing.Size(134, 33);
             this.buttonGoTopCanciones.TabIndex = 33;
-            this.buttonGoTopCanciones.Text = "TOP MEDIA";
+            this.buttonGoTopCanciones.Text = "TOP FIVE";
             this.buttonGoTopCanciones.UseVisualStyleBackColor = false;
             this.buttonGoTopCanciones.Click += new System.EventHandler(this.buttonGoTopCanciones_Click);
             // 
@@ -652,7 +660,7 @@
             this.buttonGoEliminarMedia.Name = "buttonGoEliminarMedia";
             this.buttonGoEliminarMedia.Size = new System.Drawing.Size(95, 36);
             this.buttonGoEliminarMedia.TabIndex = 32;
-            this.buttonGoEliminarMedia.Text = "Eliminar Media";
+            this.buttonGoEliminarMedia.Text = "Eliminar Datos";
             this.buttonGoEliminarMedia.UseVisualStyleBackColor = true;
             this.buttonGoEliminarMedia.Click += new System.EventHandler(this.buttonGoEliminarMedia_Click);
             // 
@@ -987,6 +995,11 @@
             // panelCancciones
             // 
             this.panelCancciones.BackColor = System.Drawing.SystemColors.MenuText;
+            this.panelCancciones.Controls.Add(this.labelCanciónReproducida);
+            this.panelCancciones.Controls.Add(this.labelReproduciendo);
+            this.panelCancciones.Controls.Add(this.buttonNext2);
+            this.panelCancciones.Controls.Add(this.buttonNext1);
+            this.panelCancciones.Controls.Add(this.buttonAgregarColaCanción);
             this.panelCancciones.Controls.Add(this.buttonConfirmarCalificación);
             this.panelCancciones.Controls.Add(this.comboBoxCalificación);
             this.panelCancciones.Controls.Add(this.panel1);
@@ -1008,12 +1021,73 @@
             this.panelCancciones.TabIndex = 27;
             this.panelCancciones.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCancciones_Paint);
             // 
+            // labelCanciónReproducida
+            // 
+            this.labelCanciónReproducida.AutoSize = true;
+            this.labelCanciónReproducida.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCanciónReproducida.Location = new System.Drawing.Point(276, 273);
+            this.labelCanciónReproducida.Name = "labelCanciónReproducida";
+            this.labelCanciónReproducida.Size = new System.Drawing.Size(52, 16);
+            this.labelCanciónReproducida.TabIndex = 42;
+            this.labelCanciónReproducida.Text = "label46";
+            // 
+            // labelReproduciendo
+            // 
+            this.labelReproduciendo.AutoSize = true;
+            this.labelReproduciendo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelReproduciendo.Location = new System.Drawing.Point(174, 273);
+            this.labelReproduciendo.Name = "labelReproduciendo";
+            this.labelReproduciendo.Size = new System.Drawing.Size(102, 16);
+            this.labelReproduciendo.TabIndex = 41;
+            this.labelReproduciendo.Text = "Reproduciendo";
+            // 
+            // buttonNext2
+            // 
+            this.buttonNext2.BackColor = System.Drawing.SystemColors.MenuText;
+            this.buttonNext2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNext2.ForeColor = System.Drawing.SystemColors.Window;
+            this.buttonNext2.Location = new System.Drawing.Point(420, 235);
+            this.buttonNext2.Name = "buttonNext2";
+            this.buttonNext2.Size = new System.Drawing.Size(60, 31);
+            this.buttonNext2.TabIndex = 40;
+            this.buttonNext2.Text = "NEXT";
+            this.buttonNext2.UseVisualStyleBackColor = false;
+            this.buttonNext2.Visible = false;
+            this.buttonNext2.Click += new System.EventHandler(this.buttonNext2_Click);
+            // 
+            // buttonNext1
+            // 
+            this.buttonNext1.BackColor = System.Drawing.SystemColors.MenuText;
+            this.buttonNext1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNext1.ForeColor = System.Drawing.SystemColors.Window;
+            this.buttonNext1.Location = new System.Drawing.Point(420, 235);
+            this.buttonNext1.Name = "buttonNext1";
+            this.buttonNext1.Size = new System.Drawing.Size(54, 28);
+            this.buttonNext1.TabIndex = 39;
+            this.buttonNext1.Text = "NEXT";
+            this.buttonNext1.UseVisualStyleBackColor = false;
+            this.buttonNext1.Visible = false;
+            this.buttonNext1.Click += new System.EventHandler(this.buttonNext1_Click);
+            // 
+            // buttonAgregarColaCanción
+            // 
+            this.buttonAgregarColaCanción.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAgregarColaCanción.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.buttonAgregarColaCanción.Location = new System.Drawing.Point(130, 329);
+            this.buttonAgregarColaCanción.Name = "buttonAgregarColaCanción";
+            this.buttonAgregarColaCanción.Size = new System.Drawing.Size(143, 30);
+            this.buttonAgregarColaCanción.TabIndex = 38;
+            this.buttonAgregarColaCanción.Text = "AGREGAR A LA COLA";
+            this.buttonAgregarColaCanción.UseVisualStyleBackColor = true;
+            this.buttonAgregarColaCanción.Visible = false;
+            this.buttonAgregarColaCanción.Click += new System.EventHandler(this.buttonAgregarColaCanción_Click);
+            // 
             // buttonConfirmarCalificación
             // 
             this.buttonConfirmarCalificación.BackColor = System.Drawing.SystemColors.MenuText;
             this.buttonConfirmarCalificación.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonConfirmarCalificación.ForeColor = System.Drawing.SystemColors.Window;
-            this.buttonConfirmarCalificación.Location = new System.Drawing.Point(492, 332);
+            this.buttonConfirmarCalificación.Location = new System.Drawing.Point(515, 332);
             this.buttonConfirmarCalificación.Name = "buttonConfirmarCalificación";
             this.buttonConfirmarCalificación.Size = new System.Drawing.Size(30, 28);
             this.buttonConfirmarCalificación.TabIndex = 37;
@@ -1035,7 +1109,7 @@
             "8",
             "9",
             "10"});
-            this.comboBoxCalificación.Location = new System.Drawing.Point(406, 332);
+            this.comboBoxCalificación.Location = new System.Drawing.Point(429, 332);
             this.comboBoxCalificación.Name = "comboBoxCalificación";
             this.comboBoxCalificación.Size = new System.Drawing.Size(80, 28);
             this.comboBoxCalificación.TabIndex = 36;
@@ -1160,7 +1234,7 @@
             // axWindowsMediaPlayer1
             // 
             this.axWindowsMediaPlayer1.Enabled = true;
-            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(196, 233);
+            this.axWindowsMediaPlayer1.Location = new System.Drawing.Point(196, 222);
             this.axWindowsMediaPlayer1.Name = "axWindowsMediaPlayer1";
             this.axWindowsMediaPlayer1.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer1.OcxState")));
             this.axWindowsMediaPlayer1.Size = new System.Drawing.Size(211, 47);
@@ -1194,9 +1268,9 @@
             // 
             this.buttonAgregarCancionAPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAgregarCancionAPlaylist.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.buttonAgregarCancionAPlaylist.Location = new System.Drawing.Point(332, 300);
+            this.buttonAgregarCancionAPlaylist.Location = new System.Drawing.Point(279, 295);
             this.buttonAgregarCancionAPlaylist.Name = "buttonAgregarCancionAPlaylist";
-            this.buttonAgregarCancionAPlaylist.Size = new System.Drawing.Size(161, 30);
+            this.buttonAgregarCancionAPlaylist.Size = new System.Drawing.Size(143, 30);
             this.buttonAgregarCancionAPlaylist.TabIndex = 28;
             this.buttonAgregarCancionAPlaylist.Text = "AGREGAR A PLAYLIST";
             this.buttonAgregarCancionAPlaylist.UseVisualStyleBackColor = true;
@@ -1206,9 +1280,9 @@
             // 
             this.buttonEvaluar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEvaluar.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.buttonEvaluar.Location = new System.Drawing.Point(219, 331);
+            this.buttonEvaluar.Location = new System.Drawing.Point(279, 331);
             this.buttonEvaluar.Name = "buttonEvaluar";
-            this.buttonEvaluar.Size = new System.Drawing.Size(161, 30);
+            this.buttonEvaluar.Size = new System.Drawing.Size(141, 30);
             this.buttonEvaluar.TabIndex = 27;
             this.buttonEvaluar.Text = "EVALUAR";
             this.buttonEvaluar.UseVisualStyleBackColor = true;
@@ -1219,9 +1293,9 @@
             // 
             this.buttonReproducir.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonReproducir.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.buttonReproducir.Location = new System.Drawing.Point(126, 298);
+            this.buttonReproducir.Location = new System.Drawing.Point(130, 296);
             this.buttonReproducir.Name = "buttonReproducir";
-            this.buttonReproducir.Size = new System.Drawing.Size(161, 30);
+            this.buttonReproducir.Size = new System.Drawing.Size(143, 30);
             this.buttonReproducir.TabIndex = 22;
             this.buttonReproducir.Text = "REPRODUCIR";
             this.buttonReproducir.UseVisualStyleBackColor = true;
@@ -1282,12 +1356,15 @@
             // panelPelículas
             // 
             this.panelPelículas.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panelPelículas.Controls.Add(this.buttonNext1Películas);
+            this.panelPelículas.Controls.Add(this.buttonNext2Películas);
             this.panelPelículas.Controls.Add(this.pictureBoxSalirReproducirPelicula);
+            this.panelPelículas.Controls.Add(this.axWindowsMediaPlayer2);
+            this.panelPelículas.Controls.Add(this.buttonAgregarColaPelícula);
             this.panelPelículas.Controls.Add(this.buttonConfirmarCalificaciónPelícula);
             this.panelPelículas.Controls.Add(this.comboBoxCalificaciónPelícula);
             this.panelPelículas.Controls.Add(this.panel2);
             this.panelPelículas.Controls.Add(this.buttonVolverDeVerPelícula);
-            this.panelPelículas.Controls.Add(this.axWindowsMediaPlayer2);
             this.panelPelículas.Controls.Add(this.FotoPelícula);
             this.panelPelículas.Controls.Add(this.buttonAgregarPelículaAPlaylist);
             this.panelPelículas.Controls.Add(this.buttonEvaluarPelícula);
@@ -1296,29 +1373,82 @@
             this.panelPelículas.Controls.Add(this.pictureBox5);
             this.panelPelículas.Controls.Add(this.PelículaSeleccionada);
             this.panelPelículas.Controls.Add(this.listViewPelículas);
-            this.panelPelículas.Location = new System.Drawing.Point(79, 18);
+            this.panelPelículas.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelPelículas.Location = new System.Drawing.Point(0, 0);
             this.panelPelículas.Name = "panelPelículas";
-            this.panelPelículas.Size = new System.Drawing.Size(79, 57);
+            this.panelPelículas.Size = new System.Drawing.Size(754, 376);
             this.panelPelículas.TabIndex = 28;
+            // 
+            // buttonNext1Películas
+            // 
+            this.buttonNext1Películas.BackColor = System.Drawing.SystemColors.MenuText;
+            this.buttonNext1Películas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNext1Películas.ForeColor = System.Drawing.SystemColors.Window;
+            this.buttonNext1Películas.Location = new System.Drawing.Point(232, 339);
+            this.buttonNext1Películas.Name = "buttonNext1Películas";
+            this.buttonNext1Películas.Size = new System.Drawing.Size(60, 31);
+            this.buttonNext1Películas.TabIndex = 59;
+            this.buttonNext1Películas.Text = "NEXT";
+            this.buttonNext1Películas.UseVisualStyleBackColor = false;
+            this.buttonNext1Películas.Visible = false;
+            this.buttonNext1Películas.Click += new System.EventHandler(this.buttonNext1Películas_Click_1);
+            // 
+            // buttonNext2Películas
+            // 
+            this.buttonNext2Películas.BackColor = System.Drawing.SystemColors.MenuText;
+            this.buttonNext2Películas.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNext2Películas.ForeColor = System.Drawing.SystemColors.Window;
+            this.buttonNext2Películas.Location = new System.Drawing.Point(234, 340);
+            this.buttonNext2Películas.Name = "buttonNext2Películas";
+            this.buttonNext2Películas.Size = new System.Drawing.Size(54, 28);
+            this.buttonNext2Películas.TabIndex = 58;
+            this.buttonNext2Películas.Text = "NEXT";
+            this.buttonNext2Películas.UseVisualStyleBackColor = false;
+            this.buttonNext2Películas.Visible = false;
+            this.buttonNext2Películas.Click += new System.EventHandler(this.buttonNext2Películas_Click_1);
             // 
             // pictureBoxSalirReproducirPelicula
             // 
             this.pictureBoxSalirReproducirPelicula.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBoxSalirReproducirPelicula.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxSalirReproducirPelicula.Image")));
-            this.pictureBoxSalirReproducirPelicula.Location = new System.Drawing.Point(722, 12);
+            this.pictureBoxSalirReproducirPelicula.Location = new System.Drawing.Point(722, 5);
             this.pictureBoxSalirReproducirPelicula.Name = "pictureBoxSalirReproducirPelicula";
             this.pictureBoxSalirReproducirPelicula.Size = new System.Drawing.Size(20, 20);
-            this.pictureBoxSalirReproducirPelicula.TabIndex = 46;
+            this.pictureBoxSalirReproducirPelicula.TabIndex = 57;
             this.pictureBoxSalirReproducirPelicula.TabStop = false;
             this.pictureBoxSalirReproducirPelicula.Visible = false;
-            this.pictureBoxSalirReproducirPelicula.Click += new System.EventHandler(this.pictureBoxSalirReproducirPelicula_Click);
+            this.pictureBoxSalirReproducirPelicula.Click += new System.EventHandler(this.pictureBoxSalirReproducirPelicula_Click_1);
+            // 
+            // axWindowsMediaPlayer2
+            // 
+            this.axWindowsMediaPlayer2.Enabled = true;
+            this.axWindowsMediaPlayer2.Location = new System.Drawing.Point(72, 234);
+            this.axWindowsMediaPlayer2.Name = "axWindowsMediaPlayer2";
+            this.axWindowsMediaPlayer2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer2.OcxState")));
+            this.axWindowsMediaPlayer2.Size = new System.Drawing.Size(161, 51);
+            this.axWindowsMediaPlayer2.TabIndex = 43;
+            this.axWindowsMediaPlayer2.Visible = false;
+            this.axWindowsMediaPlayer2.Enter += new System.EventHandler(this.axWindowsMediaPlayer2_Enter);
+            // 
+            // buttonAgregarColaPelícula
+            // 
+            this.buttonAgregarColaPelícula.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAgregarColaPelícula.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.buttonAgregarColaPelícula.Location = new System.Drawing.Point(99, 330);
+            this.buttonAgregarColaPelícula.Name = "buttonAgregarColaPelícula";
+            this.buttonAgregarColaPelícula.Size = new System.Drawing.Size(161, 30);
+            this.buttonAgregarColaPelícula.TabIndex = 52;
+            this.buttonAgregarColaPelícula.Text = "AGREGAR A LA COLA";
+            this.buttonAgregarColaPelícula.UseVisualStyleBackColor = true;
+            this.buttonAgregarColaPelícula.Visible = false;
+            this.buttonAgregarColaPelícula.Click += new System.EventHandler(this.buttonAgregarColaPelícula_Click);
             // 
             // buttonConfirmarCalificaciónPelícula
             // 
             this.buttonConfirmarCalificaciónPelícula.BackColor = System.Drawing.SystemColors.MenuText;
             this.buttonConfirmarCalificaciónPelícula.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonConfirmarCalificaciónPelícula.ForeColor = System.Drawing.SystemColors.Window;
-            this.buttonConfirmarCalificaciónPelícula.Location = new System.Drawing.Point(454, 341);
+            this.buttonConfirmarCalificaciónPelícula.Location = new System.Drawing.Point(511, 336);
             this.buttonConfirmarCalificaciónPelícula.Name = "buttonConfirmarCalificaciónPelícula";
             this.buttonConfirmarCalificaciónPelícula.Size = new System.Drawing.Size(30, 28);
             this.buttonConfirmarCalificaciónPelícula.TabIndex = 45;
@@ -1340,7 +1470,7 @@
             "8",
             "9",
             "10"});
-            this.comboBoxCalificaciónPelícula.Location = new System.Drawing.Point(378, 345);
+            this.comboBoxCalificaciónPelícula.Location = new System.Drawing.Point(435, 340);
             this.comboBoxCalificaciónPelícula.Name = "comboBoxCalificaciónPelícula";
             this.comboBoxCalificaciónPelícula.Size = new System.Drawing.Size(70, 21);
             this.comboBoxCalificaciónPelícula.TabIndex = 44;
@@ -1484,17 +1614,6 @@
             this.buttonVolverDeVerPelícula.UseVisualStyleBackColor = true;
             this.buttonVolverDeVerPelícula.Click += new System.EventHandler(this.buttonVolverDeVerPelícula_Click);
             // 
-            // axWindowsMediaPlayer2
-            // 
-            this.axWindowsMediaPlayer2.Enabled = true;
-            this.axWindowsMediaPlayer2.Location = new System.Drawing.Point(53, 245);
-            this.axWindowsMediaPlayer2.Name = "axWindowsMediaPlayer2";
-            this.axWindowsMediaPlayer2.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer2.OcxState")));
-            this.axWindowsMediaPlayer2.Size = new System.Drawing.Size(199, 45);
-            this.axWindowsMediaPlayer2.TabIndex = 43;
-            this.axWindowsMediaPlayer2.Visible = false;
-            this.axWindowsMediaPlayer2.Enter += new System.EventHandler(this.axWindowsMediaPlayer2_Enter);
-            // 
             // FotoPelícula
             // 
             this.FotoPelícula.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
@@ -1509,7 +1628,7 @@
             // 
             this.buttonAgregarPelículaAPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAgregarPelículaAPlaylist.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.buttonAgregarPelículaAPlaylist.Location = new System.Drawing.Point(270, 305);
+            this.buttonAgregarPelículaAPlaylist.Location = new System.Drawing.Point(264, 296);
             this.buttonAgregarPelículaAPlaylist.Name = "buttonAgregarPelículaAPlaylist";
             this.buttonAgregarPelículaAPlaylist.Size = new System.Drawing.Size(161, 30);
             this.buttonAgregarPelículaAPlaylist.TabIndex = 38;
@@ -1521,7 +1640,7 @@
             // 
             this.buttonEvaluarPelícula.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonEvaluarPelícula.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.buttonEvaluarPelícula.Location = new System.Drawing.Point(197, 339);
+            this.buttonEvaluarPelícula.Location = new System.Drawing.Point(264, 330);
             this.buttonEvaluarPelícula.Name = "buttonEvaluarPelícula";
             this.buttonEvaluarPelícula.Size = new System.Drawing.Size(161, 30);
             this.buttonEvaluarPelícula.TabIndex = 37;
@@ -1534,7 +1653,7 @@
             // 
             this.buttonReproducirPelícula.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonReproducirPelícula.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.buttonReproducirPelícula.Location = new System.Drawing.Point(103, 305);
+            this.buttonReproducirPelícula.Location = new System.Drawing.Point(99, 297);
             this.buttonReproducirPelícula.Name = "buttonReproducirPelícula";
             this.buttonReproducirPelícula.Size = new System.Drawing.Size(161, 30);
             this.buttonReproducirPelícula.TabIndex = 36;
@@ -2361,7 +2480,9 @@
             this.comboBoxTipoMediaParaEliminar.FormattingEnabled = true;
             this.comboBoxTipoMediaParaEliminar.Items.AddRange(new object[] {
             "Canción",
-            "Película"});
+            "Película",
+            "Usuario",
+            "Playlist"});
             this.comboBoxTipoMediaParaEliminar.Location = new System.Drawing.Point(289, 92);
             this.comboBoxTipoMediaParaEliminar.Name = "comboBoxTipoMediaParaEliminar";
             this.comboBoxTipoMediaParaEliminar.Size = new System.Drawing.Size(121, 21);
@@ -2483,186 +2604,18 @@
             this.panelTopMedia.Size = new System.Drawing.Size(76, 56);
             this.panelTopMedia.TabIndex = 35;
             // 
-            // buttonVolverDeTopMedia
+            // PelículaSeleccionadaTop
             // 
-            this.buttonVolverDeTopMedia.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonVolverDeTopMedia.ForeColor = System.Drawing.SystemColors.Window;
-            this.buttonVolverDeTopMedia.Location = new System.Drawing.Point(15, 331);
-            this.buttonVolverDeTopMedia.Name = "buttonVolverDeTopMedia";
-            this.buttonVolverDeTopMedia.Size = new System.Drawing.Size(86, 32);
-            this.buttonVolverDeTopMedia.TabIndex = 40;
-            this.buttonVolverDeTopMedia.Text = "VOLVER";
-            this.buttonVolverDeTopMedia.UseVisualStyleBackColor = false;
-            this.buttonVolverDeTopMedia.Click += new System.EventHandler(this.buttonVolverDeTopMedia_Click);
-            // 
-            // label44
-            // 
-            this.label44.AutoSize = true;
-            this.label44.BackColor = System.Drawing.SystemColors.MenuText;
-            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label44.ForeColor = System.Drawing.SystemColors.Window;
-            this.label44.Location = new System.Drawing.Point(491, 7);
-            this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(261, 39);
-            this.label44.TabIndex = 39;
-            this.label44.Text = "TOP Canciones";
-            // 
-            // listViewTopCanciones
-            // 
-            this.listViewTopCanciones.BackColor = System.Drawing.SystemColors.MenuText;
-            this.listViewTopCanciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listViewTopCanciones.ForeColor = System.Drawing.SystemColors.Window;
-            this.listViewTopCanciones.HideSelection = false;
-            this.listViewTopCanciones.Location = new System.Drawing.Point(514, 19);
-            this.listViewTopCanciones.Name = "listViewTopCanciones";
-            this.listViewTopCanciones.Size = new System.Drawing.Size(201, 301);
-            this.listViewTopCanciones.TabIndex = 38;
-            this.listViewTopCanciones.UseCompatibleStateImageBehavior = false;
-            this.listViewTopCanciones.View = System.Windows.Forms.View.SmallIcon;
-            this.listViewTopCanciones.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewTopCanciones_MouseClick);
-            // 
-            // label43
-            // 
-            this.label43.AutoSize = true;
-            this.label43.BackColor = System.Drawing.SystemColors.MenuText;
-            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label43.ForeColor = System.Drawing.SystemColors.Window;
-            this.label43.Location = new System.Drawing.Point(8, 12);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(237, 39);
-            this.label43.TabIndex = 37;
-            this.label43.Text = "TOP Películas";
-            // 
-            // listViewTopPelículas
-            // 
-            this.listViewTopPelículas.BackColor = System.Drawing.SystemColors.MenuText;
-            this.listViewTopPelículas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listViewTopPelículas.ForeColor = System.Drawing.SystemColors.Window;
-            this.listViewTopPelículas.HideSelection = false;
-            this.listViewTopPelículas.Location = new System.Drawing.Point(15, 27);
-            this.listViewTopPelículas.Name = "listViewTopPelículas";
-            this.listViewTopPelículas.Size = new System.Drawing.Size(229, 298);
-            this.listViewTopPelículas.TabIndex = 36;
-            this.listViewTopPelículas.UseCompatibleStateImageBehavior = false;
-            this.listViewTopPelículas.View = System.Windows.Forms.View.SmallIcon;
-            this.listViewTopPelículas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewTopPelículas_MouseClick);
-            // 
-            // panelInfoCanciónTop
-            // 
-            this.panelInfoCanciónTop.Controls.Add(this.DuraciónCanciónSeleccionadaTop);
-            this.panelInfoCanciónTop.Controls.Add(this.label45);
-            this.panelInfoCanciónTop.Controls.Add(this.AlbumCanciónSeleccionadaTop);
-            this.panelInfoCanciónTop.Controls.Add(this.ArtistaCanciónSeleccionadaTop);
-            this.panelInfoCanciónTop.Controls.Add(this.CalificaciónCanciónSeleccionadaTop);
-            this.panelInfoCanciónTop.Controls.Add(this.ReproduccionesCanciónSeleccionadaTop);
-            this.panelInfoCanciónTop.Controls.Add(this.label50);
-            this.panelInfoCanciónTop.Controls.Add(this.label51);
-            this.panelInfoCanciónTop.Controls.Add(this.label52);
-            this.panelInfoCanciónTop.Controls.Add(this.label53);
-            this.panelInfoCanciónTop.Location = new System.Drawing.Point(286, 194);
-            this.panelInfoCanciónTop.Name = "panelInfoCanciónTop";
-            this.panelInfoCanciónTop.Size = new System.Drawing.Size(229, 156);
-            this.panelInfoCanciónTop.TabIndex = 41;
-            // 
-            // DuraciónCanciónSeleccionadaTop
-            // 
-            this.DuraciónCanciónSeleccionadaTop.AutoSize = true;
-            this.DuraciónCanciónSeleccionadaTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.DuraciónCanciónSeleccionadaTop.Location = new System.Drawing.Point(77, 129);
-            this.DuraciónCanciónSeleccionadaTop.Name = "DuraciónCanciónSeleccionadaTop";
-            this.DuraciónCanciónSeleccionadaTop.Size = new System.Drawing.Size(49, 16);
-            this.DuraciónCanciónSeleccionadaTop.TabIndex = 9;
-            this.DuraciónCanciónSeleccionadaTop.Text = "Álbum:";
-            // 
-            // label45
-            // 
-            this.label45.AutoSize = true;
-            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label45.Location = new System.Drawing.Point(9, 129);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(62, 16);
-            this.label45.TabIndex = 8;
-            this.label45.Text = "Duración";
-            // 
-            // AlbumCanciónSeleccionadaTop
-            // 
-            this.AlbumCanciónSeleccionadaTop.AutoSize = true;
-            this.AlbumCanciónSeleccionadaTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.AlbumCanciónSeleccionadaTop.Location = new System.Drawing.Point(64, 13);
-            this.AlbumCanciónSeleccionadaTop.Name = "AlbumCanciónSeleccionadaTop";
-            this.AlbumCanciónSeleccionadaTop.Size = new System.Drawing.Size(49, 16);
-            this.AlbumCanciónSeleccionadaTop.TabIndex = 7;
-            this.AlbumCanciónSeleccionadaTop.Text = "Álbum:";
-            // 
-            // ArtistaCanciónSeleccionadaTop
-            // 
-            this.ArtistaCanciónSeleccionadaTop.AutoSize = true;
-            this.ArtistaCanciónSeleccionadaTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ArtistaCanciónSeleccionadaTop.Location = new System.Drawing.Point(63, 45);
-            this.ArtistaCanciónSeleccionadaTop.Name = "ArtistaCanciónSeleccionadaTop";
-            this.ArtistaCanciónSeleccionadaTop.Size = new System.Drawing.Size(49, 16);
-            this.ArtistaCanciónSeleccionadaTop.TabIndex = 6;
-            this.ArtistaCanciónSeleccionadaTop.Text = "Álbum:";
-            // 
-            // CalificaciónCanciónSeleccionadaTop
-            // 
-            this.CalificaciónCanciónSeleccionadaTop.AutoSize = true;
-            this.CalificaciónCanciónSeleccionadaTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.CalificaciónCanciónSeleccionadaTop.Location = new System.Drawing.Point(95, 102);
-            this.CalificaciónCanciónSeleccionadaTop.Name = "CalificaciónCanciónSeleccionadaTop";
-            this.CalificaciónCanciónSeleccionadaTop.Size = new System.Drawing.Size(49, 16);
-            this.CalificaciónCanciónSeleccionadaTop.TabIndex = 5;
-            this.CalificaciónCanciónSeleccionadaTop.Text = "Álbum:";
-            // 
-            // ReproduccionesCanciónSeleccionadaTop
-            // 
-            this.ReproduccionesCanciónSeleccionadaTop.AutoSize = true;
-            this.ReproduccionesCanciónSeleccionadaTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ReproduccionesCanciónSeleccionadaTop.Location = new System.Drawing.Point(126, 75);
-            this.ReproduccionesCanciónSeleccionadaTop.Name = "ReproduccionesCanciónSeleccionadaTop";
-            this.ReproduccionesCanciónSeleccionadaTop.Size = new System.Drawing.Size(49, 16);
-            this.ReproduccionesCanciónSeleccionadaTop.TabIndex = 4;
-            this.ReproduccionesCanciónSeleccionadaTop.Text = "Álbum:";
-            // 
-            // label50
-            // 
-            this.label50.AutoSize = true;
-            this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label50.Location = new System.Drawing.Point(9, 45);
-            this.label50.Name = "label50";
-            this.label50.Size = new System.Drawing.Size(48, 16);
-            this.label50.TabIndex = 3;
-            this.label50.Text = "Artista:";
-            // 
-            // label51
-            // 
-            this.label51.AutoSize = true;
-            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label51.Location = new System.Drawing.Point(9, 75);
-            this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(111, 16);
-            this.label51.TabIndex = 2;
-            this.label51.Text = "Reproducciones:";
-            // 
-            // label52
-            // 
-            this.label52.AutoSize = true;
-            this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label52.Location = new System.Drawing.Point(9, 102);
-            this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(80, 16);
-            this.label52.TabIndex = 1;
-            this.label52.Text = "Calificación:";
-            // 
-            // label53
-            // 
-            this.label53.AutoSize = true;
-            this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label53.Location = new System.Drawing.Point(9, 13);
-            this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(49, 16);
-            this.label53.TabIndex = 0;
-            this.label53.Text = "Álbum:";
+            this.PelículaSeleccionadaTop.AutoSize = true;
+            this.PelículaSeleccionadaTop.BackColor = System.Drawing.SystemColors.MenuText;
+            this.PelículaSeleccionadaTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.PelículaSeleccionadaTop.ForeColor = System.Drawing.SystemColors.Window;
+            this.PelículaSeleccionadaTop.Location = new System.Drawing.Point(317, 9);
+            this.PelículaSeleccionadaTop.Name = "PelículaSeleccionadaTop";
+            this.PelículaSeleccionadaTop.Size = new System.Drawing.Size(118, 37);
+            this.PelículaSeleccionadaTop.TabIndex = 45;
+            this.PelículaSeleccionadaTop.Text = "label13";
+            this.PelículaSeleccionadaTop.Visible = false;
             // 
             // panelInfoPelículaTop
             // 
@@ -2676,7 +2629,7 @@
             this.panelInfoPelículaTop.Controls.Add(this.label61);
             this.panelInfoPelículaTop.Controls.Add(this.label62);
             this.panelInfoPelículaTop.Controls.Add(this.label63);
-            this.panelInfoPelículaTop.Location = new System.Drawing.Point(244, 31);
+            this.panelInfoPelículaTop.Location = new System.Drawing.Point(250, 31);
             this.panelInfoPelículaTop.Name = "panelInfoPelículaTop";
             this.panelInfoPelículaTop.Size = new System.Drawing.Size(231, 160);
             this.panelInfoPelículaTop.TabIndex = 44;
@@ -2804,27 +2757,195 @@
             this.CanciónSeleccionadaTop.Text = "label13";
             this.CanciónSeleccionadaTop.Visible = false;
             // 
-            // PelículaSeleccionadaTop
+            // panelInfoCanciónTop
             // 
-            this.PelículaSeleccionadaTop.AutoSize = true;
-            this.PelículaSeleccionadaTop.BackColor = System.Drawing.SystemColors.MenuText;
-            this.PelículaSeleccionadaTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 24F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.PelículaSeleccionadaTop.ForeColor = System.Drawing.SystemColors.Window;
-            this.PelículaSeleccionadaTop.Location = new System.Drawing.Point(317, 9);
-            this.PelículaSeleccionadaTop.Name = "PelículaSeleccionadaTop";
-            this.PelículaSeleccionadaTop.Size = new System.Drawing.Size(118, 37);
-            this.PelículaSeleccionadaTop.TabIndex = 45;
-            this.PelículaSeleccionadaTop.Text = "label13";
-            this.PelículaSeleccionadaTop.Visible = false;
+            this.panelInfoCanciónTop.Controls.Add(this.DuraciónCanciónSeleccionadaTop);
+            this.panelInfoCanciónTop.Controls.Add(this.label45);
+            this.panelInfoCanciónTop.Controls.Add(this.AlbumCanciónSeleccionadaTop);
+            this.panelInfoCanciónTop.Controls.Add(this.ArtistaCanciónSeleccionadaTop);
+            this.panelInfoCanciónTop.Controls.Add(this.CalificaciónCanciónSeleccionadaTop);
+            this.panelInfoCanciónTop.Controls.Add(this.ReproduccionesCanciónSeleccionadaTop);
+            this.panelInfoCanciónTop.Controls.Add(this.label50);
+            this.panelInfoCanciónTop.Controls.Add(this.label51);
+            this.panelInfoCanciónTop.Controls.Add(this.label52);
+            this.panelInfoCanciónTop.Controls.Add(this.label53);
+            this.panelInfoCanciónTop.Location = new System.Drawing.Point(260, 194);
+            this.panelInfoCanciónTop.Name = "panelInfoCanciónTop";
+            this.panelInfoCanciónTop.Size = new System.Drawing.Size(229, 156);
+            this.panelInfoCanciónTop.TabIndex = 41;
+            // 
+            // DuraciónCanciónSeleccionadaTop
+            // 
+            this.DuraciónCanciónSeleccionadaTop.AutoSize = true;
+            this.DuraciónCanciónSeleccionadaTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.DuraciónCanciónSeleccionadaTop.Location = new System.Drawing.Point(77, 129);
+            this.DuraciónCanciónSeleccionadaTop.Name = "DuraciónCanciónSeleccionadaTop";
+            this.DuraciónCanciónSeleccionadaTop.Size = new System.Drawing.Size(49, 16);
+            this.DuraciónCanciónSeleccionadaTop.TabIndex = 9;
+            this.DuraciónCanciónSeleccionadaTop.Text = "Álbum:";
+            // 
+            // label45
+            // 
+            this.label45.AutoSize = true;
+            this.label45.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label45.Location = new System.Drawing.Point(9, 129);
+            this.label45.Name = "label45";
+            this.label45.Size = new System.Drawing.Size(62, 16);
+            this.label45.TabIndex = 8;
+            this.label45.Text = "Duración";
+            // 
+            // AlbumCanciónSeleccionadaTop
+            // 
+            this.AlbumCanciónSeleccionadaTop.AutoSize = true;
+            this.AlbumCanciónSeleccionadaTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.AlbumCanciónSeleccionadaTop.Location = new System.Drawing.Point(64, 13);
+            this.AlbumCanciónSeleccionadaTop.Name = "AlbumCanciónSeleccionadaTop";
+            this.AlbumCanciónSeleccionadaTop.Size = new System.Drawing.Size(49, 16);
+            this.AlbumCanciónSeleccionadaTop.TabIndex = 7;
+            this.AlbumCanciónSeleccionadaTop.Text = "Álbum:";
+            // 
+            // ArtistaCanciónSeleccionadaTop
+            // 
+            this.ArtistaCanciónSeleccionadaTop.AutoSize = true;
+            this.ArtistaCanciónSeleccionadaTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ArtistaCanciónSeleccionadaTop.Location = new System.Drawing.Point(63, 45);
+            this.ArtistaCanciónSeleccionadaTop.Name = "ArtistaCanciónSeleccionadaTop";
+            this.ArtistaCanciónSeleccionadaTop.Size = new System.Drawing.Size(49, 16);
+            this.ArtistaCanciónSeleccionadaTop.TabIndex = 6;
+            this.ArtistaCanciónSeleccionadaTop.Text = "Álbum:";
+            // 
+            // CalificaciónCanciónSeleccionadaTop
+            // 
+            this.CalificaciónCanciónSeleccionadaTop.AutoSize = true;
+            this.CalificaciónCanciónSeleccionadaTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.CalificaciónCanciónSeleccionadaTop.Location = new System.Drawing.Point(95, 102);
+            this.CalificaciónCanciónSeleccionadaTop.Name = "CalificaciónCanciónSeleccionadaTop";
+            this.CalificaciónCanciónSeleccionadaTop.Size = new System.Drawing.Size(49, 16);
+            this.CalificaciónCanciónSeleccionadaTop.TabIndex = 5;
+            this.CalificaciónCanciónSeleccionadaTop.Text = "Álbum:";
+            // 
+            // ReproduccionesCanciónSeleccionadaTop
+            // 
+            this.ReproduccionesCanciónSeleccionadaTop.AutoSize = true;
+            this.ReproduccionesCanciónSeleccionadaTop.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ReproduccionesCanciónSeleccionadaTop.Location = new System.Drawing.Point(126, 75);
+            this.ReproduccionesCanciónSeleccionadaTop.Name = "ReproduccionesCanciónSeleccionadaTop";
+            this.ReproduccionesCanciónSeleccionadaTop.Size = new System.Drawing.Size(49, 16);
+            this.ReproduccionesCanciónSeleccionadaTop.TabIndex = 4;
+            this.ReproduccionesCanciónSeleccionadaTop.Text = "Álbum:";
+            // 
+            // label50
+            // 
+            this.label50.AutoSize = true;
+            this.label50.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label50.Location = new System.Drawing.Point(9, 45);
+            this.label50.Name = "label50";
+            this.label50.Size = new System.Drawing.Size(48, 16);
+            this.label50.TabIndex = 3;
+            this.label50.Text = "Artista:";
+            // 
+            // label51
+            // 
+            this.label51.AutoSize = true;
+            this.label51.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label51.Location = new System.Drawing.Point(9, 75);
+            this.label51.Name = "label51";
+            this.label51.Size = new System.Drawing.Size(111, 16);
+            this.label51.TabIndex = 2;
+            this.label51.Text = "Reproducciones:";
+            // 
+            // label52
+            // 
+            this.label52.AutoSize = true;
+            this.label52.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label52.Location = new System.Drawing.Point(9, 102);
+            this.label52.Name = "label52";
+            this.label52.Size = new System.Drawing.Size(80, 16);
+            this.label52.TabIndex = 1;
+            this.label52.Text = "Calificación:";
+            // 
+            // label53
+            // 
+            this.label53.AutoSize = true;
+            this.label53.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label53.Location = new System.Drawing.Point(9, 13);
+            this.label53.Name = "label53";
+            this.label53.Size = new System.Drawing.Size(49, 16);
+            this.label53.TabIndex = 0;
+            this.label53.Text = "Álbum:";
+            // 
+            // buttonVolverDeTopMedia
+            // 
+            this.buttonVolverDeTopMedia.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonVolverDeTopMedia.ForeColor = System.Drawing.SystemColors.Window;
+            this.buttonVolverDeTopMedia.Location = new System.Drawing.Point(15, 331);
+            this.buttonVolverDeTopMedia.Name = "buttonVolverDeTopMedia";
+            this.buttonVolverDeTopMedia.Size = new System.Drawing.Size(86, 32);
+            this.buttonVolverDeTopMedia.TabIndex = 40;
+            this.buttonVolverDeTopMedia.Text = "VOLVER";
+            this.buttonVolverDeTopMedia.UseVisualStyleBackColor = false;
+            this.buttonVolverDeTopMedia.Click += new System.EventHandler(this.buttonVolverDeTopMedia_Click);
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.BackColor = System.Drawing.SystemColors.MenuText;
+            this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label44.ForeColor = System.Drawing.SystemColors.Window;
+            this.label44.Location = new System.Drawing.Point(491, 7);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(261, 39);
+            this.label44.TabIndex = 39;
+            this.label44.Text = "TOP Canciones";
+            // 
+            // listViewTopCanciones
+            // 
+            this.listViewTopCanciones.BackColor = System.Drawing.SystemColors.MenuText;
+            this.listViewTopCanciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewTopCanciones.ForeColor = System.Drawing.SystemColors.Window;
+            this.listViewTopCanciones.HideSelection = false;
+            this.listViewTopCanciones.Location = new System.Drawing.Point(514, 19);
+            this.listViewTopCanciones.Name = "listViewTopCanciones";
+            this.listViewTopCanciones.Size = new System.Drawing.Size(201, 301);
+            this.listViewTopCanciones.TabIndex = 38;
+            this.listViewTopCanciones.UseCompatibleStateImageBehavior = false;
+            this.listViewTopCanciones.View = System.Windows.Forms.View.SmallIcon;
+            this.listViewTopCanciones.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewTopCanciones_MouseClick);
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.BackColor = System.Drawing.SystemColors.MenuText;
+            this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label43.ForeColor = System.Drawing.SystemColors.Window;
+            this.label43.Location = new System.Drawing.Point(8, 12);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(237, 39);
+            this.label43.TabIndex = 37;
+            this.label43.Text = "TOP Películas";
+            // 
+            // listViewTopPelículas
+            // 
+            this.listViewTopPelículas.BackColor = System.Drawing.SystemColors.MenuText;
+            this.listViewTopPelículas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewTopPelículas.ForeColor = System.Drawing.SystemColors.Window;
+            this.listViewTopPelículas.HideSelection = false;
+            this.listViewTopPelículas.Location = new System.Drawing.Point(15, 27);
+            this.listViewTopPelículas.Name = "listViewTopPelículas";
+            this.listViewTopPelículas.Size = new System.Drawing.Size(229, 298);
+            this.listViewTopPelículas.TabIndex = 36;
+            this.listViewTopPelículas.UseCompatibleStateImageBehavior = false;
+            this.listViewTopPelículas.View = System.Windows.Forms.View.SmallIcon;
+            this.listViewTopPelículas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewTopPelículas_MouseClick);
             // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(754, 376);
-            this.Controls.Add(this.panelTopMedia);
-            this.Controls.Add(this.panelCancciones);
             this.Controls.Add(this.panelPelículas);
+            this.Controls.Add(this.panelCancciones);
+            this.Controls.Add(this.panelTopMedia);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelCrearPlaylist);
             this.Controls.Add(this.panelEliminarMedia);
@@ -2862,9 +2983,9 @@
             this.panelPelículas.ResumeLayout(false);
             this.panelPelículas.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSalirReproducirPelicula)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FotoPelícula)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox5)).EndInit();
             this.panelBúsqueda.ResumeLayout(false);
@@ -2885,10 +3006,10 @@
             this.panelCrearPlaylist.PerformLayout();
             this.panelTopMedia.ResumeLayout(false);
             this.panelTopMedia.PerformLayout();
-            this.panelInfoCanciónTop.ResumeLayout(false);
-            this.panelInfoCanciónTop.PerformLayout();
             this.panelInfoPelículaTop.ResumeLayout(false);
             this.panelInfoPelículaTop.PerformLayout();
+            this.panelInfoCanciónTop.ResumeLayout(false);
+            this.panelInfoCanciónTop.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3037,7 +3158,6 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.Button buttonIrAgregarCancion;
-        private System.Windows.Forms.PictureBox pictureBoxSalirReproducirPelicula;
         private System.Windows.Forms.Label labelRutaImagenCancion;
         private System.Windows.Forms.Panel panelMisPlaylist;
         private System.Windows.Forms.Button buttonVolverDeMisPlaylist;
@@ -3115,6 +3235,15 @@
         private System.Windows.Forms.Label label51;
         private System.Windows.Forms.Label label52;
         private System.Windows.Forms.Label label53;
+        private System.Windows.Forms.Button buttonAgregarColaCanción;
+        private System.Windows.Forms.Button buttonNext2;
+        private System.Windows.Forms.Button buttonNext1;
+        private System.Windows.Forms.Label labelCanciónReproducida;
+        private System.Windows.Forms.Label labelReproduciendo;
+        private System.Windows.Forms.Button buttonAgregarColaPelícula;
+        private System.Windows.Forms.Button buttonNext1Películas;
+        private System.Windows.Forms.Button buttonNext2Películas;
+        private System.Windows.Forms.PictureBox pictureBoxSalirReproducirPelicula;
     }
 }
 
