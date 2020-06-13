@@ -257,6 +257,18 @@
             this.listViewTopCanciones = new System.Windows.Forms.ListView();
             this.label43 = new System.Windows.Forms.Label();
             this.listViewTopPelículas = new System.Windows.Forms.ListView();
+            this.pictureBoxFotoPerfil = new System.Windows.Forms.PictureBox();
+            this.UsernameEditarPerfil = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label46 = new System.Windows.Forms.Label();
+            this.label47 = new System.Windows.Forms.Label();
+            this.label48 = new System.Windows.Forms.Label();
+            this.label49 = new System.Windows.Forms.Label();
+            this.label54 = new System.Windows.Forms.Label();
+            this.label56 = new System.Windows.Forms.Label();
+            this.label57 = new System.Windows.Forms.Label();
+            this.label58 = new System.Windows.Forms.Label();
+            this.label59 = new System.Windows.Forms.Label();
             this.panelEntrada.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FotoLogoEntrada)).BeginInit();
             this.panelLogin.SuspendLayout();
@@ -289,6 +301,7 @@
             this.panelTopMedia.SuspendLayout();
             this.panelInfoPelículaTop.SuspendLayout();
             this.panelInfoCanciónTop.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFotoPerfil)).BeginInit();
             this.SuspendLayout();
             // 
             // panelEntrada
@@ -799,6 +812,8 @@
             // panelModificarCuenta
             // 
             this.panelModificarCuenta.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panelModificarCuenta.Controls.Add(this.UsernameEditarPerfil);
+            this.panelModificarCuenta.Controls.Add(this.pictureBoxFotoPerfil);
             this.panelModificarCuenta.Controls.Add(this.textBoxAntiguaContraseñaCambioContraseña);
             this.panelModificarCuenta.Controls.Add(this.label10);
             this.panelModificarCuenta.Controls.Add(this.buttonConfirmarCambioUsername);
@@ -869,7 +884,7 @@
             this.textBoxHacersePremium.ForeColor = System.Drawing.SystemColors.MenuBar;
             this.textBoxHacersePremium.Location = new System.Drawing.Point(263, 77);
             this.textBoxHacersePremium.Name = "textBoxHacersePremium";
-            this.textBoxHacersePremium.Size = new System.Drawing.Size(246, 20);
+            this.textBoxHacersePremium.Size = new System.Drawing.Size(273, 20);
             this.textBoxHacersePremium.TabIndex = 29;
             this.textBoxHacersePremium.Visible = false;
             this.textBoxHacersePremium.TextChanged += new System.EventHandler(this.textBoxHacersePremium_TextChanged);
@@ -950,9 +965,9 @@
             // 
             // buttonHacersePremium
             // 
-            this.buttonHacersePremium.Location = new System.Drawing.Point(48, 66);
+            this.buttonHacersePremium.Location = new System.Drawing.Point(82, 187);
             this.buttonHacersePremium.Name = "buttonHacersePremium";
-            this.buttonHacersePremium.Size = new System.Drawing.Size(107, 41);
+            this.buttonHacersePremium.Size = new System.Drawing.Size(133, 30);
             this.buttonHacersePremium.TabIndex = 30;
             this.buttonHacersePremium.Text = "Hacerse Premium";
             this.buttonHacersePremium.UseVisualStyleBackColor = true;
@@ -960,9 +975,9 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(48, 171);
+            this.button1.Location = new System.Drawing.Point(82, 229);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(107, 41);
+            this.button1.Size = new System.Drawing.Size(133, 30);
             this.button1.TabIndex = 29;
             this.button1.Text = "Cambiar Username";
             this.button1.UseVisualStyleBackColor = true;
@@ -970,9 +985,9 @@
             // 
             // buttonCambiarContraseña
             // 
-            this.buttonCambiarContraseña.Location = new System.Drawing.Point(46, 270);
+            this.buttonCambiarContraseña.Location = new System.Drawing.Point(82, 271);
             this.buttonCambiarContraseña.Name = "buttonCambiarContraseña";
-            this.buttonCambiarContraseña.Size = new System.Drawing.Size(107, 41);
+            this.buttonCambiarContraseña.Size = new System.Drawing.Size(133, 30);
             this.buttonCambiarContraseña.TabIndex = 28;
             this.buttonCambiarContraseña.Text = "Cambiar contraseña";
             this.buttonCambiarContraseña.UseVisualStyleBackColor = true;
@@ -981,10 +996,9 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label8.Font = new System.Drawing.Font("Microsoft Sans Serif", 22.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label8.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label8.Location = new System.Drawing.Point(0, 0);
+            this.label8.Location = new System.Drawing.Point(341, 0);
             this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(89, 36);
@@ -1373,10 +1387,9 @@
             this.panelPelículas.Controls.Add(this.pictureBox5);
             this.panelPelículas.Controls.Add(this.PelículaSeleccionada);
             this.panelPelículas.Controls.Add(this.listViewPelículas);
-            this.panelPelículas.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelPelículas.Location = new System.Drawing.Point(0, 0);
+            this.panelPelículas.Location = new System.Drawing.Point(79, 18);
             this.panelPelículas.Name = "panelPelículas";
-            this.panelPelículas.Size = new System.Drawing.Size(754, 376);
+            this.panelPelículas.Size = new System.Drawing.Size(78, 57);
             this.panelPelículas.TabIndex = 28;
             // 
             // buttonNext1Películas
@@ -1701,7 +1714,7 @@
             // listViewPelículas
             // 
             this.listViewPelículas.BackColor = System.Drawing.SystemColors.MenuText;
-            this.listViewPelículas.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewPelículas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewPelículas.ForeColor = System.Drawing.SystemColors.Window;
             this.listViewPelículas.HideSelection = false;
             this.listViewPelículas.Location = new System.Drawing.Point(553, 19);
@@ -2589,6 +2602,16 @@
             // panelTopMedia
             // 
             this.panelTopMedia.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panelTopMedia.Controls.Add(this.label54);
+            this.panelTopMedia.Controls.Add(this.label56);
+            this.panelTopMedia.Controls.Add(this.label57);
+            this.panelTopMedia.Controls.Add(this.label58);
+            this.panelTopMedia.Controls.Add(this.label59);
+            this.panelTopMedia.Controls.Add(this.label49);
+            this.panelTopMedia.Controls.Add(this.label48);
+            this.panelTopMedia.Controls.Add(this.label47);
+            this.panelTopMedia.Controls.Add(this.label46);
+            this.panelTopMedia.Controls.Add(this.label42);
             this.panelTopMedia.Controls.Add(this.PelículaSeleccionadaTop);
             this.panelTopMedia.Controls.Add(this.panelInfoPelículaTop);
             this.panelTopMedia.Controls.Add(this.CanciónSeleccionadaTop);
@@ -2598,10 +2621,11 @@
             this.panelTopMedia.Controls.Add(this.listViewTopCanciones);
             this.panelTopMedia.Controls.Add(this.label43);
             this.panelTopMedia.Controls.Add(this.listViewTopPelículas);
+            this.panelTopMedia.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelTopMedia.ForeColor = System.Drawing.SystemColors.Window;
-            this.panelTopMedia.Location = new System.Drawing.Point(578, 95);
+            this.panelTopMedia.Location = new System.Drawing.Point(0, 0);
             this.panelTopMedia.Name = "panelTopMedia";
-            this.panelTopMedia.Size = new System.Drawing.Size(76, 56);
+            this.panelTopMedia.Size = new System.Drawing.Size(754, 376);
             this.panelTopMedia.TabIndex = 35;
             // 
             // PelículaSeleccionadaTop
@@ -2629,7 +2653,7 @@
             this.panelInfoPelículaTop.Controls.Add(this.label61);
             this.panelInfoPelículaTop.Controls.Add(this.label62);
             this.panelInfoPelículaTop.Controls.Add(this.label63);
-            this.panelInfoPelículaTop.Location = new System.Drawing.Point(250, 31);
+            this.panelInfoPelículaTop.Location = new System.Drawing.Point(266, 28);
             this.panelInfoPelículaTop.Name = "panelInfoPelículaTop";
             this.panelInfoPelículaTop.Size = new System.Drawing.Size(231, 160);
             this.panelInfoPelículaTop.TabIndex = 44;
@@ -2769,7 +2793,7 @@
             this.panelInfoCanciónTop.Controls.Add(this.label51);
             this.panelInfoCanciónTop.Controls.Add(this.label52);
             this.panelInfoCanciónTop.Controls.Add(this.label53);
-            this.panelInfoCanciónTop.Location = new System.Drawing.Point(260, 194);
+            this.panelInfoCanciónTop.Location = new System.Drawing.Point(269, 190);
             this.panelInfoCanciónTop.Name = "panelInfoCanciónTop";
             this.panelInfoCanciónTop.Size = new System.Drawing.Size(229, 156);
             this.panelInfoCanciónTop.TabIndex = 41;
@@ -2892,7 +2916,7 @@
             this.label44.BackColor = System.Drawing.SystemColors.MenuText;
             this.label44.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label44.ForeColor = System.Drawing.SystemColors.Window;
-            this.label44.Location = new System.Drawing.Point(491, 7);
+            this.label44.Location = new System.Drawing.Point(499, 7);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(261, 39);
             this.label44.TabIndex = 39;
@@ -2904,9 +2928,9 @@
             this.listViewTopCanciones.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewTopCanciones.ForeColor = System.Drawing.SystemColors.Window;
             this.listViewTopCanciones.HideSelection = false;
-            this.listViewTopCanciones.Location = new System.Drawing.Point(514, 19);
+            this.listViewTopCanciones.Location = new System.Drawing.Point(522, 19);
             this.listViewTopCanciones.Name = "listViewTopCanciones";
-            this.listViewTopCanciones.Size = new System.Drawing.Size(201, 301);
+            this.listViewTopCanciones.Size = new System.Drawing.Size(201, 199);
             this.listViewTopCanciones.TabIndex = 38;
             this.listViewTopCanciones.UseCompatibleStateImageBehavior = false;
             this.listViewTopCanciones.View = System.Windows.Forms.View.SmallIcon;
@@ -2918,7 +2942,7 @@
             this.label43.BackColor = System.Drawing.SystemColors.MenuText;
             this.label43.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label43.ForeColor = System.Drawing.SystemColors.Window;
-            this.label43.Location = new System.Drawing.Point(8, 12);
+            this.label43.Location = new System.Drawing.Point(28, 9);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(237, 39);
             this.label43.TabIndex = 37;
@@ -2930,22 +2954,144 @@
             this.listViewTopPelículas.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.listViewTopPelículas.ForeColor = System.Drawing.SystemColors.Window;
             this.listViewTopPelículas.HideSelection = false;
-            this.listViewTopPelículas.Location = new System.Drawing.Point(15, 27);
+            this.listViewTopPelículas.Location = new System.Drawing.Point(35, 24);
             this.listViewTopPelículas.Name = "listViewTopPelículas";
-            this.listViewTopPelículas.Size = new System.Drawing.Size(229, 298);
+            this.listViewTopPelículas.Size = new System.Drawing.Size(229, 194);
             this.listViewTopPelículas.TabIndex = 36;
             this.listViewTopPelículas.UseCompatibleStateImageBehavior = false;
             this.listViewTopPelículas.View = System.Windows.Forms.View.SmallIcon;
             this.listViewTopPelículas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewTopPelículas_MouseClick);
+            // 
+            // pictureBoxFotoPerfil
+            // 
+            this.pictureBoxFotoPerfil.Location = new System.Drawing.Point(82, 18);
+            this.pictureBoxFotoPerfil.Name = "pictureBoxFotoPerfil";
+            this.pictureBoxFotoPerfil.Size = new System.Drawing.Size(128, 107);
+            this.pictureBoxFotoPerfil.TabIndex = 38;
+            this.pictureBoxFotoPerfil.TabStop = false;
+            // 
+            // UsernameEditarPerfil
+            // 
+            this.UsernameEditarPerfil.AutoSize = true;
+            this.UsernameEditarPerfil.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.UsernameEditarPerfil.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.UsernameEditarPerfil.Location = new System.Drawing.Point(92, 134);
+            this.UsernameEditarPerfil.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.UsernameEditarPerfil.Name = "UsernameEditarPerfil";
+            this.UsernameEditarPerfil.Size = new System.Drawing.Size(67, 25);
+            this.UsernameEditarPerfil.TabIndex = 40;
+            this.UsernameEditarPerfil.Text = "Perfil";
+            this.UsernameEditarPerfil.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label42.Location = new System.Drawing.Point(15, 138);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(18, 20);
+            this.label42.TabIndex = 46;
+            this.label42.Text = "4";
+            // 
+            // label46
+            // 
+            this.label46.AutoSize = true;
+            this.label46.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label46.Location = new System.Drawing.Point(15, 165);
+            this.label46.Name = "label46";
+            this.label46.Size = new System.Drawing.Size(18, 20);
+            this.label46.TabIndex = 47;
+            this.label46.Text = "5";
+            // 
+            // label47
+            // 
+            this.label47.AutoSize = true;
+            this.label47.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label47.Location = new System.Drawing.Point(16, 109);
+            this.label47.Name = "label47";
+            this.label47.Size = new System.Drawing.Size(18, 20);
+            this.label47.TabIndex = 48;
+            this.label47.Text = "3";
+            // 
+            // label48
+            // 
+            this.label48.AutoSize = true;
+            this.label48.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label48.Location = new System.Drawing.Point(16, 80);
+            this.label48.Name = "label48";
+            this.label48.Size = new System.Drawing.Size(18, 20);
+            this.label48.TabIndex = 49;
+            this.label48.Text = "2";
+            // 
+            // label49
+            // 
+            this.label49.AutoSize = true;
+            this.label49.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label49.Location = new System.Drawing.Point(16, 52);
+            this.label49.Name = "label49";
+            this.label49.Size = new System.Drawing.Size(18, 20);
+            this.label49.TabIndex = 50;
+            this.label49.Text = "1";
+            // 
+            // label54
+            // 
+            this.label54.AutoSize = true;
+            this.label54.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label54.Location = new System.Drawing.Point(502, 48);
+            this.label54.Name = "label54";
+            this.label54.Size = new System.Drawing.Size(18, 20);
+            this.label54.TabIndex = 55;
+            this.label54.Text = "1";
+            // 
+            // label56
+            // 
+            this.label56.AutoSize = true;
+            this.label56.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label56.Location = new System.Drawing.Point(502, 76);
+            this.label56.Name = "label56";
+            this.label56.Size = new System.Drawing.Size(18, 20);
+            this.label56.TabIndex = 54;
+            this.label56.Text = "2";
+            // 
+            // label57
+            // 
+            this.label57.AutoSize = true;
+            this.label57.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label57.Location = new System.Drawing.Point(502, 105);
+            this.label57.Name = "label57";
+            this.label57.Size = new System.Drawing.Size(18, 20);
+            this.label57.TabIndex = 53;
+            this.label57.Text = "3";
+            // 
+            // label58
+            // 
+            this.label58.AutoSize = true;
+            this.label58.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label58.Location = new System.Drawing.Point(501, 161);
+            this.label58.Name = "label58";
+            this.label58.Size = new System.Drawing.Size(18, 20);
+            this.label58.TabIndex = 52;
+            this.label58.Text = "5";
+            // 
+            // label59
+            // 
+            this.label59.AutoSize = true;
+            this.label59.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label59.Location = new System.Drawing.Point(501, 134);
+            this.label59.Name = "label59";
+            this.label59.Size = new System.Drawing.Size(18, 20);
+            this.label59.TabIndex = 51;
+            this.label59.Text = "4";
             // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(754, 376);
+            this.Controls.Add(this.panelTopMedia);
+            this.Controls.Add(this.panelModificarCuenta);
             this.Controls.Add(this.panelPelículas);
             this.Controls.Add(this.panelCancciones);
-            this.Controls.Add(this.panelTopMedia);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelCrearPlaylist);
             this.Controls.Add(this.panelEliminarMedia);
@@ -2956,7 +3102,6 @@
             this.Controls.Add(this.panelLogin);
             this.Controls.Add(this.panelEntrada);
             this.Controls.Add(this.panelBúsqueda);
-            this.Controls.Add(this.panelModificarCuenta);
             this.Name = "AppForm";
             this.Text = "Form1";
             this.panelEntrada.ResumeLayout(false);
@@ -3010,6 +3155,7 @@
             this.panelInfoPelículaTop.PerformLayout();
             this.panelInfoCanciónTop.ResumeLayout(false);
             this.panelInfoCanciónTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxFotoPerfil)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -3244,6 +3390,18 @@
         private System.Windows.Forms.Button buttonNext1Películas;
         private System.Windows.Forms.Button buttonNext2Películas;
         private System.Windows.Forms.PictureBox pictureBoxSalirReproducirPelicula;
+        private System.Windows.Forms.Label UsernameEditarPerfil;
+        private System.Windows.Forms.PictureBox pictureBoxFotoPerfil;
+        private System.Windows.Forms.Label label49;
+        private System.Windows.Forms.Label label48;
+        private System.Windows.Forms.Label label47;
+        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label54;
+        private System.Windows.Forms.Label label56;
+        private System.Windows.Forms.Label label57;
+        private System.Windows.Forms.Label label58;
+        private System.Windows.Forms.Label label59;
     }
 }
 

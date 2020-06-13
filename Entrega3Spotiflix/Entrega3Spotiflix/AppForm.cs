@@ -581,6 +581,10 @@ namespace Entrega3Spotiflix
 
         private void buttonModificarCuenta_Click(object sender, EventArgs e)
         {
+            UsernameEditarPerfil.Text = textBoxUsernamePerfil.Text;
+            string foto_perfil = "perfilNetflixVerde.png";
+            pictureBoxFotoPerfil.Image = Image.FromFile(foto_perfil);
+            pictureBoxFotoPerfil.SizeMode = PictureBoxSizeMode.StretchImage;
             textBoxHacersePremium.Visible = false;
             label11.Visible = false;
             textBoxUsuarioCambioUsername.Visible = false;
@@ -658,9 +662,10 @@ namespace Entrega3Spotiflix
                 textBoxHacersePremium.Visible = true;
                 textBoxHacersePremium.Text = "Este Usuario ya es premium";
             }
-            else if (Valores[3].Contains("Administrador"))
+            else if (Valores[0].Contains("admin"))
             {
-                MessageBox.Show("El admistrador cuenta con todas las funciones Premium");
+                textBoxHacersePremium.Visible = true;
+                textBoxHacersePremium.Text = "El admistrador cuenta con todas las funciones Premium";
             }
             else
             {
