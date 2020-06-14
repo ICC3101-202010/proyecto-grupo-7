@@ -13,6 +13,7 @@ namespace Entrega3Spotiflix.CustomsEvenArgs
         public string Email { get; set; }
         public string Password { get; set; }
         public string Tipo_usuario { get; set; }
+        public string Privacidad { get; set; }
     }
 }
 

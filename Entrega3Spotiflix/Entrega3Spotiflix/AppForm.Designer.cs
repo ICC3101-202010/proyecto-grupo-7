@@ -269,6 +269,30 @@
             this.listViewTopCanciones = new System.Windows.Forms.ListView();
             this.label43 = new System.Windows.Forms.Label();
             this.listViewTopPelículas = new System.Windows.Forms.ListView();
+            this.panelInformacionPerfil = new System.Windows.Forms.Panel();
+            this.label64 = new System.Windows.Forms.Label();
+            this.comboBoxPrivacidadUsuario = new System.Windows.Forms.ComboBox();
+            this.btnVerInformacionPerfil = new System.Windows.Forms.Button();
+            this.label66 = new System.Windows.Forms.Label();
+            this.label67 = new System.Windows.Forms.Label();
+            this.label68 = new System.Windows.Forms.Label();
+            this.label69 = new System.Windows.Forms.Label();
+            this.label70 = new System.Windows.Forms.Label();
+            this.label71 = new System.Windows.Forms.Label();
+            this.label72 = new System.Windows.Forms.Label();
+            this.labelMailUsuario = new System.Windows.Forms.Label();
+            this.labelPrivacidadUsuario = new System.Windows.Forms.Label();
+            this.labelGeneroUsuario = new System.Windows.Forms.Label();
+            this.labelTipoDeUsuario = new System.Windows.Forms.Label();
+            this.labelNacionalidadUsuario = new System.Windows.Forms.Label();
+            this.labelFechaDeNacimiento = new System.Windows.Forms.Label();
+            this.labelSeguidoresUsuario = new System.Windows.Forms.Label();
+            this.btnEditarDatosPerfil = new System.Windows.Forms.Button();
+            this.textBoxEditarFechaNacimiento = new System.Windows.Forms.TextBox();
+            this.textBoxEditarNacionalidad = new System.Windows.Forms.TextBox();
+            this.comboBoxEditarGeneroUsuario = new System.Windows.Forms.ComboBox();
+            this.comboBoxEditarPrivacidadUsuario = new System.Windows.Forms.ComboBox();
+            this.btnConfirmarCambiarDatosPerfil = new System.Windows.Forms.Button();
             this.panelEntrada.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FotoLogoEntrada)).BeginInit();
             this.panelLogin.SuspendLayout();
@@ -302,6 +326,7 @@
             this.panelTopMedia.SuspendLayout();
             this.panelInfoPelículaTop.SuspendLayout();
             this.panelInfoCanciónTop.SuspendLayout();
+            this.panelInformacionPerfil.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelEntrada
@@ -481,6 +506,7 @@
             // panelRegister
             // 
             this.panelRegister.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panelRegister.Controls.Add(this.comboBoxPrivacidadUsuario);
             this.panelRegister.Controls.Add(this.comboBoxTipoUsuario);
             this.panelRegister.Controls.Add(this.pictureBox1);
             this.panelRegister.Controls.Add(this.buttonVolverDeRegister);
@@ -489,6 +515,7 @@
             this.panelRegister.Controls.Add(this.registerViewPassInput);
             this.panelRegister.Controls.Add(this.label6);
             this.panelRegister.Controls.Add(this.label5);
+            this.panelRegister.Controls.Add(this.label64);
             this.panelRegister.Controls.Add(this.label4);
             this.panelRegister.Controls.Add(this.registerViewUserInput);
             this.panelRegister.Controls.Add(this.label7);
@@ -507,10 +534,11 @@
             this.comboBoxTipoUsuario.Items.AddRange(new object[] {
             "Gratis",
             "Premium"});
-            this.comboBoxTipoUsuario.Location = new System.Drawing.Point(381, 249);
+            this.comboBoxTipoUsuario.Location = new System.Drawing.Point(381, 221);
             this.comboBoxTipoUsuario.Name = "comboBoxTipoUsuario";
             this.comboBoxTipoUsuario.Size = new System.Drawing.Size(121, 21);
             this.comboBoxTipoUsuario.TabIndex = 26;
+            this.comboBoxTipoUsuario.SelectedIndexChanged += new System.EventHandler(this.comboBoxTipoUsuario_SelectedIndexChanged);
             // 
             // pictureBox1
             // 
@@ -537,7 +565,7 @@
             // registerViewInvalidCredentialsAlert
             // 
             this.registerViewInvalidCredentialsAlert.BackColor = System.Drawing.SystemColors.Menu;
-            this.registerViewInvalidCredentialsAlert.Location = new System.Drawing.Point(331, 275);
+            this.registerViewInvalidCredentialsAlert.Location = new System.Drawing.Point(331, 287);
             this.registerViewInvalidCredentialsAlert.Name = "registerViewInvalidCredentialsAlert";
             this.registerViewInvalidCredentialsAlert.Size = new System.Drawing.Size(139, 20);
             this.registerViewInvalidCredentialsAlert.TabIndex = 23;
@@ -546,7 +574,7 @@
             // registerViewEmailInput
             // 
             this.registerViewEmailInput.BackColor = System.Drawing.SystemColors.Menu;
-            this.registerViewEmailInput.Location = new System.Drawing.Point(381, 150);
+            this.registerViewEmailInput.Location = new System.Drawing.Point(381, 135);
             this.registerViewEmailInput.Name = "registerViewEmailInput";
             this.registerViewEmailInput.Size = new System.Drawing.Size(100, 20);
             this.registerViewEmailInput.TabIndex = 22;
@@ -554,7 +582,7 @@
             // registerViewPassInput
             // 
             this.registerViewPassInput.BackColor = System.Drawing.SystemColors.Menu;
-            this.registerViewPassInput.Location = new System.Drawing.Point(381, 200);
+            this.registerViewPassInput.Location = new System.Drawing.Point(381, 181);
             this.registerViewPassInput.Name = "registerViewPassInput";
             this.registerViewPassInput.PasswordChar = '*';
             this.registerViewPassInput.Size = new System.Drawing.Size(100, 20);
@@ -564,7 +592,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.BackColor = System.Drawing.SystemColors.Menu;
-            this.label6.Location = new System.Drawing.Point(270, 153);
+            this.label6.Location = new System.Drawing.Point(266, 140);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(42, 13);
             this.label6.TabIndex = 19;
@@ -574,7 +602,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.BackColor = System.Drawing.SystemColors.Menu;
-            this.label5.Location = new System.Drawing.Point(270, 203);
+            this.label5.Location = new System.Drawing.Point(266, 185);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(84, 13);
             this.label5.TabIndex = 18;
@@ -584,7 +612,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.BackColor = System.Drawing.SystemColors.Menu;
-            this.label4.Location = new System.Drawing.Point(270, 252);
+            this.label4.Location = new System.Drawing.Point(266, 225);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(105, 13);
             this.label4.TabIndex = 17;
@@ -593,7 +621,7 @@
             // registerViewUserInput
             // 
             this.registerViewUserInput.BackColor = System.Drawing.SystemColors.Menu;
-            this.registerViewUserInput.Location = new System.Drawing.Point(381, 99);
+            this.registerViewUserInput.Location = new System.Drawing.Point(381, 92);
             this.registerViewUserInput.Name = "registerViewUserInput";
             this.registerViewUserInput.Size = new System.Drawing.Size(100, 20);
             this.registerViewUserInput.TabIndex = 16;
@@ -602,7 +630,7 @@
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.SystemColors.Menu;
-            this.label7.Location = new System.Drawing.Point(270, 102);
+            this.label7.Location = new System.Drawing.Point(266, 98);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(71, 13);
             this.label7.TabIndex = 15;
@@ -611,7 +639,7 @@
             // registerViewButton
             // 
             this.registerViewButton.BackColor = System.Drawing.SystemColors.Menu;
-            this.registerViewButton.Location = new System.Drawing.Point(321, 301);
+            this.registerViewButton.Location = new System.Drawing.Point(321, 314);
             this.registerViewButton.Name = "registerViewButton";
             this.registerViewButton.Size = new System.Drawing.Size(149, 44);
             this.registerViewButton.TabIndex = 14;
@@ -812,6 +840,8 @@
             // panelModificarCuenta
             // 
             this.panelModificarCuenta.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panelModificarCuenta.Controls.Add(this.btnVerInformacionPerfil);
+            this.panelModificarCuenta.Controls.Add(this.panelInformacionPerfil);
             this.panelModificarCuenta.Controls.Add(this.UsernameEditarPerfil);
             this.panelModificarCuenta.Controls.Add(this.pictureBoxFotoPerfil);
             this.panelModificarCuenta.Controls.Add(this.textBoxAntiguaContraseñaCambioContraseña);
@@ -830,9 +860,10 @@
             this.panelModificarCuenta.Controls.Add(this.button1);
             this.panelModificarCuenta.Controls.Add(this.buttonCambiarContraseña);
             this.panelModificarCuenta.Controls.Add(this.label8);
-            this.panelModificarCuenta.Location = new System.Drawing.Point(283, 18);
+            this.panelModificarCuenta.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelModificarCuenta.Location = new System.Drawing.Point(0, 0);
             this.panelModificarCuenta.Name = "panelModificarCuenta";
-            this.panelModificarCuenta.Size = new System.Drawing.Size(73, 57);
+            this.panelModificarCuenta.Size = new System.Drawing.Size(754, 376);
             this.panelModificarCuenta.TabIndex = 26;
             // 
             // UsernameEditarPerfil
@@ -986,7 +1017,7 @@
             // 
             // buttonHacersePremium
             // 
-            this.buttonHacersePremium.Location = new System.Drawing.Point(82, 187);
+            this.buttonHacersePremium.Location = new System.Drawing.Point(79, 210);
             this.buttonHacersePremium.Name = "buttonHacersePremium";
             this.buttonHacersePremium.Size = new System.Drawing.Size(133, 30);
             this.buttonHacersePremium.TabIndex = 30;
@@ -996,7 +1027,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(82, 229);
+            this.button1.Location = new System.Drawing.Point(79, 252);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(133, 30);
             this.button1.TabIndex = 29;
@@ -1006,7 +1037,7 @@
             // 
             // buttonCambiarContraseña
             // 
-            this.buttonCambiarContraseña.Location = new System.Drawing.Point(82, 271);
+            this.buttonCambiarContraseña.Location = new System.Drawing.Point(79, 292);
             this.buttonCambiarContraseña.Name = "buttonCambiarContraseña";
             this.buttonCambiarContraseña.Size = new System.Drawing.Size(133, 30);
             this.buttonCambiarContraseña.TabIndex = 28;
@@ -1953,7 +1984,7 @@
             this.panelAgregarCancion.Controls.Add(this.label23);
             this.panelAgregarCancion.Controls.Add(this.label22);
             this.panelAgregarCancion.Controls.Add(this.label19);
-            this.panelAgregarCancion.Location = new System.Drawing.Point(182, 88);
+            this.panelAgregarCancion.Location = new System.Drawing.Point(182, 87);
             this.panelAgregarCancion.Name = "panelAgregarCancion";
             this.panelAgregarCancion.Size = new System.Drawing.Size(81, 61);
             this.panelAgregarCancion.TabIndex = 30;
@@ -2179,7 +2210,7 @@
             this.panelMisPlaylist.Controls.Add(this.buttonVolverDeMisPlaylist);
             this.panelMisPlaylist.Controls.Add(this.listViewVerMisPlaylist);
             this.panelMisPlaylist.ForeColor = System.Drawing.SystemColors.Window;
-            this.panelMisPlaylist.Location = new System.Drawing.Point(282, 89);
+            this.panelMisPlaylist.Location = new System.Drawing.Point(285, 87);
             this.panelMisPlaylist.Name = "panelMisPlaylist";
             this.panelMisPlaylist.Size = new System.Drawing.Size(74, 60);
             this.panelMisPlaylist.TabIndex = 32;
@@ -2241,7 +2272,7 @@
             this.panelAgregarVideo.Controls.Add(this.label36);
             this.panelAgregarVideo.Controls.Add(this.label35);
             this.panelAgregarVideo.Controls.Add(this.label34);
-            this.panelAgregarVideo.Location = new System.Drawing.Point(378, 89);
+            this.panelAgregarVideo.Location = new System.Drawing.Point(378, 87);
             this.panelAgregarVideo.Name = "panelAgregarVideo";
             this.panelAgregarVideo.Size = new System.Drawing.Size(72, 61);
             this.panelAgregarVideo.TabIndex = 33;
@@ -3082,22 +3113,298 @@
             this.listViewTopPelículas.View = System.Windows.Forms.View.SmallIcon;
             this.listViewTopPelículas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewTopPelículas_MouseClick);
             // 
+            // panelInformacionPerfil
+            // 
+            this.panelInformacionPerfil.BackColor = System.Drawing.SystemColors.WindowText;
+            this.panelInformacionPerfil.Controls.Add(this.btnConfirmarCambiarDatosPerfil);
+            this.panelInformacionPerfil.Controls.Add(this.comboBoxEditarPrivacidadUsuario);
+            this.panelInformacionPerfil.Controls.Add(this.comboBoxEditarGeneroUsuario);
+            this.panelInformacionPerfil.Controls.Add(this.textBoxEditarNacionalidad);
+            this.panelInformacionPerfil.Controls.Add(this.textBoxEditarFechaNacimiento);
+            this.panelInformacionPerfil.Controls.Add(this.btnEditarDatosPerfil);
+            this.panelInformacionPerfil.Controls.Add(this.labelSeguidoresUsuario);
+            this.panelInformacionPerfil.Controls.Add(this.labelFechaDeNacimiento);
+            this.panelInformacionPerfil.Controls.Add(this.labelNacionalidadUsuario);
+            this.panelInformacionPerfil.Controls.Add(this.labelTipoDeUsuario);
+            this.panelInformacionPerfil.Controls.Add(this.labelGeneroUsuario);
+            this.panelInformacionPerfil.Controls.Add(this.labelPrivacidadUsuario);
+            this.panelInformacionPerfil.Controls.Add(this.labelMailUsuario);
+            this.panelInformacionPerfil.Controls.Add(this.label72);
+            this.panelInformacionPerfil.Controls.Add(this.label71);
+            this.panelInformacionPerfil.Controls.Add(this.label70);
+            this.panelInformacionPerfil.Controls.Add(this.label69);
+            this.panelInformacionPerfil.Controls.Add(this.label68);
+            this.panelInformacionPerfil.Controls.Add(this.label67);
+            this.panelInformacionPerfil.Controls.Add(this.label66);
+            this.panelInformacionPerfil.Location = new System.Drawing.Point(258, 54);
+            this.panelInformacionPerfil.Name = "panelInformacionPerfil";
+            this.panelInformacionPerfil.Size = new System.Drawing.Size(306, 312);
+            this.panelInformacionPerfil.TabIndex = 41;
+            this.panelInformacionPerfil.Visible = false;
+            // 
+            // label64
+            // 
+            this.label64.AutoSize = true;
+            this.label64.BackColor = System.Drawing.SystemColors.Menu;
+            this.label64.Location = new System.Drawing.Point(266, 262);
+            this.label64.Name = "label64";
+            this.label64.Size = new System.Drawing.Size(75, 13);
+            this.label64.TabIndex = 17;
+            this.label64.Text = "PRIVACIDAD:";
+            // 
+            // comboBoxPrivacidadUsuario
+            // 
+            this.comboBoxPrivacidadUsuario.FormattingEnabled = true;
+            this.comboBoxPrivacidadUsuario.Items.AddRange(new object[] {
+            "Pública\t",
+            "Privada"});
+            this.comboBoxPrivacidadUsuario.Location = new System.Drawing.Point(381, 258);
+            this.comboBoxPrivacidadUsuario.Name = "comboBoxPrivacidadUsuario";
+            this.comboBoxPrivacidadUsuario.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxPrivacidadUsuario.TabIndex = 27;
+            // 
+            // btnVerInformacionPerfil
+            // 
+            this.btnVerInformacionPerfil.Location = new System.Drawing.Point(79, 172);
+            this.btnVerInformacionPerfil.Name = "btnVerInformacionPerfil";
+            this.btnVerInformacionPerfil.Size = new System.Drawing.Size(133, 29);
+            this.btnVerInformacionPerfil.TabIndex = 42;
+            this.btnVerInformacionPerfil.Text = "Ver Información";
+            this.btnVerInformacionPerfil.UseVisualStyleBackColor = true;
+            this.btnVerInformacionPerfil.Click += new System.EventHandler(this.btnVerInformacionPerfil_Click);
+            // 
+            // label66
+            // 
+            this.label66.AutoSize = true;
+            this.label66.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label66.ForeColor = System.Drawing.SystemColors.ControlLight;
+            this.label66.Location = new System.Drawing.Point(10, 48);
+            this.label66.Name = "label66";
+            this.label66.Size = new System.Drawing.Size(79, 16);
+            this.label66.TabIndex = 1;
+            this.label66.Text = "Privacidad: ";
+            // 
+            // label67
+            // 
+            this.label67.AutoSize = true;
+            this.label67.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label67.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label67.Location = new System.Drawing.Point(10, 78);
+            this.label67.Name = "label67";
+            this.label67.Size = new System.Drawing.Size(59, 16);
+            this.label67.TabIndex = 2;
+            this.label67.Text = "Género: ";
+            // 
+            // label68
+            // 
+            this.label68.AutoSize = true;
+            this.label68.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label68.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label68.Location = new System.Drawing.Point(8, 18);
+            this.label68.Name = "label68";
+            this.label68.Size = new System.Drawing.Size(39, 16);
+            this.label68.TabIndex = 3;
+            this.label68.Text = "Mail: ";
+            // 
+            // label69
+            // 
+            this.label69.AutoSize = true;
+            this.label69.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label69.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label69.Location = new System.Drawing.Point(10, 107);
+            this.label69.Name = "label69";
+            this.label69.Size = new System.Drawing.Size(108, 16);
+            this.label69.TabIndex = 4;
+            this.label69.Text = "Tipo de usuario: ";
+            // 
+            // label70
+            // 
+            this.label70.AutoSize = true;
+            this.label70.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label70.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label70.Location = new System.Drawing.Point(10, 138);
+            this.label70.Name = "label70";
+            this.label70.Size = new System.Drawing.Size(95, 16);
+            this.label70.TabIndex = 5;
+            this.label70.Text = "Nacionalidad: ";
+            // 
+            // label71
+            // 
+            this.label71.AutoSize = true;
+            this.label71.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label71.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label71.Location = new System.Drawing.Point(10, 167);
+            this.label71.Name = "label71";
+            this.label71.Size = new System.Drawing.Size(139, 16);
+            this.label71.TabIndex = 6;
+            this.label71.Text = "Fecha de nacimiento: ";
+            // 
+            // label72
+            // 
+            this.label72.AutoSize = true;
+            this.label72.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label72.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label72.Location = new System.Drawing.Point(10, 196);
+            this.label72.Name = "label72";
+            this.label72.Size = new System.Drawing.Size(84, 16);
+            this.label72.TabIndex = 7;
+            this.label72.Text = "Seguidores: ";
+            // 
+            // labelMailUsuario
+            // 
+            this.labelMailUsuario.AutoSize = true;
+            this.labelMailUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMailUsuario.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelMailUsuario.Location = new System.Drawing.Point(53, 19);
+            this.labelMailUsuario.Name = "labelMailUsuario";
+            this.labelMailUsuario.Size = new System.Drawing.Size(52, 16);
+            this.labelMailUsuario.TabIndex = 9;
+            this.labelMailUsuario.Text = "label73";
+            // 
+            // labelPrivacidadUsuario
+            // 
+            this.labelPrivacidadUsuario.AutoSize = true;
+            this.labelPrivacidadUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPrivacidadUsuario.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelPrivacidadUsuario.Location = new System.Drawing.Point(95, 47);
+            this.labelPrivacidadUsuario.Name = "labelPrivacidadUsuario";
+            this.labelPrivacidadUsuario.Size = new System.Drawing.Size(52, 16);
+            this.labelPrivacidadUsuario.TabIndex = 10;
+            this.labelPrivacidadUsuario.Text = "label73";
+            // 
+            // labelGeneroUsuario
+            // 
+            this.labelGeneroUsuario.AutoSize = true;
+            this.labelGeneroUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelGeneroUsuario.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelGeneroUsuario.Location = new System.Drawing.Point(75, 78);
+            this.labelGeneroUsuario.Name = "labelGeneroUsuario";
+            this.labelGeneroUsuario.Size = new System.Drawing.Size(52, 16);
+            this.labelGeneroUsuario.TabIndex = 11;
+            this.labelGeneroUsuario.Text = "label74";
+            // 
+            // labelTipoDeUsuario
+            // 
+            this.labelTipoDeUsuario.AutoSize = true;
+            this.labelTipoDeUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTipoDeUsuario.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelTipoDeUsuario.Location = new System.Drawing.Point(124, 107);
+            this.labelTipoDeUsuario.Name = "labelTipoDeUsuario";
+            this.labelTipoDeUsuario.Size = new System.Drawing.Size(52, 16);
+            this.labelTipoDeUsuario.TabIndex = 12;
+            this.labelTipoDeUsuario.Text = "label75";
+            // 
+            // labelNacionalidadUsuario
+            // 
+            this.labelNacionalidadUsuario.AutoSize = true;
+            this.labelNacionalidadUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNacionalidadUsuario.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelNacionalidadUsuario.Location = new System.Drawing.Point(107, 137);
+            this.labelNacionalidadUsuario.Name = "labelNacionalidadUsuario";
+            this.labelNacionalidadUsuario.Size = new System.Drawing.Size(52, 16);
+            this.labelNacionalidadUsuario.TabIndex = 13;
+            this.labelNacionalidadUsuario.Text = "label76";
+            // 
+            // labelFechaDeNacimiento
+            // 
+            this.labelFechaDeNacimiento.AutoSize = true;
+            this.labelFechaDeNacimiento.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelFechaDeNacimiento.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelFechaDeNacimiento.Location = new System.Drawing.Point(155, 166);
+            this.labelFechaDeNacimiento.Name = "labelFechaDeNacimiento";
+            this.labelFechaDeNacimiento.Size = new System.Drawing.Size(52, 16);
+            this.labelFechaDeNacimiento.TabIndex = 14;
+            this.labelFechaDeNacimiento.Text = "label77";
+            // 
+            // labelSeguidoresUsuario
+            // 
+            this.labelSeguidoresUsuario.AutoSize = true;
+            this.labelSeguidoresUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelSeguidoresUsuario.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.labelSeguidoresUsuario.Location = new System.Drawing.Point(100, 195);
+            this.labelSeguidoresUsuario.Name = "labelSeguidoresUsuario";
+            this.labelSeguidoresUsuario.Size = new System.Drawing.Size(52, 16);
+            this.labelSeguidoresUsuario.TabIndex = 15;
+            this.labelSeguidoresUsuario.Text = "label78";
+            // 
+            // btnEditarDatosPerfil
+            // 
+            this.btnEditarDatosPerfil.Location = new System.Drawing.Point(201, 270);
+            this.btnEditarDatosPerfil.Name = "btnEditarDatosPerfil";
+            this.btnEditarDatosPerfil.Size = new System.Drawing.Size(92, 30);
+            this.btnEditarDatosPerfil.TabIndex = 16;
+            this.btnEditarDatosPerfil.Text = "Editar";
+            this.btnEditarDatosPerfil.UseVisualStyleBackColor = true;
+            this.btnEditarDatosPerfil.Click += new System.EventHandler(this.btnEditarDatosPerfil_Click);
+            // 
+            // textBoxEditarFechaNacimiento
+            // 
+            this.textBoxEditarFechaNacimiento.Location = new System.Drawing.Point(150, 163);
+            this.textBoxEditarFechaNacimiento.Name = "textBoxEditarFechaNacimiento";
+            this.textBoxEditarFechaNacimiento.Size = new System.Drawing.Size(100, 20);
+            this.textBoxEditarFechaNacimiento.TabIndex = 17;
+            this.textBoxEditarFechaNacimiento.Visible = false;
+            // 
+            // textBoxEditarNacionalidad
+            // 
+            this.textBoxEditarNacionalidad.Location = new System.Drawing.Point(107, 136);
+            this.textBoxEditarNacionalidad.Name = "textBoxEditarNacionalidad";
+            this.textBoxEditarNacionalidad.Size = new System.Drawing.Size(100, 20);
+            this.textBoxEditarNacionalidad.TabIndex = 18;
+            this.textBoxEditarNacionalidad.Visible = false;
+            // 
+            // comboBoxEditarGeneroUsuario
+            // 
+            this.comboBoxEditarGeneroUsuario.FormattingEnabled = true;
+            this.comboBoxEditarGeneroUsuario.Items.AddRange(new object[] {
+            "Femenino",
+            "Masculino",
+            "Prefiero no especificar"});
+            this.comboBoxEditarGeneroUsuario.Location = new System.Drawing.Point(77, 76);
+            this.comboBoxEditarGeneroUsuario.Name = "comboBoxEditarGeneroUsuario";
+            this.comboBoxEditarGeneroUsuario.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxEditarGeneroUsuario.TabIndex = 19;
+            this.comboBoxEditarGeneroUsuario.Visible = false;
+            // 
+            // comboBoxEditarPrivacidadUsuario
+            // 
+            this.comboBoxEditarPrivacidadUsuario.FormattingEnabled = true;
+            this.comboBoxEditarPrivacidadUsuario.Items.AddRange(new object[] {
+            "Pública",
+            "Privada"});
+            this.comboBoxEditarPrivacidadUsuario.Location = new System.Drawing.Point(95, 45);
+            this.comboBoxEditarPrivacidadUsuario.Name = "comboBoxEditarPrivacidadUsuario";
+            this.comboBoxEditarPrivacidadUsuario.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxEditarPrivacidadUsuario.TabIndex = 20;
+            this.comboBoxEditarPrivacidadUsuario.Visible = false;
+            // 
+            // btnConfirmarCambiarDatosPerfil
+            // 
+            this.btnConfirmarCambiarDatosPerfil.Location = new System.Drawing.Point(211, 274);
+            this.btnConfirmarCambiarDatosPerfil.Name = "btnConfirmarCambiarDatosPerfil";
+            this.btnConfirmarCambiarDatosPerfil.Size = new System.Drawing.Size(75, 23);
+            this.btnConfirmarCambiarDatosPerfil.TabIndex = 21;
+            this.btnConfirmarCambiarDatosPerfil.Text = "Confirmar";
+            this.btnConfirmarCambiarDatosPerfil.UseVisualStyleBackColor = true;
+            this.btnConfirmarCambiarDatosPerfil.Visible = false;
+            this.btnConfirmarCambiarDatosPerfil.Click += new System.EventHandler(this.btnConfirmarCambiarDatosPerfil_Click);
+            // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(754, 376);
-            this.Controls.Add(this.panelTopMedia);
-            this.Controls.Add(this.panelModificarCuenta);
-            this.Controls.Add(this.panelPelículas);
             this.Controls.Add(this.panelCancciones);
+            this.Controls.Add(this.panelModificarCuenta);
+            this.Controls.Add(this.panelRegister);
+            this.Controls.Add(this.panelTopMedia);
+            this.Controls.Add(this.panelPelículas);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelCrearPlaylist);
             this.Controls.Add(this.panelEliminarMedia);
             this.Controls.Add(this.panelAgregarVideo);
             this.Controls.Add(this.panelAgregarCancion);
             this.Controls.Add(this.panelMisPlaylist);
-            this.Controls.Add(this.panelRegister);
             this.Controls.Add(this.panelLogin);
             this.Controls.Add(this.panelEntrada);
             this.Controls.Add(this.panelBúsqueda);
@@ -3155,6 +3462,8 @@
             this.panelInfoPelículaTop.PerformLayout();
             this.panelInfoCanciónTop.ResumeLayout(false);
             this.panelInfoCanciónTop.PerformLayout();
+            this.panelInformacionPerfil.ResumeLayout(false);
+            this.panelInformacionPerfil.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -3401,6 +3710,30 @@
         private System.Windows.Forms.Label label57;
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Label label59;
+        private System.Windows.Forms.Panel panelInformacionPerfil;
+        private System.Windows.Forms.ComboBox comboBoxPrivacidadUsuario;
+        private System.Windows.Forms.Label label64;
+        private System.Windows.Forms.Button btnVerInformacionPerfil;
+        private System.Windows.Forms.Label label68;
+        private System.Windows.Forms.Label label67;
+        private System.Windows.Forms.Label label66;
+        private System.Windows.Forms.Label label69;
+        private System.Windows.Forms.Label label70;
+        private System.Windows.Forms.Label label71;
+        private System.Windows.Forms.Label label72;
+        private System.Windows.Forms.Label labelSeguidoresUsuario;
+        private System.Windows.Forms.Label labelFechaDeNacimiento;
+        private System.Windows.Forms.Label labelNacionalidadUsuario;
+        private System.Windows.Forms.Label labelTipoDeUsuario;
+        private System.Windows.Forms.Label labelGeneroUsuario;
+        private System.Windows.Forms.Label labelPrivacidadUsuario;
+        private System.Windows.Forms.Label labelMailUsuario;
+        private System.Windows.Forms.Button btnConfirmarCambiarDatosPerfil;
+        private System.Windows.Forms.ComboBox comboBoxEditarPrivacidadUsuario;
+        private System.Windows.Forms.ComboBox comboBoxEditarGeneroUsuario;
+        private System.Windows.Forms.TextBox textBoxEditarNacionalidad;
+        private System.Windows.Forms.TextBox textBoxEditarFechaNacimiento;
+        private System.Windows.Forms.Button btnEditarDatosPerfil;
     }
 }
 

@@ -70,7 +70,11 @@ namespace Entrega3Spotiflix
             if (description == null)
             {
                 Lista_usuarios.Add(Lista_usuarios.Count + 1, data);
-                Usuario premium = new Usuario(data[0], data[1], data[2], data[3]); 
+                List<string> historial = new List<string>() { };
+                List<string> playlistC = new List<string>() { };
+                List<string> playlistV = new List<string>() { };
+                List<string> seguidores = new List<string>() { };
+                Usuario premium = new Usuario(data[0], data[1], data[2], data[4], "", "", "", historial, playlistC, playlistV, seguidores, data[5]); 
                 Usuarios.Add(premium);
             }
             return description;

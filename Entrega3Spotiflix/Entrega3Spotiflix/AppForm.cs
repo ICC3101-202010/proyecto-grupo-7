@@ -278,6 +278,8 @@ namespace Entrega3Spotiflix
             panels.Add("AgregarVideoPanel", panelAgregarVideo);
             panels.Add("EliminarMediaPanel", panelEliminarMedia);
             panels.Add("TopMediaPanel", panelTopMedia);
+            
+
             foreach (Usuario usuario in Archivos.Usuarios)
             {
                 if (usuario.Logeado == true)
@@ -339,16 +341,16 @@ namespace Entrega3Spotiflix
                 ShowLastPanel();
             }
         }
-        private void OnRegisterClicked(string username, string email, string pass, string tipo_usuario)
+        private void OnRegisterClicked(string username, string email, string pass, string tipo_usuario, string privacidad)
         {
-            if ((tipo_usuario == "") || (username == "") || pass == "" || email == "")
+            if ((tipo_usuario == "") || (username == "") || pass == "" || email == "" || privacidad == "")
             {
                 registerViewInvalidCredentialsAlert.Text = "Agregue los valores que faltan";
                 registerViewInvalidCredentialsAlert.Visible = true;
             }
             else
             {
-                bool result = RegisterClicked(this, new RegisterEventArgs() { Username = username, Password = pass, Email = email, Tipo_usuario = tipo_usuario });
+                bool result = RegisterClicked(this, new RegisterEventArgs() { Username = username, Password = pass, Email = email, Tipo_usuario = tipo_usuario, Privacidad = privacidad });
                 if (!result)
                 {
                     registerViewInvalidCredentialsAlert.Text = "Esta cuenta ya existe";
@@ -507,6 +509,7 @@ namespace Entrega3Spotiflix
             registerViewEmailInput.ResetText();
             registerViewPassInput.ResetText();
             comboBoxTipoUsuario.ResetText();
+            comboBoxPrivacidadUsuario.ResetText();
             stackPanels.Add(panels["RegisterPanel"]);
             ShowLastPanel();
         }
@@ -570,7 +573,8 @@ namespace Entrega3Spotiflix
             string email = registerViewEmailInput.Text;
             string pass = registerViewPassInput.Text;
             string tipo_usuario = comboBoxTipoUsuario.SelectedItem.ToString();
-            OnRegisterClicked(username, email, pass, tipo_usuario);
+            string privacidad = comboBoxPrivacidadUsuario.SelectedItem.ToString();
+            OnRegisterClicked(username, email, pass, tipo_usuario, privacidad);
         }
 
         private void buttonVolverDeRegister_Click(object sender, EventArgs e)
@@ -581,6 +585,7 @@ namespace Entrega3Spotiflix
 
         private void buttonModificarCuenta_Click(object sender, EventArgs e)
         {
+            panelInformacionPerfil.Visible = false;
             UsernameEditarPerfil.Text = textBoxUsernamePerfil.Text;
             string foto_perfil = "perfilNetflixVerde.png";
             pictureBoxFotoPerfil.Image = Image.FromFile(foto_perfil);
@@ -608,6 +613,7 @@ namespace Entrega3Spotiflix
 
         private void buttonCambiarContraseña_Click(object sender, EventArgs e)
         {
+            panelInformacionPerfil.Visible = false;
             label11.Visible = false;
             textBoxUsuarioCambioUsername.Visible = false;
             buttonConfirmarCambioUsername.Visible = false;
@@ -626,6 +632,7 @@ namespace Entrega3Spotiflix
 
         private void buttonCambiarUsername_Click(object sender, EventArgs e)
         {
+            panelInformacionPerfil.Visible = false;
             textBoxContraseñaCambioContraseña.Visible = false;
             textBoxAntiguaContraseñaCambioContraseña.Visible = false;
             label10.Visible = false;
@@ -643,6 +650,7 @@ namespace Entrega3Spotiflix
 
         private void buttonHacersePremium_Click(object sender, EventArgs e)
         {
+            panelInformacionPerfil.Visible = false;
             textBoxContraseñaCambioContraseña.Visible = false;
             textBoxAntiguaContraseñaCambioContraseña.Visible = false;
             label10.Visible = false;
@@ -815,12 +823,10 @@ namespace Entrega3Spotiflix
         }
         private void IniciarSerializacion()
         {
-            Usuario grupo7 = new Usuario("username", "email", "contraseña", "Premium");
-            Archivos.Usuarios.Add(grupo7);
             foreach (Usuario i in Archivos.Usuarios)
             {
                 List<string> data = new List<string>()
-                        { i.Nombre_usuario, i.Email, i.Contraseña, Convert.ToString(DateTime.Now), i.Tipo_usuario};
+                        { i.Nombre_usuario, i.Email, i.Contraseña, Convert.ToString(DateTime.Now), i.Tipo_usuario, i.Privacidad};
                 Archivos.Lista_usuarios.Add(Archivos.Lista_usuarios.Count + 1, data);
             }
 
@@ -2205,6 +2211,97 @@ namespace Entrega3Spotiflix
             PelículaSeleccionada.Visible = false;
             buttonNext1Películas.Visible = false;
             buttonNext2Películas.Visible = false;
+        }
+
+        private void comboBoxTipoUsuario_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnVerInformacionPerfil_Click(object sender, EventArgs e)
+        {
+            string usuario = UsernameEditarPerfil.Text;
+            foreach (Usuario usuario1 in Archivos.Usuarios)
+            {
+                if (usuario == usuario1.Nombre_usuario)
+                {
+                    labelMailUsuario.Text = usuario1.Email;
+                    labelPrivacidadUsuario.Text = usuario1.Privacidad;
+                    labelGeneroUsuario.Text = usuario1.Genero;
+                    labelNacionalidadUsuario.Text = usuario1.Nacionalidad;
+                    labelFechaDeNacimiento.Text = usuario1.FechaNac;
+                    labelSeguidoresUsuario.Text = Convert.ToString(usuario1.Seguidores.Count());
+                    labelTipoDeUsuario.Text = usuario1.Tipo_usuario;
+
+                }
+            }
+            panelInformacionPerfil.Visible = true;
+            btnConfirmarCambiarDatosPerfil.Visible = false;
+            btnEditarDatosPerfil.Visible = true;
+            comboBoxEditarGeneroUsuario.Visible = false;
+            comboBoxEditarPrivacidadUsuario.Visible = false;
+            textBoxEditarFechaNacimiento.Visible = false;
+            textBoxEditarNacionalidad.Visible = false;
+            labelPrivacidadUsuario.Visible = true;
+            labelGeneroUsuario.Visible = true;
+            labelFechaDeNacimiento.Visible = true;
+            labelNacionalidadUsuario.Visible = true;
+
+        }
+
+        private void btnEditarDatosPerfil_Click(object sender, EventArgs e)
+        {
+            btnConfirmarCambiarDatosPerfil.Visible = true;
+            btnEditarDatosPerfil.Visible = false;
+            comboBoxEditarGeneroUsuario.Visible = true;
+            comboBoxEditarPrivacidadUsuario.Visible = true;
+            textBoxEditarFechaNacimiento.Visible = true;
+            textBoxEditarNacionalidad.Visible = true;
+            labelPrivacidadUsuario.Visible = false;
+            labelGeneroUsuario.Visible = false;
+            labelFechaDeNacimiento.Visible = false;
+            labelNacionalidadUsuario.Visible = false;
+            comboBoxEditarPrivacidadUsuario.Text = labelPrivacidadUsuario.Text;
+            if (labelGeneroUsuario.Text == "")
+            {
+                comboBoxEditarGeneroUsuario.Text = "Prefiero no especificar";
+            }
+            else
+            {
+                comboBoxEditarGeneroUsuario.Text = labelGeneroUsuario.Text;
+            }
+            
+        }
+
+        private void btnConfirmarCambiarDatosPerfil_Click(object sender, EventArgs e)
+        {
+            btnConfirmarCambiarDatosPerfil.Visible = false;
+            btnEditarDatosPerfil.Visible = true;
+            string usuario = UsernameEditarPerfil.Text;
+            foreach (Usuario usuario1 in Archivos.Usuarios)
+            {
+                if (usuario == usuario1.Nombre_usuario)
+                {
+                    usuario1.Privacidad = comboBoxEditarPrivacidadUsuario.SelectedItem.ToString();
+                    usuario1.Genero = comboBoxEditarPrivacidadUsuario.SelectedItem.ToString();
+                    usuario1.Nacionalidad = textBoxEditarNacionalidad.Text;
+                    usuario1.FechaNac = textBoxEditarFechaNacimiento.Text;
+
+                }
+            }
+            comboBoxEditarGeneroUsuario.Visible = false;
+            comboBoxEditarPrivacidadUsuario.Visible = false;
+            textBoxEditarFechaNacimiento.Visible = false;
+            textBoxEditarNacionalidad.Visible = false;
+            labelPrivacidadUsuario.Text = comboBoxEditarPrivacidadUsuario.SelectedItem.ToString(); 
+            labelGeneroUsuario.Text = comboBoxEditarGeneroUsuario.SelectedItem.ToString();
+            labelNacionalidadUsuario.Text = textBoxEditarNacionalidad.Text;
+            labelFechaDeNacimiento.Text = textBoxEditarFechaNacimiento.Text;
+            labelPrivacidadUsuario.Visible = true;
+            labelGeneroUsuario.Visible = true;
+            labelFechaDeNacimiento.Visible = true;
+            labelNacionalidadUsuario.Visible = true;
+            Serializacion();
         }
 
         private void buttonGoMisPlaylists_Click(object sender, EventArgs e)

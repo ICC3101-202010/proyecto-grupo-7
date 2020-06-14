@@ -24,7 +24,7 @@ namespace Entrega3Spotiflix.Controllers
         public bool OnRegisterClicked(object sender, RegisterEventArgs e)
         {
             string result = Archivos.AddUser(new List<string>()
-                {e.Username, e.Email, e.Password, Convert.ToString(DateTime.Now),e.Tipo_usuario });
+                {e.Username, e.Email, e.Password, Convert.ToString(DateTime.Now),e.Tipo_usuario, e.Privacidad });
             if (result == null)
             {
                 return true;
