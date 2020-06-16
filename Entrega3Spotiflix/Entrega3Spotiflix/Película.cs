@@ -34,7 +34,7 @@ namespace Entrega3Spotiflix
         public bool Agregada;
         //public static WindowsMediaPlayer player = new WindowsMediaPlayer();
         public string peli;
-        public Película(string titulo, List<string> Categoria, Person director, string descripcion, int duracion, int añoPublicacion, int calificacion,List<int> Calificacion, int Avg_calificación, string Imagen, string Url, int reproducciones)
+        public Película(string titulo, List<string> categoria, Person director, string descripcion, int duracion, int añoPublicacion, int calificacion,List<int> Calificacion, int Avg_calificación, string Imagen, string Url, int reproducciones)
         {
             this.Titulo = titulo;
             this.director = director;
@@ -48,6 +48,7 @@ namespace Entrega3Spotiflix
             this.Imagen = Imagen;
             this.Url = Url;
             this.reproducciones = reproducciones;
+            this.categoria = categoria;
         }
         public List<Person> actores
         {
@@ -59,7 +60,7 @@ namespace Entrega3Spotiflix
         }
         public List<string> Categoria
         {
-            get => Categoria; set => Categoria = value;
+            get => categoria; set => categoria = value;
         }
         public string Estudio
         {

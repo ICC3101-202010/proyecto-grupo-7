@@ -278,7 +278,9 @@ namespace Entrega3Spotiflix
             panels.Add("AgregarVideoPanel", panelAgregarVideo);
             panels.Add("EliminarMediaPanel", panelEliminarMedia);
             panels.Add("TopMediaPanel", panelTopMedia);
-            
+            panels.Add("HistorialPanel", panelHistorial);
+            panels.Add("UsuariosPanel", panelUsuarios);
+            panels.Add("SiguiendoPanel", panelSiguiendo);
 
             foreach (Usuario usuario in Archivos.Usuarios)
             {
@@ -294,6 +296,12 @@ namespace Entrega3Spotiflix
                 stackPanels.Add(panels["EntradaPanel"]);
                 ShowLastPanel();
             }
+            p = 0;
+            d = 0;
+            u = 0;
+            c = 0;
+            i = 0;
+            b = 0;
         }
         private void OnLoginButtonClicked(string username, string pass)
         {
@@ -585,6 +593,8 @@ namespace Entrega3Spotiflix
 
         private void buttonModificarCuenta_Click(object sender, EventArgs e)
         {
+            textBoxEditarFechaNacimiento.ResetText();
+            textBoxEditarNacionalidad.ResetText();
             panelInformacionPerfil.Visible = false;
             UsernameEditarPerfil.Text = textBoxUsernamePerfil.Text;
             string foto_perfil = "perfilNetflixVerde.png";
@@ -701,6 +711,7 @@ namespace Entrega3Spotiflix
                 if (usuario.Nombre_usuario == usuario_ant)
                 {
                     usuario.Nombre_usuario = usuario_nuevo;
+                    UsernameEditarPerfil.Text = usuario.Nombre_usuario;
                 }
             }
             textBoxUsernamePerfil.Text = usuario_nuevo;
@@ -1097,8 +1108,16 @@ namespace Entrega3Spotiflix
                     canción.reproducciones += 1;
                     ReproduccionesCanciónSeleccionada.Text = canción.reproducciones.ToString();
                     labelCanciónReproducida.Text = canción.titulo;
+                    foreach (Usuario usuario in Archivos.Usuarios)
+                    {
+                        if (usuario.Nombre_usuario == textBoxUsernamePerfil.Text)
+                        {
+                            usuario.Historial.Add(canción.titulo);
+                        }
+                    }
                 }
             }
+            Serializacion();
         }
         public void EncontrarArchivo(string valor)
         {
@@ -1136,6 +1155,7 @@ namespace Entrega3Spotiflix
             axWindowsMediaPlayer2.Visible = true;
             buttonVolverDeVerPelícula.Visible = false;
             foreach (Película pelicula in Archivos.películasApp)
+            {
                 if (pelicula.titulo == PelículaSeleccionada.Text)
                 {
                     EncontrarArchivo(pelicula.titulo);
@@ -1146,7 +1166,16 @@ namespace Entrega3Spotiflix
                     axWindowsMediaPlayer2.Ctlcontrols.play();
                     pelicula.reproducciones += 1;
                     NumeroReproduccionesPelículaSeleccionada.Text = pelicula.reproducciones.ToString();
+                    foreach (Usuario usuario in Archivos.Usuarios)
+                    {
+                        if (usuario.Nombre_usuario == textBoxUsernamePerfil.Text)
+                        {
+                            usuario.Historial.Add(pelicula.titulo);
+                        }
+                    }
                 }
+            }
+            Serializacion();
         }
 
         private void buttonGoBuscar_Click(object sender, EventArgs e)
@@ -1337,7 +1366,7 @@ namespace Entrega3Spotiflix
                 {
                     foreach (Película película in Archivos.películasApp)
                     {
-                        foreach (String categoría in película.categoria)
+                        foreach (String categoría in película.Categoria)
                         {
                             List<Película> resultado = new List<Película>();
                             if (categoría == filtro)
@@ -1519,13 +1548,13 @@ namespace Entrega3Spotiflix
 
         private void buttonConfirmarCalificación_Click(object sender, EventArgs e)
         {
-            string nota1 = comboBoxCalificación.SelectedItem.ToString();
-            if (nota1 == "")
+            if (comboBoxCalificación.SelectedItem == null)
             {
-                MessageBox.Show("Por favor seleccione una nota antes de evaluar");
+                MessageBox.Show("No se ha ingresado ningún valor");
             }
             else
             {
+                string nota1 = comboBoxCalificación.SelectedItem.ToString();
                 foreach (Canción canción in Archivos.cancionesApp)
                 {
                     if (canción.titulo == CanciónSeleccionada.Text)
@@ -1592,13 +1621,13 @@ namespace Entrega3Spotiflix
 
         private void buttonConfirmarCalificaciónPelícula_Click(object sender, EventArgs e)
         {
-            string nota1 = comboBoxCalificaciónPelícula.SelectedItem.ToString();
-            if (nota1 == "")
+            if (comboBoxCalificaciónPelícula.SelectedItem == null)
             {
-                MessageBox.Show("Por favor seleccione una nota antes de evaluar");
+                MessageBox.Show("No se ha ingresado ningún valor");
             }
             else
             {
+                string nota1 = comboBoxCalificaciónPelícula.SelectedItem.ToString();
                 foreach (Película película in Archivos.películasApp)
                 {
                     if (película.titulo == PelículaSeleccionada.Text)
@@ -1749,10 +1778,33 @@ namespace Entrega3Spotiflix
             }
         }
 
-        private void buttonGoCrearPlaylist_Click(object sender, EventArgs e)
+        private void buttonGoSiguiendo_Click(object sender, EventArgs e)
         {
-            stackPanels.Add(panels["CrearPlaylistPanel"]);
-            ShowLastPanel();
+            panelInfoUsuarioSeguido.Visible = false;
+            buttonGoPlaylistsUsuarioSiguiendo.Visible = false;
+            foreach (Usuario usuario in Archivos.Usuarios)
+            {
+                if (usuario.Nombre_usuario == textBoxUsernamePerfil.Text)
+                {
+                    if (usuario.Seguidores.Count == 0)
+                    {
+                        MessageBox.Show("Usted no sigue a ningún usuario");
+                    }
+                    else
+                    {
+                        stackPanels.Add(panels["SiguiendoPanel"]);
+                        ShowLastPanel();
+                        listViewSiguiendo.Clear();
+                        ListViewGroup Usuarios = new ListViewGroup("Usuarios", HorizontalAlignment.Left);
+                        foreach (String usuarios in usuario.Seguidores)
+                        {
+                            listViewSiguiendo.Items.Add(new ListViewItem(usuarios, Usuarios));
+
+                        }
+                        listViewSiguiendo.Groups.Add(Usuarios);
+                    }
+                }
+            }
         }
 
         private void buttonConfirmarAgregarVideo_Click(object sender, EventArgs e)
@@ -2086,6 +2138,13 @@ namespace Entrega3Spotiflix
                 ReproduccionesCanciónSeleccionada.Text = colaCanciones[i].reproducciones.ToString();
                 labelCanciónReproducida.Text = colaCanciones[i].titulo;
                 i += 1;
+                foreach (Usuario usuario in Archivos.Usuarios)
+                {
+                    if (usuario.Nombre_usuario == textBoxUsernamePerfil.Text)
+                    {
+                        usuario.Historial.Add(colaCanciones[i].titulo);
+                    }
+                }
             }
             catch
             {
@@ -2105,50 +2164,21 @@ namespace Entrega3Spotiflix
                 ReproduccionesCanciónSeleccionada.Text = colaCanciones[i].reproducciones.ToString();
                 labelCanciónReproducida.Text = colaCanciones[i].titulo;
                 i += 1;
-            }
-            catch
-            {
-                MessageBox.Show("Agregue más películas a la cola");
-            }
-        }
-        
-        private void buttonNext1Películas_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                buttonNext1Películas.Visible = false;
-                buttonNext2Películas.Visible = true;
-                EncontrarArchivo(colaPelículas[i].titulo);
-                axWindowsMediaPlayer2.URL = this.ruta;
-                axWindowsMediaPlayer2.Ctlcontrols.play();
-                colaPelículas[i].reproducciones += 1;
-                ReproduccionesPelículaSeleccionada.Text = colaPelículas[i].reproducciones.ToString();
-                u += 1;
-            }
-            catch
-            {
-                MessageBox.Show("Al parecer la cola esta vacía");
-            }
-        }
-        
-        private void buttonNext2Películas_Click(object sender, EventArgs e)
-        {
-            try
-            {
-                buttonNext1Películas.Visible = false;
-                buttonNext2Películas.Visible = true;
-                EncontrarArchivo(colaPelículas[u].titulo);
-                axWindowsMediaPlayer2.URL = this.ruta;
-                axWindowsMediaPlayer2.Ctlcontrols.play();
-                colaPelículas[u].reproducciones += 1;
-                ReproduccionesPelículaSeleccionada.Text = colaPelículas[u].reproducciones.ToString();
-                u += 1;
+                foreach (Usuario usuario in Archivos.Usuarios)
+                {
+                    if (usuario.Nombre_usuario == textBoxUsernamePerfil.Text)
+                    {
+                        usuario.Historial.Add(colaCanciones[i].titulo);
+                    }
+                }
             }
             catch
             {
                 MessageBox.Show("Agregue más canciones a la cola");
             }
         }
+        
+        
         int c = 0;
         private void buttonAgregarColaPelícula_Click(object sender, EventArgs e)
         {
@@ -2283,7 +2313,7 @@ namespace Entrega3Spotiflix
                 if (usuario == usuario1.Nombre_usuario)
                 {
                     usuario1.Privacidad = comboBoxEditarPrivacidadUsuario.SelectedItem.ToString();
-                    usuario1.Genero = comboBoxEditarPrivacidadUsuario.SelectedItem.ToString();
+                    usuario1.Genero = comboBoxEditarGeneroUsuario.SelectedItem.ToString();
                     usuario1.Nacionalidad = textBoxEditarNacionalidad.Text;
                     usuario1.FechaNac = textBoxEditarFechaNacimiento.Text;
 
@@ -2303,23 +2333,246 @@ namespace Entrega3Spotiflix
             labelNacionalidadUsuario.Visible = true;
             Serializacion();
         }
+        int d = 0;
+        private void buttonAgregarCancionAPlaylist_Click(object sender, EventArgs e)
+        {
+            foreach (Usuario usuario in Archivos.Usuarios)
+            {
+                if (usuario.Nombre_usuario == textBoxUsernamePerfil.Text)
+                {
+                    if (usuario.Tipo_usuario == "Gratis")
+                    {
+                        MessageBox.Show("Esta función solo es válida para usuarios Premium");
+                    }
+                    else
+                    {
+                        foreach (Canción canción in Archivos.cancionesApp)
+                        {
+                            if (canción.titulo == CanciónSeleccionada.Text)
+                            {
+                                if (usuario.PlaylistC.Contains(canción.titulo))
+                                {
+                                    MessageBox.Show("Esta canción ya está en su lista");
+                                }
+                                else
+                                {
+                                    usuario.PlaylistC.Insert(d, canción.titulo);
+                                    d += 1;
+                                    MessageBox.Show("Se ha añadido a su PlayList de canciones");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            Serializacion();
+        }
+        int p = 0;
+        private void buttonAgregarPelículaAPlaylist_Click(object sender, EventArgs e)
+        {
+            foreach (Usuario usuario in Archivos.Usuarios)
+            {
+                if (usuario.Nombre_usuario == textBoxUsernamePerfil.Text)
+                {
+                    if (usuario.Tipo_usuario == "Gratis")
+                    {
+                        MessageBox.Show("Esta función solo es válida para usuarios Premium");
+                    }
+                    else
+                    {
+                        foreach (Película película in Archivos.películasApp)
+                        {
+                            if (película.titulo == PelículaSeleccionada.Text)
+                            {
+                                if (usuario.PlaylistV.Contains(película.titulo))
+                                {
+                                    MessageBox.Show("Esta película ya está en su lista");
+                                }
+                                else
+                                {
+                                    usuario.PlaylistV.Insert(p, película.titulo);
+                                    p += 1;
+                                    MessageBox.Show("Se ha añadido a su PlayList de películas");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            Serializacion();
+        }
+
+        private void panelMisPlaylist_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void buttonVolverDeHistorial_Click(object sender, EventArgs e)
+        {
+            stackPanels.Add(panels["MenuPanel"]);
+            ShowLastPanel();
+        }
+
+        private void buttonGoHistorial_Click(object sender, EventArgs e)
+        {
+            foreach (Usuario usuario in Archivos.Usuarios)
+            {
+                if (usuario.Nombre_usuario == textBoxUsernamePerfil.Text)
+                {
+                    if (usuario.Historial.Count == 0)
+                    {
+                        MessageBox.Show("El historial de reproducción está vacío");
+                    }
+                    else
+                    {
+                        listViewHistorial.Clear();
+                        stackPanels.Add(panels["HistorialPanel"]);
+                        ShowLastPanel();
+                        ListViewGroup Historial = new ListViewGroup("Playlists", HorizontalAlignment.Left);
+                        foreach (String historial in usuario.Historial)
+                        {
+                            listViewHistorial.Items.Add(new ListViewItem(historial, Historial));
+
+                        }
+                        listViewHistorial.Groups.Add(Historial);
+                    }
+                }
+            }
+        }
+
+        private void buttonVolverDeUsuarios_Click(object sender, EventArgs e)
+        {
+            stackPanels.Add(panels["MenuPanel"]);
+            ShowLastPanel();
+        }
+
+        private void buttonGoUsuarios_Click(object sender, EventArgs e)
+        {
+            buttonSeguirUsuario.Visible = false;
+            listViewUsuarios.Clear();
+            stackPanels.Add(panels["UsuariosPanel"]);
+            ShowLastPanel();
+            ListViewGroup Usuarios = new ListViewGroup("Usuarios", HorizontalAlignment.Left);
+            foreach (Usuario usuario in Archivos.Usuarios)
+            {
+                if (usuario.Nombre_usuario != textBoxUsernamePerfil.Text)
+                {
+                    listViewUsuarios.Items.Add(new ListViewItem(usuario.Nombre_usuario, Usuarios));
+                }
+            }
+            listViewUsuarios.Groups.Add(Usuarios);
+        }
+
+        private void buttonVolverDeSeguidores_Click(object sender, EventArgs e)
+        {
+            stackPanels.Add(panels["MenuPanel"]);
+            ShowLastPanel();
+        }
+
+        private void listViewUsuarios_MouseClick(object sender, MouseEventArgs e)
+        {
+            buttonSeguirUsuario.Visible = true;
+            UsuarioSeleccionado.Text = listViewUsuarios.SelectedItems[0].SubItems[0].Text;
+        }
+        
+        private void buttonSeguirUsuario_Click(object sender, EventArgs e)
+        {
+            string nombre = UsuarioSeleccionado.Text;
+            foreach (Usuario usuario in Archivos.Usuarios)
+            {
+                if (usuario.Nombre_usuario == textBoxUsernamePerfil.Text)
+                {
+                    if (usuario.Seguidores.Contains(nombre))
+                    {
+                        MessageBox.Show("Usted ya sigue a este usuario");
+                    }
+                    else
+                    {
+                        usuario.Seguidores.Add(nombre);
+                        MessageBox.Show("¡Siguiendo!");
+                    }
+                }
+            }
+            Serializacion();
+        }
+
+        private void listViewSiguiendo_MouseClick(object sender, MouseEventArgs e)
+        {
+            panelInfoUsuarioSeguido.Visible = true;
+            buttonGoPlaylistsUsuarioSiguiendo.Visible = true;
+            UsuarioSeguidoSeleccionado.Text = listViewSiguiendo.SelectedItems[0].SubItems[0].Text;
+            foreach (Usuario usuario in Archivos.Usuarios)
+            {
+                if (usuario.Nombre_usuario == UsuarioSeguidoSeleccionado.Text)
+                {
+                    labelGéneroUsuarioSiguiendo.Text = usuario.Genero;
+                    labelPrivacidadUsuarioSiguiendo.Text = usuario.Privacidad;
+                    labelTipoUsuarioSiguiendo.Text = usuario.Tipo_usuario;
+                    labelNacionalidadUsuarioSiguiendo.Text = usuario.Nacionalidad;
+                    labelFechaNacimientoUsuarioSiguiendo.Text = usuario.FechaNac;
+                }
+            }
+        }
+
+        private void buttonGoPlaylistsUsuarioSiguiendo_Click(object sender, EventArgs e)
+        {
+            foreach (Usuario usuario in Archivos.Usuarios)
+            {
+                if (usuario.Nombre_usuario == UsuarioSeguidoSeleccionado.Text)
+                {
+                    if (usuario.Privacidad == "Privada")
+                    {
+                        MessageBox.Show("No puede acceder a las PlayLists de este usuario, ya que es privado");
+                    }
+                    else
+                    {
+                        stackPanels.Add(panels["MisPlaylistPanel"]);
+                        ShowLastPanel();
+                        listViewVerMisPlaylistCanción.Clear();
+                        listViewVerMisPlaylistPelícula.Clear();
+                        VerPlaylists(usuario.PlaylistC);
+                        ListViewGroup Playlists = new ListViewGroup("Playlists", HorizontalAlignment.Left);
+                        foreach (String película in usuario.PlaylistV)
+                        {
+                            listViewVerMisPlaylistPelícula.Items.Add(new ListViewItem(película, Playlists));
+
+                        }
+                        listViewVerMisPlaylistPelícula.Groups.Add(Playlists);
+                    }
+                }
+            }
+        }
 
         private void buttonGoMisPlaylists_Click(object sender, EventArgs e)
         {
-            listViewVerMisPlaylist.Clear();
-            VerPlaylists(Archivos.playlists_Canciones);
             stackPanels.Add(panels["MisPlaylistPanel"]);
             ShowLastPanel();
+            foreach (Usuario usuario in Archivos.Usuarios)
+            {
+                if (usuario.Nombre_usuario == textBoxUsernamePerfil.Text)
+                {
+                    listViewVerMisPlaylistCanción.Clear();
+                    listViewVerMisPlaylistPelícula.Clear();
+                    VerPlaylists(usuario.PlaylistC);
+                    ListViewGroup Playlists = new ListViewGroup("Playlists", HorizontalAlignment.Left);
+                    foreach (String película in usuario.PlaylistV)
+                    {
+                        listViewVerMisPlaylistPelícula.Items.Add(new ListViewItem(película, Playlists));
+
+                    }
+                    listViewVerMisPlaylistPelícula.Groups.Add(Playlists);
+                }
+            }
         }
-        private void VerPlaylists(List<Playlist> playlists)
+        private void VerPlaylists(List<String> playlists)
         {
             ListViewGroup Playlists = new ListViewGroup("Playlists", HorizontalAlignment.Left);
-            foreach (Playlist playlist in playlists)
+            foreach (String canción in playlists)
             {
-                listViewVerMisPlaylist.Items.Add(new ListViewItem(playlist.Nombre, Playlists));
+                listViewVerMisPlaylistCanción.Items.Add(new ListViewItem(canción, Playlists));
 
             }
-            listViewVerMisPlaylist.Groups.Add(Playlists);
+            listViewVerMisPlaylistCanción.Groups.Add(Playlists);
         }
 
         private void buttonAgregarArchivoPelicula_Click(object sender, EventArgs e)
