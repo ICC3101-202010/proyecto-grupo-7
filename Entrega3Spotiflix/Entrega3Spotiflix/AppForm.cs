@@ -1067,7 +1067,6 @@ namespace Entrega3Spotiflix
                     DuraciónPelículaSeleccionada.Text = película.duracion.ToString();
                     CalificaciónPelículaSeleccionada.Text = película.Avg_calificación.ToString();
                     NumeroReproduccionesPelículaSeleccionada.Text = película.reproducciones.ToString();
-
                 }
             }
         }
@@ -1363,30 +1362,32 @@ namespace Entrega3Spotiflix
                     }
                 }
                 if (criterio2 == "Categoría")
-                {
-                    foreach (Película película in Archivos.películasApp)
+                { 
+                    try
                     {
-                        foreach (String categoría in película.Categoria)
+                        foreach (Película película in Archivos.películasApp)
                         {
-                            List<Película> resultado = new List<Película>();
-                            if (categoría == filtro)
+                            foreach (String categoría in película.Categoria)
                             {
-                                labelErrorBúsqueda.Visible = false;
-                                resultado.Add(película);
-                                ListViewGroup Películas = new ListViewGroup("Películas", HorizontalAlignment.Left);
-                                foreach (Película película1 in resultado)
+                                List<Película> resultado = new List<Película>();
+                                if (categoría == filtro)
                                 {
-                                    listViewBúsqueda.Items.Add(new ListViewItem(película1.Titulo, Películas));
+                                    labelErrorBúsqueda.Visible = false;
+                                    resultado.Add(película);
+                                    ListViewGroup Películas = new ListViewGroup("Películas", HorizontalAlignment.Left);
+                                    foreach (Película película1 in resultado)
+                                    {
+                                        listViewBúsqueda.Items.Add(new ListViewItem(película1.Titulo, Películas));
 
+                                    }
+                                    listViewBúsqueda.Groups.Add(Películas);
                                 }
-                                listViewBúsqueda.Groups.Add(Películas);
-                            }
-                            if (resultado.Count == 0)
-                            {
-                                labelErrorBúsqueda.Visible = true;
-                                labelErrorBúsqueda.Text = "No se encontraron resultados";
                             }
                         }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("No se han encontrado resultados para esta categoría");
                     }
                 }
                 if (criterio2 == "Director")
@@ -2526,8 +2527,14 @@ namespace Entrega3Spotiflix
                     }
                     else
                     {
+                        labelUsuarioPlaylist.Text = UsuarioSeguidoSeleccionado.Text;
+                        cuenta = 1;
+                        cuenta2 = 1;
                         stackPanels.Add(panels["MisPlaylistPanel"]);
                         ShowLastPanel();
+                        buttonNextPlaylistPelícula.Visible = false;
+                        axWindowsMediaPlayer4.Visible = false;
+                        axWindowsMediaPlayer3.Visible = false;
                         listViewVerMisPlaylistCanción.Clear();
                         listViewVerMisPlaylistPelícula.Clear();
                         VerPlaylists(usuario.PlaylistC);
@@ -2543,13 +2550,123 @@ namespace Entrega3Spotiflix
             }
         }
 
+        private void buttonReproducirPlaylistCanción_Click(object sender, EventArgs e)
+        {
+            foreach (Usuario usuario1 in Archivos.Usuarios)
+            {
+                if (usuario1.Nombre_usuario == labelUsuarioPlaylist.Text)
+                {
+                    try
+                    {
+                        axWindowsMediaPlayer3.Visible = true;
+                        EncontrarArchivo(usuario1.PlaylistC[0]);
+                        axWindowsMediaPlayer3.URL = this.ruta;
+                        axWindowsMediaPlayer3.Ctlcontrols.play();
+                        usuario1.Historial.Add(usuario1.PlaylistC[0]);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Al parecer la playlist esta vacía");
+                    }
+                }
+            }
+        }
+        int cuenta = 1;
+        private void buttonNextPlaylistCanción_Click(object sender, EventArgs e)
+        {
+            foreach (Usuario usuario1 in Archivos.Usuarios)
+            {
+                if (usuario1.Nombre_usuario == labelUsuarioPlaylist.Text)
+                {
+                    try
+                    {
+                        EncontrarArchivo(usuario1.PlaylistC[cuenta]);
+                        axWindowsMediaPlayer3.URL = this.ruta;
+                        axWindowsMediaPlayer3.Ctlcontrols.play();
+                        usuario1.Historial.Add(usuario1.PlaylistC[cuenta]);
+                        cuenta += 1;
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Agregue mas canciones a su playlist");
+                    }
+                }
+            }
+        }
+
+        private void buttonReproducirPlaylistPelícula_Click(object sender, EventArgs e)
+        {
+            axWindowsMediaPlayer3.Visible = false;
+            axWindowsMediaPlayer3.Ctlcontrols.pause();
+            foreach (Usuario usuario1 in Archivos.Usuarios)
+            {
+                if (usuario1.Nombre_usuario == labelUsuarioPlaylist.Text)
+                {
+                    try
+                    {
+                        EncontrarArchivo(usuario1.PlaylistV[0]);
+                        axWindowsMediaPlayer4.Visible = true;
+                        buttonNextPlaylistPelícula.Visible = true;
+                        buttonReproducirPlaylistPelícula.Visible = false;
+                        axWindowsMediaPlayer4.URL = this.ruta;
+                        pictureBoxSalirPelículaPlaylist.SizeMode = PictureBoxSizeMode.StretchImage;
+                        axWindowsMediaPlayer4.Dock = DockStyle.Fill;
+                        pictureBoxSalirPelículaPlaylist.Visible = true;
+                        axWindowsMediaPlayer4.Ctlcontrols.play();
+                        usuario1.Historial.Add(usuario1.PlaylistV[0]);
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Al parecer la playlist esta vacía");
+                    }
+                }
+            }
+        }
+
+        private void pictureBoxSalirPelículaPlaylist_Click(object sender, EventArgs e)
+        {
+            axWindowsMediaPlayer4.Ctlcontrols.pause();
+            axWindowsMediaPlayer4.Visible = false;
+            pictureBoxSalirPelículaPlaylist.Visible = false;
+            buttonNextPlaylistPelícula.Visible = false;
+            buttonReproducirPlaylistPelícula.Visible = true;
+        }
+        int cuenta2 = 1;
+        private void buttonNextPlaylistPelícula_Click(object sender, EventArgs e)
+        {
+            foreach (Usuario usuario1 in Archivos.Usuarios)
+            {
+                if (usuario1.Nombre_usuario == labelUsuarioPlaylist.Text)
+                {
+                    try
+                    {
+                        EncontrarArchivo(usuario1.PlaylistV[cuenta2]);
+                        axWindowsMediaPlayer4.URL = this.ruta;
+                        axWindowsMediaPlayer4.Ctlcontrols.play();
+                        usuario1.Historial.Add(usuario1.PlaylistV[cuenta2]);
+                        cuenta2 += 1;
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Agregue mas películas a su playlist");
+                    }
+                }
+            }
+        }
+
         private void buttonGoMisPlaylists_Click(object sender, EventArgs e)
         {
+            labelUsuarioPlaylist.Text = textBoxUsernamePerfil.Text;
+            cuenta = 1;
+            cuenta2 = 1;
             stackPanels.Add(panels["MisPlaylistPanel"]);
             ShowLastPanel();
+            buttonNextPlaylistPelícula.Visible = false;
+            axWindowsMediaPlayer4.Visible = false;
+            axWindowsMediaPlayer3.Visible = false;
             foreach (Usuario usuario in Archivos.Usuarios)
             {
-                if (usuario.Nombre_usuario == textBoxUsernamePerfil.Text)
+                if (usuario.Nombre_usuario == labelUsuarioPlaylist.Text)
                 {
                     listViewVerMisPlaylistCanción.Clear();
                     listViewVerMisPlaylistPelícula.Clear();
@@ -2596,6 +2713,8 @@ namespace Entrega3Spotiflix
         {
             stackPanels.Add(panels["MenuPanel"]);
             ShowLastPanel();
+            axWindowsMediaPlayer3.Ctlcontrols.pause();
+            axWindowsMediaPlayer4.Ctlcontrols.pause();
         }
 
         private void buttonVolverAgregarPelicula_Click(object sender, EventArgs e)
