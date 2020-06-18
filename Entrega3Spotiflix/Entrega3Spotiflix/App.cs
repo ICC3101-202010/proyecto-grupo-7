@@ -300,7 +300,7 @@ namespace Entrega3Spotiflix
                     if (input != 0)
                     {
                         Playlist playlist1 = dic2[input2];
-                        playlist1.playlist_Canciones.Add(canción1);
+                        //playlist1.playlist_Canciones.Add(canción1);
                         usuario.Favoritos.RemoveAt(input2 - 1);
                         usuario.Favoritos.Insert(input2 - 1, playlist1);
                     }
@@ -409,7 +409,7 @@ namespace Entrega3Spotiflix
                     if (input != 0)
                     {
                         Playlist playlist1 = dic2[input5];
-                        playlist1.playlist_Canciones.Add(canción1);
+                        //playlist1.playlist_Canciones.Add(canción1);
                         usuario.Favoritos.RemoveAt(input5 - 1);
                         usuario.Favoritos.Insert(input5 - 1, playlist1);
                     }
@@ -487,7 +487,7 @@ namespace Entrega3Spotiflix
                     if (input != 0)
                     {
                         Playlist playlist1 = dic2[input5];
-                        playlist1.playlist_Películas.Add(película1);
+                        //playlist1.playlist_Películas.Add(película1);
                         usuario.Favoritos.RemoveAt(input5 - 1);
                         usuario.Favoritos.Insert(input5 - 1, playlist1);
                     }
@@ -532,13 +532,13 @@ namespace Entrega3Spotiflix
                 if (usuario.Favoritos.Count() > 0)
                 {
                     int input = Convert.ToInt32(Console.ReadLine());
-                    usuario.Favoritos[input - 1].VerPlaylist();
+                    //usuario.Favoritos[input - 1].VerPlaylist();
                     Console.WriteLine("(a) Poner una Canción/Película en específico\n(b) Reproducir Canción/Película Aleatoria");
                     Console.WriteLine("1) Agregar Canción");
                     int input2 = Convert.ToInt32(Console.ReadLine());
                     if (input2 == 1)
                     {
-                        if (usuario.Favoritos[input2 - 1].playlist_Películas.Count() > 0)
+                        /*if (usuario.Favoritos[input2 - 1].playlist_Películas.Count() > 0)
                         {
                             if (usuario.Favoritos[input2 - 1].Tipo_playlist == "película")
                             {
@@ -554,8 +554,8 @@ namespace Entrega3Spotiflix
                                 int option = Convert.ToInt32(Console.ReadLine());
                                 //usuario.Favoritos[input - 1].playlist_Películas[option - 1].Play();
                             }
-                        }
-                        if (usuario.Favoritos[input - 1].playlist_Canciones.Count() > 0)
+                        }*/
+                        /*if (usuario.Favoritos[input - 1].playlist_Canciones.Count() > 0)
                         {
                             if (usuario.Favoritos[input - 1].Tipo_playlist == "canción")
                             {
@@ -571,10 +571,10 @@ namespace Entrega3Spotiflix
                                 int option1 = Convert.ToInt32(Console.ReadLine());
                                 usuario.Favoritos[input - 1].playlist_Canciones[option1 - 1].Play();
                             }
-                        }
+                        }*/
 
                     }
-                    else if (input2 == 2)
+                    /*else if (input2 == 2)
                     {
                         if (usuario.Favoritos[input - 1].playlist_Películas.Count() > 0)
                         {
@@ -595,7 +595,7 @@ namespace Entrega3Spotiflix
                             }
                         }
 
-                    }
+                    }*/
                     else
                     {
                         Console.WriteLine("Criterio ingresado no válido");
@@ -662,7 +662,7 @@ namespace Entrega3Spotiflix
                     if (input != 0)
                     {
                         Playlist playlist1 = dic2[input2];
-                        playlist1.playlist_Películas.Add(película1);
+                        //playlist1.playlist_Películas.Add(película1);
                         usuario.Favoritos.RemoveAt(input2 - 1);
                         usuario.Favoritos.Insert(input2 - 1, playlist1);
                     }

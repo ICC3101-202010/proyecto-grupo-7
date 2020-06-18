@@ -25,9 +25,11 @@ namespace Entrega3Spotiflix
         List<string> seguidores = new List<string>();
         string genero;
         string nacionalidad;
+        int númeroSeguidores;
+        List<String> playlists = new List<string>();
+        List<String> solicitudes = new List<string>();
 
-
-        public Usuario(string nombre_usuario, string email, string contraseña, string tipo_usuario, string genero, string nacionalidad, string fechaNac, List<string> historial, List<string> playlistC, List<string> playlistV, List<string> seguidores, string privacidad)
+        public Usuario(string nombre_usuario, string email, string contraseña, string tipo_usuario, string genero, string nacionalidad, string fechaNac, List<string> historial, List<string> playlistC, List<string> playlistV, List<string> seguidores, string privacidad, int númeroSeguidores, List<String> playlists, List<String> solicitudes)
         {
             this.Nombre_usuario = nombre_usuario;
             this.Email = email;
@@ -41,7 +43,9 @@ namespace Entrega3Spotiflix
             this.PlaylistV = playlistV;
             this.Seguidores = seguidores;
             this.Privacidad = privacidad;
-            
+            this.NúmeroSeguidores = númeroSeguidores;
+            this.Playlists = playlists;
+            this.Solicitudes = solicitudes;
         }
         public string Tipo_usuario { get => tipo_usuario; set => tipo_usuario = value; }
         public string Email { get => email; set => email = value; }
@@ -54,7 +58,10 @@ namespace Entrega3Spotiflix
         public List<string> PlaylistC { get => playlistC; set => playlistC = value; }
         public List<string> PlaylistV { get => playlistV; set => playlistV = value; }
         public List<string> Seguidores { get => seguidores; set => seguidores = value; }
+        public List<string> Playlists { get => playlists; set => playlists = value; }
         public string Privacidad { get => privacidad; set => privacidad = value; }
+        public int NúmeroSeguidores { get => númeroSeguidores; set => númeroSeguidores = value; }
+        public List<string> Solicitudes { get => playlists; set => playlists = value; }
 
 
 

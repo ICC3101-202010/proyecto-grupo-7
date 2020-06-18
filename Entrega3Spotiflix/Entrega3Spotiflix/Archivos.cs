@@ -74,7 +74,9 @@ namespace Entrega3Spotiflix
                 List<string> playlistC = new List<string>() { };
                 List<string> playlistV = new List<string>() { };
                 List<string> seguidores = new List<string>() { };
-                Usuario premium = new Usuario(data[0], data[1], data[2], data[4], "", "", "", historial, playlistC, playlistV, seguidores, data[5]); 
+                List<string> playlists = new List<string>() { };
+                List<string> solicitudes = new List<string>() { };
+                Usuario premium = new Usuario(data[0], data[1], data[2], data[4], "", "", "", historial, playlistC, playlistV, seguidores, data[5], 0, playlists, solicitudes); 
                 Usuarios.Add(premium);
             }
             return description;
@@ -87,15 +89,17 @@ namespace Entrega3Spotiflix
             {
                 if (data[0] == cancion.titulo)
                 {
-                    description = "La canción ingresada ya existe";
+                    description = "La playlist ingresada ya existe";
                     MessageBox.Show(description);
                 }
             }
             if (description == null)
             {
-                Lista_canciones.Add(Lista_canciones.Count + 1, data);
-                Playlist playlist = new Playlist(data[0], data[1]);
+                List<string> listaCanciones = new List<string>() { };
+                List<string> listaPelículas = new List<string>() { };
+                Playlist playlist = new Playlist(data[0], data[1], listaCanciones, listaPelículas);
                 playlists_Canciones.Add(playlist);
+                playlists_Películas.Add(playlist);
             }
             return description;
         }
