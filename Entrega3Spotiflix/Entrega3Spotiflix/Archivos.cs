@@ -85,12 +85,12 @@ namespace Entrega3Spotiflix
         public static string AddPlaylist(List<string> data)
         {
             string description = null;
-            foreach (Canción cancion in cancionesApp)
+            foreach (Playlist playlist1 in playlists_Canciones)
             {
-                if (data[0] == cancion.titulo)
+                if (data[0] == playlist1.Nombre)
                 {
-                    description = "La playlist ingresada ya existe";
-                    MessageBox.Show(description);
+                    description = "El nombre de la playlist ya está en uso";
+                    //MessageBox.Show(description);
                 }
             }
             if (description == null)

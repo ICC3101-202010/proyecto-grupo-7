@@ -880,7 +880,6 @@ namespace Entrega3Spotiflix
                 Stream stream4 = new FileStream("playlists_Películas.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
                 Stream stream5 = new FileStream("Usuarios.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
                 Stream stream6 = new FileStream("PersonasApp.bin", FileMode.Open, FileAccess.Read, FileShare.Read);
-                //try que Desterializa; catch mostrar mensaje; finally cierra archivo
                 try
                 {
                     List<Película> des = (List<Película>)formatter.Deserialize(stream1);
@@ -1209,13 +1208,17 @@ namespace Entrega3Spotiflix
 
         private void buttonGoBuscar_Click(object sender, EventArgs e)
         {
-            comboBoxCriterioPelícula.ResetText();
-            comboBoxCriterioCanción.ResetText();
-            comboBoxCriterioPlaylists.ResetText();
+            buttonAgregarOtroFiltro2.Visible = false;
+            textBoxFiltroBúsqueda.Visible = false;
+            textBoxFiltroBúsqueda2.Visible = false;
+            textBoxFiltroBúsqueda3.Visible = false;
+            comboBoxFiltro1.ResetText();
+            comboBoxFiltro3.ResetText();
+            comboBoxFiltro2.ResetText();
             comboBoxCriterio1.ResetText();
-            comboBoxCriterioPlaylists.Visible = false;
-            comboBoxCriterioCanción.Visible = false;
-            comboBoxCriterioPelícula.Visible = false;
+            comboBoxFiltro2.Visible = false;
+            comboBoxFiltro3.Visible = false;
+            comboBoxFiltro1.Visible = false;
             labelFiltroBúsqueda.Visible = false;
             panelBúsquedaDeCriterio.Visible = false;
             string fotoBuscar = "iconoBuscar.jpg";
@@ -1234,332 +1237,966 @@ namespace Entrega3Spotiflix
         private void comboBoxCriterio1_SelectedIndexChanged(object sender, EventArgs e)
         {
             string selección = comboBoxCriterio1.SelectedItem.ToString();
+            listViewBúsqueda.Clear();
             if (selección == "Canciones")
             {
-                comboBoxCriterioCanción.Visible = true;
-                comboBoxCriterioPelícula.Visible = false;
-                comboBoxCriterioPlaylists.Visible = false;
+                comboBoxFiltro1.ResetText();
+                comboBoxFiltro1.Visible = true;
                 labelFiltroBúsqueda.Visible = true;
-                comboBoxCriterioCanción.ResetText();
+                comboBoxFiltro1.Items.Clear();
+                comboBoxFiltro1.Items.Add("Título");
+                comboBoxFiltro1.Items.Add("Género");
+                comboBoxFiltro1.Items.Add("Álbum");
+                comboBoxFiltro1.Items.Add("Artista");
             }
             if (selección == "Películas")
             {
-                comboBoxCriterioPelícula.Visible = true;
-                comboBoxCriterioPlaylists.Visible = false;
-                comboBoxCriterioCanción.Visible = false;
+                comboBoxFiltro1.ResetText();
+                comboBoxFiltro1.Visible = true;
                 labelFiltroBúsqueda.Visible = true;
-                comboBoxCriterioPelícula.ResetText();
+                comboBoxFiltro1.Items.Clear();
+                comboBoxFiltro1.Items.Add("Título");
+                comboBoxFiltro1.Items.Add("Categoría");
+                comboBoxFiltro1.Items.Add("Director");
             }
-            if (selección == "PlayLists")
+            if (selección == "Playlists")
             {
-                comboBoxCriterioPlaylists.Visible = true;
-                comboBoxCriterioCanción.Visible = false;
-                comboBoxCriterioPelícula.Visible = false;
+                comboBoxFiltro1.ResetText();
+                comboBoxFiltro1.Items.Clear();
+                comboBoxFiltro1.Visible = true;
                 labelFiltroBúsqueda.Visible = true;
-                comboBoxCriterioPlaylists.ResetText();
-            }
-        }
-        private void Buscar(string criterio1, string criterio2, string filtro)
-        {
-            listViewBúsqueda.Clear();
-            //List<String> resultado = new List<string>();
-            if (criterio1 == "Canciones")
-            {
-                if (criterio2 == "Título")
-                {
-                    foreach (Canción canción in Archivos.cancionesApp)
-                    {
-                        List<Canción> resultado = new List<Canción>();
-                        if (canción.titulo == filtro)
-                        {
-                            labelErrorBúsqueda.Visible = false;
-                            resultado.Add(canción);
-                            ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
-                            foreach (Canción canción1 in resultado)
-                            {
-                                listViewBúsqueda.Items.Add(new ListViewItem(canción1.Titulo, Canciones));
-
-                            }
-                            listViewBúsqueda.Groups.Add(Canciones);
-                        }
-                        if (resultado.Count == 0)
-                        {
-                            labelErrorBúsqueda.Visible = true;
-                            labelErrorBúsqueda.Text = "No se encontraron resultados";
-                        }
-                    }
-                }
-                if (criterio2 == "Género")
-                {
-                    foreach (Canción canción in Archivos.cancionesApp)
-                    {
-                        foreach (String género in canción.genero)
-                        {
-                            List<Canción> resultado = new List<Canción>();
-                            if (género == filtro)
-                            {
-                                labelErrorBúsqueda.Visible = false;
-                                resultado.Add(canción);
-                                ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
-                                foreach (Canción canción1 in resultado)
-                                {
-                                    listViewBúsqueda.Items.Add(new ListViewItem(canción1.titulo, Canciones));
-
-                                }
-                                listViewBúsqueda.Groups.Add(Canciones);
-                            }
-                            if (resultado.Count == 0)
-                            {
-                                labelErrorBúsqueda.Visible = true;
-                                labelErrorBúsqueda.Text = "No se encontraron resultados";
-                            }
-                        }
-                    }
-                }
-                if (criterio2 == "Álbum")
-                {
-                    foreach (Canción canción in Archivos.cancionesApp)
-                    {
-                        List<Canción> resultado = new List<Canción>();
-                        if (canción.album.Nombre == filtro)
-                        {
-                            labelErrorBúsqueda.Visible = false;
-                            resultado.Add(canción);
-                            ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
-                            foreach (Canción canción1 in resultado)
-                            {
-                                listViewBúsqueda.Items.Add(new ListViewItem(canción1.Titulo, Canciones));
-
-                            }
-                            listViewBúsqueda.Groups.Add(Canciones);
-                        }
-                        if (resultado.Count == 0)
-                        {
-                            labelErrorBúsqueda.Visible = true;
-                            labelErrorBúsqueda.Text = "No se encontraron resultados";
-                        }
-                    }
-                }
-                if (criterio2 == "Artista")
-                {
-                    foreach (Canción canción in Archivos.cancionesApp)
-                    {
-                        List<Canción> resultado = new List<Canción>();
-                        if (canción.artista.Nombre == filtro)
-                        {
-                            labelErrorBúsqueda.Visible = false;
-                            resultado.Add(canción);
-                            ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
-                            foreach (Canción canción1 in resultado)
-                            {
-                                listViewBúsqueda.Items.Add(new ListViewItem(canción1.Titulo, Canciones));
-
-                            }
-                            listViewBúsqueda.Groups.Add(Canciones);
-                        }
-                        if (resultado.Count == 0)
-                        {
-                            labelErrorBúsqueda.Visible = true;
-                            labelErrorBúsqueda.Text = "No se encontraron resultados";
-                        }
-                    }
-                }
-            }
-            if (criterio1 == "Películas")
-            {
-                if (criterio2 == "Título")
-                {
-                    foreach (Película película in Archivos.películasApp)
-                    {
-                        List<Película> resultado = new List<Película>();
-                        if (película.titulo == filtro)
-                        {
-                            labelErrorBúsqueda.Visible = false;
-                            resultado.Add(película);
-                            ListViewGroup Películas = new ListViewGroup("Películas", HorizontalAlignment.Left);
-                            foreach (Película película1 in resultado)
-                            {
-                                listViewBúsqueda.Items.Add(new ListViewItem(película1.Titulo, Películas));
-
-                            }
-                            listViewBúsqueda.Groups.Add(Películas);
-                        }
-                        if (resultado.Count == 0)
-                        {
-                            labelErrorBúsqueda.Visible = true;
-                            labelErrorBúsqueda.Text = "No se encontraron resultados";
-                        }
-                    }
-                }
-                if (criterio2 == "Categoría")
-                { 
-                    try
-                    {
-                        foreach (Película película in Archivos.películasApp)
-                        {
-                            foreach (String categoría in película.Categoria)
-                            {
-                                List<Película> resultado = new List<Película>();
-                                if (categoría == filtro)
-                                {
-                                    labelErrorBúsqueda.Visible = false;
-                                    resultado.Add(película);
-                                    ListViewGroup Películas = new ListViewGroup("Películas", HorizontalAlignment.Left);
-                                    foreach (Película película1 in resultado)
-                                    {
-                                        listViewBúsqueda.Items.Add(new ListViewItem(película1.Titulo, Películas));
-
-                                    }
-                                    listViewBúsqueda.Groups.Add(Películas);
-                                }
-                            }
-                        }
-                    }
-                    catch
-                    {
-                        MessageBox.Show("No se han encontrado resultados para esta categoría");
-                    }
-                }
-                if (criterio2 == "Director")
-                {
-                    foreach (Película película in Archivos.películasApp)
-                    {
-                        List<Película> resultado = new List<Película>();
-                        if (película.director.Nombre == filtro)
-                        {
-                            labelErrorBúsqueda.Visible = false;
-                            resultado.Add(película);
-                            ListViewGroup Películas = new ListViewGroup("Películas", HorizontalAlignment.Left);
-                            foreach (Película película1 in resultado)
-                            {
-                                listViewBúsqueda.Items.Add(new ListViewItem(película1.Titulo, Películas));
-
-                            }
-                            listViewBúsqueda.Groups.Add(Películas);
-                        }
-                        if (resultado.Count == 0)
-                        {
-                            labelErrorBúsqueda.Visible = true;
-                            labelErrorBúsqueda.Text = "No se encontraron resultados";
-                        }
-                    }
-                }
-            }
-            if (criterio1 == "PlayLists")
-            {
-                if (criterio2 == "De Canciones")
-                {
-                    foreach (Playlist playlist in Archivos.playlists_Canciones)
-                    {
-                        List<Playlist> resultado = new List<Playlist>();
-                        if (playlist.Nombre == filtro)
-                        {
-                            labelErrorBúsqueda.Visible = false;
-                            resultado.Add(playlist);
-                            ListViewGroup PlayLists = new ListViewGroup("PlayLists", HorizontalAlignment.Left);
-                            foreach (Playlist playlist1 in resultado)
-                            {
-                                listViewBúsqueda.Items.Add(new ListViewItem(playlist1.Nombre, PlayLists));
-
-                            }
-                            listViewBúsqueda.Groups.Add(PlayLists);
-                        }
-                        if (resultado.Count == 0)
-                        {
-                            labelErrorBúsqueda.Visible = true;
-                            labelErrorBúsqueda.Text = "No se encontraron resultados";
-                        }
-                    }
-                }
-                if (criterio2 == "De Películas")
-                {
-                    foreach (Playlist playlist in Archivos.playlists_Películas)
-                    {
-                        List<Playlist> resultado = new List<Playlist>();
-                        if (playlist.Nombre == filtro)
-                        {
-                            labelErrorBúsqueda.Visible = false;
-                            resultado.Add(playlist);
-                            ListViewGroup PlayLists = new ListViewGroup("PlayLists", HorizontalAlignment.Left);
-                            foreach (Playlist playlist1 in resultado)
-                            {
-                                listViewBúsqueda.Items.Add(new ListViewItem(playlist1.Nombre, PlayLists));
-
-                            }
-                            listViewBúsqueda.Groups.Add(PlayLists);
-                        }
-                        if (resultado.Count == 0)
-                        {
-                            labelErrorBúsqueda.Visible = true;
-                            labelErrorBúsqueda.Text = "No se encontraron resultados";
-                        }
-                    }
-                }
+                comboBoxFiltro1.Items.Add("De Canciones");
+                comboBoxFiltro1.Items.Add("De Películas");
             }
         }
 
-        private void comboBoxCriterioPelícula_SelectedIndexChanged(object sender, EventArgs e)
+        private void comboBoxFiltro1_SelectedIndexChanged(object sender, EventArgs e)
         {
             panelBúsquedaDeCriterio.Visible = true;
-            labelErrorBúsqueda.Visible = false;
-            labelErrorBúsqueda.ResetText();
+            textBoxFiltroBúsqueda.Visible = true;
+            textBoxFiltroBúsqueda2.ResetText();
+            textBoxFiltroBúsqueda3.ResetText();
             textBoxFiltroBúsqueda.ResetText();
+            if (comboBoxCriterio1.Text != "Playlists")
+            {
+                buttonAgregarOtroFiltro1.Visible = true;
+            }
         }
 
         private void comboBoxCriterioCanción_SelectedIndexChanged(object sender, EventArgs e)
         {
             panelBúsquedaDeCriterio.Visible = true;
-            labelErrorBúsqueda.Visible = false;
-            labelErrorBúsqueda.ResetText();
             textBoxFiltroBúsqueda.ResetText();
+            buttonAgregarOtroFiltro2.Visible = false;
+            textBoxFiltroBúsqueda3.Visible = true;
         }
-
+        List<String> resultados = new List<string>();
         private void pictureBoxBuscar_Click(object sender, EventArgs e)
         {
-            string selección1 = comboBoxCriterio1.SelectedItem.ToString();
+            resultados.Clear();
+            listViewBúsqueda.Items.Clear();
+            string selección1 = comboBoxCriterio1.Text;
+            string filtro1 = comboBoxFiltro1.Text;
+            string filtro2 = comboBoxFiltro2.Text;
+            string filtro3 = comboBoxFiltro3.Text;
             labelFiltroBúsqueda.Visible = true;
-            string selección2;
+            string valor1 = textBoxFiltroBúsqueda.Text;
+            string valor2 = textBoxFiltroBúsqueda2.Text;
+            string valor3 = textBoxFiltroBúsqueda3.Text;
+            if (textBoxFiltroBúsqueda.Visible == true && textBoxFiltroBúsqueda2.Visible == false && textBoxFiltroBúsqueda3.Visible == false)
+            {
+                if (valor1 == "")
+                {
+                    MessageBox.Show("Ingrese un valor para su búsqueda");
+                }
+                else
+                {
+                    Buscar1Criterio(selección1, filtro1, valor1);
+                }
+            }
+            if (textBoxFiltroBúsqueda2.Visible == true && textBoxFiltroBúsqueda3.Visible == false)
+            {
+                if (valor2 == "" || valor1 == "")
+                {
+                    MessageBox.Show("Ingrese un valor para su búsqueda");
+                }
+                else
+                {
+                    Buscar2Criterio(selección1, filtro1, filtro2, valor1, valor2);
+                }
+            }
+            if (textBoxFiltroBúsqueda3.Visible == true)
+            {
+                if (valor2 == "" || valor3 == "" || valor1 == "")
+                {
+                    MessageBox.Show("Ingrese un valor para su búsqueda");
+                }
+                else
+                {
+                    Buscar3Criterio(selección1, filtro1, filtro2, filtro3, valor1, valor2, valor3);
+                }
+            }
+            if (resultados.Count() == 0)
+            {
+                MessageBox.Show("No se han encontrado resultados");
+            }
+        }
 
-            if (selección1 == "Canciones")
+        private void Buscar1Criterio(string criterio1, string filtro1, string valor)
+        {
+            if (criterio1 == "Canciones")
             {
-                selección2 = comboBoxCriterioCanción.SelectedItem.ToString();
-                string filtro = textBoxFiltroBúsqueda.Text;
-                if (filtro == "")
+                if (filtro1 == "Título")
                 {
-                    labelErrorBúsqueda.Visible = true;
-                    labelErrorBúsqueda.Text = "Debe ingresar un valor de búsqueda";
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        if (canción.titulo.Contains(valor))
+                        {
+                            listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                            resultados.Add(canción.Titulo);
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
                 }
-                else
+                if (filtro1 == "Género")
                 {
-                    Buscar(selección1, selección2, filtro);
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        foreach (String género in canción.genero)
+                        {
+                            if (género.Contains(valor))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                                resultados.Add(canción.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro1 == "Álbum")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        if (canción.album.Nombre.Contains(valor))
+                        {
+                            listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                            resultados.Add(canción.Titulo);
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro1 == "Artista")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        if (canción.artista.Apellido.Contains(valor))
+                        {
+                            listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                            resultados.Add(canción.Titulo);
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
                 }
             }
-            if (selección1 == "PlayLists")
+            if (criterio1 == "Películas")
             {
-                selección2 = comboBoxCriterioPlaylists.SelectedItem.ToString();
-                string filtro = textBoxFiltroBúsqueda.Text;
-                if (filtro == "")
+                if (filtro1 == "Título")
                 {
-                    labelErrorBúsqueda.Visible = true;
-                    labelErrorBúsqueda.Text = "Debe ingresar un valor de búsqueda";
+                    ListViewGroup Películas = new ListViewGroup("Películas", HorizontalAlignment.Left);
+                    foreach (Película película in Archivos.películasApp)
+                    {
+                        if (película.titulo.Contains(valor))
+                        {
+                            listViewBúsqueda.Items.Add(new ListViewItem(película.Titulo, Películas));
+                            resultados.Add(película.Titulo);
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Películas);
                 }
-                else
+                if (filtro1 == "Género")
                 {
-                    Buscar(selección1, selección2, filtro);
+                    ListViewGroup Películas = new ListViewGroup("Películas", HorizontalAlignment.Left);
+                    foreach (Película película in Archivos.películasApp)
+                    {
+                        foreach (String categoría in película.categoria)
+                        {
+                            if (categoría.Contains(valor))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(película.Titulo, Películas));
+                                resultados.Add(película.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Películas);
+                }
+                if (filtro1 == "Director")
+                {
+                    ListViewGroup Películas = new ListViewGroup("Películas", HorizontalAlignment.Left);
+                    foreach (Película película in Archivos.películasApp)
+                    {
+                        if (película.director.Apellido.Contains(valor))
+                        {
+                            listViewBúsqueda.Items.Add(new ListViewItem(película.Titulo, Películas));
+                            resultados.Add(película.Titulo);
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Películas);
                 }
             }
-            if (selección1 == "Películas")
+            if (criterio1 == "Playlists")
             {
-                selección2 = comboBoxCriterioPelícula.SelectedItem.ToString();
-                string filtro = textBoxFiltroBúsqueda.Text;
-                if (filtro == "")
+                if (filtro1 == "De Canciones")
                 {
-                    labelErrorBúsqueda.Visible = true;
-                    labelErrorBúsqueda.Text = "Debe ingresar un valor de búsqueda";
+                    ListViewGroup Playlist = new ListViewGroup("Playlist", HorizontalAlignment.Left);
+                    foreach (Playlist playlist in Archivos.playlists_Canciones)
+                    {
+                        if (playlist.Tipo_playlist == "De Canciones")
+                        {
+                            if (playlist.Nombre.Contains(valor))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(playlist.Nombre, Playlist));
+                                resultados.Add(playlist.Nombre);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Playlist);
                 }
-                else
+                if (filtro1 == "De Películas")
                 {
-                    Buscar(selección1, selección2, filtro);
+                    ListViewGroup Playlist = new ListViewGroup("Playlist", HorizontalAlignment.Left);
+                    foreach (Playlist playlist in Archivos.playlists_Películas)
+                    {
+                        if (playlist.Tipo_playlist == "De Películas")
+                        {
+                            if (playlist.Nombre.Contains(valor))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(playlist.Nombre, Playlist));
+                                resultados.Add(playlist.Nombre);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Playlist);
+                }
+            }
+        }
+
+        private void Buscar3Criterio(string criterio1, string filtro1, string filtro2, string filtro3, string valor, string valor2, string valor3)
+        {
+            if (criterio1 == "Canciones")
+            {
+                if (filtro1 == "Título" && filtro2 == "Género" && filtro3 == "Álbum")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        foreach (String género in canción.genero)
+                        {
+                            if (género.Contains(valor2) && canción.titulo.Contains(valor) && canción.album.Nombre.Contains(valor3))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                                resultados.Add(canción.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro1 == "Título" && filtro2 == "Género" && filtro3 == "Artista")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        foreach (String género in canción.genero)
+                        {
+                            if (género.Contains(valor2) && canción.titulo.Contains(valor) && canción.artista.Apellido.Contains(valor3))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                                resultados.Add(canción.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro1 == "Título" && filtro2 == "Álbum" && filtro3 == "Artista")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        if (canción.album.Nombre.Contains(valor2) && canción.titulo.Contains(valor) && canción.artista.Apellido.Contains(valor3))
+                        {
+                            listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                            resultados.Add(canción.Titulo);
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro1 == "Título" && filtro2 == "Álbum" && filtro3 == "Género")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        foreach (String género in canción.genero)
+                        {
+                            if (género.Contains(valor3) && canción.titulo.Contains(valor) && canción.album.Nombre.Contains(valor2))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                                resultados.Add(canción.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro1 == "Título" && filtro2 == "Artista" && filtro3 == "Álbum")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        if (canción.artista.Apellido.Contains(valor2) && canción.titulo.Contains(valor) && canción.album.Nombre.Contains(valor3))
+                        {
+                            listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                            resultados.Add(canción.Titulo);
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro1 == "Título" && filtro2 == "Artista" && filtro3 == "Género")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        foreach (String género in canción.genero)
+                        {
+                            if (género.Contains(valor3) && canción.titulo.Contains(valor) && canción.artista.Apellido.Contains(valor2))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                                resultados.Add(canción.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro2 == "Título" && filtro1 == "Género" && filtro3 == "Álbum")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        foreach (String género in canción.genero)
+                        {
+                            if (género.Contains(valor) && canción.titulo.Contains(valor2) && canción.album.Nombre.Contains(valor3))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                                resultados.Add(canción.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro2 == "Título" && filtro1 == "Género" && filtro3 == "Artista")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        foreach (String género in canción.genero)
+                        {
+                            if (género.Contains(valor) && canción.titulo.Contains(valor2) && canción.artista.Apellido.Contains(valor3))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                                resultados.Add(canción.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro2 == "Álbum" && filtro1 == "Género" && filtro3 == "Título")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        foreach (String género in canción.genero)
+                        {
+                            if (género.Contains(valor) && canción.album.Nombre.Contains(valor2) && canción.titulo.Contains(valor3))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                                resultados.Add(canción.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro2 == "Álbum" && filtro1 == "Género" && filtro3 == "Artista")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        foreach (String género in canción.genero)
+                        {
+                            if (género.Contains(valor) && canción.album.Nombre.Contains(valor2) && canción.artista.Apellido.Contains(valor3))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                                resultados.Add(canción.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro2 == "Artista" && filtro1 == "Género" && filtro3 == "Título")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        foreach (String género in canción.genero)
+                        {
+                            if (género.Contains(valor) && canción.artista.Apellido.Contains(valor2) && canción.titulo.Contains(valor3))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                                resultados.Add(canción.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro2 == "Artista" && filtro1 == "Género" && filtro3 == "Álbum")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        foreach (String género in canción.genero)
+                        {
+                            if (género.Contains(valor) && canción.artista.Apellido.Contains(valor2) && canción.album.Nombre.Contains(valor3))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                                resultados.Add(canción.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro2 == "Título" && filtro1 == "Álbum" && filtro3 == "Artista")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        if (canción.album.Nombre.Contains(valor) && canción.titulo.Contains(valor2) && canción.artista.Nombre.Contains(valor3))
+                        {
+                            listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                            resultados.Add(canción.Titulo);
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro2 == "Título" && filtro1 == "Álbum" && filtro3 == "Género")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        foreach (String género in canción.genero)
+                        {
+                            if (género.Contains(valor3) && canción.album.Nombre.Contains(valor) && canción.titulo.Contains(valor2))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                                resultados.Add(canción.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro2 == "Artista" && filtro1 == "Álbum" && filtro3 == "Género")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        foreach (String género in canción.genero)
+                        {
+                            if (género.Contains(valor3) && canción.album.Nombre.Contains(valor) && canción.artista.Apellido.Contains(valor2))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                                resultados.Add(canción.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro1 == "Álbum" && filtro2 == "Género" && filtro3 == "Título")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        foreach (String género in canción.genero)
+                        {
+                            if (género.Contains(valor2) && canción.album.Nombre.Contains(valor) && canción.titulo.Contains(valor3))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                                resultados.Add(canción.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro2 == "Título" && filtro1 == "Artista" && filtro3 == "Álbum")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        if (canción.artista.Apellido.Contains(valor) && canción.titulo.Contains(valor2) && canción.album.Nombre.Contains(valor3))
+                        {
+                            listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                            resultados.Add(canción.Titulo);
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro2 == "Título" && filtro1 == "Artista" && filtro3 == "Género")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        foreach (String género in canción.genero)
+                        {
+                            if (género.Contains(valor3) && canción.artista.Apellido.Contains(valor) && canción.titulo.Contains(valor2))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                                resultados.Add(canción.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro1 == "Artista" && filtro2 == "Álbum" && filtro3 == "Género")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        foreach (String género in canción.genero)
+                        {
+                            if (género.Contains(valor3) && canción.artista.Apellido.Contains(valor) && canción.album.Nombre.Contains(valor2))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                                resultados.Add(canción.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro1 == "Artista" && filtro2 == "Álbum" && filtro3 == "Título")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        if (canción.titulo.Contains(valor3) && canción.artista.Apellido.Contains(valor) && canción.album.Nombre.Contains(valor2))
+                        {
+                            listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                            resultados.Add(canción.Titulo);
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro1 == "Artista" && filtro2 == "Género" && filtro3 == "Título")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        foreach (String género in canción.genero)
+                        {
+                            if (género.Contains(valor2) && canción.artista.Apellido.Contains(valor) && canción.titulo.Contains(valor3))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                                resultados.Add(canción.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro1 == "Artista" && filtro2 == "Género" && filtro3 == "Álbum")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        foreach (String género in canción.genero)
+                        {
+                            if (género.Contains(valor2) && canción.artista.Apellido.Contains(valor) && canción.album.Nombre.Contains(valor3))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                                resultados.Add(canción.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+            }
+            if (criterio1 == "Películas")
+            {
+                if (filtro1 == "Título" && filtro2 == "Director" && filtro3 == "Categoría")
+                {
+                    ListViewGroup Películas = new ListViewGroup("Películas", HorizontalAlignment.Left);
+                    foreach (Película película in Archivos.películasApp)
+                    {
+                        foreach (String categoría in película.categoria)
+                        {
+                            if (categoría.Contains(valor3) && película.titulo.Contains(valor) && película.director.Apellido.Contains(valor2))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(película.Titulo, Películas));
+                                resultados.Add(película.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Películas);
+                }
+                if (filtro1 == "Título" && filtro2 == "Categoría" && filtro3 == "Director")
+                {
+                    ListViewGroup Películas = new ListViewGroup("Películas", HorizontalAlignment.Left);
+                    foreach (Película película in Archivos.películasApp)
+                    {
+                        foreach (String categoría in película.categoria)
+                        {
+                            if (categoría.Contains(valor2) && película.titulo.Contains(valor) && película.director.Apellido.Contains(valor3))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(película.Titulo, Películas));
+                                resultados.Add(película.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Películas);
+                }
+                if (filtro2 == "Título" && filtro1 == "Categoría" && filtro3 == "Director")
+                {
+                    ListViewGroup Películas = new ListViewGroup("Películas", HorizontalAlignment.Left);
+                    foreach (Película película in Archivos.películasApp)
+                    {
+                        foreach (String categoría in película.categoria)
+                        {
+                            if (categoría.Contains(valor) && película.titulo.Contains(valor2) && película.director.Apellido.Contains(valor3))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(película.Titulo, Películas));
+                                resultados.Add(película.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Películas);
+                }
+                if (filtro2 == "Director" && filtro1 == "Categoría" && filtro3 == "Título")
+                {
+                    ListViewGroup Películas = new ListViewGroup("Películas", HorizontalAlignment.Left);
+                    foreach (Película película in Archivos.películasApp)
+                    {
+                        foreach (String categoría in película.categoria)
+                        {
+                            if (categoría.Contains(valor) && película.director.Apellido.Contains(valor2) && película.titulo.Contains(valor3))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(película.Titulo, Películas));
+                                resultados.Add(película.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Películas);
+                }
+                if (filtro1 == "Director" && filtro2 == "Categoría" && filtro3 == "Título")
+                {
+                    ListViewGroup Películas = new ListViewGroup("Películas", HorizontalAlignment.Left);
+                    foreach (Película película in Archivos.películasApp)
+                    {
+                        foreach (String categoría in película.categoria)
+                        {
+                            if (categoría.Contains(valor2) && película.director.Apellido.Contains(valor) && película.titulo.Contains(valor3))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(película.Titulo, Películas));
+                                resultados.Add(película.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Películas);
+                }
+                if (filtro2 == "Título" && filtro1 == "Director" && filtro3 == "Categoría")
+                {
+                    ListViewGroup Películas = new ListViewGroup("Películas", HorizontalAlignment.Left);
+                    foreach (Película película in Archivos.películasApp)
+                    {
+                        foreach (String categoría in película.categoria)
+                        {
+                            if (categoría.Contains(valor3) && película.director.Apellido.Contains(valor) && película.titulo.Contains(valor2))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(película.Titulo, Películas));
+                                resultados.Add(película.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Películas);
+                }
+            }
+        }
+
+        private void Buscar2Criterio(string criterio1, string filtro1, string filtro2, string valor, string valor2)
+        {
+            if (criterio1 == "Canciones")
+            {
+                if (filtro1 == "Título" && filtro2 == "Género")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        foreach (String género in canción.genero)
+                        {
+                            if (género.Contains(valor2) && canción.titulo.Contains(valor))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                                resultados.Add(canción.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro1 == "Título" && filtro2 == "Álbum")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        if (canción.album.Nombre.Contains(valor2) && canción.titulo.Contains(valor))
+                        {
+                            listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                            resultados.Add(canción.Titulo);
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro1 == "Título" && filtro2 == "Artista")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        if (canción.artista.Apellido.Contains(valor2) && canción.titulo.Contains(valor))
+                        {
+                            listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                            resultados.Add(canción.Titulo);
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro2 == "Título" && filtro1 == "Género")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        foreach (String género in canción.genero)
+                        {
+                            if (género.Contains(valor) && canción.titulo.Contains(valor2))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                                resultados.Add(canción.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro2 == "Álbum" && filtro1 == "Género")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        foreach (String género in canción.genero)
+                        {
+                            if (género.Contains(valor) && canción.album.Nombre.Contains(valor2))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                                resultados.Add(canción.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro2 == "Artista" && filtro1 == "Género")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        foreach (String género in canción.genero)
+                        {
+                            if (género.Contains(valor) && canción.artista.Apellido.Contains(valor2))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                                resultados.Add(canción.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro2 == "Título" && filtro1 == "Álbum")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        if (canción.album.Nombre.Contains(valor) && canción.titulo.Contains(valor2))
+                        {
+                            listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                            resultados.Add(canción.Titulo);
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro2 == "Artista" && filtro1 == "Álbum")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        if (canción.album.Nombre.Contains(valor) && canción.artista.Apellido.Contains(valor2))
+                        {
+                            listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                            resultados.Add(canción.Titulo);
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro1 == "Álbum" && filtro2 == "Género")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        foreach (String género in canción.genero)
+                        {
+                            if (género.Contains(valor2) && canción.album.Nombre.Contains(valor))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                                resultados.Add(canción.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro2 == "Título" && filtro1 == "Artista")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        if (canción.artista.Apellido.Contains(valor) && canción.titulo.Contains(valor2))
+                        {
+                            listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                            resultados.Add(canción.Titulo);
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro1 == "Artista" && filtro2 == "Álbum")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        if (canción.album.Nombre.Contains(valor2) && canción.artista.Apellido.Contains(valor))
+                        {
+                            listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                            resultados.Add(canción.Titulo);
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+                if (filtro1 == "Artista" && filtro2 == "Género")
+                {
+                    ListViewGroup Canciones = new ListViewGroup("Canciones", HorizontalAlignment.Left);
+                    foreach (Canción canción in Archivos.cancionesApp)
+                    {
+                        foreach (String género in canción.genero)
+                        {
+                            if (género.Contains(valor2) && canción.artista.Apellido.Contains(valor))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(canción.Titulo, Canciones));
+                                resultados.Add(canción.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Canciones);
+                }
+            }
+            if (criterio1 == "Películas")
+            {
+                if (filtro1 == "Título" && filtro2 == "Director")
+                {
+                    ListViewGroup Películas = new ListViewGroup("Películas", HorizontalAlignment.Left);
+                    foreach (Película película in Archivos.películasApp)
+                    {
+                        if (película.titulo.Contains(valor) && película.director.Apellido.Contains(valor2))
+                        {
+                            listViewBúsqueda.Items.Add(new ListViewItem(película.Titulo, Películas));
+                            resultados.Add(película.Titulo);
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Películas);
+                }
+                if (filtro1 == "Título" && filtro2 == "Categoría")
+                {
+                    ListViewGroup Películas = new ListViewGroup("Películas", HorizontalAlignment.Left);
+                    foreach (Película película in Archivos.películasApp)
+                    {
+                        foreach (String categoría in película.categoria)
+                        {
+                            if (categoría.Contains(valor2) && película.titulo.Contains(valor))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(película.Titulo, Películas));
+                                resultados.Add(película.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Películas);
+                }
+                if (filtro2 == "Título" && filtro1 == "Categoría")
+                {
+                    ListViewGroup Películas = new ListViewGroup("Películas", HorizontalAlignment.Left);
+                    foreach (Película película in Archivos.películasApp)
+                    {
+                        foreach (String categoría in película.categoria)
+                        {
+                            if (categoría.Contains(valor) && película.titulo.Contains(valor2))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(película.Titulo, Películas));
+                                resultados.Add(película.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Películas);
+                }
+                if (filtro2 == "Director" && filtro1 == "Categoría")
+                {
+                    ListViewGroup Películas = new ListViewGroup("Películas", HorizontalAlignment.Left);
+                    foreach (Película película in Archivos.películasApp)
+                    {
+                        foreach (String categoría in película.categoria)
+                        {
+                            if (categoría.Contains(valor) && película.director.Apellido.Contains(valor2))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(película.Titulo, Películas));
+                                resultados.Add(película.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Películas);
+                }
+                if (filtro1 == "Director" && filtro2 == "Categoría")
+                {
+                    ListViewGroup Películas = new ListViewGroup("Películas", HorizontalAlignment.Left);
+                    foreach (Película película in Archivos.películasApp)
+                    {
+                        foreach (String categoría in película.categoria)
+                        {
+                            if (categoría.Contains(valor2) && película.director.Apellido.Contains(valor))
+                            {
+                                listViewBúsqueda.Items.Add(new ListViewItem(película.Titulo, Películas));
+                                resultados.Add(película.Titulo);
+                            }
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Películas);
+                }
+                if (filtro2 == "Título" && filtro1 == "Director")
+                {
+                    ListViewGroup Películas = new ListViewGroup("Películas", HorizontalAlignment.Left);
+                    foreach (Película película in Archivos.películasApp)
+                    {
+                        if (película.titulo.Contains(valor2) && película.director.Apellido.Contains(valor))
+                        {
+                            listViewBúsqueda.Items.Add(new ListViewItem(película.Titulo, Películas));
+                            resultados.Add(película.Titulo);
+                        }
+                    }
+                    listViewBúsqueda.Groups.Add(Películas);
                 }
             }
         }
@@ -1567,9 +2204,12 @@ namespace Entrega3Spotiflix
         private void comboBoxCriterioPlaylists_SelectedIndexChanged(object sender, EventArgs e)
         {
             panelBúsquedaDeCriterio.Visible = true;
-            labelErrorBúsqueda.Visible = false;
-            labelErrorBúsqueda.ResetText();
             textBoxFiltroBúsqueda.ResetText();
+            textBoxFiltroBúsqueda2.Visible = true;
+            if (comboBoxCriterio1.Text != "Playlists")
+            {
+                buttonAgregarOtroFiltro2.Visible = true;
+            }
         }
 
         private void axWindowsMediaPlayer2_Enter(object sender, EventArgs e)
@@ -1765,8 +2405,16 @@ namespace Entrega3Spotiflix
                 }
                 else
                 {
-                    Serializacion();
-                    OnPlaylistChecked(nombre);
+                    foreach (Usuario usuario in Archivos.Usuarios)
+                    {
+                        if (usuario.Nombre_usuario == textBoxUsernamePerfil.Text)
+                        {
+                            MessageBox.Show("Playlist agregada correctamente");
+                            OnPlaylistChecked(nombre);
+                            usuario.Playlists.Add(nombre);
+                            Serializacion();
+                        }
+                    }
                 }
             }
         }
@@ -1788,6 +2436,7 @@ namespace Entrega3Spotiflix
                 }
                 stackPanels.Add(panels["MenuPanel"]);
                 ShowLastPanel();
+                Serializacion();
             }
         }
         public void setNombrePlaylist(string nombre)
@@ -1809,16 +2458,7 @@ namespace Entrega3Spotiflix
                 {
                     if (usuario.Nombre_usuario == textBoxUsernamePerfil.Text)
                     {
-                        if (usuario.Playlists.Contains(nombre))
-                        {
-                            MessageBox.Show("El nombre de la PlayList ya está en uso");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Se ha creado la PlayList");
-                            OnAgregarPlaylistClicked(nombre, Tipo_playlist);
-                            usuario.Playlists.Add(nombre);
-                        }
+                        OnAgregarPlaylistClicked(nombre, Tipo_playlist);
                     }
                 }
             }
@@ -2306,7 +2946,7 @@ namespace Entrega3Spotiflix
                     labelGeneroUsuario.Text = usuario1.Genero;
                     labelNacionalidadUsuario.Text = usuario1.Nacionalidad;
                     labelFechaDeNacimiento.Text = usuario1.FechaNac;
-                    labelSeguidoresUsuario.Text = Convert.ToString(usuario1.Seguidores.Count());
+                    labelSeguidoresUsuario.Text = Convert.ToString(usuario1.NúmeroSeguidores);
                     labelTipoDeUsuario.Text = usuario1.Tipo_usuario;
 
                 }
@@ -2501,7 +3141,7 @@ namespace Entrega3Spotiflix
             ListViewGroup Usuarios = new ListViewGroup("Usuarios", HorizontalAlignment.Left);
             foreach (Usuario usuario in Archivos.Usuarios)
             {
-                if (usuario.Nombre_usuario != textBoxUsernamePerfil.Text)
+                if (usuario.Nombre_usuario != textBoxUsernamePerfil.Text && usuario.Nombre_usuario != "admin")
                 {
                     listViewUsuarios.Items.Add(new ListViewItem(usuario.Nombre_usuario, Usuarios));
                 }
@@ -2584,28 +3224,32 @@ namespace Entrega3Spotiflix
 
         private void buttonGoPlaylistsUsuarioSiguiendo_Click(object sender, EventArgs e)
         {
+            buttonEliminarPlaylist.Visible = false;
+            axWindowsMediaPlayer5.Visible = false;
+            axWindowsMediaPlayer6.Visible = false;
+            buttonNextPlaylistPelículas.Visible = false;
+            buttonNextPlaylistCanciones.Visible = false;
+            buttonReproducirPlaylistCanciones.Visible = false;
+            pictureBoxSalirPelículaTodasMisPlaylist.Visible = false;
+            listViewPelículasDeMisPlaylist.Visible = false;
+            listViewCancionesDeMisPlaylist.Visible = false;
+            labelPelículasTodasMisPlaylist.Visible = false;
+            labelCancionesTodasMisPlaylist.Visible = false;
+            stackPanels.Add(panels["TodasMisPlaylistsPanel"]);
+            ShowLastPanel();
+            labelUsuarioTodaMisPlaylist.Text = UsuarioSeguidoSeleccionado.Text;
             foreach (Usuario usuario in Archivos.Usuarios)
             {
-                if (usuario.Nombre_usuario == UsuarioSeguidoSeleccionado.Text)
+                if (usuario.Nombre_usuario == labelUsuarioTodaMisPlaylist.Text)
                 {
-                    listViewPelículasDeMisPlaylist.Visible = false;
-                    listViewCancionesDeMisPlaylist.Visible = false;
-                    labelPelículasTodasMisPlaylist.Visible = false;
-                    labelCancionesTodasMisPlaylist.Visible = false;
-                    stackPanels.Add(panels["TodasMisPlaylistsPanel"]);
-                    ShowLastPanel();
-                    labelUsuarioTodaMisPlaylist.Text = UsuarioSeguidoSeleccionado.Text;
-                    if (usuario.Nombre_usuario == labelUsuarioTodaMisPlaylist.Text)
+                    listViewTodasMisPlaylists.Clear();
+                    ListViewGroup Playlists = new ListViewGroup("Playlists", HorizontalAlignment.Left);
+                    foreach (String película in usuario.Playlists)
                     {
-                        listViewTodasMisPlaylists.Clear();
-                        ListViewGroup Playlists = new ListViewGroup("Playlists", HorizontalAlignment.Left);
-                        foreach (String película in usuario.Playlists)
-                        {
-                            listViewTodasMisPlaylists.Items.Add(new ListViewItem(película, Playlists));
+                        listViewTodasMisPlaylists.Items.Add(new ListViewItem(película, Playlists));
 
-                        }
-                        listViewTodasMisPlaylists.Groups.Add(Playlists);
                     }
+                    listViewTodasMisPlaylists.Groups.Add(Playlists);
                 }
             }
         }
@@ -2718,10 +3362,20 @@ namespace Entrega3Spotiflix
         {
             stackPanels.Add(panels["MenuPanel"]);
             ShowLastPanel();
+            axWindowsMediaPlayer5.Ctlcontrols.pause();
+            CuentaTodasPlaylistCanciones = 0;
+            CuentaTodasPlaylistPelículas = 0;
         }
 
         private void buttonGoTodasMisPlaylists_Click(object sender, EventArgs e)
         {
+            buttonEliminarPlaylist.Visible = false;
+            axWindowsMediaPlayer5.Visible = false;
+            axWindowsMediaPlayer6.Visible = false;
+            buttonNextPlaylistPelículas.Visible = false;
+            buttonNextPlaylistCanciones.Visible = false;
+            buttonReproducirPlaylistCanciones.Visible = false;
+            pictureBoxSalirPelículaTodasMisPlaylist.Visible = false;
             listViewPelículasDeMisPlaylist.Visible = false;
             listViewCancionesDeMisPlaylist.Visible = false;
             labelPelículasTodasMisPlaylist.Visible = false;
@@ -2759,6 +3413,10 @@ namespace Entrega3Spotiflix
 
         private void listViewTodasMisPlaylists_MouseClick(object sender, MouseEventArgs e)
         {
+            axWindowsMediaPlayer5.Visible = false;
+            axWindowsMediaPlayer5.Ctlcontrols.pause();
+            buttonNextPlaylistCanciones.Visible = false;
+            buttonEliminarPlaylist.Visible = true;
             string nombre = listViewTodasMisPlaylists.SelectedItems[0].SubItems[0].Text;
             foreach (Playlist playlist in Archivos.playlists_Canciones)
             {
@@ -2766,6 +3424,7 @@ namespace Entrega3Spotiflix
                 {
                     if (playlist.Tipo_playlist == "De Canciones")
                     {
+                        buttonReproducirPlaylistCanciones.Visible = true;
                         listViewPelículasDeMisPlaylist.Visible = false;
                         labelPelículasTodasMisPlaylist.Visible = false;
                         labelCancionesTodasMisPlaylist.Text = nombre;
@@ -2782,6 +3441,8 @@ namespace Entrega3Spotiflix
                     }
                     if (playlist.Tipo_playlist == "De Películas")
                     {
+                        buttonReproducirPlaylistCanciones.Visible = true;
+                        buttonNextPlaylistCanción.Visible = true;
                         listViewCancionesDeMisPlaylist.Visible = false;
                         labelCancionesTodasMisPlaylist.Visible = false;
                         labelPelículasTodasMisPlaylist.Text = nombre;
@@ -2826,7 +3487,6 @@ namespace Entrega3Spotiflix
                 }
             }
         }
-
         private void buttonConfirmarAgregarCanciónAPlaylist_Click(object sender, EventArgs e)
         {
             if (comboBoxPlaylistParaAgregarCanción.Text != "")
@@ -2843,7 +3503,15 @@ namespace Entrega3Spotiflix
                         }
                         else
                         {
-                            playlist.ListaCanciones.Add(nombre2);
+                            if (playlist.ListaCanciones.Count() == 0)
+                            {
+                                playlist.ListaCanciones.Insert(0, nombre2);
+                            }
+                            else
+                            {
+                                int contador = playlist.ListaCanciones.Count();
+                                playlist.ListaCanciones.Insert(contador, nombre2);
+                            }
                             MessageBox.Show("Canción agregada correctamente");
                         }
                     }
@@ -2884,7 +3552,6 @@ namespace Entrega3Spotiflix
                 }
             }
         }
-
         private void buttonConfirmarAgregarPelículaAPlaylist_Click(object sender, EventArgs e)
         {
             if (comboBoxPlaylistParaAgregarPelícula.Text != "")
@@ -2901,7 +3568,15 @@ namespace Entrega3Spotiflix
                         }
                         else
                         {
-                            playlist.ListaPelículas.Add(nombre2);
+                            if (playlist.ListaPelículas.Count() == 0)
+                            {
+                                playlist.ListaPelículas.Insert(0, nombre2);
+                            }
+                            else
+                            {
+                                int contador = playlist.ListaPelículas.Count();
+                                playlist.ListaPelículas.Insert(contador, nombre2);
+                            }
                             MessageBox.Show("Película agregada correctamente");
                         }
                     }
@@ -2918,24 +3593,31 @@ namespace Entrega3Spotiflix
 
         private void buttonGoSolicitudes_Click(object sender, EventArgs e)
         {
-            buttonRechazarSolicitud.Visible = false;
-            buttonAceptarSolicitud.Visible = false;
-            label78.Visible = false;
-            labelUsuarioSolicitud.Visible = false;
-            stackPanels.Add(panels["SolicitudesPanel"]);
-            ShowLastPanel();
             foreach (Usuario usuario in Archivos.Usuarios)
             {
                 if (usuario.Nombre_usuario == textBoxUsernamePerfil.Text)
                 {
-                    listViewSolicitudes.Clear();
-                    ListViewGroup Playlists = new ListViewGroup("Playlists", HorizontalAlignment.Left);
-                    foreach (String solicitud in usuario.Solicitudes)
+                    if (usuario.Solicitudes.Count() == 0)
                     {
-                        listViewSolicitudes.Items.Add(new ListViewItem(solicitud, Playlists));
-
+                        MessageBox.Show("Usted no tiene solicitudes de amistad");
                     }
-                    listViewSolicitudes.Groups.Add(Playlists);
+                    else
+                    {
+                        buttonRechazarSolicitud.Visible = false;
+                        buttonAceptarSolicitud.Visible = false;
+                        label78.Visible = false;
+                        labelUsuarioSolicitud.Visible = false;
+                        stackPanels.Add(panels["SolicitudesPanel"]);
+                        ShowLastPanel();
+                        listViewSolicitudes.Clear();
+                        ListViewGroup Solicitudes = new ListViewGroup("Solicitudes", HorizontalAlignment.Left);
+                        foreach (String solicitud in usuario.Solicitudes)
+                        {
+                            listViewSolicitudes.Items.Add(new ListViewItem(solicitud, Solicitudes));
+
+                        }
+                        listViewSolicitudes.Groups.Add(Solicitudes);
+                    }
                 }
             }
         }
@@ -3017,6 +3699,265 @@ namespace Entrega3Spotiflix
             label78.Visible = false;
             labelUsuarioSolicitud.Visible = false;
             Serializacion();
+        }
+        private void buttonAgregarOtroFiltro1_Click_1(object sender, EventArgs e)
+        {
+            comboBoxFiltro2.Items.Clear();
+            comboBoxFiltro2.ResetText();
+            comboBoxFiltro2.Visible = true;
+            if (comboBoxCriterio1.Text == "Playlists")
+            {
+                comboBoxFiltro2.Items.Add("De películas");
+                comboBoxFiltro2.Items.Add("De Canciones");
+                comboBoxFiltro2.Items.Remove(comboBoxFiltro1.Text);
+            }
+            if (comboBoxCriterio1.Text == "Canciones")
+            {
+                comboBoxFiltro2.Items.Add("Título");
+                comboBoxFiltro2.Items.Add("Álbum");
+                comboBoxFiltro2.Items.Add("Artista");
+                comboBoxFiltro2.Items.Add("Género");
+                comboBoxFiltro2.Items.Remove(comboBoxFiltro1.Text);
+            }
+            if (comboBoxCriterio1.Text == "Películas")
+            {
+                comboBoxFiltro2.Items.Add("Título");
+                comboBoxFiltro2.Items.Add("Categoría");
+                comboBoxFiltro2.Items.Add("Director");
+                comboBoxFiltro2.Items.Remove(comboBoxFiltro1.Text);
+            }
+            buttonAgregarOtroFiltro1.Visible = false;
+        }
+
+        private void buttonAgregarOtroFiltro2_Click(object sender, EventArgs e)
+        {
+            comboBoxFiltro3.Items.Clear();
+            comboBoxFiltro3.ResetText();
+            comboBoxFiltro3.Visible = true;
+            if (comboBoxCriterio1.Text == "Canciones")
+            {
+                comboBoxFiltro3.Items.Add("Título");
+                comboBoxFiltro3.Items.Add("Álbum");
+                comboBoxFiltro3.Items.Add("Artista");
+                comboBoxFiltro3.Items.Add("Género");
+                comboBoxFiltro3.Items.Remove(comboBoxFiltro1.Text);
+                comboBoxFiltro3.Items.Remove(comboBoxFiltro2.Text);
+            }
+            if (comboBoxCriterio1.Text == "Películas")
+            {
+                comboBoxFiltro3.Items.Add("Título");
+                comboBoxFiltro3.Items.Add("Categoría");
+                comboBoxFiltro3.Items.Add("Director");
+                comboBoxFiltro3.Items.Remove(comboBoxFiltro1.Text);
+                comboBoxFiltro3.Items.Remove(comboBoxFiltro2.Text);
+            }
+            buttonAgregarOtroFiltro2.Visible = false;
+        }
+
+
+        private void panelBúsqueda_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void buttonReproducirPlaylistCanciones_Click(object sender, EventArgs e)
+        {
+            CuentaTodasPlaylistCanciones = 1;
+            CuentaTodasPlaylistPelículas = 1;
+            string nombre = listViewTodasMisPlaylists.SelectedItems[0].SubItems[0].Text;
+            foreach (Playlist playlist in Archivos.playlists_Canciones)
+            {
+                if (playlist.Nombre == nombre)
+                {
+                    if (playlist.Tipo_playlist == "De Canciones")
+                    {
+                        foreach (Usuario usuario1 in Archivos.Usuarios)
+                        {
+                            if (usuario1.Nombre_usuario == textBoxUsernamePerfil.Text)
+                            {
+                                try
+                                {
+                                    buttonNextPlaylistCanciones.Visible = true;
+                                    EncontrarArchivo(playlist.ListaCanciones[0]);
+                                    axWindowsMediaPlayer5.Visible = true;
+                                    axWindowsMediaPlayer5.URL = this.ruta;
+                                    axWindowsMediaPlayer5.Ctlcontrols.play();
+                                    usuario1.Historial.Add(playlist.ListaCanciones[0]);
+                                }
+                                catch
+                                {
+                                    MessageBox.Show("Al parecer la playlist esta vacía");
+                                }
+                            }
+                        }
+                    }
+                    if (playlist.Tipo_playlist == "De Películas")
+                    {
+                        foreach (Usuario usuario1 in Archivos.Usuarios)
+                        {
+                            if (usuario1.Nombre_usuario == textBoxUsernamePerfil.Text)
+                            {
+                                try
+                                {
+                                    buttonEliminarPlaylist.Visible = false;
+                                    EncontrarArchivo(playlist.ListaPelículas[0]);
+                                    axWindowsMediaPlayer6.Visible = true;
+                                    buttonNextPlaylistPelículas.Visible = true;
+                                    buttonReproducirPlaylistCanciones.Visible = false;
+                                    axWindowsMediaPlayer6.URL = this.ruta;
+                                    pictureBoxSalirPelículaTodasMisPlaylist.SizeMode = PictureBoxSizeMode.StretchImage;
+                                    axWindowsMediaPlayer6.Dock = DockStyle.Fill;
+                                    pictureBoxSalirPelículaTodasMisPlaylist.Visible = true;
+                                    axWindowsMediaPlayer6.Ctlcontrols.play();
+                                    usuario1.Historial.Add(playlist.ListaPelículas[0]);
+                                }
+                                catch
+                                {
+                                    buttonEliminarPlaylist.Visible = true;
+                                    MessageBox.Show("Al parecer la playlist esta vacía");
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        int CuentaTodasPlaylistCanciones = 1;
+        private void buttonNextPlaylistCanciones_Click(object sender, EventArgs e)
+        {
+            string nombre = listViewTodasMisPlaylists.SelectedItems[0].SubItems[0].Text;
+            foreach (Playlist playlist in Archivos.playlists_Canciones)
+            {
+                if (playlist.Nombre == nombre)
+                {
+                    foreach (Usuario usuario1 in Archivos.Usuarios)
+                    {
+                        if (usuario1.Nombre_usuario == textBoxUsernamePerfil.Text)
+                        {
+                            try
+                            {
+                                EncontrarArchivo(playlist.ListaCanciones[CuentaTodasPlaylistCanciones]);
+                                axWindowsMediaPlayer5.URL = this.ruta;
+                                axWindowsMediaPlayer5.Ctlcontrols.play();
+                                usuario1.Historial.Add(playlist.ListaCanciones[CuentaTodasPlaylistCanciones]);
+                                CuentaTodasPlaylistCanciones += 1;
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Agregue mas canciones a su playlist");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        int CuentaTodasPlaylistPelículas = 1;
+        private void buttonNextPlaylistPelículas_Click(object sender, EventArgs e)
+        {
+            string nombre = listViewTodasMisPlaylists.SelectedItems[0].SubItems[0].Text;
+            foreach (Playlist playlist in Archivos.playlists_Canciones)
+            {
+                if (playlist.Nombre == nombre)
+                {
+                    foreach (Usuario usuario1 in Archivos.Usuarios)
+                    {
+                        if (usuario1.Nombre_usuario == textBoxUsernamePerfil.Text)
+                        {
+                            try
+                            {
+                                EncontrarArchivo(playlist.ListaPelículas[CuentaTodasPlaylistPelículas]);
+                                axWindowsMediaPlayer6.URL = this.ruta;
+                                axWindowsMediaPlayer6.Ctlcontrols.play();
+                                usuario1.Historial.Add(playlist.ListaPelículas[CuentaTodasPlaylistPelículas]);
+                                CuentaTodasPlaylistPelículas += 1;
+                            }
+                            catch
+                            {
+                                MessageBox.Show("Agregue mas películas a su playlist");
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        private void pictureBoxSalirPelículaTodasMisPlaylist_Click(object sender, EventArgs e)
+        {
+            axWindowsMediaPlayer6.Ctlcontrols.pause();
+            axWindowsMediaPlayer6.Visible = false;
+            pictureBoxSalirPelículaTodasMisPlaylist.Visible = false;
+            buttonNextPlaylistPelículas.Visible = false;
+            buttonReproducirPlaylistCanciones.Visible = true;
+        }
+
+        private void buttonEliminarPlaylist_Click(object sender, EventArgs e)
+        {
+            List<Playlist> lista1 = new List<Playlist>();
+            lista1 = Archivos.playlists_Canciones;
+            List<Playlist> lista2 = new List<Playlist>();
+            lista1 = Archivos.playlists_Películas;
+            string nombre = listViewTodasMisPlaylists.SelectedItems[0].SubItems[0].Text;
+            Playlist EliminarPlaylist = new Playlist();
+            Usuario usuario = new Usuario();
+            foreach (Playlist playlist in lista1)
+            {
+                if (playlist.Nombre == nombre)
+                {
+                    if (playlist.Tipo_playlist == "De Canciones")
+                    {
+                        foreach (Usuario usuario1 in Archivos.Usuarios)
+                        {
+                            if (usuario1.Nombre_usuario == textBoxUsernamePerfil.Text)
+                            {
+                                usuario = usuario1;
+                                EliminarPlaylist = playlist;
+                            }
+                        }
+                    }
+                    if (playlist.Tipo_playlist == "De Películas")
+                    {
+                        foreach (Usuario usuario1 in Archivos.Usuarios)
+                        {
+                            if (usuario1.Nombre_usuario == textBoxUsernamePerfil.Text)
+                            {
+                                usuario = usuario1;
+                                EliminarPlaylist = playlist;
+                            }
+                        }
+                    }
+                }
+            }
+            if (usuario.Nombre_usuario == textBoxUsernamePerfil.Text)
+            {
+                usuario.Playlists.Remove(nombre);
+                Archivos.playlists_Películas.Remove(EliminarPlaylist);
+                Archivos.playlists_Canciones.Remove(EliminarPlaylist);
+                MessageBox.Show("PlayList eliminada correctamente");
+                listViewTodasMisPlaylists.Clear();
+                ListViewGroup Playlists = new ListViewGroup("Playlists", HorizontalAlignment.Left);
+                foreach (String película in usuario.Playlists)
+                {
+                    listViewTodasMisPlaylists.Items.Add(new ListViewItem(película, Playlists));
+
+                }
+                listViewTodasMisPlaylists.Groups.Add(Playlists);
+                buttonReproducirPlaylistCanciones.Visible = false;
+                buttonEliminarPlaylist.Visible = false;
+                listViewPelículasDeMisPlaylist.Visible = false;
+                listViewCancionesDeMisPlaylist.Visible = false;
+                labelCancionesTodasMisPlaylist.Visible = false;
+                labelPelículasTodasMisPlaylist.Visible = false;
+                Serializacion();
+            }
+            else
+            {
+                MessageBox.Show("Solo el creador de la playlist puede eliminarla");
+            }
+        }
+
+        private void panelCrearPlaylist_Paint(object sender, PaintEventArgs e)
+        {
+
         }
 
         private void buttonGoMisPlaylists_Click(object sender, EventArgs e)

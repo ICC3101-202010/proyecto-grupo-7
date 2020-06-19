@@ -61,7 +61,7 @@ namespace Entrega3Spotiflix
         public List<string> Playlists { get => playlists; set => playlists = value; }
         public string Privacidad { get => privacidad; set => privacidad = value; }
         public int NúmeroSeguidores { get => númeroSeguidores; set => númeroSeguidores = value; }
-        public List<string> Solicitudes { get => playlists; set => playlists = value; }
+        public List<string> Solicitudes { get => solicitudes; set => solicitudes = value; }
 
 
 

@@ -61,6 +61,9 @@
             this.registerViewButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.buttonGoSolicitudes = new System.Windows.Forms.Button();
+            this.buttonGoTodasMisPlaylists = new System.Windows.Forms.Button();
+            this.buttonGoCrearPlaylist = new System.Windows.Forms.Button();
             this.buttonGoHistorial = new System.Windows.Forms.Button();
             this.buttonGoTopCanciones = new System.Windows.Forms.Button();
             this.buttonGoEliminarMedia = new System.Windows.Forms.Button();
@@ -118,6 +121,9 @@
             this.buttonCambiarContraseña = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.panelCancciones = new System.Windows.Forms.Panel();
+            this.buttonAgregarAMisPlaylists = new System.Windows.Forms.Button();
+            this.buttonConfirmarAgregarCanciónAPlaylist = new System.Windows.Forms.Button();
+            this.comboBoxPlaylistParaAgregarCanción = new System.Windows.Forms.ComboBox();
             this.labelCanciónReproducida = new System.Windows.Forms.Label();
             this.labelReproduciendo = new System.Windows.Forms.Label();
             this.buttonNext2 = new System.Windows.Forms.Button();
@@ -147,6 +153,9 @@
             this.CanciónSeleccionada = new System.Windows.Forms.Label();
             this.listViewCanciones = new System.Windows.Forms.ListView();
             this.panelPelículas = new System.Windows.Forms.Panel();
+            this.buttonAgregarPelículaAMisPlaylist = new System.Windows.Forms.Button();
+            this.buttonConfirmarAgregarPelículaAPlaylist = new System.Windows.Forms.Button();
+            this.comboBoxPlaylistParaAgregarPelícula = new System.Windows.Forms.ComboBox();
             this.buttonNext1Películas = new System.Windows.Forms.Button();
             this.buttonNext2Películas = new System.Windows.Forms.Button();
             this.pictureBoxSalirReproducirPelicula = new System.Windows.Forms.PictureBox();
@@ -175,16 +184,18 @@
             this.PelículaSeleccionada = new System.Windows.Forms.Label();
             this.listViewPelículas = new System.Windows.Forms.ListView();
             this.panelBúsqueda = new System.Windows.Forms.Panel();
-            this.comboBoxCriterioPlaylists = new System.Windows.Forms.ComboBox();
-            this.comboBoxCriterioPelícula = new System.Windows.Forms.ComboBox();
+            this.buttonAgregarOtroFiltro2 = new System.Windows.Forms.Button();
+            this.buttonAgregarOtroFiltro1 = new System.Windows.Forms.Button();
+            this.comboBoxFiltro2 = new System.Windows.Forms.ComboBox();
+            this.comboBoxFiltro1 = new System.Windows.Forms.ComboBox();
             this.panelBúsquedaDeCriterio = new System.Windows.Forms.Panel();
-            this.labelNoHayResultados = new System.Windows.Forms.Label();
             this.listViewBúsqueda = new System.Windows.Forms.ListView();
-            this.labelErrorBúsqueda = new System.Windows.Forms.Label();
+            this.textBoxFiltroBúsqueda3 = new System.Windows.Forms.TextBox();
+            this.textBoxFiltroBúsqueda2 = new System.Windows.Forms.TextBox();
             this.pictureBoxBuscar = new System.Windows.Forms.PictureBox();
             this.textBoxFiltroBúsqueda = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
-            this.comboBoxCriterioCanción = new System.Windows.Forms.ComboBox();
+            this.comboBoxFiltro3 = new System.Windows.Forms.ComboBox();
             this.pictureBox4 = new System.Windows.Forms.PictureBox();
             this.buttonVolverDeBúsqueda = new System.Windows.Forms.Button();
             this.comboBoxCriterio1 = new System.Windows.Forms.ComboBox();
@@ -334,33 +345,32 @@
             this.label74 = new System.Windows.Forms.Label();
             this.listViewSiguiendo = new System.Windows.Forms.ListView();
             this.panelTodasMisPlaylists = new System.Windows.Forms.Panel();
-            this.PlayLists = new System.Windows.Forms.Label();
-            this.listViewTodasMisPlaylists = new System.Windows.Forms.ListView();
-            this.buttonVolverDeTodasMisPlaylists = new System.Windows.Forms.Button();
-            this.buttonGoCrearPlaylist = new System.Windows.Forms.Button();
-            this.buttonGoTodasMisPlaylists = new System.Windows.Forms.Button();
-            this.labelUsuarioTodaMisPlaylist = new System.Windows.Forms.Label();
-            this.labelPelículasTodasMisPlaylist = new System.Windows.Forms.Label();
-            this.listViewPelículasDeMisPlaylist = new System.Windows.Forms.ListView();
+            this.buttonEliminarPlaylist = new System.Windows.Forms.Button();
+            this.pictureBoxSalirPelículaTodasMisPlaylist = new System.Windows.Forms.PictureBox();
+            this.buttonNextPlaylistPelículas = new System.Windows.Forms.Button();
+            this.axWindowsMediaPlayer6 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.axWindowsMediaPlayer5 = new AxWMPLib.AxWindowsMediaPlayer();
+            this.buttonNextPlaylistCanciones = new System.Windows.Forms.Button();
+            this.buttonReproducirPlaylistCanciones = new System.Windows.Forms.Button();
+            this.pictureBox8 = new System.Windows.Forms.PictureBox();
             this.labelCancionesTodasMisPlaylist = new System.Windows.Forms.Label();
             this.listViewCancionesDeMisPlaylist = new System.Windows.Forms.ListView();
-            this.buttonConfirmarAgregarCanciónAPlaylist = new System.Windows.Forms.Button();
-            this.comboBoxPlaylistParaAgregarCanción = new System.Windows.Forms.ComboBox();
-            this.buttonAgregarAMisPlaylists = new System.Windows.Forms.Button();
-            this.buttonConfirmarAgregarPelículaAPlaylist = new System.Windows.Forms.Button();
-            this.comboBoxPlaylistParaAgregarPelícula = new System.Windows.Forms.ComboBox();
-            this.buttonAgregarPelículaAMisPlaylist = new System.Windows.Forms.Button();
-            this.pictureBox8 = new System.Windows.Forms.PictureBox();
+            this.labelPelículasTodasMisPlaylist = new System.Windows.Forms.Label();
+            this.listViewPelículasDeMisPlaylist = new System.Windows.Forms.ListView();
+            this.labelUsuarioTodaMisPlaylist = new System.Windows.Forms.Label();
+            this.buttonVolverDeTodasMisPlaylists = new System.Windows.Forms.Button();
+            this.PlayLists = new System.Windows.Forms.Label();
+            this.listViewTodasMisPlaylists = new System.Windows.Forms.ListView();
             this.panelSolicitudes = new System.Windows.Forms.Panel();
+            this.label78 = new System.Windows.Forms.Label();
+            this.label77 = new System.Windows.Forms.Label();
+            this.labelUsuarioSolicitud = new System.Windows.Forms.Label();
+            this.buttonAceptarSolicitud = new System.Windows.Forms.Button();
+            this.buttonVolverDeSolicitudes = new System.Windows.Forms.Button();
+            this.buttonRechazarSolicitud = new System.Windows.Forms.Button();
             this.label75 = new System.Windows.Forms.Label();
             this.listViewSolicitudes = new System.Windows.Forms.ListView();
-            this.buttonRechazarSolicitud = new System.Windows.Forms.Button();
-            this.buttonVolverDeSolicitudes = new System.Windows.Forms.Button();
-            this.buttonAceptarSolicitud = new System.Windows.Forms.Button();
-            this.labelUsuarioSolicitud = new System.Windows.Forms.Label();
-            this.label77 = new System.Windows.Forms.Label();
-            this.label78 = new System.Windows.Forms.Label();
-            this.buttonGoSolicitudes = new System.Windows.Forms.Button();
+            this.pictureBox9 = new System.Windows.Forms.PictureBox();
             this.panelEntrada.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FotoLogoEntrada)).BeginInit();
             this.panelLogin.SuspendLayout();
@@ -405,8 +415,12 @@
             this.panelSiguiendo.SuspendLayout();
             this.panelInfoUsuarioSeguido.SuspendLayout();
             this.panelTodasMisPlaylists.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSalirPelículaTodasMisPlaylist)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer6)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panelSolicitudes.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).BeginInit();
             this.SuspendLayout();
             // 
             // panelEntrada
@@ -789,6 +803,39 @@
             this.panelMenu.Size = new System.Drawing.Size(55, 57);
             this.panelMenu.TabIndex = 25;
             this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenu_Paint);
+            // 
+            // buttonGoSolicitudes
+            // 
+            this.buttonGoSolicitudes.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonGoSolicitudes.Location = new System.Drawing.Point(339, 3);
+            this.buttonGoSolicitudes.Name = "buttonGoSolicitudes";
+            this.buttonGoSolicitudes.Size = new System.Drawing.Size(106, 33);
+            this.buttonGoSolicitudes.TabIndex = 37;
+            this.buttonGoSolicitudes.Text = "SOLICITUDES";
+            this.buttonGoSolicitudes.UseVisualStyleBackColor = false;
+            this.buttonGoSolicitudes.Click += new System.EventHandler(this.buttonGoSolicitudes_Click);
+            // 
+            // buttonGoTodasMisPlaylists
+            // 
+            this.buttonGoTodasMisPlaylists.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonGoTodasMisPlaylists.Location = new System.Drawing.Point(457, 330);
+            this.buttonGoTodasMisPlaylists.Name = "buttonGoTodasMisPlaylists";
+            this.buttonGoTodasMisPlaylists.Size = new System.Drawing.Size(134, 33);
+            this.buttonGoTodasMisPlaylists.TabIndex = 36;
+            this.buttonGoTodasMisPlaylists.Text = "MIS PLAYLISTS";
+            this.buttonGoTodasMisPlaylists.UseVisualStyleBackColor = false;
+            this.buttonGoTodasMisPlaylists.Click += new System.EventHandler(this.buttonGoTodasMisPlaylists_Click);
+            // 
+            // buttonGoCrearPlaylist
+            // 
+            this.buttonGoCrearPlaylist.BackColor = System.Drawing.SystemColors.Control;
+            this.buttonGoCrearPlaylist.Location = new System.Drawing.Point(595, 330);
+            this.buttonGoCrearPlaylist.Name = "buttonGoCrearPlaylist";
+            this.buttonGoCrearPlaylist.Size = new System.Drawing.Size(134, 33);
+            this.buttonGoCrearPlaylist.TabIndex = 35;
+            this.buttonGoCrearPlaylist.Text = "CREAR PLAYLIST";
+            this.buttonGoCrearPlaylist.UseVisualStyleBackColor = false;
+            this.buttonGoCrearPlaylist.Click += new System.EventHandler(this.buttonGoCrearPlaylist_Click);
             // 
             // buttonGoHistorial
             // 
@@ -1462,6 +1509,42 @@
             this.panelCancciones.TabIndex = 27;
             this.panelCancciones.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCancciones_Paint);
             // 
+            // buttonAgregarAMisPlaylists
+            // 
+            this.buttonAgregarAMisPlaylists.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAgregarAMisPlaylists.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.buttonAgregarAMisPlaylists.Location = new System.Drawing.Point(364, 295);
+            this.buttonAgregarAMisPlaylists.Name = "buttonAgregarAMisPlaylists";
+            this.buttonAgregarAMisPlaylists.Size = new System.Drawing.Size(157, 30);
+            this.buttonAgregarAMisPlaylists.TabIndex = 45;
+            this.buttonAgregarAMisPlaylists.Text = "AGREGAR A MI PLAYLIST";
+            this.buttonAgregarAMisPlaylists.UseVisualStyleBackColor = true;
+            this.buttonAgregarAMisPlaylists.Visible = false;
+            this.buttonAgregarAMisPlaylists.Click += new System.EventHandler(this.buttonAgregarAMisPlaylists_Click);
+            // 
+            // buttonConfirmarAgregarCanciónAPlaylist
+            // 
+            this.buttonConfirmarAgregarCanciónAPlaylist.BackColor = System.Drawing.SystemColors.MenuText;
+            this.buttonConfirmarAgregarCanciónAPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonConfirmarAgregarCanciónAPlaylist.ForeColor = System.Drawing.SystemColors.Window;
+            this.buttonConfirmarAgregarCanciónAPlaylist.Location = new System.Drawing.Point(483, 335);
+            this.buttonConfirmarAgregarCanciónAPlaylist.Name = "buttonConfirmarAgregarCanciónAPlaylist";
+            this.buttonConfirmarAgregarCanciónAPlaylist.Size = new System.Drawing.Size(30, 28);
+            this.buttonConfirmarAgregarCanciónAPlaylist.TabIndex = 44;
+            this.buttonConfirmarAgregarCanciónAPlaylist.Text = "OK";
+            this.buttonConfirmarAgregarCanciónAPlaylist.UseVisualStyleBackColor = false;
+            this.buttonConfirmarAgregarCanciónAPlaylist.Visible = false;
+            this.buttonConfirmarAgregarCanciónAPlaylist.Click += new System.EventHandler(this.buttonConfirmarAgregarCanciónAPlaylist_Click);
+            // 
+            // comboBoxPlaylistParaAgregarCanción
+            // 
+            this.comboBoxPlaylistParaAgregarCanción.FormattingEnabled = true;
+            this.comboBoxPlaylistParaAgregarCanción.Location = new System.Drawing.Point(378, 335);
+            this.comboBoxPlaylistParaAgregarCanción.Name = "comboBoxPlaylistParaAgregarCanción";
+            this.comboBoxPlaylistParaAgregarCanción.Size = new System.Drawing.Size(104, 28);
+            this.comboBoxPlaylistParaAgregarCanción.TabIndex = 43;
+            this.comboBoxPlaylistParaAgregarCanción.Visible = false;
+            // 
             // labelCanciónReproducida
             // 
             this.labelCanciónReproducida.AutoSize = true;
@@ -1823,6 +1906,42 @@
             this.panelPelículas.Size = new System.Drawing.Size(78, 57);
             this.panelPelículas.TabIndex = 28;
             // 
+            // buttonAgregarPelículaAMisPlaylist
+            // 
+            this.buttonAgregarPelículaAMisPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAgregarPelículaAMisPlaylist.ForeColor = System.Drawing.SystemColors.MenuText;
+            this.buttonAgregarPelículaAMisPlaylist.Location = new System.Drawing.Point(360, 301);
+            this.buttonAgregarPelículaAMisPlaylist.Name = "buttonAgregarPelículaAMisPlaylist";
+            this.buttonAgregarPelículaAMisPlaylist.Size = new System.Drawing.Size(153, 30);
+            this.buttonAgregarPelículaAMisPlaylist.TabIndex = 64;
+            this.buttonAgregarPelículaAMisPlaylist.Text = "AGREGAR A PLAYLIST";
+            this.buttonAgregarPelículaAMisPlaylist.UseVisualStyleBackColor = true;
+            this.buttonAgregarPelículaAMisPlaylist.Visible = false;
+            this.buttonAgregarPelículaAMisPlaylist.Click += new System.EventHandler(this.buttonAgregarPelículaAMisPlaylist_Click);
+            // 
+            // buttonConfirmarAgregarPelículaAPlaylist
+            // 
+            this.buttonConfirmarAgregarPelículaAPlaylist.BackColor = System.Drawing.SystemColors.MenuText;
+            this.buttonConfirmarAgregarPelículaAPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonConfirmarAgregarPelículaAPlaylist.ForeColor = System.Drawing.SystemColors.Window;
+            this.buttonConfirmarAgregarPelículaAPlaylist.Location = new System.Drawing.Point(483, 337);
+            this.buttonConfirmarAgregarPelículaAPlaylist.Name = "buttonConfirmarAgregarPelículaAPlaylist";
+            this.buttonConfirmarAgregarPelículaAPlaylist.Size = new System.Drawing.Size(30, 28);
+            this.buttonConfirmarAgregarPelículaAPlaylist.TabIndex = 63;
+            this.buttonConfirmarAgregarPelículaAPlaylist.Text = "OK";
+            this.buttonConfirmarAgregarPelículaAPlaylist.UseVisualStyleBackColor = false;
+            this.buttonConfirmarAgregarPelículaAPlaylist.Visible = false;
+            this.buttonConfirmarAgregarPelículaAPlaylist.Click += new System.EventHandler(this.buttonConfirmarAgregarPelículaAPlaylist_Click);
+            // 
+            // comboBoxPlaylistParaAgregarPelícula
+            // 
+            this.comboBoxPlaylistParaAgregarPelícula.FormattingEnabled = true;
+            this.comboBoxPlaylistParaAgregarPelícula.Location = new System.Drawing.Point(375, 341);
+            this.comboBoxPlaylistParaAgregarPelícula.Name = "comboBoxPlaylistParaAgregarPelícula";
+            this.comboBoxPlaylistParaAgregarPelícula.Size = new System.Drawing.Size(104, 21);
+            this.comboBoxPlaylistParaAgregarPelícula.TabIndex = 62;
+            this.comboBoxPlaylistParaAgregarPelícula.Visible = false;
+            // 
             // buttonNext1Películas
             // 
             this.buttonNext1Películas.BackColor = System.Drawing.SystemColors.MenuText;
@@ -2160,54 +2279,74 @@
             // panelBúsqueda
             // 
             this.panelBúsqueda.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.panelBúsqueda.Controls.Add(this.comboBoxCriterioPlaylists);
-            this.panelBúsqueda.Controls.Add(this.comboBoxCriterioPelícula);
+            this.panelBúsqueda.Controls.Add(this.buttonAgregarOtroFiltro2);
+            this.panelBúsqueda.Controls.Add(this.buttonAgregarOtroFiltro1);
+            this.panelBúsqueda.Controls.Add(this.comboBoxFiltro2);
+            this.panelBúsqueda.Controls.Add(this.comboBoxFiltro1);
             this.panelBúsqueda.Controls.Add(this.panelBúsquedaDeCriterio);
             this.panelBúsqueda.Controls.Add(this.label20);
-            this.panelBúsqueda.Controls.Add(this.comboBoxCriterioCanción);
+            this.panelBúsqueda.Controls.Add(this.comboBoxFiltro3);
             this.panelBúsqueda.Controls.Add(this.pictureBox4);
             this.panelBúsqueda.Controls.Add(this.buttonVolverDeBúsqueda);
             this.panelBúsqueda.Controls.Add(this.comboBoxCriterio1);
             this.panelBúsqueda.Controls.Add(this.labelFiltroBúsqueda);
             this.panelBúsqueda.ForeColor = System.Drawing.SystemColors.Window;
-            this.panelBúsqueda.Location = new System.Drawing.Point(79, 88);
+            this.panelBúsqueda.Location = new System.Drawing.Point(79, 89);
             this.panelBúsqueda.Name = "panelBúsqueda";
-            this.panelBúsqueda.Size = new System.Drawing.Size(78, 61);
+            this.panelBúsqueda.Size = new System.Drawing.Size(78, 60);
             this.panelBúsqueda.TabIndex = 29;
+            this.panelBúsqueda.Paint += new System.Windows.Forms.PaintEventHandler(this.panelBúsqueda_Paint);
             // 
-            // comboBoxCriterioPlaylists
+            // buttonAgregarOtroFiltro2
             // 
-            this.comboBoxCriterioPlaylists.FormattingEnabled = true;
-            this.comboBoxCriterioPlaylists.Items.AddRange(new object[] {
-            "De Películas",
-            "De Canciones"});
-            this.comboBoxCriterioPlaylists.Location = new System.Drawing.Point(88, 203);
-            this.comboBoxCriterioPlaylists.Name = "comboBoxCriterioPlaylists";
-            this.comboBoxCriterioPlaylists.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxCriterioPlaylists.TabIndex = 29;
-            this.comboBoxCriterioPlaylists.Visible = false;
-            this.comboBoxCriterioPlaylists.SelectedIndexChanged += new System.EventHandler(this.comboBoxCriterioPlaylists_SelectedIndexChanged);
+            this.buttonAgregarOtroFiltro2.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonAgregarOtroFiltro2.Location = new System.Drawing.Point(47, 225);
+            this.buttonAgregarOtroFiltro2.Name = "buttonAgregarOtroFiltro2";
+            this.buttonAgregarOtroFiltro2.Size = new System.Drawing.Size(130, 23);
+            this.buttonAgregarOtroFiltro2.TabIndex = 33;
+            this.buttonAgregarOtroFiltro2.Text = "Agregar otro filtro";
+            this.buttonAgregarOtroFiltro2.UseVisualStyleBackColor = false;
+            this.buttonAgregarOtroFiltro2.Visible = false;
+            this.buttonAgregarOtroFiltro2.Click += new System.EventHandler(this.buttonAgregarOtroFiltro2_Click);
             // 
-            // comboBoxCriterioPelícula
+            // buttonAgregarOtroFiltro1
             // 
-            this.comboBoxCriterioPelícula.FormattingEnabled = true;
-            this.comboBoxCriterioPelícula.Items.AddRange(new object[] {
-            "Título",
-            "Categoría",
-            "Director"});
-            this.comboBoxCriterioPelícula.Location = new System.Drawing.Point(88, 203);
-            this.comboBoxCriterioPelícula.Name = "comboBoxCriterioPelícula";
-            this.comboBoxCriterioPelícula.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxCriterioPelícula.TabIndex = 28;
-            this.comboBoxCriterioPelícula.Visible = false;
-            this.comboBoxCriterioPelícula.SelectedIndexChanged += new System.EventHandler(this.comboBoxCriterioPelícula_SelectedIndexChanged);
+            this.buttonAgregarOtroFiltro1.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonAgregarOtroFiltro1.Location = new System.Drawing.Point(47, 150);
+            this.buttonAgregarOtroFiltro1.Name = "buttonAgregarOtroFiltro1";
+            this.buttonAgregarOtroFiltro1.Size = new System.Drawing.Size(130, 23);
+            this.buttonAgregarOtroFiltro1.TabIndex = 32;
+            this.buttonAgregarOtroFiltro1.Text = "Agregar otro filtro";
+            this.buttonAgregarOtroFiltro1.UseVisualStyleBackColor = false;
+            this.buttonAgregarOtroFiltro1.Visible = false;
+            this.buttonAgregarOtroFiltro1.Click += new System.EventHandler(this.buttonAgregarOtroFiltro1_Click_1);
+            // 
+            // comboBoxFiltro2
+            // 
+            this.comboBoxFiltro2.FormattingEnabled = true;
+            this.comboBoxFiltro2.Location = new System.Drawing.Point(193, 187);
+            this.comboBoxFiltro2.Name = "comboBoxFiltro2";
+            this.comboBoxFiltro2.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxFiltro2.TabIndex = 29;
+            this.comboBoxFiltro2.Visible = false;
+            this.comboBoxFiltro2.SelectedIndexChanged += new System.EventHandler(this.comboBoxCriterioPlaylists_SelectedIndexChanged);
+            // 
+            // comboBoxFiltro1
+            // 
+            this.comboBoxFiltro1.FormattingEnabled = true;
+            this.comboBoxFiltro1.Location = new System.Drawing.Point(193, 115);
+            this.comboBoxFiltro1.Name = "comboBoxFiltro1";
+            this.comboBoxFiltro1.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxFiltro1.TabIndex = 28;
+            this.comboBoxFiltro1.Visible = false;
+            this.comboBoxFiltro1.SelectedIndexChanged += new System.EventHandler(this.comboBoxFiltro1_SelectedIndexChanged);
             // 
             // panelBúsquedaDeCriterio
             // 
             this.panelBúsquedaDeCriterio.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.panelBúsquedaDeCriterio.Controls.Add(this.labelNoHayResultados);
             this.panelBúsquedaDeCriterio.Controls.Add(this.listViewBúsqueda);
-            this.panelBúsquedaDeCriterio.Controls.Add(this.labelErrorBúsqueda);
+            this.panelBúsquedaDeCriterio.Controls.Add(this.textBoxFiltroBúsqueda3);
+            this.panelBúsquedaDeCriterio.Controls.Add(this.textBoxFiltroBúsqueda2);
             this.panelBúsquedaDeCriterio.Controls.Add(this.pictureBoxBuscar);
             this.panelBúsquedaDeCriterio.Controls.Add(this.textBoxFiltroBúsqueda);
             this.panelBúsquedaDeCriterio.Location = new System.Drawing.Point(323, 0);
@@ -2215,44 +2354,37 @@
             this.panelBúsquedaDeCriterio.Size = new System.Drawing.Size(434, 379);
             this.panelBúsquedaDeCriterio.TabIndex = 26;
             // 
-            // labelNoHayResultados
-            // 
-            this.labelNoHayResultados.AutoSize = true;
-            this.labelNoHayResultados.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNoHayResultados.Location = new System.Drawing.Point(45, 163);
-            this.labelNoHayResultados.Name = "labelNoHayResultados";
-            this.labelNoHayResultados.Size = new System.Drawing.Size(295, 25);
-            this.labelNoHayResultados.TabIndex = 30;
-            this.labelNoHayResultados.Text = "No se encontraron resultados";
-            this.labelNoHayResultados.Visible = false;
-            // 
             // listViewBúsqueda
             // 
-            this.listViewBúsqueda.BackColor = System.Drawing.SystemColors.InactiveCaptionText;
-            this.listViewBúsqueda.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.listViewBúsqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewBúsqueda.BackColor = System.Drawing.SystemColors.MenuText;
+            this.listViewBúsqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F);
             this.listViewBúsqueda.ForeColor = System.Drawing.SystemColors.Window;
             this.listViewBúsqueda.HideSelection = false;
-            this.listViewBúsqueda.Location = new System.Drawing.Point(42, 117);
+            this.listViewBúsqueda.Location = new System.Drawing.Point(79, 122);
             this.listViewBúsqueda.Name = "listViewBúsqueda";
-            this.listViewBúsqueda.Size = new System.Drawing.Size(274, 254);
-            this.listViewBúsqueda.TabIndex = 29;
+            this.listViewBúsqueda.Size = new System.Drawing.Size(269, 248);
+            this.listViewBúsqueda.TabIndex = 57;
             this.listViewBúsqueda.UseCompatibleStateImageBehavior = false;
+            this.listViewBúsqueda.View = System.Windows.Forms.View.SmallIcon;
             // 
-            // labelErrorBúsqueda
+            // textBoxFiltroBúsqueda3
             // 
-            this.labelErrorBúsqueda.AutoSize = true;
-            this.labelErrorBúsqueda.Location = new System.Drawing.Point(144, 71);
-            this.labelErrorBúsqueda.Name = "labelErrorBúsqueda";
-            this.labelErrorBúsqueda.Size = new System.Drawing.Size(41, 13);
-            this.labelErrorBúsqueda.TabIndex = 28;
-            this.labelErrorBúsqueda.Text = "label19";
-            this.labelErrorBúsqueda.Visible = false;
+            this.textBoxFiltroBúsqueda3.Location = new System.Drawing.Point(121, 90);
+            this.textBoxFiltroBúsqueda3.Name = "textBoxFiltroBúsqueda3";
+            this.textBoxFiltroBúsqueda3.Size = new System.Drawing.Size(163, 20);
+            this.textBoxFiltroBúsqueda3.TabIndex = 31;
+            // 
+            // textBoxFiltroBúsqueda2
+            // 
+            this.textBoxFiltroBúsqueda2.Location = new System.Drawing.Point(121, 57);
+            this.textBoxFiltroBúsqueda2.Name = "textBoxFiltroBúsqueda2";
+            this.textBoxFiltroBúsqueda2.Size = new System.Drawing.Size(163, 20);
+            this.textBoxFiltroBúsqueda2.TabIndex = 30;
             // 
             // pictureBoxBuscar
             // 
             this.pictureBoxBuscar.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxBuscar.Image")));
-            this.pictureBoxBuscar.Location = new System.Drawing.Point(293, 47);
+            this.pictureBoxBuscar.Location = new System.Drawing.Point(291, 25);
             this.pictureBoxBuscar.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBoxBuscar.Name = "pictureBoxBuscar";
             this.pictureBoxBuscar.Size = new System.Drawing.Size(32, 20);
@@ -2263,35 +2395,30 @@
             // 
             // textBoxFiltroBúsqueda
             // 
-            this.textBoxFiltroBúsqueda.Location = new System.Drawing.Point(42, 47);
+            this.textBoxFiltroBúsqueda.Location = new System.Drawing.Point(120, 25);
             this.textBoxFiltroBúsqueda.Name = "textBoxFiltroBúsqueda";
-            this.textBoxFiltroBúsqueda.Size = new System.Drawing.Size(251, 20);
+            this.textBoxFiltroBúsqueda.Size = new System.Drawing.Size(163, 20);
             this.textBoxFiltroBúsqueda.TabIndex = 0;
             // 
             // label20
             // 
             this.label20.AutoSize = true;
             this.label20.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label20.Location = new System.Drawing.Point(76, 63);
+            this.label20.Location = new System.Drawing.Point(35, 66);
             this.label20.Name = "label20";
             this.label20.Size = new System.Drawing.Size(147, 18);
             this.label20.TabIndex = 25;
             this.label20.Text = "¿Qué desea Buscar?";
             // 
-            // comboBoxCriterioCanción
+            // comboBoxFiltro3
             // 
-            this.comboBoxCriterioCanción.FormattingEnabled = true;
-            this.comboBoxCriterioCanción.Items.AddRange(new object[] {
-            "Título",
-            "Género",
-            "Álbum",
-            "Artista"});
-            this.comboBoxCriterioCanción.Location = new System.Drawing.Point(88, 203);
-            this.comboBoxCriterioCanción.Name = "comboBoxCriterioCanción";
-            this.comboBoxCriterioCanción.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxCriterioCanción.TabIndex = 24;
-            this.comboBoxCriterioCanción.Visible = false;
-            this.comboBoxCriterioCanción.SelectedIndexChanged += new System.EventHandler(this.comboBoxCriterioCanción_SelectedIndexChanged);
+            this.comboBoxFiltro3.FormattingEnabled = true;
+            this.comboBoxFiltro3.Location = new System.Drawing.Point(194, 265);
+            this.comboBoxFiltro3.Name = "comboBoxFiltro3";
+            this.comboBoxFiltro3.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxFiltro3.TabIndex = 24;
+            this.comboBoxFiltro3.Visible = false;
+            this.comboBoxFiltro3.SelectedIndexChanged += new System.EventHandler(this.comboBoxCriterioCanción_SelectedIndexChanged);
             // 
             // pictureBox4
             // 
@@ -2320,8 +2447,9 @@
             this.comboBoxCriterio1.FormattingEnabled = true;
             this.comboBoxCriterio1.Items.AddRange(new object[] {
             "Películas",
-            "Canciones"});
-            this.comboBoxCriterio1.Location = new System.Drawing.Point(88, 112);
+            "Canciones",
+            "Playlists"});
+            this.comboBoxCriterio1.Location = new System.Drawing.Point(47, 115);
             this.comboBoxCriterio1.Name = "comboBoxCriterio1";
             this.comboBoxCriterio1.Size = new System.Drawing.Size(121, 21);
             this.comboBoxCriterio1.TabIndex = 1;
@@ -2331,11 +2459,11 @@
             // 
             this.labelFiltroBúsqueda.AutoSize = true;
             this.labelFiltroBúsqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelFiltroBúsqueda.Location = new System.Drawing.Point(15, 158);
+            this.labelFiltroBúsqueda.Location = new System.Drawing.Point(231, 68);
             this.labelFiltroBúsqueda.Name = "labelFiltroBúsqueda";
-            this.labelFiltroBúsqueda.Size = new System.Drawing.Size(297, 18);
+            this.labelFiltroBúsqueda.Size = new System.Drawing.Size(41, 18);
             this.labelFiltroBúsqueda.TabIndex = 0;
-            this.labelFiltroBúsqueda.Text = "Seleccione el filtro por el cual desea buscar:";
+            this.labelFiltroBúsqueda.Text = "Filtro";
             // 
             // panelAgregarCancion
             // 
@@ -2996,6 +3124,7 @@
             // panelEliminarMedia
             // 
             this.panelEliminarMedia.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panelEliminarMedia.Controls.Add(this.pictureBox9);
             this.panelEliminarMedia.Controls.Add(this.buttonConfirmarTipoMediaParaEliminar);
             this.panelEliminarMedia.Controls.Add(this.buttonEliminarMedia);
             this.panelEliminarMedia.Controls.Add(this.comboBoxMediaParaEliminar);
@@ -3006,7 +3135,7 @@
             this.panelEliminarMedia.ForeColor = System.Drawing.SystemColors.Window;
             this.panelEliminarMedia.Location = new System.Drawing.Point(578, 18);
             this.panelEliminarMedia.Name = "panelEliminarMedia";
-            this.panelEliminarMedia.Size = new System.Drawing.Size(76, 57);
+            this.panelEliminarMedia.Size = new System.Drawing.Size(78, 57);
             this.panelEliminarMedia.TabIndex = 34;
             // 
             // buttonConfirmarTipoMediaParaEliminar
@@ -3159,11 +3288,13 @@
             this.panelCrearPlaylist.Controls.Add(this.label32);
             this.panelCrearPlaylist.Controls.Add(this.comboBoxTipoDePlaylist);
             this.panelCrearPlaylist.Controls.Add(this.label12);
+            this.panelCrearPlaylist.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelCrearPlaylist.ForeColor = System.Drawing.SystemColors.Window;
-            this.panelCrearPlaylist.Location = new System.Drawing.Point(473, 89);
+            this.panelCrearPlaylist.Location = new System.Drawing.Point(0, 0);
             this.panelCrearPlaylist.Name = "panelCrearPlaylist";
-            this.panelCrearPlaylist.Size = new System.Drawing.Size(91, 62);
+            this.panelCrearPlaylist.Size = new System.Drawing.Size(754, 376);
             this.panelCrearPlaylist.TabIndex = 31;
+            this.panelCrearPlaylist.Paint += new System.Windows.Forms.PaintEventHandler(this.panelCrearPlaylist_Paint);
             // 
             // panelTopMedia
             // 
@@ -3710,6 +3841,7 @@
             this.UsuarioSeleccionado.Size = new System.Drawing.Size(111, 13);
             this.UsuarioSeleccionado.TabIndex = 43;
             this.UsuarioSeleccionado.Text = "Usuario Seleccionado";
+            this.UsuarioSeleccionado.Visible = false;
             // 
             // buttonSeguirUsuario
             // 
@@ -3771,11 +3903,10 @@
             this.panelSiguiendo.Controls.Add(this.buttonVolverDeSeguidores);
             this.panelSiguiendo.Controls.Add(this.label74);
             this.panelSiguiendo.Controls.Add(this.listViewSiguiendo);
-            this.panelSiguiendo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSiguiendo.ForeColor = System.Drawing.SystemColors.Window;
-            this.panelSiguiendo.Location = new System.Drawing.Point(0, 0);
+            this.panelSiguiendo.Location = new System.Drawing.Point(12, 162);
             this.panelSiguiendo.Name = "panelSiguiendo";
-            this.panelSiguiendo.Size = new System.Drawing.Size(754, 376);
+            this.panelSiguiendo.Size = new System.Drawing.Size(55, 51);
             this.panelSiguiendo.TabIndex = 38;
             // 
             // UsuarioSeguidoSeleccionado
@@ -3960,6 +4091,13 @@
             // panelTodasMisPlaylists
             // 
             this.panelTodasMisPlaylists.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.panelTodasMisPlaylists.Controls.Add(this.buttonEliminarPlaylist);
+            this.panelTodasMisPlaylists.Controls.Add(this.pictureBoxSalirPelículaTodasMisPlaylist);
+            this.panelTodasMisPlaylists.Controls.Add(this.buttonNextPlaylistPelículas);
+            this.panelTodasMisPlaylists.Controls.Add(this.axWindowsMediaPlayer6);
+            this.panelTodasMisPlaylists.Controls.Add(this.axWindowsMediaPlayer5);
+            this.panelTodasMisPlaylists.Controls.Add(this.buttonNextPlaylistCanciones);
+            this.panelTodasMisPlaylists.Controls.Add(this.buttonReproducirPlaylistCanciones);
             this.panelTodasMisPlaylists.Controls.Add(this.pictureBox8);
             this.panelTodasMisPlaylists.Controls.Add(this.labelCancionesTodasMisPlaylist);
             this.panelTodasMisPlaylists.Controls.Add(this.listViewCancionesDeMisPlaylist);
@@ -3975,6 +4113,167 @@
             this.panelTodasMisPlaylists.Size = new System.Drawing.Size(78, 51);
             this.panelTodasMisPlaylists.TabIndex = 39;
             this.panelTodasMisPlaylists.Visible = false;
+            // 
+            // buttonEliminarPlaylist
+            // 
+            this.buttonEliminarPlaylist.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonEliminarPlaylist.Location = new System.Drawing.Point(638, 166);
+            this.buttonEliminarPlaylist.Name = "buttonEliminarPlaylist";
+            this.buttonEliminarPlaylist.Size = new System.Drawing.Size(98, 30);
+            this.buttonEliminarPlaylist.TabIndex = 75;
+            this.buttonEliminarPlaylist.Text = "ELIMINAR";
+            this.buttonEliminarPlaylist.UseVisualStyleBackColor = false;
+            this.buttonEliminarPlaylist.Click += new System.EventHandler(this.buttonEliminarPlaylist_Click);
+            // 
+            // pictureBoxSalirPelículaTodasMisPlaylist
+            // 
+            this.pictureBoxSalirPelículaTodasMisPlaylist.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxSalirPelículaTodasMisPlaylist.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxSalirPelículaTodasMisPlaylist.Image")));
+            this.pictureBoxSalirPelículaTodasMisPlaylist.Location = new System.Drawing.Point(722, 5);
+            this.pictureBoxSalirPelículaTodasMisPlaylist.Name = "pictureBoxSalirPelículaTodasMisPlaylist";
+            this.pictureBoxSalirPelículaTodasMisPlaylist.Size = new System.Drawing.Size(20, 20);
+            this.pictureBoxSalirPelículaTodasMisPlaylist.TabIndex = 74;
+            this.pictureBoxSalirPelículaTodasMisPlaylist.TabStop = false;
+            this.pictureBoxSalirPelículaTodasMisPlaylist.Visible = false;
+            this.pictureBoxSalirPelículaTodasMisPlaylist.Click += new System.EventHandler(this.pictureBoxSalirPelículaTodasMisPlaylist_Click);
+            // 
+            // buttonNextPlaylistPelículas
+            // 
+            this.buttonNextPlaylistPelículas.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonNextPlaylistPelículas.Location = new System.Drawing.Point(220, 341);
+            this.buttonNextPlaylistPelículas.Name = "buttonNextPlaylistPelículas";
+            this.buttonNextPlaylistPelículas.Size = new System.Drawing.Size(60, 30);
+            this.buttonNextPlaylistPelículas.TabIndex = 73;
+            this.buttonNextPlaylistPelículas.Text = "NEXT";
+            this.buttonNextPlaylistPelículas.UseVisualStyleBackColor = false;
+            this.buttonNextPlaylistPelículas.Click += new System.EventHandler(this.buttonNextPlaylistPelículas_Click);
+            // 
+            // axWindowsMediaPlayer6
+            // 
+            this.axWindowsMediaPlayer6.Enabled = true;
+            this.axWindowsMediaPlayer6.Location = new System.Drawing.Point(3, 152);
+            this.axWindowsMediaPlayer6.Name = "axWindowsMediaPlayer6";
+            this.axWindowsMediaPlayer6.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer6.OcxState")));
+            this.axWindowsMediaPlayer6.Size = new System.Drawing.Size(101, 45);
+            this.axWindowsMediaPlayer6.TabIndex = 71;
+            // 
+            // axWindowsMediaPlayer5
+            // 
+            this.axWindowsMediaPlayer5.Enabled = true;
+            this.axWindowsMediaPlayer5.Location = new System.Drawing.Point(354, 328);
+            this.axWindowsMediaPlayer5.Name = "axWindowsMediaPlayer5";
+            this.axWindowsMediaPlayer5.OcxState = ((System.Windows.Forms.AxHost.State)(resources.GetObject("axWindowsMediaPlayer5.OcxState")));
+            this.axWindowsMediaPlayer5.Size = new System.Drawing.Size(210, 45);
+            this.axWindowsMediaPlayer5.TabIndex = 70;
+            // 
+            // buttonNextPlaylistCanciones
+            // 
+            this.buttonNextPlaylistCanciones.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonNextPlaylistCanciones.Location = new System.Drawing.Point(570, 338);
+            this.buttonNextPlaylistCanciones.Name = "buttonNextPlaylistCanciones";
+            this.buttonNextPlaylistCanciones.Size = new System.Drawing.Size(60, 30);
+            this.buttonNextPlaylistCanciones.TabIndex = 69;
+            this.buttonNextPlaylistCanciones.Text = "NEXT";
+            this.buttonNextPlaylistCanciones.UseVisualStyleBackColor = false;
+            this.buttonNextPlaylistCanciones.Click += new System.EventHandler(this.buttonNextPlaylistCanciones_Click);
+            // 
+            // buttonReproducirPlaylistCanciones
+            // 
+            this.buttonReproducirPlaylistCanciones.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonReproducirPlaylistCanciones.Location = new System.Drawing.Point(637, 127);
+            this.buttonReproducirPlaylistCanciones.Name = "buttonReproducirPlaylistCanciones";
+            this.buttonReproducirPlaylistCanciones.Size = new System.Drawing.Size(98, 30);
+            this.buttonReproducirPlaylistCanciones.TabIndex = 68;
+            this.buttonReproducirPlaylistCanciones.Text = "REPRODUCIR";
+            this.buttonReproducirPlaylistCanciones.UseVisualStyleBackColor = false;
+            this.buttonReproducirPlaylistCanciones.Click += new System.EventHandler(this.buttonReproducirPlaylistCanciones_Click);
+            // 
+            // pictureBox8
+            // 
+            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
+            this.pictureBox8.Location = new System.Drawing.Point(0, -2);
+            this.pictureBox8.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox8.Name = "pictureBox8";
+            this.pictureBox8.Size = new System.Drawing.Size(60, 50);
+            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox8.TabIndex = 47;
+            this.pictureBox8.TabStop = false;
+            // 
+            // labelCancionesTodasMisPlaylist
+            // 
+            this.labelCancionesTodasMisPlaylist.AutoSize = true;
+            this.labelCancionesTodasMisPlaylist.BackColor = System.Drawing.SystemColors.MenuText;
+            this.labelCancionesTodasMisPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCancionesTodasMisPlaylist.ForeColor = System.Drawing.SystemColors.Window;
+            this.labelCancionesTodasMisPlaylist.Location = new System.Drawing.Point(360, -3);
+            this.labelCancionesTodasMisPlaylist.Name = "labelCancionesTodasMisPlaylist";
+            this.labelCancionesTodasMisPlaylist.Size = new System.Drawing.Size(181, 39);
+            this.labelCancionesTodasMisPlaylist.TabIndex = 46;
+            this.labelCancionesTodasMisPlaylist.Text = "Canciones";
+            this.labelCancionesTodasMisPlaylist.Visible = false;
+            // 
+            // listViewCancionesDeMisPlaylist
+            // 
+            this.listViewCancionesDeMisPlaylist.BackColor = System.Drawing.SystemColors.MenuText;
+            this.listViewCancionesDeMisPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewCancionesDeMisPlaylist.ForeColor = System.Drawing.SystemColors.Window;
+            this.listViewCancionesDeMisPlaylist.HideSelection = false;
+            this.listViewCancionesDeMisPlaylist.Location = new System.Drawing.Point(353, 14);
+            this.listViewCancionesDeMisPlaylist.Name = "listViewCancionesDeMisPlaylist";
+            this.listViewCancionesDeMisPlaylist.Size = new System.Drawing.Size(201, 314);
+            this.listViewCancionesDeMisPlaylist.TabIndex = 45;
+            this.listViewCancionesDeMisPlaylist.UseCompatibleStateImageBehavior = false;
+            this.listViewCancionesDeMisPlaylist.View = System.Windows.Forms.View.SmallIcon;
+            this.listViewCancionesDeMisPlaylist.Visible = false;
+            // 
+            // labelPelículasTodasMisPlaylist
+            // 
+            this.labelPelículasTodasMisPlaylist.AutoSize = true;
+            this.labelPelículasTodasMisPlaylist.BackColor = System.Drawing.SystemColors.MenuText;
+            this.labelPelículasTodasMisPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPelículasTodasMisPlaylist.ForeColor = System.Drawing.SystemColors.Window;
+            this.labelPelículasTodasMisPlaylist.Location = new System.Drawing.Point(359, -4);
+            this.labelPelículasTodasMisPlaylist.Name = "labelPelículasTodasMisPlaylist";
+            this.labelPelículasTodasMisPlaylist.Size = new System.Drawing.Size(157, 39);
+            this.labelPelículasTodasMisPlaylist.TabIndex = 44;
+            this.labelPelículasTodasMisPlaylist.Text = "Películas";
+            this.labelPelículasTodasMisPlaylist.Visible = false;
+            // 
+            // listViewPelículasDeMisPlaylist
+            // 
+            this.listViewPelículasDeMisPlaylist.BackColor = System.Drawing.SystemColors.MenuText;
+            this.listViewPelículasDeMisPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listViewPelículasDeMisPlaylist.ForeColor = System.Drawing.SystemColors.Window;
+            this.listViewPelículasDeMisPlaylist.HideSelection = false;
+            this.listViewPelículasDeMisPlaylist.Location = new System.Drawing.Point(352, 13);
+            this.listViewPelículasDeMisPlaylist.Name = "listViewPelículasDeMisPlaylist";
+            this.listViewPelículasDeMisPlaylist.Size = new System.Drawing.Size(272, 315);
+            this.listViewPelículasDeMisPlaylist.TabIndex = 43;
+            this.listViewPelículasDeMisPlaylist.UseCompatibleStateImageBehavior = false;
+            this.listViewPelículasDeMisPlaylist.View = System.Windows.Forms.View.SmallIcon;
+            this.listViewPelículasDeMisPlaylist.Visible = false;
+            // 
+            // labelUsuarioTodaMisPlaylist
+            // 
+            this.labelUsuarioTodaMisPlaylist.AutoSize = true;
+            this.labelUsuarioTodaMisPlaylist.Location = new System.Drawing.Point(344, 5);
+            this.labelUsuarioTodaMisPlaylist.Name = "labelUsuarioTodaMisPlaylist";
+            this.labelUsuarioTodaMisPlaylist.Size = new System.Drawing.Size(43, 13);
+            this.labelUsuarioTodaMisPlaylist.TabIndex = 42;
+            this.labelUsuarioTodaMisPlaylist.Text = "Usuario";
+            this.labelUsuarioTodaMisPlaylist.Visible = false;
+            // 
+            // buttonVolverDeTodasMisPlaylists
+            // 
+            this.buttonVolverDeTodasMisPlaylists.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonVolverDeTodasMisPlaylists.ForeColor = System.Drawing.SystemColors.Window;
+            this.buttonVolverDeTodasMisPlaylists.Location = new System.Drawing.Point(12, 332);
+            this.buttonVolverDeTodasMisPlaylists.Name = "buttonVolverDeTodasMisPlaylists";
+            this.buttonVolverDeTodasMisPlaylists.Size = new System.Drawing.Size(86, 32);
+            this.buttonVolverDeTodasMisPlaylists.TabIndex = 41;
+            this.buttonVolverDeTodasMisPlaylists.Text = "VOLVER";
+            this.buttonVolverDeTodasMisPlaylists.UseVisualStyleBackColor = false;
+            this.buttonVolverDeTodasMisPlaylists.Click += new System.EventHandler(this.buttonVolverDeTodasMisPlaylists_Click);
             // 
             // PlayLists
             // 
@@ -3996,192 +4295,11 @@
             this.listViewTodasMisPlaylists.HideSelection = false;
             this.listViewTodasMisPlaylists.Location = new System.Drawing.Point(114, 14);
             this.listViewTodasMisPlaylists.Name = "listViewTodasMisPlaylists";
-            this.listViewTodasMisPlaylists.Size = new System.Drawing.Size(201, 355);
+            this.listViewTodasMisPlaylists.Size = new System.Drawing.Size(201, 314);
             this.listViewTodasMisPlaylists.TabIndex = 22;
             this.listViewTodasMisPlaylists.UseCompatibleStateImageBehavior = false;
             this.listViewTodasMisPlaylists.View = System.Windows.Forms.View.SmallIcon;
             this.listViewTodasMisPlaylists.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewTodasMisPlaylists_MouseClick);
-            // 
-            // buttonVolverDeTodasMisPlaylists
-            // 
-            this.buttonVolverDeTodasMisPlaylists.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonVolverDeTodasMisPlaylists.ForeColor = System.Drawing.SystemColors.Window;
-            this.buttonVolverDeTodasMisPlaylists.Location = new System.Drawing.Point(12, 332);
-            this.buttonVolverDeTodasMisPlaylists.Name = "buttonVolverDeTodasMisPlaylists";
-            this.buttonVolverDeTodasMisPlaylists.Size = new System.Drawing.Size(86, 32);
-            this.buttonVolverDeTodasMisPlaylists.TabIndex = 41;
-            this.buttonVolverDeTodasMisPlaylists.Text = "VOLVER";
-            this.buttonVolverDeTodasMisPlaylists.UseVisualStyleBackColor = false;
-            this.buttonVolverDeTodasMisPlaylists.Click += new System.EventHandler(this.buttonVolverDeTodasMisPlaylists_Click);
-            // 
-            // buttonGoCrearPlaylist
-            // 
-            this.buttonGoCrearPlaylist.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonGoCrearPlaylist.Location = new System.Drawing.Point(595, 330);
-            this.buttonGoCrearPlaylist.Name = "buttonGoCrearPlaylist";
-            this.buttonGoCrearPlaylist.Size = new System.Drawing.Size(134, 33);
-            this.buttonGoCrearPlaylist.TabIndex = 35;
-            this.buttonGoCrearPlaylist.Text = "CREAR PLAYLIST";
-            this.buttonGoCrearPlaylist.UseVisualStyleBackColor = false;
-            this.buttonGoCrearPlaylist.Click += new System.EventHandler(this.buttonGoCrearPlaylist_Click);
-            // 
-            // buttonGoTodasMisPlaylists
-            // 
-            this.buttonGoTodasMisPlaylists.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonGoTodasMisPlaylists.Location = new System.Drawing.Point(457, 330);
-            this.buttonGoTodasMisPlaylists.Name = "buttonGoTodasMisPlaylists";
-            this.buttonGoTodasMisPlaylists.Size = new System.Drawing.Size(134, 33);
-            this.buttonGoTodasMisPlaylists.TabIndex = 36;
-            this.buttonGoTodasMisPlaylists.Text = "MIS PLAYLISTS";
-            this.buttonGoTodasMisPlaylists.UseVisualStyleBackColor = false;
-            this.buttonGoTodasMisPlaylists.Click += new System.EventHandler(this.buttonGoTodasMisPlaylists_Click);
-            // 
-            // labelUsuarioTodaMisPlaylist
-            // 
-            this.labelUsuarioTodaMisPlaylist.AutoSize = true;
-            this.labelUsuarioTodaMisPlaylist.Location = new System.Drawing.Point(344, 5);
-            this.labelUsuarioTodaMisPlaylist.Name = "labelUsuarioTodaMisPlaylist";
-            this.labelUsuarioTodaMisPlaylist.Size = new System.Drawing.Size(43, 13);
-            this.labelUsuarioTodaMisPlaylist.TabIndex = 42;
-            this.labelUsuarioTodaMisPlaylist.Text = "Usuario";
-            this.labelUsuarioTodaMisPlaylist.Visible = false;
-            // 
-            // labelPelículasTodasMisPlaylist
-            // 
-            this.labelPelículasTodasMisPlaylist.AutoSize = true;
-            this.labelPelículasTodasMisPlaylist.BackColor = System.Drawing.SystemColors.MenuText;
-            this.labelPelículasTodasMisPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelPelículasTodasMisPlaylist.ForeColor = System.Drawing.SystemColors.Window;
-            this.labelPelículasTodasMisPlaylist.Location = new System.Drawing.Point(416, -4);
-            this.labelPelículasTodasMisPlaylist.Name = "labelPelículasTodasMisPlaylist";
-            this.labelPelículasTodasMisPlaylist.Size = new System.Drawing.Size(157, 39);
-            this.labelPelículasTodasMisPlaylist.TabIndex = 44;
-            this.labelPelículasTodasMisPlaylist.Text = "Películas";
-            this.labelPelículasTodasMisPlaylist.Visible = false;
-            // 
-            // listViewPelículasDeMisPlaylist
-            // 
-            this.listViewPelículasDeMisPlaylist.BackColor = System.Drawing.SystemColors.MenuText;
-            this.listViewPelículasDeMisPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listViewPelículasDeMisPlaylist.ForeColor = System.Drawing.SystemColors.Window;
-            this.listViewPelículasDeMisPlaylist.HideSelection = false;
-            this.listViewPelículasDeMisPlaylist.Location = new System.Drawing.Point(409, 13);
-            this.listViewPelículasDeMisPlaylist.Name = "listViewPelículasDeMisPlaylist";
-            this.listViewPelículasDeMisPlaylist.Size = new System.Drawing.Size(272, 355);
-            this.listViewPelículasDeMisPlaylist.TabIndex = 43;
-            this.listViewPelículasDeMisPlaylist.UseCompatibleStateImageBehavior = false;
-            this.listViewPelículasDeMisPlaylist.View = System.Windows.Forms.View.SmallIcon;
-            this.listViewPelículasDeMisPlaylist.Visible = false;
-            // 
-            // labelCancionesTodasMisPlaylist
-            // 
-            this.labelCancionesTodasMisPlaylist.AutoSize = true;
-            this.labelCancionesTodasMisPlaylist.BackColor = System.Drawing.SystemColors.MenuText;
-            this.labelCancionesTodasMisPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 26.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCancionesTodasMisPlaylist.ForeColor = System.Drawing.SystemColors.Window;
-            this.labelCancionesTodasMisPlaylist.Location = new System.Drawing.Point(417, -3);
-            this.labelCancionesTodasMisPlaylist.Name = "labelCancionesTodasMisPlaylist";
-            this.labelCancionesTodasMisPlaylist.Size = new System.Drawing.Size(181, 39);
-            this.labelCancionesTodasMisPlaylist.TabIndex = 46;
-            this.labelCancionesTodasMisPlaylist.Text = "Canciones";
-            this.labelCancionesTodasMisPlaylist.Visible = false;
-            // 
-            // listViewCancionesDeMisPlaylist
-            // 
-            this.listViewCancionesDeMisPlaylist.BackColor = System.Drawing.SystemColors.MenuText;
-            this.listViewCancionesDeMisPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listViewCancionesDeMisPlaylist.ForeColor = System.Drawing.SystemColors.Window;
-            this.listViewCancionesDeMisPlaylist.HideSelection = false;
-            this.listViewCancionesDeMisPlaylist.Location = new System.Drawing.Point(410, 14);
-            this.listViewCancionesDeMisPlaylist.Name = "listViewCancionesDeMisPlaylist";
-            this.listViewCancionesDeMisPlaylist.Size = new System.Drawing.Size(201, 355);
-            this.listViewCancionesDeMisPlaylist.TabIndex = 45;
-            this.listViewCancionesDeMisPlaylist.UseCompatibleStateImageBehavior = false;
-            this.listViewCancionesDeMisPlaylist.View = System.Windows.Forms.View.SmallIcon;
-            this.listViewCancionesDeMisPlaylist.Visible = false;
-            // 
-            // buttonConfirmarAgregarCanciónAPlaylist
-            // 
-            this.buttonConfirmarAgregarCanciónAPlaylist.BackColor = System.Drawing.SystemColors.MenuText;
-            this.buttonConfirmarAgregarCanciónAPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonConfirmarAgregarCanciónAPlaylist.ForeColor = System.Drawing.SystemColors.Window;
-            this.buttonConfirmarAgregarCanciónAPlaylist.Location = new System.Drawing.Point(483, 335);
-            this.buttonConfirmarAgregarCanciónAPlaylist.Name = "buttonConfirmarAgregarCanciónAPlaylist";
-            this.buttonConfirmarAgregarCanciónAPlaylist.Size = new System.Drawing.Size(30, 28);
-            this.buttonConfirmarAgregarCanciónAPlaylist.TabIndex = 44;
-            this.buttonConfirmarAgregarCanciónAPlaylist.Text = "OK";
-            this.buttonConfirmarAgregarCanciónAPlaylist.UseVisualStyleBackColor = false;
-            this.buttonConfirmarAgregarCanciónAPlaylist.Visible = false;
-            this.buttonConfirmarAgregarCanciónAPlaylist.Click += new System.EventHandler(this.buttonConfirmarAgregarCanciónAPlaylist_Click);
-            // 
-            // comboBoxPlaylistParaAgregarCanción
-            // 
-            this.comboBoxPlaylistParaAgregarCanción.FormattingEnabled = true;
-            this.comboBoxPlaylistParaAgregarCanción.Location = new System.Drawing.Point(378, 335);
-            this.comboBoxPlaylistParaAgregarCanción.Name = "comboBoxPlaylistParaAgregarCanción";
-            this.comboBoxPlaylistParaAgregarCanción.Size = new System.Drawing.Size(104, 28);
-            this.comboBoxPlaylistParaAgregarCanción.TabIndex = 43;
-            this.comboBoxPlaylistParaAgregarCanción.Visible = false;
-            // 
-            // buttonAgregarAMisPlaylists
-            // 
-            this.buttonAgregarAMisPlaylists.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAgregarAMisPlaylists.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.buttonAgregarAMisPlaylists.Location = new System.Drawing.Point(364, 295);
-            this.buttonAgregarAMisPlaylists.Name = "buttonAgregarAMisPlaylists";
-            this.buttonAgregarAMisPlaylists.Size = new System.Drawing.Size(157, 30);
-            this.buttonAgregarAMisPlaylists.TabIndex = 45;
-            this.buttonAgregarAMisPlaylists.Text = "AGREGAR A MI PLAYLIST";
-            this.buttonAgregarAMisPlaylists.UseVisualStyleBackColor = true;
-            this.buttonAgregarAMisPlaylists.Visible = false;
-            this.buttonAgregarAMisPlaylists.Click += new System.EventHandler(this.buttonAgregarAMisPlaylists_Click);
-            // 
-            // buttonConfirmarAgregarPelículaAPlaylist
-            // 
-            this.buttonConfirmarAgregarPelículaAPlaylist.BackColor = System.Drawing.SystemColors.MenuText;
-            this.buttonConfirmarAgregarPelículaAPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonConfirmarAgregarPelículaAPlaylist.ForeColor = System.Drawing.SystemColors.Window;
-            this.buttonConfirmarAgregarPelículaAPlaylist.Location = new System.Drawing.Point(483, 337);
-            this.buttonConfirmarAgregarPelículaAPlaylist.Name = "buttonConfirmarAgregarPelículaAPlaylist";
-            this.buttonConfirmarAgregarPelículaAPlaylist.Size = new System.Drawing.Size(30, 28);
-            this.buttonConfirmarAgregarPelículaAPlaylist.TabIndex = 63;
-            this.buttonConfirmarAgregarPelículaAPlaylist.Text = "OK";
-            this.buttonConfirmarAgregarPelículaAPlaylist.UseVisualStyleBackColor = false;
-            this.buttonConfirmarAgregarPelículaAPlaylist.Visible = false;
-            this.buttonConfirmarAgregarPelículaAPlaylist.Click += new System.EventHandler(this.buttonConfirmarAgregarPelículaAPlaylist_Click);
-            // 
-            // comboBoxPlaylistParaAgregarPelícula
-            // 
-            this.comboBoxPlaylistParaAgregarPelícula.FormattingEnabled = true;
-            this.comboBoxPlaylistParaAgregarPelícula.Location = new System.Drawing.Point(375, 341);
-            this.comboBoxPlaylistParaAgregarPelícula.Name = "comboBoxPlaylistParaAgregarPelícula";
-            this.comboBoxPlaylistParaAgregarPelícula.Size = new System.Drawing.Size(104, 21);
-            this.comboBoxPlaylistParaAgregarPelícula.TabIndex = 62;
-            this.comboBoxPlaylistParaAgregarPelícula.Visible = false;
-            // 
-            // buttonAgregarPelículaAMisPlaylist
-            // 
-            this.buttonAgregarPelículaAMisPlaylist.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonAgregarPelículaAMisPlaylist.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.buttonAgregarPelículaAMisPlaylist.Location = new System.Drawing.Point(360, 301);
-            this.buttonAgregarPelículaAMisPlaylist.Name = "buttonAgregarPelículaAMisPlaylist";
-            this.buttonAgregarPelículaAMisPlaylist.Size = new System.Drawing.Size(153, 30);
-            this.buttonAgregarPelículaAMisPlaylist.TabIndex = 64;
-            this.buttonAgregarPelículaAMisPlaylist.Text = "AGREGAR A PLAYLIST";
-            this.buttonAgregarPelículaAMisPlaylist.UseVisualStyleBackColor = true;
-            this.buttonAgregarPelículaAMisPlaylist.Visible = false;
-            this.buttonAgregarPelículaAMisPlaylist.Click += new System.EventHandler(this.buttonAgregarPelículaAMisPlaylist_Click);
-            // 
-            // pictureBox8
-            // 
-            this.pictureBox8.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox8.Image")));
-            this.pictureBox8.Location = new System.Drawing.Point(0, -2);
-            this.pictureBox8.Margin = new System.Windows.Forms.Padding(2);
-            this.pictureBox8.Name = "pictureBox8";
-            this.pictureBox8.Size = new System.Drawing.Size(60, 50);
-            this.pictureBox8.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox8.TabIndex = 47;
-            this.pictureBox8.TabStop = false;
             // 
             // panelSolicitudes
             // 
@@ -4199,6 +4317,71 @@
             this.panelSolicitudes.Name = "panelSolicitudes";
             this.panelSolicitudes.Size = new System.Drawing.Size(81, 51);
             this.panelSolicitudes.TabIndex = 40;
+            // 
+            // label78
+            // 
+            this.label78.AutoSize = true;
+            this.label78.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label78.Location = new System.Drawing.Point(335, 149);
+            this.label78.Name = "label78";
+            this.label78.Size = new System.Drawing.Size(276, 25);
+            this.label78.TabIndex = 46;
+            this.label78.Text = "Solicitud de seguimiento de";
+            // 
+            // label77
+            // 
+            this.label77.AutoSize = true;
+            this.label77.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label77.Location = new System.Drawing.Point(445, 139);
+            this.label77.Name = "label77";
+            this.label77.Size = new System.Drawing.Size(0, 25);
+            this.label77.TabIndex = 45;
+            // 
+            // labelUsuarioSolicitud
+            // 
+            this.labelUsuarioSolicitud.AutoSize = true;
+            this.labelUsuarioSolicitud.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUsuarioSolicitud.Location = new System.Drawing.Point(608, 149);
+            this.labelUsuarioSolicitud.Name = "labelUsuarioSolicitud";
+            this.labelUsuarioSolicitud.Size = new System.Drawing.Size(82, 25);
+            this.labelUsuarioSolicitud.TabIndex = 44;
+            this.labelUsuarioSolicitud.Text = "label77";
+            // 
+            // buttonAceptarSolicitud
+            // 
+            this.buttonAceptarSolicitud.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonAceptarSolicitud.ForeColor = System.Drawing.SystemColors.Window;
+            this.buttonAceptarSolicitud.Location = new System.Drawing.Point(419, 200);
+            this.buttonAceptarSolicitud.Name = "buttonAceptarSolicitud";
+            this.buttonAceptarSolicitud.Size = new System.Drawing.Size(86, 32);
+            this.buttonAceptarSolicitud.TabIndex = 43;
+            this.buttonAceptarSolicitud.Text = "ACEPTAR";
+            this.buttonAceptarSolicitud.UseVisualStyleBackColor = false;
+            this.buttonAceptarSolicitud.Click += new System.EventHandler(this.buttonAceptarSolicitud_Click);
+            // 
+            // buttonVolverDeSolicitudes
+            // 
+            this.buttonVolverDeSolicitudes.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonVolverDeSolicitudes.ForeColor = System.Drawing.SystemColors.Window;
+            this.buttonVolverDeSolicitudes.Location = new System.Drawing.Point(12, 332);
+            this.buttonVolverDeSolicitudes.Name = "buttonVolverDeSolicitudes";
+            this.buttonVolverDeSolicitudes.Size = new System.Drawing.Size(86, 32);
+            this.buttonVolverDeSolicitudes.TabIndex = 42;
+            this.buttonVolverDeSolicitudes.Text = "VOLVER";
+            this.buttonVolverDeSolicitudes.UseVisualStyleBackColor = false;
+            this.buttonVolverDeSolicitudes.Click += new System.EventHandler(this.buttonVolverDeSolicitudes_Click);
+            // 
+            // buttonRechazarSolicitud
+            // 
+            this.buttonRechazarSolicitud.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.buttonRechazarSolicitud.ForeColor = System.Drawing.SystemColors.Window;
+            this.buttonRechazarSolicitud.Location = new System.Drawing.Point(549, 199);
+            this.buttonRechazarSolicitud.Name = "buttonRechazarSolicitud";
+            this.buttonRechazarSolicitud.Size = new System.Drawing.Size(86, 32);
+            this.buttonRechazarSolicitud.TabIndex = 41;
+            this.buttonRechazarSolicitud.Text = "RECHAZAR";
+            this.buttonRechazarSolicitud.UseVisualStyleBackColor = false;
+            this.buttonRechazarSolicitud.Click += new System.EventHandler(this.buttonRechazarSolicitud_Click);
             // 
             // label75
             // 
@@ -4226,81 +4409,16 @@
             this.listViewSolicitudes.View = System.Windows.Forms.View.SmallIcon;
             this.listViewSolicitudes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewSolicitudes_MouseClick);
             // 
-            // buttonRechazarSolicitud
+            // pictureBox9
             // 
-            this.buttonRechazarSolicitud.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonRechazarSolicitud.ForeColor = System.Drawing.SystemColors.Window;
-            this.buttonRechazarSolicitud.Location = new System.Drawing.Point(549, 199);
-            this.buttonRechazarSolicitud.Name = "buttonRechazarSolicitud";
-            this.buttonRechazarSolicitud.Size = new System.Drawing.Size(86, 32);
-            this.buttonRechazarSolicitud.TabIndex = 41;
-            this.buttonRechazarSolicitud.Text = "RECHAZAR";
-            this.buttonRechazarSolicitud.UseVisualStyleBackColor = false;
-            this.buttonRechazarSolicitud.Click += new System.EventHandler(this.buttonRechazarSolicitud_Click);
-            // 
-            // buttonVolverDeSolicitudes
-            // 
-            this.buttonVolverDeSolicitudes.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonVolverDeSolicitudes.ForeColor = System.Drawing.SystemColors.Window;
-            this.buttonVolverDeSolicitudes.Location = new System.Drawing.Point(12, 332);
-            this.buttonVolverDeSolicitudes.Name = "buttonVolverDeSolicitudes";
-            this.buttonVolverDeSolicitudes.Size = new System.Drawing.Size(86, 32);
-            this.buttonVolverDeSolicitudes.TabIndex = 42;
-            this.buttonVolverDeSolicitudes.Text = "VOLVER";
-            this.buttonVolverDeSolicitudes.UseVisualStyleBackColor = false;
-            this.buttonVolverDeSolicitudes.Click += new System.EventHandler(this.buttonVolverDeSolicitudes_Click);
-            // 
-            // buttonAceptarSolicitud
-            // 
-            this.buttonAceptarSolicitud.BackColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.buttonAceptarSolicitud.ForeColor = System.Drawing.SystemColors.Window;
-            this.buttonAceptarSolicitud.Location = new System.Drawing.Point(419, 200);
-            this.buttonAceptarSolicitud.Name = "buttonAceptarSolicitud";
-            this.buttonAceptarSolicitud.Size = new System.Drawing.Size(86, 32);
-            this.buttonAceptarSolicitud.TabIndex = 43;
-            this.buttonAceptarSolicitud.Text = "ACEPTAR";
-            this.buttonAceptarSolicitud.UseVisualStyleBackColor = false;
-            this.buttonAceptarSolicitud.Click += new System.EventHandler(this.buttonAceptarSolicitud_Click);
-            // 
-            // labelUsuarioSolicitud
-            // 
-            this.labelUsuarioSolicitud.AutoSize = true;
-            this.labelUsuarioSolicitud.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelUsuarioSolicitud.Location = new System.Drawing.Point(608, 149);
-            this.labelUsuarioSolicitud.Name = "labelUsuarioSolicitud";
-            this.labelUsuarioSolicitud.Size = new System.Drawing.Size(82, 25);
-            this.labelUsuarioSolicitud.TabIndex = 44;
-            this.labelUsuarioSolicitud.Text = "label77";
-            // 
-            // label77
-            // 
-            this.label77.AutoSize = true;
-            this.label77.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label77.Location = new System.Drawing.Point(445, 139);
-            this.label77.Name = "label77";
-            this.label77.Size = new System.Drawing.Size(0, 25);
-            this.label77.TabIndex = 45;
-            // 
-            // label78
-            // 
-            this.label78.AutoSize = true;
-            this.label78.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label78.Location = new System.Drawing.Point(335, 149);
-            this.label78.Name = "label78";
-            this.label78.Size = new System.Drawing.Size(276, 25);
-            this.label78.TabIndex = 46;
-            this.label78.Text = "Solicitud de seguimiento de";
-            // 
-            // buttonGoSolicitudes
-            // 
-            this.buttonGoSolicitudes.BackColor = System.Drawing.SystemColors.Control;
-            this.buttonGoSolicitudes.Location = new System.Drawing.Point(339, 3);
-            this.buttonGoSolicitudes.Name = "buttonGoSolicitudes";
-            this.buttonGoSolicitudes.Size = new System.Drawing.Size(106, 33);
-            this.buttonGoSolicitudes.TabIndex = 37;
-            this.buttonGoSolicitudes.Text = "SOLICITUDES";
-            this.buttonGoSolicitudes.UseVisualStyleBackColor = false;
-            this.buttonGoSolicitudes.Click += new System.EventHandler(this.buttonGoSolicitudes_Click);
+            this.pictureBox9.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox9.Image")));
+            this.pictureBox9.Location = new System.Drawing.Point(0, -2);
+            this.pictureBox9.Margin = new System.Windows.Forms.Padding(2);
+            this.pictureBox9.Name = "pictureBox9";
+            this.pictureBox9.Size = new System.Drawing.Size(60, 50);
+            this.pictureBox9.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox9.TabIndex = 65;
+            this.pictureBox9.TabStop = false;
             // 
             // AppForm
             // 
@@ -4308,18 +4426,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(754, 376);
             this.Controls.Add(this.panelSiguiendo);
-            this.Controls.Add(this.panelSolicitudes);
-            this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelUsuarios);
-            this.Controls.Add(this.panelTodasMisPlaylists);
-            this.Controls.Add(this.panelPelículas);
             this.Controls.Add(this.panelCrearPlaylist);
-            this.Controls.Add(this.panelCancciones);
-            this.Controls.Add(this.panelMisPlaylist);
-            this.Controls.Add(this.panelModificarCuenta);
-            this.Controls.Add(this.panelTopMedia);
-            this.Controls.Add(this.panelBúsqueda);
             this.Controls.Add(this.panelEliminarMedia);
+            this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.panelModificarCuenta);
+            this.Controls.Add(this.panelSolicitudes);
+            this.Controls.Add(this.panelCancciones);
+            this.Controls.Add(this.panelPelículas);
+            this.Controls.Add(this.panelTodasMisPlaylists);
+            this.Controls.Add(this.panelMisPlaylist);
+            this.Controls.Add(this.panelBúsqueda);
+            this.Controls.Add(this.panelTopMedia);
             this.Controls.Add(this.panelHistorial);
             this.Controls.Add(this.panelRegister);
             this.Controls.Add(this.panelAgregarVideo);
@@ -4397,9 +4515,13 @@
             this.panelInfoUsuarioSeguido.PerformLayout();
             this.panelTodasMisPlaylists.ResumeLayout(false);
             this.panelTodasMisPlaylists.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxSalirPelículaTodasMisPlaylist)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer6)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer5)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.panelSolicitudes.ResumeLayout(false);
             this.panelSolicitudes.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox9)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -4508,15 +4630,12 @@
         private System.Windows.Forms.Button buttonVolverDeBúsqueda;
         private System.Windows.Forms.PictureBox pictureBox4;
         private System.Windows.Forms.Label label20;
-        private System.Windows.Forms.ComboBox comboBoxCriterioCanción;
+        private System.Windows.Forms.ComboBox comboBoxFiltro3;
         private System.Windows.Forms.Panel panelBúsquedaDeCriterio;
         private System.Windows.Forms.PictureBox pictureBoxBuscar;
         private System.Windows.Forms.TextBox textBoxFiltroBúsqueda;
-        private System.Windows.Forms.ComboBox comboBoxCriterioPelícula;
-        private System.Windows.Forms.Label labelErrorBúsqueda;
-        private System.Windows.Forms.ListView listViewBúsqueda;
-        private System.Windows.Forms.ComboBox comboBoxCriterioPlaylists;
-        private System.Windows.Forms.Label labelNoHayResultados;
+        private System.Windows.Forms.ComboBox comboBoxFiltro1;
+        private System.Windows.Forms.ComboBox comboBoxFiltro2;
         private System.Windows.Forms.ComboBox comboBoxTipoUsuario;
         private System.Windows.Forms.ComboBox comboBoxCalificación;
         private System.Windows.Forms.Label DuraciónCanciónSeleccionada;
@@ -4738,6 +4857,19 @@
         private System.Windows.Forms.Button buttonRechazarSolicitud;
         private System.Windows.Forms.Label label75;
         private System.Windows.Forms.ListView listViewSolicitudes;
+        private System.Windows.Forms.Button buttonAgregarOtroFiltro1;
+        private System.Windows.Forms.Button buttonAgregarOtroFiltro2;
+        private System.Windows.Forms.TextBox textBoxFiltroBúsqueda3;
+        private System.Windows.Forms.TextBox textBoxFiltroBúsqueda2;
+        private System.Windows.Forms.ListView listViewBúsqueda;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer5;
+        private System.Windows.Forms.Button buttonNextPlaylistCanciones;
+        private System.Windows.Forms.Button buttonReproducirPlaylistCanciones;
+        private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer6;
+        private System.Windows.Forms.PictureBox pictureBoxSalirPelículaTodasMisPlaylist;
+        private System.Windows.Forms.Button buttonNextPlaylistPelículas;
+        private System.Windows.Forms.Button buttonEliminarPlaylist;
+        private System.Windows.Forms.PictureBox pictureBox9;
     }
 }
 

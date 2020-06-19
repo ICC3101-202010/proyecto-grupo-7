@@ -9,7 +9,7 @@ namespace Entrega3Spotiflix
     [Serializable]
     public class Person
     {
-        protected string nombre;
+        public string nombre;
         protected string apellido;
         protected string sexo;
         protected int age;
