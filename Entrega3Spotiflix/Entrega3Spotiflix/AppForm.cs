@@ -3960,6 +3960,39 @@ namespace Entrega3Spotiflix
 
         }
 
+        private void panelTuBiblioteca_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void buttonTuBiblioteca_Click(object sender, EventArgs e)
+        {
+            panelTuBiblioteca.Visible = true;
+            if (panelSocial.Visible == true)
+            {
+                panelSocial.Visible = false;
+            }
+        }
+
+        private void button6_Click(object sender, EventArgs e)
+        {
+            panelTuBiblioteca.Visible = false;
+        }
+
+        private void buttonSocial_Click(object sender, EventArgs e)
+        {
+            panelSocial.Visible = true;
+            if (panelTuBiblioteca.Visible == true)
+            {
+                panelTuBiblioteca.Visible = false;
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            panelSocial.Visible = false;
+        }
+
         private void buttonGoMisPlaylists_Click(object sender, EventArgs e)
         {
             labelUsuarioPlaylist.Text = textBoxUsernamePerfil.Text;
