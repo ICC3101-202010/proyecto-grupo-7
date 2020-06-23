@@ -4248,11 +4248,10 @@
             this.panelSiguiendo.Controls.Add(this.buttonVolverDeSeguidores);
             this.panelSiguiendo.Controls.Add(this.label74);
             this.panelSiguiendo.Controls.Add(this.listViewSiguiendo);
-            this.panelSiguiendo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSiguiendo.ForeColor = System.Drawing.SystemColors.Window;
-            this.panelSiguiendo.Location = new System.Drawing.Point(0, 0);
+            this.panelSiguiendo.Location = new System.Drawing.Point(12, 162);
             this.panelSiguiendo.Name = "panelSiguiendo";
-            this.panelSiguiendo.Size = new System.Drawing.Size(754, 376);
+            this.panelSiguiendo.Size = new System.Drawing.Size(55, 51);
             this.panelSiguiendo.TabIndex = 38;
             // 
             // UsuarioSeguidoSeleccionado
@@ -4786,12 +4785,12 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(754, 376);
+            this.Controls.Add(this.panelTodasMisPlaylists);
             this.Controls.Add(this.panelSiguiendo);
             this.Controls.Add(this.panelMenu);
             this.Controls.Add(this.panelCancciones);
             this.Controls.Add(this.panelPelículas);
             this.Controls.Add(this.panelSolicitudes);
-            this.Controls.Add(this.panelTodasMisPlaylists);
             this.Controls.Add(this.panelUsuarios);
             this.Controls.Add(this.panelTopMedia);
             this.Controls.Add(this.panelCrearPlaylist);

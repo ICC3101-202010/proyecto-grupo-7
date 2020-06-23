@@ -3959,62 +3959,65 @@ namespace Entrega3Spotiflix
 
         private void buttonEliminarPlaylist_Click(object sender, EventArgs e)
         {
-            List<Playlist> lista1 = new List<Playlist>();
-            lista1 = Archivos.playlists_Canciones;
-            List<Playlist> lista2 = new List<Playlist>();
-            lista1 = Archivos.playlists_Películas;
-            string nombre = listViewTodasMisPlaylists.SelectedItems[0].SubItems[0].Text;
-            Playlist EliminarPlaylist = new Playlist();
-            Usuario usuario = new Usuario();
-            foreach (Playlist playlist in lista1)
+            if (labelUsuarioTodaMisPlaylist.Text == textBoxUsernamePerfil.Text)
             {
-                if (playlist.Nombre == nombre)
+                List<Playlist> lista1 = new List<Playlist>();
+                lista1 = Archivos.playlists_Canciones;
+                List<Playlist> lista2 = new List<Playlist>();
+                lista1 = Archivos.playlists_Películas;
+                string nombre = listViewTodasMisPlaylists.SelectedItems[0].SubItems[0].Text;
+                Playlist EliminarPlaylist = new Playlist();
+                Usuario usuario = new Usuario();
+                foreach (Playlist playlist in lista1)
                 {
-                    if (playlist.Tipo_playlist == "De Canciones")
+                    if (playlist.Nombre == nombre)
                     {
-                        foreach (Usuario usuario1 in Archivos.Usuarios)
+                        if (playlist.Tipo_playlist == "De Canciones")
                         {
-                            if (usuario1.Nombre_usuario == textBoxUsernamePerfil.Text)
+                            foreach (Usuario usuario1 in Archivos.Usuarios)
                             {
-                                usuario = usuario1;
-                                EliminarPlaylist = playlist;
+                                if (usuario1.Nombre_usuario == textBoxUsernamePerfil.Text)
+                                {
+                                    usuario = usuario1;
+                                    EliminarPlaylist = playlist;
+                                }
                             }
                         }
-                    }
-                    if (playlist.Tipo_playlist == "De Películas")
-                    {
-                        foreach (Usuario usuario1 in Archivos.Usuarios)
+                        if (playlist.Tipo_playlist == "De Películas")
                         {
-                            if (usuario1.Nombre_usuario == textBoxUsernamePerfil.Text)
+                            foreach (Usuario usuario1 in Archivos.Usuarios)
                             {
-                                usuario = usuario1;
-                                EliminarPlaylist = playlist;
+                                if (usuario1.Nombre_usuario == textBoxUsernamePerfil.Text)
+                                {
+                                    usuario = usuario1;
+                                    EliminarPlaylist = playlist;
+                                }
                             }
                         }
                     }
                 }
-            }
-            if (usuario.Nombre_usuario == textBoxUsernamePerfil.Text)
-            {
-                usuario.Playlists.Remove(nombre);
-                Archivos.playlists_Películas.Remove(EliminarPlaylist);
-                Archivos.playlists_Canciones.Remove(EliminarPlaylist);
-                MessageBox.Show("PlayList eliminada correctamente");
-                listViewTodasMisPlaylists.Clear();
-                ListViewGroup Playlists = new ListViewGroup("Playlists", HorizontalAlignment.Left);
-                foreach (String película in usuario.Playlists)
+                if (usuario.Nombre_usuario == textBoxUsernamePerfil.Text)
                 {
-                    listViewTodasMisPlaylists.Items.Add(new ListViewItem(película, Playlists));
+                    usuario.Playlists.Remove(nombre);
+                    Archivos.playlists_Películas.Remove(EliminarPlaylist);
+                    Archivos.playlists_Canciones.Remove(EliminarPlaylist);
+                    MessageBox.Show("PlayList eliminada correctamente");
+                    listViewTodasMisPlaylists.Clear();
+                    ListViewGroup Playlists = new ListViewGroup("Playlists", HorizontalAlignment.Left);
+                    foreach (String película in usuario.Playlists)
+                    {
+                        listViewTodasMisPlaylists.Items.Add(new ListViewItem(película, Playlists));
 
+                    }
+                    listViewTodasMisPlaylists.Groups.Add(Playlists);
+                    buttonReproducirPlaylistCanciones.Visible = false;
+                    buttonEliminarPlaylist.Visible = false;
+                    listViewPelículasDeMisPlaylist.Visible = false;
+                    listViewCancionesDeMisPlaylist.Visible = false;
+                    labelCancionesTodasMisPlaylist.Visible = false;
+                    labelPelículasTodasMisPlaylist.Visible = false;
+                    Serializacion();
                 }
-                listViewTodasMisPlaylists.Groups.Add(Playlists);
-                buttonReproducirPlaylistCanciones.Visible = false;
-                buttonEliminarPlaylist.Visible = false;
-                listViewPelículasDeMisPlaylist.Visible = false;
-                listViewCancionesDeMisPlaylist.Visible = false;
-                labelCancionesTodasMisPlaylist.Visible = false;
-                labelPelículasTodasMisPlaylist.Visible = false;
-                Serializacion();
             }
             else
             {
