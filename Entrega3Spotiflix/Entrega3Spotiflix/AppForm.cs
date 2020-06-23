@@ -1177,6 +1177,7 @@ namespace Entrega3Spotiflix
 
         private void buttonReproducirPelícula_Click(object sender, EventArgs e)
         {
+            buttonAgregarPelículaAMisPlaylist.Visible = false;
             buttonNext1Películas.Visible = true;
             panel2.Visible = false;
             axWindowsMediaPlayer2.Dock = DockStyle.Fill;
@@ -2919,6 +2920,7 @@ namespace Entrega3Spotiflix
 
         private void pictureBoxSalirReproducirPelicula_Click_1(object sender, EventArgs e)
         {
+            buttonAgregarPelículaAMisPlaylist.Visible = true;
             panel2.Visible = true;
             buttonVolverDeVerPelícula.Visible = true;
             axWindowsMediaPlayer2.Ctlcontrols.pause();
@@ -3224,32 +3226,45 @@ namespace Entrega3Spotiflix
 
         private void buttonGoPlaylistsUsuarioSiguiendo_Click(object sender, EventArgs e)
         {
-            buttonEliminarPlaylist.Visible = false;
-            axWindowsMediaPlayer5.Visible = false;
-            axWindowsMediaPlayer6.Visible = false;
-            buttonNextPlaylistPelículas.Visible = false;
-            buttonNextPlaylistCanciones.Visible = false;
-            buttonReproducirPlaylistCanciones.Visible = false;
-            pictureBoxSalirPelículaTodasMisPlaylist.Visible = false;
-            listViewPelículasDeMisPlaylist.Visible = false;
-            listViewCancionesDeMisPlaylist.Visible = false;
-            labelPelículasTodasMisPlaylist.Visible = false;
-            labelCancionesTodasMisPlaylist.Visible = false;
-            stackPanels.Add(panels["TodasMisPlaylistsPanel"]);
-            ShowLastPanel();
-            labelUsuarioTodaMisPlaylist.Text = UsuarioSeguidoSeleccionado.Text;
-            foreach (Usuario usuario in Archivos.Usuarios)
+            foreach (Usuario usuario1 in Archivos.Usuarios)
             {
-                if (usuario.Nombre_usuario == labelUsuarioTodaMisPlaylist.Text)
+                if (usuario1.Nombre_usuario == UsuarioSeguidoSeleccionado.Text)
                 {
-                    listViewTodasMisPlaylists.Clear();
-                    ListViewGroup Playlists = new ListViewGroup("Playlists", HorizontalAlignment.Left);
-                    foreach (String película in usuario.Playlists)
+                    if (usuario1.Tipo_usuario == "Premium" || usuario1.Nombre_usuario == "admin")
                     {
-                        listViewTodasMisPlaylists.Items.Add(new ListViewItem(película, Playlists));
+                        buttonEliminarPlaylist.Visible = false;
+                        axWindowsMediaPlayer5.Visible = false;
+                        axWindowsMediaPlayer6.Visible = false;
+                        buttonNextPlaylistPelículas.Visible = false;
+                        buttonNextPlaylistCanciones.Visible = false;
+                        buttonReproducirPlaylistCanciones.Visible = false;
+                        pictureBoxSalirPelículaTodasMisPlaylist.Visible = false;
+                        listViewPelículasDeMisPlaylist.Visible = false;
+                        listViewCancionesDeMisPlaylist.Visible = false;
+                        labelPelículasTodasMisPlaylist.Visible = false;
+                        labelCancionesTodasMisPlaylist.Visible = false;
+                        stackPanels.Add(panels["TodasMisPlaylistsPanel"]);
+                        ShowLastPanel();
+                        labelUsuarioTodaMisPlaylist.Text = UsuarioSeguidoSeleccionado.Text;
+                        foreach (Usuario usuario in Archivos.Usuarios)
+                        {
+                            if (usuario.Nombre_usuario == labelUsuarioTodaMisPlaylist.Text)
+                            {
+                                listViewTodasMisPlaylists.Clear();
+                                ListViewGroup Playlists = new ListViewGroup("Playlists", HorizontalAlignment.Left);
+                                foreach (String película in usuario.Playlists)
+                                {
+                                    listViewTodasMisPlaylists.Items.Add(new ListViewItem(película, Playlists));
 
+                                }
+                                listViewTodasMisPlaylists.Groups.Add(Playlists);
+                            }
+                        }
                     }
-                    listViewTodasMisPlaylists.Groups.Add(Playlists);
+                    else
+                    {
+                        MessageBox.Show("Este usuario es Gratis y no posee listas");
+                    }
                 }
             }
         }
@@ -3369,32 +3384,45 @@ namespace Entrega3Spotiflix
 
         private void buttonGoTodasMisPlaylists_Click(object sender, EventArgs e)
         {
-            buttonEliminarPlaylist.Visible = false;
-            axWindowsMediaPlayer5.Visible = false;
-            axWindowsMediaPlayer6.Visible = false;
-            buttonNextPlaylistPelículas.Visible = false;
-            buttonNextPlaylistCanciones.Visible = false;
-            buttonReproducirPlaylistCanciones.Visible = false;
-            pictureBoxSalirPelículaTodasMisPlaylist.Visible = false;
-            listViewPelículasDeMisPlaylist.Visible = false;
-            listViewCancionesDeMisPlaylist.Visible = false;
-            labelPelículasTodasMisPlaylist.Visible = false;
-            labelCancionesTodasMisPlaylist.Visible = false;
-            stackPanels.Add(panels["TodasMisPlaylistsPanel"]);
-            ShowLastPanel();
-            labelUsuarioTodaMisPlaylist.Text = textBoxUsernamePerfil.Text;
-            foreach (Usuario usuario in Archivos.Usuarios)
+            foreach (Usuario usuario1 in Archivos.Usuarios)
             {
-                if (usuario.Nombre_usuario == labelUsuarioTodaMisPlaylist.Text)
+                if (usuario1.Nombre_usuario == textBoxUsernamePerfil.Text)
                 {
-                    listViewTodasMisPlaylists.Clear();
-                    ListViewGroup Playlists = new ListViewGroup("Playlists", HorizontalAlignment.Left);
-                    foreach (String película in usuario.Playlists)
+                    if (usuario1.Tipo_usuario == "Premium" || usuario1.Nombre_usuario == "admin")
                     {
-                        listViewTodasMisPlaylists.Items.Add(new ListViewItem(película, Playlists));
+                        buttonEliminarPlaylist.Visible = false;
+                        axWindowsMediaPlayer5.Visible = false;
+                        axWindowsMediaPlayer6.Visible = false;
+                        buttonNextPlaylistPelículas.Visible = false;
+                        buttonNextPlaylistCanciones.Visible = false;
+                        buttonReproducirPlaylistCanciones.Visible = false;
+                        pictureBoxSalirPelículaTodasMisPlaylist.Visible = false;
+                        listViewPelículasDeMisPlaylist.Visible = false;
+                        listViewCancionesDeMisPlaylist.Visible = false;
+                        labelPelículasTodasMisPlaylist.Visible = false;
+                        labelCancionesTodasMisPlaylist.Visible = false;
+                        stackPanels.Add(panels["TodasMisPlaylistsPanel"]);
+                        ShowLastPanel();
+                        labelUsuarioTodaMisPlaylist.Text = textBoxUsernamePerfil.Text;
+                        foreach (Usuario usuario in Archivos.Usuarios)
+                        {
+                            if (usuario.Nombre_usuario == labelUsuarioTodaMisPlaylist.Text)
+                            {
+                                listViewTodasMisPlaylists.Clear();
+                                ListViewGroup Playlists = new ListViewGroup("Playlists", HorizontalAlignment.Left);
+                                foreach (String película in usuario.Playlists)
+                                {
+                                    listViewTodasMisPlaylists.Items.Add(new ListViewItem(película, Playlists));
 
+                                }
+                                listViewTodasMisPlaylists.Groups.Add(Playlists);
+                            }
+                        }
                     }
-                    listViewTodasMisPlaylists.Groups.Add(Playlists);
+                    else
+                    {
+                        MessageBox.Show("Solo los usuarios Premium pueden acceder a esta función");
+                    }
                 }
             }
         }
@@ -3406,9 +3434,22 @@ namespace Entrega3Spotiflix
 
         private void buttonGoCrearPlaylist_Click(object sender, EventArgs e)
         {
-            stackPanels.Add(panels["CrearPlaylistPanel"]);
-            ShowLastPanel();
-            textBoxNombreCrearPlaylist.ResetText();
+            foreach (Usuario usuario in Archivos.Usuarios)
+            {
+                if (usuario.Nombre_usuario == textBoxUsernamePerfil.Text)
+                {
+                    if (usuario.Tipo_usuario == "Premium" || usuario.Nombre_usuario == "admin")
+                    {
+                        stackPanels.Add(panels["CrearPlaylistPanel"]);
+                        ShowLastPanel();
+                        textBoxNombreCrearPlaylist.ResetText();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Solo los usuarios Premium pueden acceder a esta función");
+                    }
+                }
+            }
         }
 
         private void listViewTodasMisPlaylists_MouseClick(object sender, MouseEventArgs e)
@@ -3463,26 +3504,39 @@ namespace Entrega3Spotiflix
 
         private void buttonAgregarAMisPlaylists_Click(object sender, EventArgs e)
         {
-            buttonConfirmarAgregarCanciónAPlaylist.Visible = true;
-            comboBoxPlaylistParaAgregarCanción.ResetText();
-            comboBoxPlaylistParaAgregarCanción.Items.Clear();
-            comboBoxPlaylistParaAgregarCanción.Visible = true;
-            foreach (Usuario usuario in Archivos.Usuarios)
+            foreach (Usuario usuario1 in Archivos.Usuarios)
             {
-                if (usuario.Nombre_usuario == textBoxUsernamePerfil.Text)
+                if (usuario1.Nombre_usuario == textBoxUsernamePerfil.Text)
                 {
-                    foreach (String película in usuario.Playlists)
+                    if (usuario1.Tipo_usuario == "Premium" || usuario1.Nombre_usuario == "admin")
                     {
-                        foreach (Playlist playlist in Archivos.playlists_Canciones)
+                        buttonConfirmarAgregarCanciónAPlaylist.Visible = true;
+                        comboBoxPlaylistParaAgregarCanción.ResetText();
+                        comboBoxPlaylistParaAgregarCanción.Items.Clear();
+                        comboBoxPlaylistParaAgregarCanción.Visible = true;
+                        foreach (Usuario usuario in Archivos.Usuarios)
                         {
-                            if (película == playlist.Nombre)
+                            if (usuario.Nombre_usuario == textBoxUsernamePerfil.Text)
                             {
-                                if (playlist.Tipo_playlist == "De Canciones")
+                                foreach (String película in usuario.Playlists)
                                 {
-                                    comboBoxPlaylistParaAgregarCanción.Items.Add(película);
+                                    foreach (Playlist playlist in Archivos.playlists_Canciones)
+                                    {
+                                        if (película == playlist.Nombre)
+                                        {
+                                            if (playlist.Tipo_playlist == "De Canciones")
+                                            {
+                                                comboBoxPlaylistParaAgregarCanción.Items.Add(película);
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Solo los usuarios Premium pueden acceder a esta función");
                     }
                 }
             }
@@ -3528,26 +3582,39 @@ namespace Entrega3Spotiflix
 
         private void buttonAgregarPelículaAMisPlaylist_Click(object sender, EventArgs e)
         {
-            buttonConfirmarAgregarPelículaAPlaylist.Visible = true;
-            comboBoxPlaylistParaAgregarPelícula.ResetText();
-            comboBoxPlaylistParaAgregarPelícula.Items.Clear();
-            comboBoxPlaylistParaAgregarPelícula.Visible = true;
-            foreach (Usuario usuario in Archivos.Usuarios)
+            foreach (Usuario usuario1 in Archivos.Usuarios)
             {
-                if (usuario.Nombre_usuario == textBoxUsernamePerfil.Text)
+                if (usuario1.Nombre_usuario == textBoxUsernamePerfil.Text)
                 {
-                    foreach(String película in usuario.Playlists)
+                    if (usuario1.Tipo_usuario == "Premium" || usuario1.Nombre_usuario == "admin")
                     {
-                        foreach (Playlist playlist in Archivos.playlists_Películas)
+                        buttonConfirmarAgregarPelículaAPlaylist.Visible = true;
+                        comboBoxPlaylistParaAgregarPelícula.ResetText();
+                        comboBoxPlaylistParaAgregarPelícula.Items.Clear();
+                        comboBoxPlaylistParaAgregarPelícula.Visible = true;
+                        foreach (Usuario usuario in Archivos.Usuarios)
                         {
-                            if (película == playlist.Nombre)
+                            if (usuario.Nombre_usuario == textBoxUsernamePerfil.Text)
                             {
-                                if (playlist.Tipo_playlist == "De Películas")
+                                foreach (String película in usuario.Playlists)
                                 {
-                                    comboBoxPlaylistParaAgregarPelícula.Items.Add(película);
+                                    foreach (Playlist playlist in Archivos.playlists_Películas)
+                                    {
+                                        if (película == playlist.Nombre)
+                                        {
+                                            if (playlist.Tipo_playlist == "De Películas")
+                                            {
+                                                comboBoxPlaylistParaAgregarPelícula.Items.Add(película);
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Solo los usuarios Premium pueden acceder a esta función");
                     }
                 }
             }
@@ -3993,30 +4060,48 @@ namespace Entrega3Spotiflix
             panelSocial.Visible = false;
         }
 
+        private void AppForm_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void buttonGoMisPlaylists_Click(object sender, EventArgs e)
         {
-            labelUsuarioPlaylist.Text = textBoxUsernamePerfil.Text;
-            cuenta = 1;
-            cuenta2 = 1;
-            stackPanels.Add(panels["MisPlaylistPanel"]);
-            ShowLastPanel();
-            buttonNextPlaylistPelícula.Visible = false;
-            axWindowsMediaPlayer4.Visible = false;
-            axWindowsMediaPlayer3.Visible = false;
-            foreach (Usuario usuario in Archivos.Usuarios)
+            foreach (Usuario usuario1 in Archivos.Usuarios)
             {
-                if (usuario.Nombre_usuario == labelUsuarioPlaylist.Text)
+                if (usuario1.Nombre_usuario == textBoxUsernamePerfil.Text)
                 {
-                    listViewVerMisPlaylistCanción.Clear();
-                    listViewVerMisPlaylistPelícula.Clear();
-                    VerPlaylists(usuario.PlaylistC);
-                    ListViewGroup Playlists = new ListViewGroup("Playlists", HorizontalAlignment.Left);
-                    foreach (String película in usuario.PlaylistV)
+                    if (usuario1.Tipo_usuario == "Premium" || usuario1.Nombre_usuario == "admin")
                     {
-                        listViewVerMisPlaylistPelícula.Items.Add(new ListViewItem(película, Playlists));
+                        labelUsuarioPlaylist.Text = textBoxUsernamePerfil.Text;
+                        cuenta = 1;
+                        cuenta2 = 1;
+                        stackPanels.Add(panels["MisPlaylistPanel"]);
+                        ShowLastPanel();
+                        buttonNextPlaylistPelícula.Visible = false;
+                        axWindowsMediaPlayer4.Visible = false;
+                        axWindowsMediaPlayer3.Visible = false;
+                        foreach (Usuario usuario in Archivos.Usuarios)
+                        {
+                            if (usuario.Nombre_usuario == labelUsuarioPlaylist.Text)
+                            {
+                                listViewVerMisPlaylistCanción.Clear();
+                                listViewVerMisPlaylistPelícula.Clear();
+                                VerPlaylists(usuario.PlaylistC);
+                                ListViewGroup Playlists = new ListViewGroup("Playlists", HorizontalAlignment.Left);
+                                foreach (String película in usuario.PlaylistV)
+                                {
+                                    listViewVerMisPlaylistPelícula.Items.Add(new ListViewItem(película, Playlists));
 
+                                }
+                                listViewVerMisPlaylistPelícula.Groups.Add(Playlists);
+                            }
+                        }
                     }
-                    listViewVerMisPlaylistPelícula.Groups.Add(Playlists);
+                    else
+                    {
+                        MessageBox.Show("Solo los usuarios Premium pueden acceder a esta función");
+                    }
                 }
             }
         }

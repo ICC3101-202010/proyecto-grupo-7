@@ -61,19 +61,25 @@
             this.registerViewButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.panelMenu = new System.Windows.Forms.Panel();
+            this.panelSocial = new System.Windows.Forms.Panel();
+            this.button7 = new System.Windows.Forms.Button();
+            this.buttonGoUsuarios = new System.Windows.Forms.Button();
+            this.buttonGoSiguiendo = new System.Windows.Forms.Button();
             this.buttonGoSolicitudes = new System.Windows.Forms.Button();
+            this.panelTuBiblioteca = new System.Windows.Forms.Panel();
+            this.button6 = new System.Windows.Forms.Button();
+            this.buttonGoVerCanciones = new System.Windows.Forms.Button();
+            this.buttonGoVerPelículas = new System.Windows.Forms.Button();
+            this.buttonGoMisPlaylists = new System.Windows.Forms.Button();
             this.buttonGoTodasMisPlaylists = new System.Windows.Forms.Button();
             this.buttonGoCrearPlaylist = new System.Windows.Forms.Button();
+            this.buttonSocial = new System.Windows.Forms.Button();
+            this.buttonTuBiblioteca = new System.Windows.Forms.Button();
             this.buttonGoHistorial = new System.Windows.Forms.Button();
             this.buttonGoTopCanciones = new System.Windows.Forms.Button();
             this.buttonGoEliminarMedia = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
             this.buttonIrAgregarCancion = new System.Windows.Forms.Button();
-            this.buttonGoVerPelículas = new System.Windows.Forms.Button();
-            this.buttonGoMisPlaylists = new System.Windows.Forms.Button();
-            this.buttonGoUsuarios = new System.Windows.Forms.Button();
-            this.buttonGoVerCanciones = new System.Windows.Forms.Button();
-            this.buttonGoSiguiendo = new System.Windows.Forms.Button();
             this.buttonGoBuscar = new System.Windows.Forms.Button();
             this.textBoxUsernamePerfil = new System.Windows.Forms.TextBox();
             this.buttonModificarCuenta = new System.Windows.Forms.Button();
@@ -371,12 +377,6 @@
             this.buttonRechazarSolicitud = new System.Windows.Forms.Button();
             this.label75 = new System.Windows.Forms.Label();
             this.listViewSolicitudes = new System.Windows.Forms.ListView();
-            this.buttonTuBiblioteca = new System.Windows.Forms.Button();
-            this.buttonSocial = new System.Windows.Forms.Button();
-            this.panelTuBiblioteca = new System.Windows.Forms.Panel();
-            this.button6 = new System.Windows.Forms.Button();
-            this.panelSocial = new System.Windows.Forms.Panel();
-            this.button7 = new System.Windows.Forms.Button();
             this.panelEntrada.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FotoLogoEntrada)).BeginInit();
             this.panelLogin.SuspendLayout();
@@ -384,6 +384,8 @@
             this.panelRegister.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.panelMenu.SuspendLayout();
+            this.panelSocial.SuspendLayout();
+            this.panelTuBiblioteca.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FotoMenu)).BeginInit();
             this.panelModificarCuenta.SuspendLayout();
             this.panelInformacionPerfil.SuspendLayout();
@@ -427,8 +429,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.axWindowsMediaPlayer5)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).BeginInit();
             this.panelSolicitudes.SuspendLayout();
-            this.panelTuBiblioteca.SuspendLayout();
-            this.panelSocial.SuspendLayout();
             this.SuspendLayout();
             // 
             // panelEntrada
@@ -841,6 +841,66 @@
             this.panelMenu.TabIndex = 25;
             this.panelMenu.Paint += new System.Windows.Forms.PaintEventHandler(this.panelMenu_Paint);
             // 
+            // panelSocial
+            // 
+            this.panelSocial.BackColor = System.Drawing.SystemColors.WindowText;
+            this.panelSocial.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelSocial.Controls.Add(this.button7);
+            this.panelSocial.Controls.Add(this.buttonGoUsuarios);
+            this.panelSocial.Controls.Add(this.buttonGoSiguiendo);
+            this.panelSocial.Controls.Add(this.buttonGoSolicitudes);
+            this.panelSocial.Location = new System.Drawing.Point(601, 86);
+            this.panelSocial.Name = "panelSocial";
+            this.panelSocial.Size = new System.Drawing.Size(123, 231);
+            this.panelSocial.TabIndex = 41;
+            this.panelSocial.Visible = false;
+            // 
+            // button7
+            // 
+            this.button7.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.button7.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button7.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
+            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button7.Location = new System.Drawing.Point(5, 198);
+            this.button7.Name = "button7";
+            this.button7.Size = new System.Drawing.Size(63, 22);
+            this.button7.TabIndex = 38;
+            this.button7.Text = "Volver";
+            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button7.UseVisualStyleBackColor = false;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
+            // 
+            // buttonGoUsuarios
+            // 
+            this.buttonGoUsuarios.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.buttonGoUsuarios.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGoUsuarios.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.buttonGoUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("buttonGoUsuarios.Image")));
+            this.buttonGoUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonGoUsuarios.Location = new System.Drawing.Point(5, 11);
+            this.buttonGoUsuarios.Name = "buttonGoUsuarios";
+            this.buttonGoUsuarios.Size = new System.Drawing.Size(109, 31);
+            this.buttonGoUsuarios.TabIndex = 27;
+            this.buttonGoUsuarios.Text = "AMIGOS";
+            this.buttonGoUsuarios.UseVisualStyleBackColor = false;
+            this.buttonGoUsuarios.Click += new System.EventHandler(this.buttonGoUsuarios_Click);
+            // 
+            // buttonGoSiguiendo
+            // 
+            this.buttonGoSiguiendo.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.buttonGoSiguiendo.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGoSiguiendo.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.buttonGoSiguiendo.Image = ((System.Drawing.Image)(resources.GetObject("buttonGoSiguiendo.Image")));
+            this.buttonGoSiguiendo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonGoSiguiendo.Location = new System.Drawing.Point(5, 50);
+            this.buttonGoSiguiendo.Name = "buttonGoSiguiendo";
+            this.buttonGoSiguiendo.Size = new System.Drawing.Size(108, 29);
+            this.buttonGoSiguiendo.TabIndex = 25;
+            this.buttonGoSiguiendo.Text = "SIGUIENDO";
+            this.buttonGoSiguiendo.UseVisualStyleBackColor = false;
+            this.buttonGoSiguiendo.Click += new System.EventHandler(this.buttonGoSiguiendo_Click);
+            // 
             // buttonGoSolicitudes
             // 
             this.buttonGoSolicitudes.BackColor = System.Drawing.SystemColors.ScrollBar;
@@ -855,6 +915,83 @@
             this.buttonGoSolicitudes.Text = "SOLICITUDES";
             this.buttonGoSolicitudes.UseVisualStyleBackColor = false;
             this.buttonGoSolicitudes.Click += new System.EventHandler(this.buttonGoSolicitudes_Click);
+            // 
+            // panelTuBiblioteca
+            // 
+            this.panelTuBiblioteca.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panelTuBiblioteca.Controls.Add(this.button6);
+            this.panelTuBiblioteca.Controls.Add(this.buttonGoVerCanciones);
+            this.panelTuBiblioteca.Controls.Add(this.buttonGoVerPelículas);
+            this.panelTuBiblioteca.Controls.Add(this.buttonGoMisPlaylists);
+            this.panelTuBiblioteca.Controls.Add(this.buttonGoTodasMisPlaylists);
+            this.panelTuBiblioteca.Controls.Add(this.buttonGoCrearPlaylist);
+            this.panelTuBiblioteca.Location = new System.Drawing.Point(488, 87);
+            this.panelTuBiblioteca.Name = "panelTuBiblioteca";
+            this.panelTuBiblioteca.Size = new System.Drawing.Size(131, 230);
+            this.panelTuBiblioteca.TabIndex = 40;
+            this.panelTuBiblioteca.Visible = false;
+            this.panelTuBiblioteca.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTuBiblioteca_Paint);
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.button6.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button6.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
+            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button6.Location = new System.Drawing.Point(7, 200);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(63, 22);
+            this.button6.TabIndex = 37;
+            this.button6.Text = "Volver";
+            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // buttonGoVerCanciones
+            // 
+            this.buttonGoVerCanciones.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.buttonGoVerCanciones.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGoVerCanciones.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.buttonGoVerCanciones.Image = ((System.Drawing.Image)(resources.GetObject("buttonGoVerCanciones.Image")));
+            this.buttonGoVerCanciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonGoVerCanciones.Location = new System.Drawing.Point(6, 8);
+            this.buttonGoVerCanciones.Name = "buttonGoVerCanciones";
+            this.buttonGoVerCanciones.Size = new System.Drawing.Size(106, 31);
+            this.buttonGoVerCanciones.TabIndex = 26;
+            this.buttonGoVerCanciones.Text = "CANCIONES";
+            this.buttonGoVerCanciones.UseVisualStyleBackColor = false;
+            this.buttonGoVerCanciones.Click += new System.EventHandler(this.buttonGoVerCanciones_Click);
+            // 
+            // buttonGoVerPelículas
+            // 
+            this.buttonGoVerPelículas.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.buttonGoVerPelículas.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGoVerPelículas.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.buttonGoVerPelículas.Image = ((System.Drawing.Image)(resources.GetObject("buttonGoVerPelículas.Image")));
+            this.buttonGoVerPelículas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonGoVerPelículas.Location = new System.Drawing.Point(6, 42);
+            this.buttonGoVerPelículas.Name = "buttonGoVerPelículas";
+            this.buttonGoVerPelículas.Size = new System.Drawing.Size(106, 28);
+            this.buttonGoVerPelículas.TabIndex = 29;
+            this.buttonGoVerPelículas.Text = "PELÍCULAS";
+            this.buttonGoVerPelículas.UseVisualStyleBackColor = false;
+            this.buttonGoVerPelículas.Click += new System.EventHandler(this.buttonGoVerPelículas_Click);
+            // 
+            // buttonGoMisPlaylists
+            // 
+            this.buttonGoMisPlaylists.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.buttonGoMisPlaylists.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonGoMisPlaylists.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.buttonGoMisPlaylists.Image = ((System.Drawing.Image)(resources.GetObject("buttonGoMisPlaylists.Image")));
+            this.buttonGoMisPlaylists.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonGoMisPlaylists.Location = new System.Drawing.Point(6, 75);
+            this.buttonGoMisPlaylists.Name = "buttonGoMisPlaylists";
+            this.buttonGoMisPlaylists.Size = new System.Drawing.Size(106, 29);
+            this.buttonGoMisPlaylists.TabIndex = 28;
+            this.buttonGoMisPlaylists.Text = "FAVORITOS";
+            this.buttonGoMisPlaylists.UseVisualStyleBackColor = false;
+            this.buttonGoMisPlaylists.Click += new System.EventHandler(this.buttonGoMisPlaylists_Click);
             // 
             // buttonGoTodasMisPlaylists
             // 
@@ -886,6 +1023,38 @@
             this.buttonGoCrearPlaylist.Text = " PLAYLIST";
             this.buttonGoCrearPlaylist.UseVisualStyleBackColor = false;
             this.buttonGoCrearPlaylist.Click += new System.EventHandler(this.buttonGoCrearPlaylist_Click);
+            // 
+            // buttonSocial
+            // 
+            this.buttonSocial.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.buttonSocial.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSocial.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.buttonSocial.Image = ((System.Drawing.Image)(resources.GetObject("buttonSocial.Image")));
+            this.buttonSocial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonSocial.Location = new System.Drawing.Point(601, 52);
+            this.buttonSocial.Name = "buttonSocial";
+            this.buttonSocial.Size = new System.Drawing.Size(69, 31);
+            this.buttonSocial.TabIndex = 39;
+            this.buttonSocial.Text = "SOCIAL";
+            this.buttonSocial.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonSocial.UseVisualStyleBackColor = false;
+            this.buttonSocial.Click += new System.EventHandler(this.buttonSocial_Click);
+            // 
+            // buttonTuBiblioteca
+            // 
+            this.buttonTuBiblioteca.BackColor = System.Drawing.SystemColors.ScrollBar;
+            this.buttonTuBiblioteca.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonTuBiblioteca.ForeColor = System.Drawing.SystemColors.WindowText;
+            this.buttonTuBiblioteca.Image = ((System.Drawing.Image)(resources.GetObject("buttonTuBiblioteca.Image")));
+            this.buttonTuBiblioteca.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.buttonTuBiblioteca.Location = new System.Drawing.Point(488, 52);
+            this.buttonTuBiblioteca.Name = "buttonTuBiblioteca";
+            this.buttonTuBiblioteca.Size = new System.Drawing.Size(102, 31);
+            this.buttonTuBiblioteca.TabIndex = 38;
+            this.buttonTuBiblioteca.Text = "TU BIBLIOTECA";
+            this.buttonTuBiblioteca.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.buttonTuBiblioteca.UseVisualStyleBackColor = false;
+            this.buttonTuBiblioteca.Click += new System.EventHandler(this.buttonTuBiblioteca_Click);
             // 
             // buttonGoHistorial
             // 
@@ -964,81 +1133,6 @@
             this.buttonIrAgregarCancion.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.buttonIrAgregarCancion.UseVisualStyleBackColor = false;
             this.buttonIrAgregarCancion.Click += new System.EventHandler(this.buttonIrAgregarCancion_Click);
-            // 
-            // buttonGoVerPelículas
-            // 
-            this.buttonGoVerPelículas.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.buttonGoVerPelículas.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGoVerPelículas.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.buttonGoVerPelículas.Image = ((System.Drawing.Image)(resources.GetObject("buttonGoVerPelículas.Image")));
-            this.buttonGoVerPelículas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonGoVerPelículas.Location = new System.Drawing.Point(6, 42);
-            this.buttonGoVerPelículas.Name = "buttonGoVerPelículas";
-            this.buttonGoVerPelículas.Size = new System.Drawing.Size(106, 28);
-            this.buttonGoVerPelículas.TabIndex = 29;
-            this.buttonGoVerPelículas.Text = "PELÍCULAS";
-            this.buttonGoVerPelículas.UseVisualStyleBackColor = false;
-            this.buttonGoVerPelículas.Click += new System.EventHandler(this.buttonGoVerPelículas_Click);
-            // 
-            // buttonGoMisPlaylists
-            // 
-            this.buttonGoMisPlaylists.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.buttonGoMisPlaylists.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGoMisPlaylists.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.buttonGoMisPlaylists.Image = ((System.Drawing.Image)(resources.GetObject("buttonGoMisPlaylists.Image")));
-            this.buttonGoMisPlaylists.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonGoMisPlaylists.Location = new System.Drawing.Point(6, 75);
-            this.buttonGoMisPlaylists.Name = "buttonGoMisPlaylists";
-            this.buttonGoMisPlaylists.Size = new System.Drawing.Size(106, 29);
-            this.buttonGoMisPlaylists.TabIndex = 28;
-            this.buttonGoMisPlaylists.Text = "FAVORITOS";
-            this.buttonGoMisPlaylists.UseVisualStyleBackColor = false;
-            this.buttonGoMisPlaylists.Click += new System.EventHandler(this.buttonGoMisPlaylists_Click);
-            // 
-            // buttonGoUsuarios
-            // 
-            this.buttonGoUsuarios.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.buttonGoUsuarios.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGoUsuarios.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.buttonGoUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("buttonGoUsuarios.Image")));
-            this.buttonGoUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonGoUsuarios.Location = new System.Drawing.Point(5, 11);
-            this.buttonGoUsuarios.Name = "buttonGoUsuarios";
-            this.buttonGoUsuarios.Size = new System.Drawing.Size(109, 31);
-            this.buttonGoUsuarios.TabIndex = 27;
-            this.buttonGoUsuarios.Text = "AMIGOS";
-            this.buttonGoUsuarios.UseVisualStyleBackColor = false;
-            this.buttonGoUsuarios.Click += new System.EventHandler(this.buttonGoUsuarios_Click);
-            // 
-            // buttonGoVerCanciones
-            // 
-            this.buttonGoVerCanciones.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.buttonGoVerCanciones.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGoVerCanciones.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.buttonGoVerCanciones.Image = ((System.Drawing.Image)(resources.GetObject("buttonGoVerCanciones.Image")));
-            this.buttonGoVerCanciones.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonGoVerCanciones.Location = new System.Drawing.Point(6, 8);
-            this.buttonGoVerCanciones.Name = "buttonGoVerCanciones";
-            this.buttonGoVerCanciones.Size = new System.Drawing.Size(106, 31);
-            this.buttonGoVerCanciones.TabIndex = 26;
-            this.buttonGoVerCanciones.Text = "CANCIONES";
-            this.buttonGoVerCanciones.UseVisualStyleBackColor = false;
-            this.buttonGoVerCanciones.Click += new System.EventHandler(this.buttonGoVerCanciones_Click);
-            // 
-            // buttonGoSiguiendo
-            // 
-            this.buttonGoSiguiendo.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.buttonGoSiguiendo.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonGoSiguiendo.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.buttonGoSiguiendo.Image = ((System.Drawing.Image)(resources.GetObject("buttonGoSiguiendo.Image")));
-            this.buttonGoSiguiendo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonGoSiguiendo.Location = new System.Drawing.Point(5, 50);
-            this.buttonGoSiguiendo.Name = "buttonGoSiguiendo";
-            this.buttonGoSiguiendo.Size = new System.Drawing.Size(108, 29);
-            this.buttonGoSiguiendo.TabIndex = 25;
-            this.buttonGoSiguiendo.Text = "SIGUIENDO";
-            this.buttonGoSiguiendo.UseVisualStyleBackColor = false;
-            this.buttonGoSiguiendo.Click += new System.EventHandler(this.buttonGoSiguiendo_Click);
             // 
             // buttonGoBuscar
             // 
@@ -2346,9 +2440,9 @@
             this.buttonAgregarPelículaAPlaylist.ForeColor = System.Drawing.SystemColors.WindowText;
             this.buttonAgregarPelículaAPlaylist.Image = ((System.Drawing.Image)(resources.GetObject("buttonAgregarPelículaAPlaylist.Image")));
             this.buttonAgregarPelículaAPlaylist.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonAgregarPelículaAPlaylist.Location = new System.Drawing.Point(220, 300);
+            this.buttonAgregarPelículaAPlaylist.Location = new System.Drawing.Point(232, 300);
             this.buttonAgregarPelículaAPlaylist.Name = "buttonAgregarPelículaAPlaylist";
-            this.buttonAgregarPelículaAPlaylist.Size = new System.Drawing.Size(113, 27);
+            this.buttonAgregarPelículaAPlaylist.Size = new System.Drawing.Size(112, 27);
             this.buttonAgregarPelículaAPlaylist.TabIndex = 38;
             this.buttonAgregarPelículaAPlaylist.Text = "FAVORITOS";
             this.buttonAgregarPelículaAPlaylist.UseVisualStyleBackColor = false;
@@ -2380,7 +2474,7 @@
             this.buttonReproducirPelícula.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.buttonReproducirPelícula.Location = new System.Drawing.Point(93, 300);
             this.buttonReproducirPelícula.Name = "buttonReproducirPelícula";
-            this.buttonReproducirPelícula.Size = new System.Drawing.Size(113, 28);
+            this.buttonReproducirPelícula.Size = new System.Drawing.Size(135, 28);
             this.buttonReproducirPelícula.TabIndex = 36;
             this.buttonReproducirPelícula.Text = "REPRODUCIR";
             this.buttonReproducirPelícula.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -4154,10 +4248,11 @@
             this.panelSiguiendo.Controls.Add(this.buttonVolverDeSeguidores);
             this.panelSiguiendo.Controls.Add(this.label74);
             this.panelSiguiendo.Controls.Add(this.listViewSiguiendo);
+            this.panelSiguiendo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelSiguiendo.ForeColor = System.Drawing.SystemColors.Window;
-            this.panelSiguiendo.Location = new System.Drawing.Point(12, 162);
+            this.panelSiguiendo.Location = new System.Drawing.Point(0, 0);
             this.panelSiguiendo.Name = "panelSiguiendo";
-            this.panelSiguiendo.Size = new System.Drawing.Size(55, 51);
+            this.panelSiguiendo.Size = new System.Drawing.Size(754, 376);
             this.panelSiguiendo.TabIndex = 38;
             // 
             // UsuarioSeguidoSeleccionado
@@ -4686,109 +4781,17 @@
             this.listViewSolicitudes.View = System.Windows.Forms.View.SmallIcon;
             this.listViewSolicitudes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.listViewSolicitudes_MouseClick);
             // 
-            // buttonTuBiblioteca
-            // 
-            this.buttonTuBiblioteca.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.buttonTuBiblioteca.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonTuBiblioteca.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.buttonTuBiblioteca.Image = ((System.Drawing.Image)(resources.GetObject("buttonTuBiblioteca.Image")));
-            this.buttonTuBiblioteca.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonTuBiblioteca.Location = new System.Drawing.Point(488, 52);
-            this.buttonTuBiblioteca.Name = "buttonTuBiblioteca";
-            this.buttonTuBiblioteca.Size = new System.Drawing.Size(102, 31);
-            this.buttonTuBiblioteca.TabIndex = 38;
-            this.buttonTuBiblioteca.Text = "TU BIBLIOTECA";
-            this.buttonTuBiblioteca.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonTuBiblioteca.UseVisualStyleBackColor = false;
-            this.buttonTuBiblioteca.Click += new System.EventHandler(this.buttonTuBiblioteca_Click);
-            // 
-            // buttonSocial
-            // 
-            this.buttonSocial.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.buttonSocial.Font = new System.Drawing.Font("Calibri", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSocial.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.buttonSocial.Image = ((System.Drawing.Image)(resources.GetObject("buttonSocial.Image")));
-            this.buttonSocial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.buttonSocial.Location = new System.Drawing.Point(601, 52);
-            this.buttonSocial.Name = "buttonSocial";
-            this.buttonSocial.Size = new System.Drawing.Size(69, 31);
-            this.buttonSocial.TabIndex = 39;
-            this.buttonSocial.Text = "SOCIAL";
-            this.buttonSocial.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.buttonSocial.UseVisualStyleBackColor = false;
-            this.buttonSocial.Click += new System.EventHandler(this.buttonSocial_Click);
-            // 
-            // panelTuBiblioteca
-            // 
-            this.panelTuBiblioteca.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelTuBiblioteca.Controls.Add(this.button6);
-            this.panelTuBiblioteca.Controls.Add(this.buttonGoVerCanciones);
-            this.panelTuBiblioteca.Controls.Add(this.buttonGoVerPelículas);
-            this.panelTuBiblioteca.Controls.Add(this.buttonGoMisPlaylists);
-            this.panelTuBiblioteca.Controls.Add(this.buttonGoTodasMisPlaylists);
-            this.panelTuBiblioteca.Controls.Add(this.buttonGoCrearPlaylist);
-            this.panelTuBiblioteca.Location = new System.Drawing.Point(488, 87);
-            this.panelTuBiblioteca.Name = "panelTuBiblioteca";
-            this.panelTuBiblioteca.Size = new System.Drawing.Size(131, 230);
-            this.panelTuBiblioteca.TabIndex = 40;
-            this.panelTuBiblioteca.Visible = false;
-            this.panelTuBiblioteca.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTuBiblioteca_Paint);
-            // 
-            // button6
-            // 
-            this.button6.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.button6.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button6.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.button6.Image = ((System.Drawing.Image)(resources.GetObject("button6.Image")));
-            this.button6.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button6.Location = new System.Drawing.Point(7, 200);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(63, 22);
-            this.button6.TabIndex = 37;
-            this.button6.Text = "Volver";
-            this.button6.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button6.UseVisualStyleBackColor = false;
-            this.button6.Click += new System.EventHandler(this.button6_Click);
-            // 
-            // panelSocial
-            // 
-            this.panelSocial.BackColor = System.Drawing.SystemColors.WindowText;
-            this.panelSocial.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.panelSocial.Controls.Add(this.button7);
-            this.panelSocial.Controls.Add(this.buttonGoUsuarios);
-            this.panelSocial.Controls.Add(this.buttonGoSiguiendo);
-            this.panelSocial.Controls.Add(this.buttonGoSolicitudes);
-            this.panelSocial.Location = new System.Drawing.Point(601, 86);
-            this.panelSocial.Name = "panelSocial";
-            this.panelSocial.Size = new System.Drawing.Size(123, 231);
-            this.panelSocial.TabIndex = 41;
-            this.panelSocial.Visible = false;
-            // 
-            // button7
-            // 
-            this.button7.BackColor = System.Drawing.SystemColors.ScrollBar;
-            this.button7.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button7.ForeColor = System.Drawing.SystemColors.WindowText;
-            this.button7.Image = ((System.Drawing.Image)(resources.GetObject("button7.Image")));
-            this.button7.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button7.Location = new System.Drawing.Point(5, 198);
-            this.button7.Name = "button7";
-            this.button7.Size = new System.Drawing.Size(63, 22);
-            this.button7.TabIndex = 38;
-            this.button7.Text = "Volver";
-            this.button7.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button7.UseVisualStyleBackColor = false;
-            this.button7.Click += new System.EventHandler(this.button7_Click);
-            // 
             // AppForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(754, 376);
-            this.Controls.Add(this.panelSolicitudes);
-            this.Controls.Add(this.panelTodasMisPlaylists);
             this.Controls.Add(this.panelSiguiendo);
             this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.panelCancciones);
+            this.Controls.Add(this.panelPelículas);
+            this.Controls.Add(this.panelSolicitudes);
+            this.Controls.Add(this.panelTodasMisPlaylists);
             this.Controls.Add(this.panelUsuarios);
             this.Controls.Add(this.panelTopMedia);
             this.Controls.Add(this.panelCrearPlaylist);
@@ -4796,16 +4799,15 @@
             this.Controls.Add(this.panelMisPlaylist);
             this.Controls.Add(this.panelAgregarCancion);
             this.Controls.Add(this.panelBúsqueda);
-            this.Controls.Add(this.panelCancciones);
             this.Controls.Add(this.panelHistorial);
             this.Controls.Add(this.panelEliminarMedia);
             this.Controls.Add(this.panelEntrada);
             this.Controls.Add(this.panelLogin);
             this.Controls.Add(this.panelModificarCuenta);
             this.Controls.Add(this.panelRegister);
-            this.Controls.Add(this.panelPelículas);
             this.Name = "AppForm";
             this.Text = "Spotiflix";
+            this.Load += new System.EventHandler(this.AppForm_Load);
             this.panelEntrada.ResumeLayout(false);
             this.panelEntrada.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.FotoLogoEntrada)).EndInit();
@@ -4817,6 +4819,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panelMenu.ResumeLayout(false);
             this.panelMenu.PerformLayout();
+            this.panelSocial.ResumeLayout(false);
+            this.panelTuBiblioteca.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.FotoMenu)).EndInit();
             this.panelModificarCuenta.ResumeLayout(false);
             this.panelModificarCuenta.PerformLayout();
@@ -4882,8 +4886,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox8)).EndInit();
             this.panelSolicitudes.ResumeLayout(false);
             this.panelSolicitudes.PerformLayout();
-            this.panelTuBiblioteca.ResumeLayout(false);
-            this.panelSocial.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
